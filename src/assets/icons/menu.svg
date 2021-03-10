@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="35.000004"
+   height="28.999994"
+   viewBox="0 0 9.2604175 7.6729154"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(-26.458334,-74.083333)">
+    <g
+       id="g920">
+      <rect
+         id="rect833"
+         width="9.260417"
+         height="1.3229166"
+         x="26.458334"
+         y="-75.40625"
+         ry="0.26458332"
+         rx="0"
+         transform="scale(1,-1)" />
+      <rect
+         id="rect833-1-0"
+         width="7.937501"
+         height="1.3229166"
+         x="27.78125"
+         y="-78.581245"
+         ry="0.26458332"
+         rx="0"
+         transform="scale(1,-1)" />
+      <rect
+         id="rect833-1-3"
+         width="9.2604179"
+         height="1.3229166"
+         x="26.458334"
+         y="-81.756248"
+         ry="0.26458332"
+         rx="0"
+         transform="scale(1,-1)" />
+    </g>
+  </g>
+</svg>
