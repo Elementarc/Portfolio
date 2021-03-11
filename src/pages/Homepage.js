@@ -1,9 +1,10 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 //needs icon as Prop
 import SelectIcon from "../components/SelectIcon"
 import Particles from "react-particles-js"
 import particlesConfig from "../assets/ParticlesConfig/particlesjs-config.json"
 import '../assets/css/homepage.css';
+
 //Import component
 import Nav from "../components/Nav"
 //Animation for navigation
@@ -27,9 +28,12 @@ function animationNav(toggle){
 }
 
 
+
 const HomepageContainer = (props) => {  
     //toggle Nav
     const [currentState, setState] = useState(false)
+    
+    
     //stateHandler for navigation
     function toggleNav(){
         
@@ -45,8 +49,8 @@ const HomepageContainer = (props) => {
 
     return(
         <div className="homepageContainer" id="home">
-            <div className="homePageBackground">
-                    <Particles params={particlesConfig}></Particles>
+            <div className="homePageBackground" style={{}}>
+                <Particles className="particles" params={particlesConfig}></Particles>
             </div>
             
             <div className="homepageContentContainer">
@@ -68,25 +72,25 @@ const HomepageContainer = (props) => {
                 </div>
                 <div className="sectionContainer">
                     
-                    <div class="sections sectionsTarget">
+                    <div className="sections sectionsTarget">
                         <div className="sectionShadowTarget"></div>
                     </div>
 
                     <span />
 
-                    <div class="sections">
+                    <div className="sections">
                         <div></div>
                     </div>
 
                     <span />
 
-                    <div class="sections">
+                    <div className="sections">
                         <div></div>
                     </div>
 
                     <span />
 
-                    <div class="sections">
+                    <div className="sections">
                         <div></div>
                     </div>
                 </div>

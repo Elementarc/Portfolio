@@ -96,11 +96,17 @@ const Nav = (props) => {
     }
     var url = useHistory()
     //listening for url changes
-    url.listen(({prev, action})=>{
-        giveNavStyleTarget(currentPath)
-        setPath(url.location.pathname)
-    })
+    
     //triggers when url Changes
+    useEffect(() =>{
+        var unlisten = url.listen(({prev, action})=>{
+            giveNavStyleTarget(currentPath)
+            setPath(url.location.pathname)
+        })
+        return () =>{
+            unlisten()
+        }
+    }, [])
     useEffect(() => {
         giveNavStyleTarget(currentPath)
     }, [currentPath]);
