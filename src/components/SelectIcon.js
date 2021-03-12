@@ -8,7 +8,7 @@ import {ReactComponent as ProjectIcon} from "../assets/icons/ProjectIcon.svg"
 import {ReactComponent as MenuIcon} from "../assets/icons/MenuIcon.svg"
 //Import component
 
-const SelectIcon = (props) =>{
+const SelectIcon = (props) =>{ //props: icon="HomeIcon" Property always has to be called like the icon file name.
    
    var icons = {
       "HomeIcon": <HomeIcon/>,

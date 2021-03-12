@@ -2,12 +2,14 @@ import React, {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom"
 //Import component
 import NavItems from "./NavItems"
-import SelectIcon from "./SelectIcon"
+import SelectIcon from "./SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
 
 const Nav = (props) => {
     const [currentPath, setPath] = useState("/")
-    //listens to url Changes and changes style for navItems and navIcons. adds and removes class to apply styles
+    var url = useHistory()
+    //Takes Url as parameter example (/home) to then give navitems the correct class to be styled correct
     function giveNavStyleTarget(url) {
+        
         var getNavItemHome = document.getElementById("homepageHome")
         var getNavItemHomeIcon = document.getElementById("HomeIcon")
 
@@ -94,10 +96,7 @@ const Nav = (props) => {
             getNavItemWorkspaceIcon.classList.remove("targetIcon")
         }
     }
-    var url = useHistory()
-    //listening for url changes
-    
-    //triggers when url Changes
+    //listening for url changes to change NavItemList style. Also gets triggert on render to give correct style to navItem
     useEffect(() =>{
         var unlisten = url.listen(({prev, action})=>{
             giveNavStyleTarget(currentPath)
@@ -106,12 +105,12 @@ const Nav = (props) => {
         return () =>{
             unlisten()
         }
-    }, [])
+    })
+    //Always changing navItem style on url change
     useEffect(() => {
         giveNavStyleTarget(currentPath)
     }, [currentPath]);
-
-     
+    
     return(
         <div id="navigationContainer" className="navigationContainer">
             <div onClick={props.toggleNav} id="navigationBlur" className="navigationBlur"></div>

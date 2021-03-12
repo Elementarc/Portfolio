@@ -4,7 +4,8 @@ import {Link} from "react-router-dom"
 import SelectIcon from "./SelectIcon"
 
 
-const NavItem = (props) => {
+
+const NavItem = (props) => { //props: item="HOME" id="homepageHome"  icon="HomeIcon" route="/home" toggleNav=toggleNav().
     //checking for what information should be used for the new itemList
     
     return(
