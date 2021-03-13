@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import {useHistory} from "react-router-dom"
 //Import component
 import NavItems from "./NavItems"
-import SelectIcon from "./SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
+import SelectIcon from "../../SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
 
 const Nav = (props) => {
     const [currentPath, setPath] = useState("/")
@@ -123,7 +123,7 @@ const Nav = (props) => {
                     <NavItems item="WORKSPACE" id="homepageWorkspace" icon="WorkIcon" route="/workspace" toggleNav={props.toggleNav}/>
                     <NavItems item="CONTACT"  id="homepageContact" icon="ContactIcon" route="/contact" toggleNav={props.toggleNav}/>
                 </ul>
-                <button onClick={props.toggleNav} className="navButton">
+                <button onClick={props.toggleNav} className="navButtonContainer">
                     <div className="navCloseButtonContainer">
                         <SelectIcon icon="NavCloseIcon"/>
                     </div>
