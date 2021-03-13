@@ -98,6 +98,7 @@ const Nav = (props) => {
     }
     //listening for url changes to change NavItemList style. Also gets triggert on render to give correct style to navItem
     useEffect(() =>{
+        
         var unlisten = url.listen(({prev, action})=>{
             giveNavStyleTarget(currentPath)
             setPath(url.location.pathname)
@@ -105,7 +106,7 @@ const Nav = (props) => {
         return () =>{
             unlisten()
         }
-    })
+    }, [])
     //Always changing navItem style on url change
     useEffect(() => {
         giveNavStyleTarget(currentPath)
