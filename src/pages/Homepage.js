@@ -16,7 +16,7 @@ const HomepageContainer = (props) => {
             <HomepageContent/>
 
             <div className="homepageBackground">
-                <Particles id="particles" className="particles" params={particlesConfig}></Particles>
+                <Particles id="particles" className="homepageBackgroundParticles" params={particlesConfig}></Particles>
             </div>
 
             

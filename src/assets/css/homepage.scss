@@ -17,6 +17,11 @@
     background: linear-gradient(180deg, rgba(0,23,46,1) 0%, rgba(9,9,9,1) 100%);
     height: 100%;
 }
+.homepageBackgroundParticles{
+    width: 100%;
+    height: 100%;
+
+}
 .homepageContentContainer{
     display: block;
     margin-top: 11rem;
@@ -25,10 +30,10 @@
 }
 /*END--Homepage--END*/
 
-
-/*START--Content Text--START*/
+/*START--Content--START*/
 .homepageContentContainer{
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: white;
 }
 .homepageContentContainer h1{
@@ -84,6 +89,91 @@
     pointer-events: none;
 }
 
+/*START--Slider--START*/
+.slideShowContainer{
+    display: block;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.068);
+}
+.slideShowContainer .slider{
+    position: absolute;
+    display: flex;
+    right: 5rem;
+    justify-content: center;
+    background-color: rgba(231, 231, 231, 0.068);
+    height: 300px;
+    width: 960px;
+    transition: 0.4s ease-in-out;
+}
 
-/*END--Content MIddle--END*/
+.slide0{
+    transition: 0.5s ease-in-out;
+    position: absolute;
+    transform: scale(0.7);
+    margin-right: 25rem;
+    margin-left: 0;
+    height: 200px;
+    width: 400px;
+    background-color: rgb(151, 92, 218);
+    margin-top: 0rem;
+}
+.slide1{
+    transition: 0.5s ease-in-out;
+    position: absolute;
+    height: 200px;
+    width: 400px;
+    margin-right: 0rem;
+    margin-left: 0rem;
+    background-color: rgb(100, 167, 164);
+    z-index: 2;
+    margin-top: 4rem;
+    transform: scale(1);
+}
+.slide2{
+    transition: 0.5s ease-in-out;
+    position: absolute;
+    transform: scale(0.7);
+    margin-right: 0rem;
+    margin-left: 25rem;
+    height: 200px;
+    width: 400px;
+    background-color: rgb(119, 37, 48);
+    margin-top: 0rem;
+}
 
+.slideLeftButton{
+    position: absolute;
+    transform: scale(0.7);
+    z-index: 2;
+    margin-right: 25rem;
+    height: 200px;
+    width: 400px;
+    margin-top: 0rem;
+}
+.slideRightButton{
+    position: absolute;
+    transform: scale(0.7);
+    z-index: 2;
+    margin-left: 25rem;
+    height: 200px;
+    width: 400px;
+    margin-top: 0rem;
+}
+/*END--Slider--END*/
+/*END--Content--END*/
+
+.purple{
+    height: 100%;
+    width: 100%;
+    background-color: purple;
+}
+.red{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(155, 17, 17);
+}
+.blue{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(37, 22, 175);
+}
