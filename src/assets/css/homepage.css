@@ -126,7 +126,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: rgba(231, 231, 231, 0.068);
   height: 300px;
   width: 960px;
   -webkit-transition: 0.4s ease-in-out;
@@ -136,12 +135,17 @@
 .slide0 {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+          box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+  opacity: 0.5;
   position: absolute;
+  z-index: 0;
   -webkit-transform: scale(0.7);
           transform: scale(0.7);
   margin-right: 25rem;
   margin-left: 0;
-  height: 200px;
+  height: 220px;
   width: 400px;
   background-color: #975cda;
   margin-top: 0rem;
@@ -150,6 +154,10 @@
 .slide1 {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
+  -webkit-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+          box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+  border-radius: 5px;
+  opacity: 1;
   position: absolute;
   height: 200px;
   width: 400px;
@@ -157,7 +165,7 @@
   margin-left: 0rem;
   background-color: #64a7a4;
   z-index: 2;
-  margin-top: 4rem;
+  margin-top: 6rem;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
@@ -165,12 +173,17 @@
 .slide2 {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
+  -webkit-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+          box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+  border-radius: 5px;
   position: absolute;
+  opacity: 0.5;
+  z-index: 0;
   -webkit-transform: scale(0.7);
           transform: scale(0.7);
   margin-right: 0rem;
   margin-left: 25rem;
-  height: 200px;
+  height: 220px;
   width: 400px;
   background-color: #772530;
   margin-top: 0rem;
@@ -198,23 +211,84 @@
   margin-top: 0rem;
 }
 
+.slide0Content {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 100%;
+  border-radius: 5px;
+  width: 100%;
+  background-image: url("../images/bloodmoon.jpg");
+  background-position-y: -5rem;
+  background-size: cover;
+}
+
+.slide0Content div {
+  position: absolute;
+  font-size: 18px;
+  font-family: "PT Serif";
+  bottom: -50px;
+}
+
+.slide1Content {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 100%;
+  border-radius: 5px;
+  width: 100%;
+  background-image: url("../images/nightsky.jpg");
+  background-position-y: -5rem;
+  background-size: cover;
+}
+
+.slide1Content div {
+  position: absolute;
+  font-size: 18px;
+  font-family: "PT Serif";
+  bottom: -50px;
+}
+
+.slide2Content {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 100%;
+  border-radius: 5px;
+  width: 100%;
+  background-image: url("../images/nature.jpg");
+  background-position-y: -5rem;
+  background-size: cover;
+}
+
+.slide2Content div {
+  position: absolute;
+  font-size: 18px;
+  font-family: "PT Serif";
+  bottom: -50px;
+}
+
 /*END--Slider--END*/
 /*END--Content--END*/
-.purple {
-  height: 100%;
-  width: 100%;
-  background-color: purple;
-}
-
-.red {
-  height: 100%;
-  width: 100%;
-  background-color: #9b1111;
-}
-
-.blue {
-  height: 100%;
-  width: 100%;
-  background-color: #2516af;
-}
 /*# sourceMappingURL=homepage.css.map */

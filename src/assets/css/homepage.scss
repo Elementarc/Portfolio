@@ -100,7 +100,6 @@
     display: flex;
     right: 5rem;
     justify-content: center;
-    background-color: rgba(231, 231, 231, 0.068);
     height: 300px;
     width: 960px;
     transition: 0.4s ease-in-out;
@@ -108,17 +107,24 @@
 
 .slide0{
     transition: 0.5s ease-in-out;
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+    opacity: 0.5;
     position: absolute;
+    z-index: 0;
     transform: scale(0.7);
     margin-right: 25rem;
     margin-left: 0;
-    height: 200px;
+    height: 220px;
     width: 400px;
     background-color: rgb(151, 92, 218);
     margin-top: 0rem;
 }
 .slide1{
     transition: 0.5s ease-in-out;
+    box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+    border-radius: 5px;
+    opacity: 1;
     position: absolute;
     height: 200px;
     width: 400px;
@@ -126,16 +132,20 @@
     margin-left: 0rem;
     background-color: rgb(100, 167, 164);
     z-index: 2;
-    margin-top: 4rem;
+    margin-top: 6rem;
     transform: scale(1);
 }
 .slide2{
     transition: 0.5s ease-in-out;
+    box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.479);
+    border-radius: 5px;
     position: absolute;
+    opacity: 0.5;
+    z-index: 0;
     transform: scale(0.7);
     margin-right: 0rem;
     margin-left: 25rem;
-    height: 200px;
+    height: 220px;
     width: 400px;
     background-color: rgb(119, 37, 48);
     margin-top: 0rem;
@@ -159,21 +169,64 @@
     width: 400px;
     margin-top: 0rem;
 }
+
+.slide0Content{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    border-radius: 5px;
+    width: 100%;
+    background-image: url("../images/bloodmoon.jpg");
+    background-position-y: -5rem;
+    background-size: cover;
+}
+.slide0Content div{
+    position: absolute;
+    font-size: 18px;
+    font-family: "PT Serif";
+    bottom: -50px;
+}
+
+.slide1Content{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    border-radius: 5px;
+    width: 100%;
+    background-image: url("../images/nightsky.jpg");
+    background-position-y: -5rem;
+    background-size: cover;
+}
+.slide1Content div{
+    position: absolute;
+    font-size: 18px;
+    font-family: "PT Serif";
+    bottom: -50px;
+}
+
+.slide2Content{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    border-radius: 5px;
+    width: 100%;
+    background-image: url("../images/nature.jpg");
+    background-position-y: -5rem;
+    background-size: cover;
+}
+.slide2Content div{
+    position: absolute;
+    font-size: 18px;
+    font-family: "PT Serif";
+    bottom: -50px;
+}
 /*END--Slider--END*/
 /*END--Content--END*/
 
-.purple{
-    height: 100%;
-    width: 100%;
-    background-color: purple;
-}
-.red{
-    height: 100%;
-    width: 100%;
-    background-color: rgb(155, 17, 17);
-}
-.blue{
-    height: 100%;
-    width: 100%;
-    background-color: rgb(37, 22, 175);
-}
+

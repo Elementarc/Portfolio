@@ -17,33 +17,62 @@ var currentSlide0Class = 0;
 var currentSlide1Class = 1;
 var currentSlide2Class = 2;
 
-function slider(id) {
+function slider(direction) {
     var getSlide0 = document.getElementById(`slide0`)
     var getSlide1 = document.getElementById(`slide1`)
     var getSlide2 = document.getElementById(`slide2`)
 
-    if(id > 1){
+    if(direction === "left"){
+        currentSlide0Class--
+        if(currentSlide0Class < 0){
+            currentSlide0Class = 2
+        }
+        currentSlide1Class--
+        if(currentSlide1Class < 0){
+            currentSlide1Class = 2
+        }
+        currentSlide2Class--
+        if(currentSlide2Class < 0){
+            currentSlide2Class = 2
+        }
         //Animate to left
-        getSlide0.classList.add(`slide${2}`)
-        getSlide0.classList.remove(`slide${0}`)
+        getSlide0.classList.add(`slide${currentSlide0Class}`)
+        getSlide0.classList.remove(getSlide0.classList.item(0))
         
-        getSlide1.classList.add(`slide${0}`)
-        getSlide1.classList.remove(`slide${1}`)
         
-        getSlide2.classList.add(`slide${1}`)
-        getSlide2.classList.remove(`slide${2}`)
+        getSlide1.classList.add(`slide${currentSlide1Class}`)
+        getSlide1.classList.remove(getSlide1.classList.item(0))
+        
+        getSlide2.classList.add(`slide${currentSlide2Class}`)
+        getSlide2.classList.remove(getSlide2.classList.item(0))
+        
         
     }
-    else if(id < 1){
+    else if(direction === "right"){
+        currentSlide0Class++
+        if(currentSlide0Class > 2){
+            currentSlide0Class = 0
+        }
+        currentSlide1Class++
+        if(currentSlide1Class > 2){
+            currentSlide1Class = 0
+        }
+        currentSlide2Class++
+        if(currentSlide2Class > 2){
+            currentSlide2Class = 0
+        }
         //Animate to right
-        getSlide0.classList.add("slide0")
-        getSlide0.classList.remove("slide2")
+        getSlide0.classList.add(`slide${currentSlide0Class}`)
+        getSlide0.classList.remove(getSlide0.classList.item(0))
         
-        getSlide1.classList.add("slide1")
-        getSlide1.classList.remove("slide0")
         
-        getSlide2.classList.add("slide2")
-        getSlide2.classList.remove("slide1")
+        getSlide1.classList.add(`slide${currentSlide1Class}`)
+        getSlide1.classList.remove(getSlide1.classList.item(0))
+        
+        getSlide2.classList.add(`slide${currentSlide2Class}`)
+        getSlide2.classList.remove(getSlide2.classList.item(0))
+
+        
     }
 }
 
@@ -60,19 +89,25 @@ const HomepageContent = (props) => {
 
             <div className="slideShowContainer">
                 <div className="slider">
-                    <div className="slideLeftButton" onClick={() => slider(0)}></div>
-                    <div className="slideRightButton" onClick={() => slider(2)}></div>
+                    <div className="slideLeftButton" onClick={() => slider("right")}></div>
+                    <div className="slideRightButton" onClick={() => slider("left")}></div>
 
                     <div id="slide0" className="slide0" >
-                        <div className="purple"></div>
+                        <div className="slide0Content">
+                            <div>Blood Moon</div> 
+                        </div>
                     </div>
 
                     <div id="slide1" className="slide1" >
-                        <div className="blue"></div>
+                        <div className="slide1Content">
+                            <div>Night Sky</div> 
+                        </div>
                     </div>
-
+                    
                     <div id="slide2" className="slide2" >
-                        <div className="red"></div>
+                        <div className="slide2Content">
+                            <div>Nature</div> 
+                        </div>
                     </div>
                 </div>
             </div>
