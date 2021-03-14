@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 //Import component
-import SelectIcon from "../../SelectIcon"
+import SelectIcon from "./SelectIcon"
 
 
 

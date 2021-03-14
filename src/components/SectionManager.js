@@ -66,10 +66,10 @@ function sectionNameHover(id, toggle) {
     }
 }
 
-const HomepageSectionManager = () => {
+const SectionManager = () => {
     return (
-        <div className="sectionContainer">
-                    <div onMouseEnter={() => toogleSectionName(1, false)} onMouseLeave={() => toogleSectionName(1, true)} id="sectionContent" className="sectionContent">
+        <div className="SectionContainer">
+            <div onMouseEnter={() => toogleSectionName(1, false)} onMouseLeave={() => toogleSectionName(1, true)} id="sectionContent" className="sectionContent">
                         <div id="sections1" className="sections sectionsTarget" onClick={ () => setSectionsTarget(1)}>
                             <div id="sectionName1" className="sectionName" onMouseEnter={() => sectionNameHover(1, true)} onMouseLeave={() => sectionNameHover(1, false)}>Homepage</div>   
                             <div id="sectionShadowTarget1" className="sectionShadow sectionShadowTarget"></div>
@@ -97,8 +97,8 @@ const HomepageSectionManager = () => {
                             <div id="sectionShadowTarget4"></div>
                         </div>
                     </div>
-                </div>
+        </div>
     );
 }
 
-export default HomepageSectionManager;
+export default SectionManager;

@@ -4,28 +4,29 @@ import React from "react"
 import "../assets/css/homepage.css"
 import particlesConfig from "../assets/ParticlesConfig/particlesjs-config.json"
 //Import component
-import Particles from "react-particles-js"
-
-import InterfaceHomepage from "../components/Homepage/InterfaceHomepage"
-import HomepageContent from "../components/Homepage/HomepageContent"
+import Backgrounds from "../components/Backgrounds"
+import Moon from "../components/Moon"
+import Slider from "../components/Slider"
+import SectionManager from "../components/SectionManager"
+import Nav from "../components/Nav"
+import HomepageContent from "../components/HomepageContent"
 
 const HomepageContainer = (props) => {  
     
     return(
         <div className="homepageContainer" id="home">
+            <Backgrounds/>
+            <Nav/>
+            <SectionManager/>
             <HomepageContent/>
-            
-            <div className="homepageBackground">
-                <Particles id="particles" className="homepageBackgroundParticles" params={particlesConfig}></Particles>
-            </div>
-
+            <Slider/>
+            <Moon/>
             
             
             
 
             
 
-            <InterfaceHomepage/>
         </div>
     );
 }
