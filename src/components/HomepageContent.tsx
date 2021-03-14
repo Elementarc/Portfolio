@@ -3,7 +3,7 @@ import React from 'react';
 //Toggles Animation for hovering over GetStarted button.
 var buttonState = true
 function hoverButton(){
-    var getButtonStyle = document.getElementById("buttonStyleBox")
+    var getButtonStyle = document.getElementById("buttonStyleBox") as HTMLButtonElement
     if(buttonState === true){
         getButtonStyle.style.width ="100%"
         buttonState = false
@@ -14,7 +14,7 @@ function hoverButton(){
     }
 }
 
-const HomepageContent = (props) => {
+const HomepageContent = (props: any) => {
     return (
         <div className="HomepageContent"> 
             <h1>{"SIMPLE & CLEAN"}</h1>

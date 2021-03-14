@@ -1,18 +1,22 @@
 {
-  "name": "portfolio",
+  "name": "my-porfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.1",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^12.20.5",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-parallax": "^3.2.1",
-    "react-particles-js": "^3.4.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.0"
+    "react-tsparticles": "^1.20.0",
+    "typescript": "^4.2.3",
+    "web-vitals": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,5 +42,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.7"
+  }
 }

@@ -11,7 +11,7 @@ import SectionManager from "../components/SectionManager"
 import Nav from "../components/Nav"
 import HomepageContent from "../components/HomepageContent"
 
-const HomepageContainer = (props) => {  
+const HomepageContainer = (props: any) => {  
     
     return(
         <div className="homepageContainer" id="home">

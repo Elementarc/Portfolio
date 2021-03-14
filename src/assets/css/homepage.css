@@ -156,7 +156,7 @@
   color: white;
   margin-top: -3rem;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;

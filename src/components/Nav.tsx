@@ -4,9 +4,9 @@ import {useHistory} from "react-router-dom"
 import NavItems from "./NavItems"
 import SelectIcon from "./SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
 //Animation for navigation. Takes true / false as parameter. Is used by toggleNav() function
-function animationNav(toggle){
-    var getNavBlur = document.getElementById("navigationBlur")
-    var getNav = document.getElementById("homepageNav")
+function animationNav(toggle: any){
+    var getNavBlur = document.getElementById("navigationBlur") as HTMLDivElement
+    var getNav = document.getElementById("homepageNav") as HTMLDivElement
     if(toggle === true)
     {
         getNav.style.marginRight = "0"
@@ -37,28 +37,28 @@ function toggleNav(){
     }
 }
 
-const Nav = (props) => {
+const Nav = (props: any) => {
     const [currentPath, setPath] = useState("/")
     var url = useHistory()
     //Takes Url as parameter example (/home) to then give navitems the correct class to be styled correct
-    function giveNavStyleTarget(url) {
+    function giveNavStyleTarget(url: string) {
         
-        var getNavItemHome = document.getElementById("homepageHome")
-        var getNavItemHomeIcon = document.getElementById("HomeIcon")
+        var getNavItemHome = document.getElementById("homepageHome") as HTMLDivElement
+        var getNavItemHomeIcon = document.getElementById("HomeIcon") as HTMLDivElement
 
-        var getNavItemDesign = document.getElementById("homepageDesign")
-        var getNavItemDesignIcon = document.getElementById("DesignIcon")
+        var getNavItemDesign = document.getElementById("homepageDesign") as HTMLDivElement
+        var getNavItemDesignIcon = document.getElementById("DesignIcon") as HTMLDivElement
 
-        var getNavItemProjects = document.getElementById("homepageProjects")
-        var getNavItemProjectsIcon = document.getElementById("ProjectsIcon")
+        var getNavItemProjects = document.getElementById("homepageProjects") as HTMLDivElement
+        var getNavItemProjectsIcon = document.getElementById("ProjectsIcon") as HTMLDivElement
 
-        var getNavItemWorkspace = document.getElementById("homepageWorkspace")
-        var getNavItemWorkspaceIcon = document.getElementById("WorkIcon")
+        var getNavItemWorkspace = document.getElementById("homepageWorkspace") as HTMLDivElement
+        var getNavItemWorkspaceIcon = document.getElementById("WorkIcon") as HTMLDivElement
 
-        var getNavItemContact = document.getElementById("homepageContact")
-        var getNavItemContactIcon = document.getElementById("ContactIcon")
+        var getNavItemContact = document.getElementById("homepageContact") as HTMLDivElement
+        var getNavItemContactIcon = document.getElementById("ContactIcon") as HTMLDivElement
 
-        if(url === "/home" | url === "/"){
+        if(url === "/home" || url === "/"){
             //adding style to targeted nav depending on url
             getNavItemHome.classList.add("targetNavItem")
             getNavItemHomeIcon.classList.add("targetNavIcon")
@@ -132,7 +132,7 @@ const Nav = (props) => {
     //listening for url changes to change NavItemList style. Also gets triggert on render to give correct style to navItem
     useEffect(() =>{
         
-        var unlisten = url.listen(({prev, action})=>{
+        var unlisten = url.listen((prev, action)=>{
             giveNavStyleTarget(currentPath)
             setPath(url.location.pathname)
         })

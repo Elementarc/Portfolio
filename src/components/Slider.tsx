@@ -4,10 +4,10 @@ import SelectIcon from "./SelectIcon"
 var currentSlide0Class = 0;
 var currentSlide1Class = 1;
 var currentSlide2Class = 2;
-function slider(direction) {
-    var getSlide0 = document.getElementById(`slide0`)
-    var getSlide1 = document.getElementById(`slide1`)
-    var getSlide2 = document.getElementById(`slide2`)
+function slider(direction: string) {
+    var getSlide0 = document.getElementById(`slide0`) as HTMLDivElement
+    var getSlide1 = document.getElementById(`slide1`) as HTMLDivElement
+    var getSlide2 = document.getElementById(`slide2`) as HTMLDivElement
 
     if(direction === "left"){
         currentSlide0Class--
@@ -24,14 +24,14 @@ function slider(direction) {
         }
         //Animate to left
         getSlide0.classList.add(`slide${currentSlide0Class}`)
-        getSlide0.classList.remove(getSlide0.classList.item(0))
+        getSlide0.classList.remove(`${getSlide0.classList.item(0)}`)
         
         
         getSlide1.classList.add(`slide${currentSlide1Class}`)
-        getSlide1.classList.remove(getSlide1.classList.item(0))
+        getSlide1.classList.remove(`${getSlide1.classList.item(0)}`)
         
         getSlide2.classList.add(`slide${currentSlide2Class}`)
-        getSlide2.classList.remove(getSlide2.classList.item(0))
+        getSlide2.classList.remove(`${getSlide2.classList.item(0)}`)
         
         
     }
@@ -50,14 +50,14 @@ function slider(direction) {
         }
         //Animate to right
         getSlide0.classList.add(`slide${currentSlide0Class}`)
-        getSlide0.classList.remove(getSlide0.classList.item(0))
+        getSlide0.classList.remove(`${getSlide0.classList.item(0)}`)
         
         
         getSlide1.classList.add(`slide${currentSlide1Class}`)
-        getSlide1.classList.remove(getSlide1.classList.item(0))
+        getSlide1.classList.remove(`${getSlide1.classList.item(0)}`)
         
         getSlide2.classList.add(`slide${currentSlide2Class}`)
-        getSlide2.classList.remove(getSlide2.classList.item(0))
+        getSlide2.classList.remove(`${getSlide2.classList.item(0)}`)
 
         
     }

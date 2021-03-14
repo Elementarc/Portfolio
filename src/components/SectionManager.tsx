@@ -1,15 +1,15 @@
 import React from 'react';
 //Applying Class: Target to Section on Click. Function Takes the number of the section ID as parameter.
-function setSectionsTarget(id){
+function setSectionsTarget(id: number){
     //Getting number of sections to loop through
-    var getSections = document.getElementsByClassName("sections")
-    var setSectionTarget = document.getElementById(`sections${id}`)
-    var setSectionShadowTarget = document.getElementById(`sectionShadowTarget${id}`)
+    var getSections = document.getElementsByClassName("sections") as HTMLCollection
+    var setSectionTarget = document.getElementById(`sections${id}`) as HTMLDivElement
+    var setSectionShadowTarget = document.getElementById(`sectionShadowTarget${id}`) as HTMLDivElement
 
     var sectionNum = 1
     for(var i = 0; i < getSections.length; i++){
-        var getSection = document.getElementById(`sections${sectionNum}`)
-        var getSectionShadowTarget = document.getElementById(`sectionShadowTarget${sectionNum}`)
+        var getSection = document.getElementById(`sections${sectionNum}`) as HTMLDivElement
+        var getSectionShadowTarget = document.getElementById(`sectionShadowTarget${sectionNum}`) as HTMLDivElement 
 
         getSectionShadowTarget.classList.remove("sectionShadowTarget")
         getSection.classList.remove("sectionsTarget")
@@ -21,9 +21,9 @@ function setSectionsTarget(id){
 
 }
 //Toggles Animation for sectionNames on Hover. Takes the number from sectionNameId as parameter
-function toogleSectionName(id, toggle) {
-    var getSections = document.getElementsByClassName("sectionName")
-    var getSectionContent = document.getElementById("sectionContent")
+function toogleSectionName(id: number, toggle: boolean) {
+    var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
+    var getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
 
     //Creating an array with for index to be able to loop through with foreach
     var arr = []
@@ -34,7 +34,7 @@ function toogleSectionName(id, toggle) {
     if(toggle === false){
         arr.forEach( i => {
             setTimeout(() => {
-                var getSectionName = document.getElementById(`sectionName${id + i}`)
+                var getSectionName = document.getElementById(`sectionName${id + i}`) as HTMLDivElement
                 getSectionName.style.opacity = "1"
                 getSectionName.style.transform = "scale(1)"
                 getSectionName.style.pointerEvents = "visible"
@@ -46,7 +46,7 @@ function toogleSectionName(id, toggle) {
     else{
         arr.forEach(n =>{
             setTimeout(() => {
-                var getSectionName = document.getElementById(`sectionName${id + n }`)
+                var getSectionName = document.getElementById(`sectionName${id + n }`) as HTMLDivElement
                 getSectionName.style.opacity = "0"
                 getSectionName.style.transform = "scale(0)"
                 getSectionName.style.pointerEvents = "hidden"
@@ -56,8 +56,8 @@ function toogleSectionName(id, toggle) {
     }
 }
 //Gets triggert when hovered over sectionNames. Takes toggle parameter and number from id
-function sectionNameHover(id, toggle) {
-    var getSectionName = document.getElementById(`sectionName${id}`)
+function sectionNameHover(id: number, toggle: boolean) {
+    var getSectionName = document.getElementById(`sectionName${id}`) as HTMLDivElement
     if(toggle === true){
         getSectionName.style.backgroundColor = "rgba(255, 255, 255, 0.3)"
     }
