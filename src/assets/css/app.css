@@ -11,3 +11,9 @@
 body{
     background: rgb(14, 14, 14)
 }
+
+@media screen and (max-height: 950px){
+    .App{
+        height: 1080px;
+    }
+}

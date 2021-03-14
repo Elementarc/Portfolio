@@ -1,10 +1,9 @@
 import React from 'react';
-
-import "../../assets/css/homepageInterface.css"
 //Components
 import Nav from "./Interface/Nav"
-import InterfaceTopSectionHomepage from "./Interface/InterfaceTopSectionHomepage"
 import InterfaceSectionManagerHomepage from "./Interface/InterfaceSectionManagerHomepage"
+import InterfaceTopSectionHomepage from "./Interface/InterfaceTopSectionHomepage"
+
 
 //Animation for navigation. Takes true / false as parameter. Is used by toggleNav() function
 function animationNav(toggle){

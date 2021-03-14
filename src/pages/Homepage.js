@@ -14,7 +14,7 @@ const HomepageContainer = (props) => {
     return(
         <div className="homepageContainer" id="home">
             <HomepageContent/>
-
+            
             <div className="homepageBackground">
                 <Particles id="particles" className="homepageBackgroundParticles" params={particlesConfig}></Particles>
             </div>

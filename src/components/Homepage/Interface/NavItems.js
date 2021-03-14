@@ -9,7 +9,7 @@ const NavItem = (props) => { //props: item="HOME" id="homepageHome"  icon="HomeI
     //checking for what information should be used for the new itemList
     
     return(
-        <Link  to={props.route}>
+        <Link className="navItemsContainer" to={props.route}>
             <li id={props.id} className="navbarLink" onClick={props.toggleNav}>
                 <div className="navbarListIconContainer">
                     <SelectIcon icon={props.icon}/>

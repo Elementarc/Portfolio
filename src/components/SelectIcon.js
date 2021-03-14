@@ -6,6 +6,7 @@ import {ReactComponent as ContactIcon} from "../assets/icons/ContactIcon.svg"
 import {ReactComponent as NavCloseIcon} from "../assets/icons/NavCloseIcon.svg"
 import {ReactComponent as ProjectIcon} from "../assets/icons/ProjectIcon.svg"
 import {ReactComponent as MenuIcon} from "../assets/icons/MenuIcon.svg"
+import {ReactComponent as DownArrowIcon} from "../assets/icons/DownArrowIcon.svg"
 //Import component
 
 const SelectIcon = (props) =>{ //props: icon="HomeIcon" Property always has to be called like the icon file name.
@@ -18,6 +19,7 @@ const SelectIcon = (props) =>{ //props: icon="HomeIcon" Property always has to b
       "NavCloseIcon": <NavCloseIcon/>,
       "ProjectIcon": <ProjectIcon/>,
       "MenuIcon": <MenuIcon/>,
+      "DownArrowIcon": <DownArrowIcon/>,
    }
 
    
