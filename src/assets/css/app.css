@@ -14,6 +14,16 @@ body{
 
 @media screen and (max-height: 950px){
     .App{
-        height: 1080px;
+        height: 1500px;
+    }
+}
+@media screen and (max-width: 1200px){
+    .App{
+        max-height: 2300px;
+    }
+}
+@media screen and (max-width: 600px){
+    .App{
+        max-height: 1250px;
     }
 }
