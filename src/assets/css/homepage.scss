@@ -66,12 +66,15 @@
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.287);
 }
 .ScrolldownContainer{
-    position: absolute;
-    top: 900px;
+    position: fixed;
+    transition: 0.2s ease-in-out;
+    opacity: 1;
+    bottom: 1rem;
     transform: translateY(10px);
     z-index: 1;
     height: 35px;
     width: 100%;
+    max-width: 2400px;
     animation: ScrollDownIconAnimation 0.5s infinite;
     animation-direction: alternate;
 }
@@ -321,7 +324,9 @@
     min-height: 250px;
     transition: 0.5s ease-in-out;
 }
-
+.sectionContent a{
+    width: 0;
+}
 .sections {
     display: flex;
     align-items: center;
@@ -480,7 +485,6 @@
 
 
 /*START--Styles for targetted items. (Mostly used for animations)--START*/
-
 .targetNavItem {
     color: #56FFDC;
 }
@@ -520,7 +524,10 @@
     .bottomContainer {
         position: absolute;
     }
-
+    .ScrolldownContainer{
+        position: absolute;
+        bottom: 1rem;
+    }
     //interface
     .homepageInterface {
         position: absolute;
@@ -533,8 +540,14 @@
     .navigationBlur {
         position: absolute;
     }
+
 }
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1800px){
+    .Slider{
+        margin-top: 3rem;
+    }
+}
+@media screen and (max-width: 1400px){
     //BackgroundDecoration
     .Blackbar{
         position: fixed;
@@ -548,6 +561,7 @@
     }
     //ScrollDownIcon
     .ScrolldownContainer{
+        display: unset;
         width: 100%;
         height: 30px;
         top: 700px;
@@ -578,6 +592,7 @@
 
     //slider
     .Slider {
+        
         margin: 22rem 0;
     }
     .slideContainer {
@@ -605,6 +620,10 @@
         min-width: 100%;
         height: 80px;
         min-height: 0px;
+    }
+    .sectionContent a{
+        width: 2rem;
+        height: 0;
     }
     .sectionName{
         display: none;
@@ -653,7 +672,7 @@
     }
     //Slider
     .Slider{
-        margin: 13rem 0 0 0;
+        margin: 10rem 0 0 0;
         transform: scale(0.8);
     }
 
@@ -661,7 +680,7 @@
     .ScrolldownContainer{
         width: 100%;
         height: 30px;
-        top: 700px;
+        top: 720px;
     }
     
     //Navigation
@@ -669,14 +688,12 @@
         width: 70%;
     }
     .navbarLink {
-        display: block;
+        font-size: 16px;
         padding: 1.8rem 0 1.8rem 25%;
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        font-family: "Noto Sans";
-        font-weight: 700;
-        transition: 0.1s ease-in-out;
+    }
+    .navbarListIconContainer {
+       
+        transform: scale(1.4);
     }
 }
 /*END--Content--END*/

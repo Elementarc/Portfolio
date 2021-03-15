@@ -81,13 +81,17 @@
 }
 
 .ScrolldownContainer {
-  position: absolute;
-  top: 900px;
+  position: fixed;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  opacity: 1;
+  bottom: 1rem;
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
   z-index: 1;
   height: 35px;
   width: 100%;
+  max-width: 2400px;
   -webkit-animation: ScrollDownIconAnimation 0.5s infinite;
           animation: ScrollDownIconAnimation 0.5s infinite;
   -webkit-animation-direction: alternate;
@@ -399,6 +403,10 @@
   transition: 0.5s ease-in-out;
 }
 
+.sectionContent a {
+  width: 0;
+}
+
 .sections {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -626,6 +634,10 @@
   .bottomContainer {
     position: absolute;
   }
+  .ScrolldownContainer {
+    position: absolute;
+    bottom: 1rem;
+  }
   .homepageInterface {
     position: absolute;
   }
@@ -637,7 +649,13 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1800px) {
+  .Slider {
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
   .Blackbar {
     position: fixed;
     height: 60px;
@@ -648,6 +666,7 @@
     width: 30px;
   }
   .ScrolldownContainer {
+    display: unset;
     width: 100%;
     height: 30px;
     top: 700px;
@@ -717,6 +736,10 @@
     height: 80px;
     min-height: 0px;
   }
+  .sectionContent a {
+    width: 2rem;
+    height: 0;
+  }
   .sectionName {
     display: none;
   }
@@ -765,28 +788,25 @@
     margin: 7rem 0 0rem 0rem;
   }
   .Slider {
-    margin: 13rem 0 0 0;
+    margin: 10rem 0 0 0;
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
   }
   .ScrolldownContainer {
     width: 100%;
     height: 30px;
-    top: 700px;
+    top: 720px;
   }
   .navigation {
     width: 70%;
   }
   .navbarLink {
-    display: block;
+    font-size: 16px;
     padding: 1.8rem 0 1.8rem 25%;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-family: "Noto Sans";
-    font-weight: 700;
-    -webkit-transition: 0.1s ease-in-out;
-    transition: 0.1s ease-in-out;
+  }
+  .navbarListIconContainer {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
   }
 }
 

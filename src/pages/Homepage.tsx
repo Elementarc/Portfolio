@@ -1,6 +1,8 @@
 import React from "react"
 
 import "../assets/css/homepage.css"
+
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 //Import component
 import Backgrounds from "../components/Backgrounds"
 import Moon from "../components/Moon"
@@ -15,17 +17,27 @@ const HomepageContainer = (props: any) => {
     
     return(
         <div className="homepageContainer" id="home">
-            <Backgrounds/>
-            <Blackbar/>
-            <SectionManager/>
-            <Nav/>
-            <HomepageContent/>
-            <Slider/>
-            <Moon/>
-            <ScrollDown/>
-            
-            
+            <Router>
+                <Switch>
+                    <Route exact path="/home">
+                        <HomepageContent/>
+                        <Backgrounds/>
+                        <Blackbar/>
+                        <Nav/>
+                        <SectionManager/>
+                        <Moon/>
+                        <Slider/>
+                        <ScrollDown/>
+                    </Route>
 
+                    <Route exact path="/home/strength">
+                        <Backgrounds/>
+                        <Blackbar/>
+                        <Nav/>
+                        <Moon/>
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     );
 }
