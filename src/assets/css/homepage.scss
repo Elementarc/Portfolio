@@ -7,9 +7,10 @@
     flex-direction: column;
     z-index: 0;
     width: 100%;
-    height: 500px;
+    height: 100%;
     min-height: 2000px;
 }
+
 //Background
 .Background {
     position: absolute;
@@ -20,6 +21,7 @@
     background: linear-gradient(180deg, rgba(0, 23, 46, 1) 0%, rgba(9, 9, 9, 1) 100%);
     height: 100%;
 }
+
 //BackgroundDecoration
 .moonContainer {
     position: absolute;
@@ -27,13 +29,14 @@
     left: -100px;
     height: 200px;
     width: 200px;
-    z-index: 0;
+    z-index: 1;
     border-radius: 50%;
     background-color: white;
     align-self: flex-start;
     background-image: url("../images/Moon.png");
     background-position: center;
 }
+
 .moonLight {
     position: absolute;
     box-shadow: 16px 12px 100px 36px #ffffff;
@@ -45,6 +48,7 @@
     background-color: white;
     align-self: flex-start;
 }
+
 .moonLightV2 {
     position: absolute;
     box-shadow: 16px 12px 100px 100px #ffffff;
@@ -56,7 +60,8 @@
     background-color: white;
     align-self: flex-start;
 }
-.Blackbar{
+
+.Blackbar {
     position: absolute;
     top: 0;
     z-index: 2;
@@ -65,8 +70,10 @@
     width: 100%;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.287);
 }
-.ScrolldownContainer{
+
+.ScrolldownContainer {
     position: fixed;
+    pointer-events: none;
     transition: 0.2s ease-in-out;
     opacity: 1;
     bottom: 1rem;
@@ -79,6 +86,28 @@
     animation-direction: alternate;
 }
 
+//Logo
+.LogoContainer {
+    position: absolute;
+    pointer-events: none;
+    margin: 2rem 5rem;
+    bottom: 0rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 34px;
+    z-index: 2;
+}
+
+.LogoContainer p {
+    color: white;
+    font-family: "Noto Sans";
+    letter-spacing: 0.1rem;
+    font-size: 15px;
+    font-weight: 400;
+}
+
 /*START--Content Style--START*/
 .HomepageContent {
     display: flex;
@@ -88,7 +117,7 @@
     width: 100%;
     height: auto;
     pointer-events: visible;
-    z-index: 1;
+    z-index: 2;
 }
 
 .HomepageContent h1 {
@@ -148,6 +177,7 @@
     transition: 0.25s ease-in-out;
     pointer-events: none;
 }
+
 /*END--Content Style--END*/
 
 /*START--Slider Style--START*/
@@ -156,7 +186,7 @@
     color: white;
     margin-top: -3rem;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
     width: 100%;
     height: auto;
 }
@@ -324,9 +354,11 @@
     min-height: 250px;
     transition: 0.5s ease-in-out;
 }
-.sectionContent a{
+
+.sectionContent a {
     width: 0;
 }
+
 .sections {
     display: flex;
     align-items: center;
@@ -366,10 +398,10 @@
 /*END--Section Circles--END*/
 
 /*START--NavBar Styles--START*/
-.NavigationContainer{
+.NavigationContainer {
     position: fixed;
     pointer-events: none;
-    z-index: 2;
+    z-index: 3;
     top: 0;
     width: 100%;
     height: 100%;
@@ -437,10 +469,12 @@
     height: 32px;
     width: 32px;
 }
-.navOpenIcon:hover{
+
+.navOpenIcon:hover {
     cursor: pointer;
 }
-.navCloseButton{
+
+.navCloseButton {
     position: absolute;
     pointer-events: visible;
     outline: none;
@@ -457,11 +491,13 @@
     background-color: #161616;
     box-shadow: #000000b2 0px 3px 6px;
 }
+
 .navCloseButton:hover {
     cursor: pointer;
     background-color: #333333;
 
 }
+
 .navCloseIcon {
     height: 16px;
     width: 16px;
@@ -488,9 +524,11 @@
 .targetNavItem {
     color: #56FFDC;
 }
+
 .targetNavIcon {
     fill: #56FFDC;
 }
+
 //Standart Icon
 .iconSVG {
     transition: 0.1s ease-in-out;
@@ -500,6 +538,7 @@
 .sectionsTarget {
     background-color: #47e4c4;
 }
+
 .sectionShadowTarget {
     position: absolute;
     background-color: white;
@@ -524,10 +563,12 @@
     .bottomContainer {
         position: absolute;
     }
-    .ScrolldownContainer{
+
+    .ScrolldownContainer {
         position: absolute;
         bottom: 1rem;
     }
+
     //interface
     .homepageInterface {
         position: absolute;
@@ -542,64 +583,76 @@
     }
 
 }
-@media screen and (max-width: 1800px){
-    .Slider{
+
+@media screen and (max-width: 1800px) {
+    .Slider {
         margin-top: 3rem;
     }
 }
-@media screen and (max-width: 1400px){
+
+@media screen and (max-width: 1400px) {
+
     //BackgroundDecoration
-    .Blackbar{
+    .Blackbar {
         position: fixed;
         height: 60px;
     }
+
     //Navbutton
     .navOpenIcon {
         margin: 1rem;
         height: 30px;
         width: 30px;
     }
+
     //ScrollDownIcon
-    .ScrolldownContainer{
+    .ScrolldownContainer {
         display: unset;
         width: 100%;
         height: 30px;
-        top: 700px;
+        bottom: 1rem;
     }
+
     //Content
     .HomepageContent {
         margin-top: 10rem;
         justify-content: center;
         align-items: center;
     }
-    .HomepageContent h1{
+
+    .HomepageContent h1 {
         margin: 5rem 0 0rem 0rem
     }
-    .HomepageContent h2{
+
+    .HomepageContent h2 {
         text-align: center;
         margin: 0rem 0 0rem 0rem;
         padding: 0 1rem;
     }
-    .HomepageContent p{
+
+    .HomepageContent p {
         margin: 3rem 0 0rem 0rem;
         width: 98%;
         padding: 2rem 5rem;
         text-align: center;
     }
-    .HomepageContent button{
+
+    .HomepageContent button {
         margin: 5rem 0 0rem 0rem;
     }
 
     //slider
     .Slider {
-        
+
         margin: 22rem 0;
     }
+
     .slideContainer {
         justify-content: center;
         margin-right: 0;
     }
-    .slide1{
+
+    .slide1 {
         margin-right: 0;
     }
 
@@ -613,21 +666,26 @@
         height: 100%;
         pointer-events: none;
     }
+
     .sectionContent {
         pointer-events: visible;
         flex-direction: row;
+        margin-bottom: 1rem;
         width: 100%;
         min-width: 100%;
         height: 80px;
         min-height: 0px;
     }
-    .sectionContent a{
+
+    .sectionContent a {
         width: 2rem;
         height: 0;
     }
-    .sectionName{
+
+    .sectionName {
         display: none;
     }
+
     .sectionContent span {
         width: 10px;
         border-radius: 10px;
@@ -635,74 +693,112 @@
         height: 1px;
         background-color: rgb(187, 187, 187);
     }
+
+    //logo
+    .LogoContainer {
+        position: fixed;
+        pointer-events: none;
+        margin: 0;
+        bottom: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+    }
+
+    .LogoContainer p {
+        color: white;
+        font-family: "Noto Sans";
+        letter-spacing: 0.3rem;
+        font-size: 15px;
+        font-weight: 400;
+    }
 }
-@media screen and (max-width: 600px){
+
+@media screen and (max-width: 600px) {
+
     //BackgroundDecoration
-    .Blackbar{
+    .Blackbar {
         position: fixed;
         height: 50px;
     }
+
     //Navbutton
     .navOpenIcon {
         margin: 1rem;
         height: 25px;
         width: 25px;
     }
+
     //Content
     .HomepageContent {
         margin-top: 10rem;
         justify-content: center;
         align-items: center;
     }
-    .HomepageContent h1{
+
+    .HomepageContent h1 {
         margin: 2rem 0 0rem 0rem
     }
-    .HomepageContent h2{
+
+    .HomepageContent h2 {
         text-align: center;
         margin: 0rem 0 0rem 0rem
     }
-    .HomepageContent p{
+
+    .HomepageContent p {
         margin: 3rem 0 0rem 0rem;
         width: 98%;
         padding: 0rem 1rem;
         text-align: center;
     }
-    .HomepageContent button{
+
+    .HomepageContent button {
         margin: 7rem 0 0rem 0rem;
     }
+
     //Slider
-    .Slider{
+    .Slider {
         margin: 10rem 0 0 0;
         transform: scale(0.8);
     }
 
     //ScrollDownIcon
-    .ScrolldownContainer{
+    .ScrolldownContainer {
         width: 100%;
         height: 30px;
-        top: 720px;
+        bottom: 1rem;
     }
-    
+
     //Navigation
     .navigation {
         width: 70%;
     }
+
     .navbarLink {
         font-size: 16px;
         padding: 1.8rem 0 1.8rem 25%;
     }
+
     .navbarListIconContainer {
-       
+
         transform: scale(1.4);
     }
+
+    //logo
+    .LogoContainer {
+        height: 50px;
+    }
+
 }
 /*END--Content--END*/
 
-@keyframes ScrollDownIconAnimation{
-    0%{
+@keyframes ScrollDownIconAnimation {
+    0% {
         transform: translateY(15px);
     }
-    100%{
+
+    100% {
         transform: translateY(0);
     }
 }

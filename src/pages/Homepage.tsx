@@ -12,6 +12,7 @@ import Nav from "../components/Nav"
 import HomepageContent from "../components/HomepageContent"
 import Blackbar from "../components/Blackbar"
 import ScrollDown from "../components/ScrollDown"
+import Logo from "../components/LogoName"
 
 const HomepageContainer = (props: any) => {  
     
@@ -20,14 +21,16 @@ const HomepageContainer = (props: any) => {
             <Router>
                 <Switch>
                     <Route exact path="/home">
+                        
                         <HomepageContent/>
-                        <Backgrounds/>
                         <Blackbar/>
+                        <Logo/>
                         <Nav/>
                         <SectionManager/>
                         <Moon/>
                         <Slider/>
                         <ScrollDown/>
+                        <Backgrounds/>
                     </Route>
 
                     <Route exact path="/home/strength">

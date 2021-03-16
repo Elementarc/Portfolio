@@ -11,7 +11,7 @@
           flex-direction: column;
   z-index: 0;
   width: 100%;
-  height: 500px;
+  height: 100%;
   min-height: 2000px;
 }
 
@@ -32,7 +32,7 @@
   left: -100px;
   height: 200px;
   width: 200px;
-  z-index: 0;
+  z-index: 1;
   border-radius: 50%;
   background-color: white;
   -ms-flex-item-align: start;
@@ -82,6 +82,7 @@
 
 .ScrolldownContainer {
   position: fixed;
+  pointer-events: none;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   opacity: 1;
@@ -98,6 +99,33 @@
           animation-direction: alternate;
 }
 
+.LogoContainer {
+  position: absolute;
+  pointer-events: none;
+  margin: 2rem 5rem;
+  bottom: 0rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 34px;
+  z-index: 2;
+}
+
+.LogoContainer p {
+  color: white;
+  font-family: "Noto Sans";
+  letter-spacing: 0.1rem;
+  font-size: 15px;
+  font-weight: 400;
+}
+
 /*START--Content Style--START*/
 .HomepageContent {
   display: -webkit-box;
@@ -112,7 +140,7 @@
   width: 100%;
   height: auto;
   pointer-events: visible;
-  z-index: 1;
+  z-index: 2;
 }
 
 .HomepageContent h1 {
@@ -185,7 +213,7 @@
   color: white;
   margin-top: -3rem;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   width: 100%;
   height: auto;
 }
@@ -456,7 +484,7 @@
 .NavigationContainer {
   position: fixed;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
   top: 0;
   width: 100%;
   height: 100%;
@@ -669,7 +697,7 @@
     display: unset;
     width: 100%;
     height: 30px;
-    top: 700px;
+    bottom: 1rem;
   }
   .HomepageContent {
     margin-top: 10rem;
@@ -731,6 +759,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    margin-bottom: 1rem;
     width: 100%;
     min-width: 100%;
     height: 80px;
@@ -749,6 +778,29 @@
     margin: 1rem 0.2rem;
     height: 1px;
     background-color: #bbbbbb;
+  }
+  .LogoContainer {
+    position: fixed;
+    pointer-events: none;
+    margin: 0;
+    bottom: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+  }
+  .LogoContainer p {
+    color: white;
+    font-family: "Noto Sans";
+    letter-spacing: 0.3rem;
+    font-size: 15px;
+    font-weight: 400;
   }
 }
 
@@ -795,7 +847,7 @@
   .ScrolldownContainer {
     width: 100%;
     height: 30px;
-    top: 720px;
+    bottom: 1rem;
   }
   .navigation {
     width: 70%;
@@ -807,6 +859,9 @@
   .navbarListIconContainer {
     -webkit-transform: scale(1.4);
             transform: scale(1.4);
+  }
+  .LogoContainer {
+    height: 50px;
   }
 }
 
