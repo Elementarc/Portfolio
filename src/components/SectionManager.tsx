@@ -79,9 +79,6 @@ const SectionManager = () => {
                             </div>
                         </Link>
                         
-                        
-                        <span />
-
                         <Link to="/home/strength">
                             <div id="sections2" className="sections" onClick={ () => setSectionsTarget(2)}>
                                 <div id="sectionName2" className="sectionName" onMouseEnter={() => sectionNameHover(2, true)} onMouseLeave={() => sectionNameHover(2, false)}>Strength</div>
@@ -89,9 +86,6 @@ const SectionManager = () => {
                             </div>
                         </Link>
                         
-
-                        <span />
-
                         <Link to="/home/routine">
                             <div id="sections3" className="sections" onClick={ () => setSectionsTarget(3)}>
                                 <div id="sectionName3" className="sectionName" onMouseEnter={() => sectionNameHover(3, true)} onMouseLeave={() => sectionNameHover(3, false)} >Routine</div>
@@ -99,9 +93,6 @@ const SectionManager = () => {
                             </div>
                         </Link>
                         
-
-                        <span />
-
                         <Link to="/home/daily">
                             <div id="sections4" className="sections" onClick={ () => setSectionsTarget(4)}>
                                 <div id="sectionName4" className="sectionName" onMouseEnter={() => sectionNameHover(4, true)} onMouseLeave={() => sectionNameHover(4, false)} >Daily</div>

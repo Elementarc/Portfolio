@@ -38,6 +38,8 @@ const HomepageContainer = (props: any) => {
                         <Blackbar/>
                         <Nav/>
                         <Moon/>
+                        <ScrollDown/>
+                        <SectionManager/>
                     </Route>
                 </Switch>
             </Router>
