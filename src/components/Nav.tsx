@@ -1,13 +1,17 @@
-import { stringify } from "node:querystring"
+
 import React, {useState, useEffect} from "react"
+import {Link} from "react-router-dom"
 import {useHistory} from "react-router-dom"
-//Import component
-import NavItems from "./NavItems"
+
+//Import components
+import "../cStyles/nav.scss"
 import SelectIcon from "./SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
+
 //Animation for navigation. Takes true / false as parameter. Is used by toggleNav() function
+
 function animationNav(toggle: any){
     var getNavBlur = document.getElementById("navigationBlur") as HTMLDivElement
-    var getNav = document.getElementById("homepageNav") as HTMLDivElement
+    var getNav = document.getElementById("navigation") as HTMLDivElement
     if(toggle === true)
     {
         getNav.style.marginRight = "0"
@@ -37,23 +41,23 @@ function toggleNav(){
     }
 }
 function giveNavStyleTarget(url: string) {
-
-    var getNavItemHome = document.getElementById("homepageHome") as HTMLDivElement
+    var getNavItemHome = document.getElementById("navHome") as HTMLDivElement
     var getNavItemHomeIcon = document.getElementById("HomeIcon") as HTMLDivElement
 
-    var getNavItemDesign = document.getElementById("homepageDesign") as HTMLDivElement
+    var getNavItemDesign = document.getElementById("navDesign") as HTMLDivElement
     var getNavItemDesignIcon = document.getElementById("DesignIcon") as HTMLDivElement
 
-    var getNavItemProjects = document.getElementById("homepageProjects") as HTMLDivElement
+    var getNavItemProjects = document.getElementById("navProjects") as HTMLDivElement
     var getNavItemProjectsIcon = document.getElementById("ProjectsIcon") as HTMLDivElement
 
-    var getNavItemWorkspace = document.getElementById("homepageWorkspace") as HTMLDivElement
+    var getNavItemWorkspace = document.getElementById("navWorkspace") as HTMLDivElement
     var getNavItemWorkspaceIcon = document.getElementById("WorkIcon") as HTMLDivElement
 
-    var getNavItemContact = document.getElementById("homepageContact") as HTMLDivElement
+    var getNavItemContact = document.getElementById("navContact") as HTMLDivElement
     var getNavItemContactIcon = document.getElementById("ContactIcon") as HTMLDivElement
-
-    if(url === "/home" || url === "/"){
+    
+    if(url.includes("/home") === true){
+        console.log("home got styles")
         //adding style to targeted nav depending on url
         getNavItemHome.classList.add("targetNavItem")
         getNavItemHomeIcon.classList.add("targetNavIcon")
@@ -67,7 +71,8 @@ function giveNavStyleTarget(url: string) {
         getNavItemContact.classList.remove("targetNavItem")
         getNavItemContactIcon.classList.remove("targetNavIcon")
     }
-    else if(url === "/design"){
+    else if(url.includes("/design") === true){
+        console.log("design got styles")
         //adding style to targeted nav depending on url
         getNavItemDesign.classList.add("targetNavItem")
         getNavItemDesignIcon.classList.add("targetNavIcon")
@@ -81,7 +86,7 @@ function giveNavStyleTarget(url: string) {
         getNavItemContact.classList.remove("targetNavItem")
         getNavItemContactIcon.classList.remove("targetNavIcon")
     }
-    else if(url === "/projects"){
+    else if(url.includes("/projects") === true){
         //adding style to targeted nav depending on url
         getNavItemProjects.classList.add("targetNavItem")
         getNavItemProjectsIcon.classList.add("targetNavIcon")
@@ -95,7 +100,7 @@ function giveNavStyleTarget(url: string) {
         getNavItemContact.classList.remove("targetNavItem")
         getNavItemContactIcon.classList.remove("targetNavIcon")
     }
-    else if(url === "/workspace"){
+    else if(url.includes("/workspace") === true){
         //adding style to targeted nav depending on url
         getNavItemWorkspace.classList.add("targetNavItem")
         getNavItemWorkspaceIcon.classList.add("targetNavIcon")
@@ -109,7 +114,7 @@ function giveNavStyleTarget(url: string) {
         getNavItemContact.classList.remove("targetNavItem")
         getNavItemContactIcon.classList.remove("targetNavIcon")
     }
-    else if(url === "/contact"){
+    else if(url.includes("/contact") === true){
         //adding style to targeted nav depending on url
         getNavItemContact.classList.add("targetNavItem")
         getNavItemContactIcon.classList.add("targetNavIcon")
@@ -127,26 +132,15 @@ function giveNavStyleTarget(url: string) {
         console.log("couldnt find url")
     }
 }
+
 const Nav = (props: any) => {
-    const [currentPath, setPath] = useState("/")
     var url = useHistory()
     //Takes Url as parameter example (/home) to then give navitems the correct class to be styled correct
-    console.log(url.location.pathname)
-    //listening for url changes to change NavItemList style. Also gets triggert on render to give correct style to navItem
+    //checks url to restyle navitem for right url
     useEffect(() =>{
-        
-        var unlisten = url.listen((prev, action)=>{
-            giveNavStyleTarget(currentPath)
-            setPath(url.location.pathname)
-        })
-        return () =>{
-            unlisten()
-        }
+        giveNavStyleTarget(url.location.pathname)
     }, [])
-    //Always changing navItem style on url change
-    useEffect(() => {
-        giveNavStyleTarget(currentPath)
-    }, [currentPath]);
+    
     
     return(
         <div id="NavigationContainer" className="NavigationContainer">
@@ -155,16 +149,44 @@ const Nav = (props: any) => {
             </div>
             <div onClick={toggleNav} id="navigationBlur" className="navigationBlur"></div>
 
-            
-
-            <div id="homepageNav" className="navigation">
+            <div id="navigation" className="navigation">
                 <ul>
-                    <NavItems item="HOME" id="homepageHome"  icon="HomeIcon" route="/home" toggleNav={toggleNav}/>
-                    <NavItems item="DESIGN" id="homepageDesign"  icon="DesignIcon" route="/design" toggleNav={toggleNav}/>
-                    <NavItems item="PROJECTS" id="homepageProjects" icon="ProjectIcon" route="/projects" toggleNav={toggleNav}/>
-                    <NavItems item="WORKSPACE" id="homepageWorkspace" icon="WorkIcon" route="/workspace" toggleNav={toggleNav}/>
-                    <NavItems item="CONTACT"  id="homepageContact" icon="ContactIcon" route="/contact" toggleNav={toggleNav}/>
+                    <Link className="linkHome" id="navHome" to="/home" onClick={toggleNav}>
+                            <div className="navbarListIconContainer">
+                                <SelectIcon icon="HomeIcon"/>
+                            </div>
+                            HOME
+                    </Link>
+
+                    <Link className="linkDesign" id="navDesign" to="/design" onClick={toggleNav}>
+                            <div className="navbarListIconContainer">
+                                <SelectIcon icon="DesignIcon"/>
+                            </div>
+                            DESIGN
+                    </Link>
+
+                    <Link className="linkProjects" id="navProjects" to="/projects" onClick={toggleNav}>
+                            <div className="navbarListIconContainer">
+                                <SelectIcon icon="ProjectsIcon"/>
+                            </div>
+                            PROJECTS
+                    </Link>
+
+                    <Link className="linkWorkspace" id="navWorkspace" to="/workspace" onClick={toggleNav}>
+                            <div className="navbarListIconContainer">
+                                <SelectIcon icon="WorkIcon"/>
+                            </div>
+                            WORKSPACE
+                    </Link>
+
+                    <Link className="linkContact" id="navContact" to="/contact" onClick={toggleNav}>
+                            <div className="navbarListIconContainer">
+                                <SelectIcon icon="ContactIcon"/>
+                            </div>
+                            CONTACT
+                    </Link>
                 </ul>
+
                 <button onClick={toggleNav} className="navCloseButton">
                     <div className="navCloseIcon">
                         <SelectIcon icon="NavCloseIcon"/>

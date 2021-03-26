@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Nav from "../components/Nav"
 const Design = () => {
     return (
-        <div>
-            hey
-        </div>
+        
+        <Nav />
+        
     );
 }
 

@@ -1,7 +1,7 @@
 import React from "react"
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
 
-import "./assets/css/app.css"
+import "./app.scss"
 
 //import components
 import Homepage from "./pages/Homepage"
@@ -12,15 +12,11 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/home" component={Homepage}/>
-          <Route path="/design" component={DesignPage}/>
-          <Route path="/projects" component={DesignPage}/>     
-          <Route path="/workspace" component={DesignPage}/>
-          <Route path="/contact" component={DesignPage}/>
-
-          <Route path="/">
-            <Redirect to="/home"></Redirect>
-          </Route>     
+          <Route path="/home" component={Homepage} />
+          <Route path="/design" component={DesignPage} />
+          <Route exact path="/">
+            <Redirect to="/home"/>
+          </Route>
         </Switch>
       </Router>
     </div>

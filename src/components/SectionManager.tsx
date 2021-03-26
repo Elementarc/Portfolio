@@ -1,29 +1,9 @@
-import React from 'react';
-import {Link} from "react-router-dom"
+import React, {useEffect, useState} from 'react';
+import "../cStyles/sectionManager.scss"
+import {Link, useHistory} from "react-router-dom"
 
-//Applying Class: Target to Section on Click. Function Takes the number of the section ID as parameter.
-function setSectionsTarget(id: number){
-    //Getting number of sections to loop through
-    var getSections = document.getElementsByClassName("sections") as HTMLCollection
-    var setSectionTarget = document.getElementById(`sections${id}`) as HTMLDivElement
-    var setSectionShadowTarget = document.getElementById(`sectionShadowTarget${id}`) as HTMLDivElement
-
-    var sectionNum = 1
-    for(var i = 0; i < getSections.length; i++){
-        var getSection = document.getElementById(`sections${sectionNum}`) as HTMLDivElement
-        var getSectionShadowTarget = document.getElementById(`sectionShadowTarget${sectionNum}`) as HTMLDivElement 
-
-        getSectionShadowTarget.classList.remove("sectionShadowTarget")
-        getSection.classList.remove("sectionsTarget")
-        ++ sectionNum
-    }
-
-    setSectionTarget.classList.add("sectionsTarget")
-    setSectionShadowTarget.classList.add("sectionShadowTarget")
-
-}
 //Toggles Animation for sectionNames on Hover. Takes the number from sectionNameId as parameter
-function toogleSectionName(id: number, toggle: boolean) {
+function toogleSectionName(toggle: boolean) {
     var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
     var getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
 
@@ -36,7 +16,7 @@ function toogleSectionName(id: number, toggle: boolean) {
     if(toggle === false){
         arr.forEach( i => {
             setTimeout(() => {
-                var getSectionName = document.getElementById(`sectionName${id + i}`) as HTMLDivElement
+                var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
                 getSectionName.style.opacity = "1"
                 getSectionName.style.transform = "scale(1)"
                 getSectionName.style.pointerEvents = "visible"
@@ -48,7 +28,7 @@ function toogleSectionName(id: number, toggle: boolean) {
     else{
         arr.forEach(n =>{
             setTimeout(() => {
-                var getSectionName = document.getElementById(`sectionName${id + n }`) as HTMLDivElement
+                var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
                 getSectionName.style.opacity = "0"
                 getSectionName.style.transform = "scale(0)"
                 getSectionName.style.pointerEvents = "none"
@@ -58,48 +38,107 @@ function toogleSectionName(id: number, toggle: boolean) {
     }
 }
 //Gets triggert when hovered over sectionNames. Takes toggle parameter and number from id
-function sectionNameHover(id: number, toggle: boolean) {
-    var getSectionName = document.getElementById(`sectionName${id}`) as HTMLDivElement
-    if(toggle === true){
-        getSectionName.style.backgroundColor = "rgba(255, 255, 255, 0.3)"
+
+
+function setTarget(url: string) {
+    var getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
+    var getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
+    var getSectionTarget3 = document.getElementById("sections3") as HTMLDivElement
+    var getSectionTarget4 = document.getElementById("sections4") as HTMLDivElement
+
+    var getShadowTarget1 = document.getElementById("sectionShadowTarget1") as HTMLDivElement
+    var getShadowTarget2 = document.getElementById("sectionShadowTarget2") as HTMLDivElement
+    var getShadowTarget3 = document.getElementById("sectionShadowTarget3") as HTMLDivElement
+    var getShadowTarget4 = document.getElementById("sectionShadowTarget4") as HTMLDivElement
+    
+    if(url === "/home"){
+        getSectionTarget1.classList.add("sectionsTarget")
+        getShadowTarget1.classList.add("sectionShadowTarget")
+
+        getSectionTarget2.classList.remove("sectionsTarget")
+        getSectionTarget3.classList.remove("sectionsTarget")
+        getSectionTarget4.classList.remove("sectionsTarget")
+
+        getShadowTarget2.classList.remove("sectionShadowTarget")
+        getShadowTarget3.classList.remove("sectionShadowTarget")
+        getShadowTarget4.classList.remove("sectionShadowTarget")
+        
     }
-    else{
-        getSectionName.style.backgroundColor = "rgba(255, 255, 255, 0.2)"
+    else if(url === "/home/strength"){
+        getSectionTarget2.classList.add("sectionsTarget")
+        getShadowTarget2.classList.add("sectionShadowTarget")
+
+        getSectionTarget1.classList.remove("sectionsTarget")
+        getSectionTarget3.classList.remove("sectionsTarget")
+        getSectionTarget4.classList.remove("sectionsTarget")
+
+        getShadowTarget1.classList.remove("sectionShadowTarget")
+        getShadowTarget3.classList.remove("sectionShadowTarget")
+        getShadowTarget4.classList.remove("sectionShadowTarget")
+    }
+    else if(url === "/home/routine"){
+        getSectionTarget3.classList.add("sectionsTarget")
+        getShadowTarget3.classList.add("sectionShadowTarget")
+
+        getSectionTarget1.classList.remove("sectionsTarget")
+        getSectionTarget2.classList.remove("sectionsTarget")
+        getSectionTarget4.classList.remove("sectionsTarget")
+
+        getShadowTarget1.classList.remove("sectionShadowTarget")
+        getShadowTarget2.classList.remove("sectionShadowTarget")
+        getShadowTarget4.classList.remove("sectionShadowTarget")
+    }
+    else if(url === "/home/daily"){
+        getSectionTarget4.classList.add("sectionsTarget")
+        getShadowTarget4.classList.add("sectionShadowTarget")
+
+        getSectionTarget1.classList.remove("sectionsTarget")
+        getSectionTarget2.classList.remove("sectionsTarget")
+        getSectionTarget3.classList.remove("sectionsTarget")
+
+        getShadowTarget1.classList.remove("sectionShadowTarget")
+        getShadowTarget2.classList.remove("sectionShadowTarget")
+        getShadowTarget3.classList.remove("sectionShadowTarget")
     }
 }
-
 const SectionManager = () => {
+    var url = useHistory()
+
+    useEffect(() =>{
+        setTarget(url.location.pathname)
+    })
+
     return (
         <div className="SectionContainer">
-            <div onMouseEnter={() => toogleSectionName(1, false)} onMouseLeave={() => toogleSectionName(1, true)} id="sectionContent" className="sectionContent">
-                        <Link to="/home">
-                            <div id="sections1" className="sections sectionsTarget" onClick={ () => setSectionsTarget(1)}>
-                                <div id="sectionName1" className="sectionName" onMouseEnter={() => sectionNameHover(1, true)} onMouseLeave={() => sectionNameHover(1, false)}>Homepage</div>   
-                                <div id="sectionShadowTarget1" className="sectionShadow sectionShadowTarget"></div>
+            <div id="sectionContent" className="sectionContent" onMouseEnter={() => toogleSectionName(false)} onMouseLeave={() => toogleSectionName(true)}>
+                        <Link id="sections1" className="sections1" to="/home">
+                            <div id="sectionShadowTarget1" className="sectionShadow"></div>
+                            <div className="section">
+                                <div id="sectionName1" className="sectionName">Homepage</div>
+                            </div>
+                            
+                        </Link>
+                        
+                        <Link id="sections2" to="/home/strength">
+                            <div id="sectionShadowTarget2" className="sectionShadow"></div>
+                            <div  className="section">
+                                <div id="sectionName2" className="sectionName">Strength</div>
                             </div>
                         </Link>
                         
-                        <Link to="/home/strength">
-                            <div id="sections2" className="sections" onClick={ () => setSectionsTarget(2)}>
-                                <div id="sectionName2" className="sectionName" onMouseEnter={() => sectionNameHover(2, true)} onMouseLeave={() => sectionNameHover(2, false)}>Strength</div>
-                                <div id="sectionShadowTarget2"></div>
+                        <Link id="sections3" to="/home/routine">
+                            <div id="sectionShadowTarget3" className="sectionShadow"></div>
+                            <div  className="section">
+                                <div id="sectionName3" className="sectionName">Routine</div>
                             </div>
                         </Link>
                         
-                        <Link to="/home/routine">
-                            <div id="sections3" className="sections" onClick={ () => setSectionsTarget(3)}>
-                                <div id="sectionName3" className="sectionName" onMouseEnter={() => sectionNameHover(3, true)} onMouseLeave={() => sectionNameHover(3, false)} >Routine</div>
-                                <div id="sectionShadowTarget3"></div>
+                        <Link id="sections4" to="/home/daily">
+                            <div id="sectionShadowTarget4" className="sectionShadow"></div>
+                            <div  className="section">
+                                <div id="sectionName4" className="sectionName">Daily</div>
                             </div>
                         </Link>
-                        
-                        <Link to="/home/daily">
-                            <div id="sections4" className="sections" onClick={ () => setSectionsTarget(4)}>
-                                <div id="sectionName4" className="sectionName" onMouseEnter={() => sectionNameHover(4, true)} onMouseLeave={() => sectionNameHover(4, false)} >Daily</div>
-                                <div id="sectionShadowTarget4"></div>
-                            </div>
-                        </Link>
-                        
                     </div>
         </div>
     );
