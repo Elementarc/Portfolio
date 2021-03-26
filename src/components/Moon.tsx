@@ -1,4 +1,5 @@
 import React from 'react';
+import "./styleSheets/moon.scss"
 
 const Moon = () => {
     return (

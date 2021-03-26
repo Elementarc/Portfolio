@@ -1,0 +1,56 @@
+.ScrolldownContainer {
+    position: fixed;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+    opacity: 1;
+    bottom: 1rem;
+    transform: translateY(10px);
+    z-index: 1;
+    height: 30px;
+    width: 100%;
+    max-width: 2400px;
+    animation: ScrollDownIconAnimation 0.5s infinite;
+    animation-direction: alternate;
+}
+
+@media (max-width: 1200px){
+    .ScrolldownContainer {
+        position: fixed;
+        pointer-events: none;
+        transition: 0.2s ease-in-out;
+        opacity: 1;
+        bottom: 1rem;
+        transform: translateY(10px);
+        z-index: 1;
+        height: 30px;
+        width: 100%;
+        max-width: 2400px;
+        animation: ScrollDownIconAnimation 0.5s infinite;
+        animation-direction: alternate;
+    }
+}
+@media (max-width: 900px){
+    .ScrolldownContainer {
+        position: fixed;
+        pointer-events: none;
+        transition: 0.2s ease-in-out;
+        opacity: 1;
+        bottom: 5rem;
+        transform: translateY(10px);
+        z-index: 1;
+        height: 28px;
+        width: 100%;
+        max-width: 2400px;
+        animation: ScrollDownIconAnimation 0.5s infinite;
+        animation-direction: alternate;
+    }
+}
+@keyframes ScrollDownIconAnimation {
+    0% {
+        transform: translateY(15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

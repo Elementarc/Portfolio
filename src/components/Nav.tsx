@@ -1,10 +1,10 @@
 
-import React, {useState, useEffect} from "react"
+import React, {useEffect} from "react"
 import {Link} from "react-router-dom"
 import {useHistory} from "react-router-dom"
 
 //Import components
-import "../cStyles/nav.scss"
+import "./styleSheets/nav.scss"
 import SelectIcon from "./SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
 
 //Animation for navigation. Takes true / false as parameter. Is used by toggleNav() function
@@ -20,14 +20,14 @@ function animationNav(toggle: any){
         getNavBlur.style.pointerEvents = "all"
     }
     else{
-        getNav.style.marginRight = "-25rem"
-        getNav.style.opacity = "0"
+        getNav.style.marginRight = "-26rem"
+        getNav.style.opacity = "1"
         getNavBlur.style.opacity = "0"
         getNavBlur.style.pointerEvents = "none"
     }
     
 }
-//Toggles Navigation. Using the function: animationNav() to animate the toggle toggle
+//Toggles Navigation. Using the function: animationNav() to animate the toggle.
 var navState = false
 function toggleNav(){
     if(navState === false){
@@ -135,8 +135,7 @@ function giveNavStyleTarget(url: string) {
 
 const Nav = (props: any) => {
     var url = useHistory()
-    //Takes Url as parameter example (/home) to then give navitems the correct class to be styled correct
-    //checks url to restyle navitem for right url
+    //componentDidMount to give navItem the right class at the beginning of pageload
     useEffect(() =>{
         giveNavStyleTarget(url.location.pathname)
     }, [])

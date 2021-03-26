@@ -1,7 +1,6 @@
 import React from "react"
 
-import "../assets/css/homepage.scss"
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import {Route, Switch} from "react-router-dom"
 //Import component
 import Backgrounds from "../components/Backgrounds"
 import Moon from "../components/Moon"
@@ -16,49 +15,37 @@ const HomepageContainer = (props: any) => {
     
     return(
         <div className="homepageContainer" id="home">
-                <Backgrounds/>
-            
-                <Switch>
-                    <Route exact path="/home" >
-                        <Nav/>
-                        <SectionManager/>
-                        <HomepageContent/>
-                        <Blackbar/>
-                        <Logo/>        
-                        <Moon/>
-                        <ScrollDown/>
-                    </Route>
+            <Backgrounds/>
+            <Nav/>
+            <Blackbar/>
+            <SectionManager/>
+            <Logo/>        
+            <Moon/>
+            <ScrollDown/>
 
-                    <Route exact path="/home/strength" >
-                        <Nav/>
-                        <SectionManager/>
+            <Switch>
+                <Route exact path="/home" >
+                    <HomepageContent/>
+                    
+                    
                         
-                        <Blackbar/>
-                        <Logo/>        
-                        <Moon/>
-                        <ScrollDown/>
-                    </Route>
+                </Route>
 
-                    <Route exact path="/home/routine" >
-                        <Nav/>
-                        <SectionManager/>
+                <Route exact path="/home/strength" >
                         
-                        <Blackbar/>
-                        <Logo/>        
-                        <Moon/>
-                        <ScrollDown/>
-                    </Route>
+                    
+                </Route>
 
-                    <Route exact path="/home/daily" >
-                        <Nav/>
-                        <SectionManager/>
+                <Route exact path="/home/routine" >
                         
-                        <Blackbar/>
-                        <Logo/>        
-                        <Moon/>
-                        <ScrollDown/>
-                    </Route>
-                </Switch>
+                    
+                </Route>
+
+                <Route exact path="/home/daily" >
+                        
+                    
+                </Route>
+            </Switch>
             
             
         </div>

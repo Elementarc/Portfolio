@@ -1,0 +1,224 @@
+/*START--Content Style--START*/
+.homeContent {
+    position: relative;
+    display: flex;
+    margin-top: 10rem;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    height: auto;
+    pointer-events: visible;
+    z-index: 2;
+    .content{
+        width: 100%;
+        margin-left: 16rem;
+        h1{
+            display: block;
+            font-family: "PT Serif";
+            font-size: 20px;
+            margin: 5rem 0 0rem 0rem;
+        }
+        h2{
+            display: block;
+            font-family: "PT Serif";
+            font-size: 39px;
+            margin: -0.4rem 0 0rem 0;
+        }
+        p{
+            display: block;
+            font-size: 18px;
+            margin: 1rem 0 0rem 0;
+            line-height: 2rem;
+            font-family: "Noto Sans";
+            width: 37rem;
+        }
+        button{
+            position: relative;
+            width: 210px;
+            height: 46px;
+            background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.384);
+            border-radius: 5px;
+            border-style: none;
+            color: white;
+            font-size: 17px;
+            font-family: "PT Serif";
+            letter-spacing: 1px;
+            font-weight: 700;
+            outline: none;
+            margin: 3rem 0 0rem 0rem;
+    
+            .buttonStyleBox {
+                position: absolute;
+                opacity: 0.1;
+                background-color: white;
+                border-radius: 5px;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 0%;
+                outline: none;
+                transition: 0.25s ease-in-out;
+                pointer-events: none;
+            }
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    }
+    
+}
+
+
+@media (max-width: 1200px){
+    .homeContent {
+        display: flex;
+        margin-top: 10rem;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        width: 100%;
+        height: auto;
+        pointer-events: visible;
+        z-index: 2;
+        .content{
+            width: 100%;
+            margin-left: 12rem;
+            h1{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 20px;
+                margin: 5rem 0 0rem 0rem;
+            }
+            h2{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 39px;
+                margin: -0.4rem 0 0rem 0;
+            }
+            p{
+                display: block;
+                font-size: 18px;
+                margin: 1rem 0 0rem 0;
+                line-height: 2rem;
+                font-family: "Noto Sans";
+                width: 37rem;
+            }
+            button{
+                position: relative;
+                width: 210px;
+                height: 46px;
+                background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.384);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 17px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                margin: 3rem 0 0rem 0rem;
+        
+                .buttonStyleBox {
+                    position: absolute;
+                    opacity: 0.1;
+                    background-color: white;
+                    border-radius: 5px;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 0%;
+                    outline: none;
+                    transition: 0.25s ease-in-out;
+                    pointer-events: none;
+                }
+            }
+            button:hover{
+                cursor: pointer;
+            }
+        }
+        
+    }
+}
+@media (max-width: 900px){
+    .homeContent {
+        display: flex;
+        margin-top: 0;
+        margin-top: 7rem;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        width: 100%;
+        pointer-events: visible;
+        z-index: 2;
+        .content{
+            width: 95%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            margin-left: 0;
+            h1{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 20px;
+                margin: 5rem 0 0rem 0rem;
+            }
+            h2{
+                display: block;
+                text-align: center;
+                font-family: "PT Serif";
+                font-size: 39px;
+                margin: -0.4rem 0 0rem 0;
+            }
+            p{
+                display: block;
+                text-align: center;
+                font-size: 18px;
+                margin: 2rem 0 0rem 0rem;
+                line-height: 2rem;
+                font-family: "Noto Sans";
+                width: 100%;
+            }
+            button{
+                position: relative;
+                width: 210px;
+                height: 46px;
+                background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.384);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 17px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                margin: 5rem 0 0rem 0rem;
+        
+                .buttonStyleBox {
+                    position: absolute;
+                    opacity: 0.1;
+                    background-color: white;
+                    border-radius: 5px;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 0%;
+                    outline: none;
+                    transition: 0.25s ease-in-out;
+                    pointer-events: none;
+                }
+            }
+            button:hover{
+                cursor: pointer;
+            }
+        }
+        
+    }
+}
+/*END--Content Style--END*/
+
+

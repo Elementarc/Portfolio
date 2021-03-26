@@ -1,0 +1,40 @@
+.moonContainer {
+    position: absolute;
+    top: -30px;
+    left: -100px;
+    height: 200px;
+    width: 200px;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: white;
+    align-self: flex-start;
+    background-image: url("../../assets/images/Moon.png");
+    background-position: center;
+
+    .moonLight {
+        position: absolute;
+        box-shadow: 16px 12px 100px 36px #ffffff;
+        opacity: 0.4;
+        height: 200px;
+        width: 200px;
+        z-index: 0;
+        border-radius: 50%;
+        background-color: white;
+        align-self: flex-start;
+    }
+
+    .moonLightV2 {
+        position: absolute;
+        box-shadow: 16px 12px 100px 100px #ffffff;
+        opacity: 0.1;
+        height: 200px;
+        width: 200px;
+        z-index: 0;
+        border-radius: 50%;
+        background-color: white;
+        align-self: flex-start;
+    }
+}
+
+
+

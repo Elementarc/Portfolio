@@ -1,4 +1,5 @@
 import React from 'react';
+import "./styleSheets/scrollDown.scss"
 import SelectIcon from "./SelectIcon"
 
 

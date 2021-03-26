@@ -1,10 +1,8 @@
 import React from 'react';
-
+import "./styleSheets/topBar.scss"
 const Blackbar = () => {
     return (
-        <div className="Blackbar">
-            
-        </div>
+        <div className="topBar"></div>
     );
 }
 

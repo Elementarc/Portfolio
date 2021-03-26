@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./styleSheets/homeContent.scss"
 //Toggles Animation for hovering over GetStarted button.
 var buttonState = true
 function hoverButton(){
@@ -16,14 +16,16 @@ function hoverButton(){
 
 const HomepageContent = (props: any) => {
     return (
-        <div className="HomepageContent"> 
-            <h1>{"SIMPLE & CLEAN"}</h1>
-            <h2>THE WORLD OF DESIGN</h2>
-            <p>There are diffrent ways to talk to a customer and design is an important one. Let's create something unique. </p>
-            <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
-                <div>GET STARTED</div>
-                <div id="buttonStyleBox" className="buttonStyleBox"></div>
-            </button>
+        <div className="homeContent">
+            <div className="content">
+                <h1>{"SIMPLE & CLEAN"}</h1>
+                <h2>THE WORLD OF DESIGN</h2>
+                <p>There are diffrent ways to talk to a customer and design is an important one. Let's create something unique. </p>
+                <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
+                    <div>GET STARTED</div>
+                    <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                </button>
+            </div>
         </div>
     );
 }

@@ -1,45 +1,51 @@
-import React, {useEffect, useState} from 'react';
-import "../cStyles/sectionManager.scss"
+import React, {useEffect} from 'react';
+import "./styleSheets/sectionManager.scss"
 import {Link, useHistory} from "react-router-dom"
 
-//Toggles Animation for sectionNames on Hover. Takes the number from sectionNameId as parameter
+//Toggles Animation for sectionNames on Hover. Does not get triggert when device width is below 600px
 function toogleSectionName(toggle: boolean) {
     var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
     var getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
 
-    //Creating an array with for index to be able to loop through with foreach
-    var arr = []
-    for(var i = 0; i < getSections.length; i++){
-        arr.push(i)
-    }
+    console.log(window.innerWidth)
     
-    if(toggle === false){
-        arr.forEach( i => {
-            setTimeout(() => {
-                var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
-                getSectionName.style.opacity = "1"
-                getSectionName.style.transform = "scale(1)"
-                getSectionName.style.pointerEvents = "visible"
-                getSectionContent.style.width = "180px"
-            }, i * 100)
-        })
-        
+    if(window.innerWidth >= 900){
+        //Creating an array with for index to be able to loop through with foreach
+        var arr = []
+        for(var i = 0; i < getSections.length; i++){
+            arr.push(i)
+        }
+
+        if(toggle === false){
+            arr.forEach( i => {
+                setTimeout(() => {
+                    var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
+                    getSectionName.style.opacity = "1"
+                    getSectionName.style.transform = "scale(1)"
+                    getSectionName.style.pointerEvents = "visible"
+                    getSectionContent.style.width = "180px"
+                }, i * 100)
+            })
+            
+        }
+        else{
+            arr.forEach(n =>{
+                setTimeout(() => {
+                    var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
+                    getSectionName.style.opacity = "0"
+                    getSectionName.style.transform = "scale(0)"
+                    getSectionName.style.pointerEvents = "none"
+                    getSectionContent.style.width = "100%"
+                }, n * 100);
+            })
+        }
     }
     else{
-        arr.forEach(n =>{
-            setTimeout(() => {
-                var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
-                getSectionName.style.opacity = "0"
-                getSectionName.style.transform = "scale(0)"
-                getSectionName.style.pointerEvents = "none"
-                getSectionContent.style.width = "100%"
-            }, n * 100);
-        })
+        //console.log("animation will not get triggert since device width is smaller than 900")
     }
+    
 }
-//Gets triggert when hovered over sectionNames. Takes toggle parameter and number from id
-
-
+//sets style for section: takes url as parameter to check which section button needs to light up
 function setTarget(url: string) {
     var getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
     var getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
