@@ -35,10 +35,26 @@
         pointer-events: none;
         transition: 0.2s ease-in-out;
         opacity: 1;
-        bottom: 5rem;
+        bottom: 6rem;
         transform: translateY(10px);
         z-index: 1;
-        height: 28px;
+        height: 24px;
+        width: 100%;
+        max-width: 2400px;
+        animation: ScrollDownIconAnimation 0.5s infinite;
+        animation-direction: alternate;
+    }
+}
+@media (max-height: 700px){
+    .ScrolldownContainer {
+        position: fixed;
+        pointer-events: none;
+        transition: 0.2s ease-in-out;
+        opacity: 1;
+        bottom: 1rem;
+        transform: translateY(10px);
+        z-index: 1;
+        height: 24px;
         width: 100%;
         max-width: 2400px;
         animation: ScrollDownIconAnimation 0.5s infinite;

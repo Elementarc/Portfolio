@@ -21,9 +21,10 @@
 
 @media (max-width: 900px){
     .LogoContainer {
-        position: absolute;
+        position: fixed;
         pointer-events: none;
-        margin: 0;
+        margin: unset;
+        margin-top: 0.2rem;
         top: 0;
         bottom: unset;
         width: 100%;
@@ -36,7 +37,7 @@
         p{
             color: white;
             font-family: "Noto Sans";
-            letter-spacing: 0.1rem;
+            letter-spacing: 0.2rem;
             font-size: 15px;
             font-weight: 400;
         }

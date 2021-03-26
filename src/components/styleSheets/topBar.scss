@@ -1,5 +1,5 @@
 .topBar {
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 2;
     background-Color: #161616;
@@ -10,7 +10,7 @@
 
 @media (max-width: 900px){
     .topBar {
-        position: absolute;
+        position: fixed;
         top: 0;
         z-index: 2;
         background-Color: #161616;

@@ -15,20 +15,10 @@ const HomepageContainer = (props: any) => {
     
     return(
         <div className="homepageContainer" id="home">
-            <Backgrounds/>
-            <Nav/>
-            <Blackbar/>
-            <SectionManager/>
-            <Logo/>        
-            <Moon/>
-            <ScrollDown/>
-
             <Switch>
                 <Route exact path="/home" >
                     <HomepageContent/>
                     
-                    
-                        
                 </Route>
 
                 <Route exact path="/home/strength" >
@@ -46,8 +36,14 @@ const HomepageContainer = (props: any) => {
                     
                 </Route>
             </Switch>
-            
-            
+
+            <Backgrounds/>
+            <Nav/>
+            <Blackbar/>
+            <SectionManager/>
+            <Logo/>        
+            <Moon/>
+            <ScrollDown/>
         </div>
     );
 }
