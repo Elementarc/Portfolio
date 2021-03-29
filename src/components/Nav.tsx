@@ -4,9 +4,11 @@ import {Link} from "react-router-dom"
 import {useLocation} from "react-router-dom"
 
 //Import components
-import "./styleSheets/nav.scss"
 import SelectIcon from "./SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
 import {motion} from "framer-motion"
+//CSS
+import "./styleSheets/nav.scss"
+
 //Animation for navigation. Takes true / false as parameter. Is used by toggleNav() function
 
 function animationNav(toggle: any){

@@ -1,3 +1,4 @@
+//components
 import React from 'react';
 import {motion} from "framer-motion"
 //css
@@ -18,7 +19,6 @@ function hoverButton(){
 
 const HomepageContent = (props: any) => {
     return (
-
         <motion.div animate="in" exit="out" initial="initial" variants={props.animation} id="homeContent" className="homeContent">
             <div className="content">
                 <motion.div transition={{duration: 0.5, delay: 0.5}} animate={{opacity: 1, y: 0}} initial={{opacity: 0, y: -20}} >

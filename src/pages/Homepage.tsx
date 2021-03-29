@@ -10,71 +10,75 @@ import HomepageContent from "../components/HomepageContent"
 import Blackbar from "../components/Blackbar"
 import ScrollDown from "../components/ScrollDown"
 import Logo from "../components/LogoName"
-
 import {AnimatePresence} from "framer-motion"
+
 //CSS
 import "./styleSheetPage/homepage.scss"
 
+//Home animations. Sending those dictonaries as props through components to then apply them via framer-motion.
+var homeContentAnimation= {
+    initial: {
+        opacity: 0,
+    },
+    in: {
+        transition: {delay: 0.2, duration: 1},
+        opacity: 1,
+    },
+    out: {
+        transition: {duration: 0.2},
+        opacity: 0,
+        y: -500,
+    },
+}
+var backgroundAnimation = {
+    initial: {
+        opacity: 0,
+        y: 0,
+        x: 0,
+    },
+    in: {
+        transition: {delay: 0.2, duration: 0.3},
+        opacity: 1,
+        y: 0,
+        x: 0,
+    },
+    out: {
+        opacity: 0,
+    },
+}
+var moonAnimation = {
+    initial: {
+        y: -150,
+        opacity: 0,
+    },
+    in: {
+        transition: {delay: 2, duration: 1.2},
+        y: 0,
+        opacity: 1,
+    },
+    out: {
+        transition: {duration: 0.2},
+        opacity: 0,
+        y: -500,
+    },
+}
+var interfaceAnimation = {
+    initial: {
+        opacity: 0,
+    },
+    in: {
+        transition: {delay: 2, duration: 1},
+        opacity: 1,
+    },
+    out: {
+        transition: {duration: 0.2},
+        opacity: 0,
+    },
+}
 
 const HomepageContainer = (props: any) => {
     const location = useLocation()
-    //Animations
-    var homeContentAnimation = {
-        initial: {
-            opacity: 0,
-        },
-        in: {
-            transition: {delay: 0.1, duration: 1},
-            opacity: 1,
-        },
-        out: {
-            transition: {duration: 0.2},
-            opacity: 0,
-            y: -500,
-        },
-    }
-    var backgroundAnimation = {
-        initial: {
-            opacity: 0,
-        },
-        in: {
-            transition: {delay: 0.2, duration: 0.3},
-            opacity: 1,
-        },
-        out: {
-            opacity: 0,
-        },
-    }
-    var moonAnimation = {
-        initial: {
-            y: -150,
-            opacity: 0,
-        },
-        in: {
-            transition: {delay: 2, duration: 1.2},
-            y: 0,
-            opacity: 1,
-        },
-        out: {
-            transition: {duration: 0.2},
-            opacity: 0,
-            y: -500,
-        },
-    }
-    var interfaceAnimation = {
-        initial: {
-            opacity: 0,
-        },
-        in: {
-            transition: {delay: 2, duration: 1},
-            opacity: 1,
-        },
-        out: {
-            transition: {duration: 0.2},
-            opacity: 0,
-        },
-    }
-
+    
     return(
         <div className="homepageContainer" id="home">
             <AnimatePresence exitBeforeEnter>
@@ -102,9 +106,10 @@ const HomepageContainer = (props: any) => {
                
             <Backgrounds animation={backgroundAnimation}/>
             <Nav animation={interfaceAnimation}/>
-            <Logo animation={interfaceAnimation}/>
             <SectionManager animation={interfaceAnimation}/>
             <Blackbar animation={interfaceAnimation}/>
+            <Logo animation={interfaceAnimation}/>
+
             <Moon animation={moonAnimation}/>
             <ScrollDown/>
         </div>
