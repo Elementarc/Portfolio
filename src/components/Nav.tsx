@@ -1,12 +1,12 @@
 
 import React, {useEffect} from "react"
 import {Link} from "react-router-dom"
-import {useHistory} from "react-router-dom"
+import {useLocation} from "react-router-dom"
 
 //Import components
 import "./styleSheets/nav.scss"
 import SelectIcon from "./SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
-
+import {motion} from "framer-motion"
 //Animation for navigation. Takes true / false as parameter. Is used by toggleNav() function
 
 function animationNav(toggle: any){
@@ -57,7 +57,6 @@ function giveNavStyleTarget(url: string) {
     var getNavItemContactIcon = document.getElementById("ContactIcon") as HTMLDivElement
     
     if(url.includes("/home") === true){
-        console.log("home got styles")
         //adding style to targeted nav depending on url
         getNavItemHome.classList.add("targetNavItem")
         getNavItemHomeIcon.classList.add("targetNavIcon")
@@ -72,7 +71,6 @@ function giveNavStyleTarget(url: string) {
         getNavItemContactIcon.classList.remove("targetNavIcon")
     }
     else if(url.includes("/design") === true){
-        console.log("design got styles")
         //adding style to targeted nav depending on url
         getNavItemDesign.classList.add("targetNavItem")
         getNavItemDesignIcon.classList.add("targetNavIcon")
@@ -134,15 +132,15 @@ function giveNavStyleTarget(url: string) {
 }
 
 const Nav = (props: any) => {
-    var url = useHistory()
+    var url = useLocation().pathname
     //componentDidMount to give navItem the right class at the beginning of pageload
     useEffect(() =>{
-        giveNavStyleTarget(url.location.pathname)
-    }, [])
+        giveNavStyleTarget(url)
+    })
     
     
     return(
-        <div id="NavigationContainer" className="NavigationContainer">
+        <motion.div animate="in" exit="out" initial="initial" variants={props.animation} id="NavigationContainer" className="NavigationContainer">
             <div onClick={toggleNav} className="navOpenIcon">
                 <SelectIcon icon="MenuIcon"></SelectIcon>
             </div>
@@ -192,7 +190,7 @@ const Nav = (props: any) => {
                     </div>
                 </button>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

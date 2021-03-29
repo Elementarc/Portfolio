@@ -1,8 +1,9 @@
 import React from 'react';
 import "./styleSheets/topBar.scss"
-const Blackbar = () => {
+import {motion} from "framer-motion"
+const Blackbar = (props: any) => {
     return (
-        <div className="topBar"></div>
+        <motion.div  animate="in" exit="out" initial="initial" variants={props.animation} className="topBar"></motion.div>
     );
 }
 

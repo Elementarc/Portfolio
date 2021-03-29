@@ -1,14 +1,13 @@
 import React, {useEffect} from 'react';
 import "./styleSheets/sectionManager.scss"
 import {Link, useHistory} from "react-router-dom"
-
+import {motion} from "framer-motion"
 //Toggles Animation for sectionNames on Hover. Does not get triggert when device width is below 600px
 function toogleSectionName(toggle: boolean) {
     var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
     var getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
 
-    console.log(window.innerWidth)
-    
+    //Animation only happens if device width is > 900
     if(window.innerWidth >= 900){
         //Creating an array with for index to be able to loop through with foreach
         var arr = []
@@ -107,7 +106,7 @@ function setTarget(url: string) {
         getShadowTarget3.classList.remove("sectionShadowTarget")
     }
 }
-const SectionManager = () => {
+const SectionManager = (props: any) => {
     var url = useHistory()
 
     useEffect(() =>{
@@ -115,7 +114,7 @@ const SectionManager = () => {
     })
 
     return (
-        <div className="SectionContainer">
+        <motion.div animate="in" exit="out" initial="initial" variants={props.animation} className="SectionContainer">
             <div id="sectionContent" className="sectionContent" onMouseEnter={() => toogleSectionName(false)} onMouseLeave={() => toogleSectionName(true)}>
                         <Link id="sections1" className="sections1" to="/home">
                             <div id="sectionShadowTarget1" className="sectionShadow"></div>
@@ -146,7 +145,7 @@ const SectionManager = () => {
                             </div>
                         </Link>
                     </div>
-        </div>
+        </motion.div>
     );
 }
 

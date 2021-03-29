@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import {motion} from "framer-motion"
 import "./styleSheets/logo.scss"
-const LogoName = () => {
-    var windowWidth = window.innerWidth
+const LogoName = (props: any) => {
     const [Logo, setLogo] = useState("Created by Arctyp");
 
     useEffect(() =>{
+        var windowWidth = window.innerWidth
+
         if(windowWidth <= 900){
             setLogo("ARCTYP")
         }
@@ -12,9 +14,9 @@ const LogoName = () => {
     
 
     return (
-        <div className="LogoContainer">
+        <motion.div animate="in" exit="out" initial="initial" variants={props.animation} className="LogoContainer">
             <p>{Logo}</p>
-        </div>
+        </motion.div>
     );
 }
 

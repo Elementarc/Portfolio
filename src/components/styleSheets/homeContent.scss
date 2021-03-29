@@ -1,4 +1,5 @@
 /*START--Content Style--START*/
+
 .homeContent {
     position: relative;
     display: flex;
@@ -67,7 +68,6 @@
             cursor: pointer;
         }
     }
-    
 }
 
 @media (max-width: 1200px){
@@ -161,6 +161,7 @@
             margin-left: 0;
             h1{
                 display: block;
+                text-align: center;
                 font-family: "PT Serif";
                 font-size: 20px;
                 margin: 5rem 0 0rem 0rem;

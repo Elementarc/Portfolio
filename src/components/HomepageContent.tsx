@@ -1,4 +1,6 @@
 import React from 'react';
+import {motion} from "framer-motion"
+//css
 import "./styleSheets/homeContent.scss"
 //Toggles Animation for hovering over GetStarted button.
 var buttonState = true
@@ -16,18 +18,28 @@ function hoverButton(){
 
 const HomepageContent = (props: any) => {
     return (
-        <div className="homeContent">
+
+        <motion.div animate="in" exit="out" initial="initial" variants={props.animation} id="homeContent" className="homeContent">
             <div className="content">
-                <h1>{"SIMPLE & CLEAN"}</h1>
-                <h2>THE WORLD OF DESIGN</h2>
-                <p>There are diffrent ways to talk to a customer and design is an important one. Let's create something unique. </p>
+                <motion.div transition={{duration: 0.5, delay: 0.5}} animate={{opacity: 1, y: 0}} initial={{opacity: 0, y: -20}} >
+                    <h1>{"SIMPLE & CLEAN"}</h1>
+                    <h2>THE WORLD OF DESIGN</h2>
+                </motion.div>
+                <motion.div transition={{duration: 0.5, delay: 0.9}} animate={{opacity: 1, y: 0}} initial={{opacity: 0, y: -20}} >
+                    <p>There are diffrent ways to talk to a customer and design is an important one. Let's create something unique. </p>
+                </motion.div>
+                <motion.div transition={{duration: 0.8, delay: 1.3}} animate={{opacity: 1}} initial={{opacity: 0}} >
                 <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
-                    <div>GET STARTED</div>
-                    <div id="buttonStyleBox" className="buttonStyleBox"></div>
-                </button>
+                        <div>GET STARTED</div>
+                        <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                    </button>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
 export default HomepageContent;
+
+
+
