@@ -132,7 +132,20 @@ function giveNavStyleTarget(url: string) {
         console.log("couldnt find url")
     }
 }
-
+//Props for animation
+var interfaceAnimation = {
+    initial: {
+        opacity: 0,
+    },
+    in: {
+        transition: {delay: 2, duration: 1},
+        opacity: 1,
+    },
+    out: {
+        transition: {duration: 0.2},
+        opacity: 0,
+    },
+}
 const Nav = (props: any) => {
     var url = useLocation().pathname
     //componentDidMount to give navItem the right class at the beginning of pageload
@@ -142,56 +155,56 @@ const Nav = (props: any) => {
     
     
     return(
-        <motion.div animate="in" exit="out" initial="initial" variants={props.animation} id="NavigationContainer" className="NavigationContainer">
+        <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
             <div onClick={toggleNav} className="navOpenIcon">
                 <SelectIcon icon="MenuIcon"></SelectIcon>
             </div>
             <div onClick={toggleNav} id="navigationBlur" className="navigationBlur"></div>
-
             <div id="navigation" className="navigation">
-                <ul>
-                    <Link className="linkHome" id="navHome" to="/home" onClick={toggleNav}>
-                            <div className="navbarListIconContainer">
-                                <SelectIcon icon="HomeIcon"/>
-                            </div>
-                            HOME
-                    </Link>
+                    <ul>
+                        <Link className="linkHome" id="navHome" to="/home" onClick={toggleNav}>
+                                <div className="navbarListIconContainer">
+                                    <SelectIcon icon="HomeIcon"/>
+                                </div>
+                                HOME
+                        </Link>
 
-                    <Link className="linkDesign" id="navDesign" to="/design" onClick={toggleNav}>
-                            <div className="navbarListIconContainer">
-                                <SelectIcon icon="DesignIcon"/>
-                            </div>
-                            DESIGN
-                    </Link>
+                        <Link className="linkDesign" id="navDesign" to="/design" onClick={toggleNav}>
+                                <div className="navbarListIconContainer">
+                                    <SelectIcon icon="DesignIcon"/>
+                                </div>
+                                DESIGN
+                        </Link>
 
-                    <Link className="linkProjects" id="navProjects" to="/projects" onClick={toggleNav}>
-                            <div className="navbarListIconContainer">
-                                <SelectIcon icon="ProjectsIcon"/>
-                            </div>
-                            PROJECTS
-                    </Link>
+                        <Link className="linkProjects" id="navProjects" to="/projects" onClick={toggleNav}>
+                                <div className="navbarListIconContainer">
+                                    <SelectIcon icon="ProjectsIcon"/>
+                                </div>
+                                PROJECTS
+                        </Link>
 
-                    <Link className="linkWorkspace" id="navWorkspace" to="/workspace" onClick={toggleNav}>
-                            <div className="navbarListIconContainer">
-                                <SelectIcon icon="WorkIcon"/>
-                            </div>
-                            WORKSPACE
-                    </Link>
+                        <Link className="linkWorkspace" id="navWorkspace" to="/workspace" onClick={toggleNav}>
+                                <div className="navbarListIconContainer">
+                                    <SelectIcon icon="WorkIcon"/>
+                                </div>
+                                WORKSPACE
+                        </Link>
 
-                    <Link className="linkContact" id="navContact" to="/contact" onClick={toggleNav}>
-                            <div className="navbarListIconContainer">
-                                <SelectIcon icon="ContactIcon"/>
-                            </div>
-                            CONTACT
-                    </Link>
-                </ul>
+                        <Link className="linkContact" id="navContact" to="/contact" onClick={toggleNav}>
+                                <div className="navbarListIconContainer">
+                                    <SelectIcon icon="ContactIcon"/>
+                                </div>
+                                CONTACT
+                        </Link>
+                    </ul>
 
-                <button onClick={toggleNav} className="navCloseButton">
-                    <div className="navCloseIcon">
-                        <SelectIcon icon="NavCloseIcon"/>
-                    </div>
-                </button>
-            </div>
+                    <button onClick={toggleNav} className="navCloseButton">
+                        <div className="navCloseIcon">
+                            <SelectIcon icon="NavCloseIcon"/>
+                        </div>
+                    </button>
+                </div>
+            
         </motion.div>
     );
 }

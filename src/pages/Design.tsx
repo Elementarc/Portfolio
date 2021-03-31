@@ -8,8 +8,6 @@ const Design = () => {
     return (
         <div>
 
-            <Nav />
-
         </div>
     );
 }

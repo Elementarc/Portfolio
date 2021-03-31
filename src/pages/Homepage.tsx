@@ -15,76 +15,19 @@ import {AnimatePresence} from "framer-motion"
 //CSS
 import "./styleSheetPage/homepage.scss"
 
-//Home animations. Sending those dictonaries as props through components to then apply them via framer-motion.
-var homeContentAnimation= {
-    initial: {
-        opacity: 0,
-    },
-    in: {
-        transition: {delay: 0.2, duration: 1},
-        opacity: 1,
-    },
-    out: {
-        transition: {duration: 0.2},
-        opacity: 0,
-        y: -500,
-    },
-}
-var backgroundAnimation = {
-    initial: {
-        opacity: 0,
-        y: 0,
-        x: 0,
-    },
-    in: {
-        transition: {delay: 0.2, duration: 0.3},
-        opacity: 1,
-        y: 0,
-        x: 0,
-    },
-    out: {
-        opacity: 0,
-    },
-}
-var moonAnimation = {
-    initial: {
-        y: -150,
-        opacity: 0,
-    },
-    in: {
-        transition: {delay: 2, duration: 1.2},
-        y: 0,
-        opacity: 1,
-    },
-    out: {
-        transition: {duration: 0.2},
-        opacity: 0,
-        y: -500,
-    },
-}
-var interfaceAnimation = {
-    initial: {
-        opacity: 0,
-    },
-    in: {
-        transition: {delay: 2, duration: 1},
-        opacity: 1,
-    },
-    out: {
-        transition: {duration: 0.2},
-        opacity: 0,
-    },
-}
+
+
 
 const HomepageContainer = (props: any) => {
     const location = useLocation()
+    //Home animations. Sending those dictonaries as props through components to then apply them via framer-motion.
     
     return(
         <div className="homepageContainer" id="home">
             <AnimatePresence exitBeforeEnter>
                 <Switch location={location} key={location.key}>
-                    <Route exact path="/home">
-                        <HomepageContent animation={homeContentAnimation}/>
+                    <Route exact strict path="/home">
+                        <HomepageContent/>
                     </Route>
 
                     <Route exact path="/home/strength">
@@ -103,15 +46,15 @@ const HomepageContainer = (props: any) => {
                     </Route>
                 </Switch>
             </AnimatePresence>
-               
-            <Backgrounds animation={backgroundAnimation}/>
-            <Nav animation={interfaceAnimation}/>
-            <SectionManager animation={interfaceAnimation}/>
-            <Blackbar animation={interfaceAnimation}/>
-            <Logo animation={interfaceAnimation}/>
 
-            <Moon animation={moonAnimation}/>
+            <Backgrounds/>
+            
+            <SectionManager/>
+            <Blackbar/>
+            <Logo/>
+            <Moon/>
             <ScrollDown/>
+            
         </div>
     );
 }

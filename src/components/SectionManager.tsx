@@ -106,6 +106,20 @@ function setTarget(url: string) {
         getShadowTarget3.classList.remove("sectionShadowTarget")
     }
 }
+//Props for animation
+var interfaceAnimation = {
+    initial: {
+        opacity: 0,
+    },
+    in: {
+        transition: {delay: 2, duration: 1},
+        opacity: 1,
+    },
+    out: {
+        transition: {duration: 0.2},
+        opacity: 0,
+    },
+}
 const SectionManager = (props: any) => {
     var url = useHistory()
 
@@ -114,7 +128,7 @@ const SectionManager = (props: any) => {
     })
 
     return (
-        <motion.div animate="in" exit="out" initial="initial" variants={props.animation} className="SectionContainer">
+        <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} className="SectionContainer">
             <div id="sectionContent" className="sectionContent" onMouseEnter={() => toogleSectionName(false)} onMouseLeave={() => toogleSectionName(true)}>
                         <Link id="sections1" className="sections1" to="/home">
                             <div id="sectionShadowTarget1" className="sectionShadow"></div>
