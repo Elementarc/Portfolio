@@ -1,5 +1,5 @@
 import React from "react"
-import {BrowserRouter as Router, Redirect, Route, Switch, useLocation} from "react-router-dom"
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
 import {motion} from "framer-motion"
 import "./app.scss"
 

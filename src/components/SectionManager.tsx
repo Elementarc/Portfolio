@@ -5,48 +5,6 @@ import {motion} from "framer-motion"
 
 
 var locationIndex = 0
-//Toggles Animation for sectionNames on Hover. Does not get triggert when device width is below 600px
-function toogleSectionName(toggle: boolean) {
-    var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
-    var getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
-
-    //Animation only happens if device width is > 900
-    if(window.innerWidth >= 900){
-        //Creating an array with for index to be able to loop through with foreach
-        var arr = []
-        for(var i = 0; i < getSections.length; i++){
-            arr.push(i)
-        }
-
-        if(toggle === true){
-            arr.forEach( i => {
-                setTimeout(() => {
-                    var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
-                    getSectionName.style.opacity = "1"
-                    getSectionName.style.transform = "scale(1)"
-                    getSectionName.style.pointerEvents = "visible"
-                    getSectionContent.style.width = "180px"
-                }, i * 100)
-            })
-            
-        }
-        else{
-            arr.forEach(n =>{
-                setTimeout(() => {
-                    var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
-                    getSectionName.style.opacity = "0"
-                    getSectionName.style.transform = "scale(0)"
-                    getSectionName.style.pointerEvents = "none"
-                    getSectionContent.style.width = "100%"
-                }, n * 100);
-            })
-        }
-    }
-    else{
-        //console.log("animation will not get triggert since device width is smaller than 900")
-    }
-    
-}
 //sets style for section: takes url as parameter to check which section button needs to light up and also sets the location index for wheelListener function
 function setTarget(url: string) {
     var getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
@@ -126,19 +84,63 @@ var interfaceAnimation = {
         opacity: 0,
     },
 }
-
+var timeout: any
 const SectionManager = (props: any) => {
     const location = useLocation()
-    var path = useHistory()
-    useEffect(() =>{
-        //setting style for right section-button after checking url
-        setTarget(location.pathname)
+    const path = useHistory()
+    //Toggles Animation for sectionNames on Hover. Does not get triggert when device width is below 600px
+    function toogleSectionName(toggle: boolean) {
+        var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
+        var getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
 
-        //Disables sectionnames after 3 seconds no wheel inputs for better ui
-        var timeout = setTimeout(() => {
+        //Animation only happens if device width is > 900
+        if(window.innerWidth >= 900){
+            //Creating an array with for index to be able to loop through with foreach
+            var arr = []
+            for(var i = 0; i < getSections.length; i++){
+                arr.push(i)
+            }
+
+            if(toggle === true){
+                arr.forEach( i => {
+                    setTimeout(() => {
+                        var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
+                        getSectionName.style.opacity = "1"
+                        getSectionName.style.transform = "scale(1)"
+                        getSectionName.style.pointerEvents = "visible"
+                        getSectionContent.style.width = "180px"
+                    }, i * 100)
+                })
+                
+            }
+            else{
+                arr.forEach(n =>{
+                    setTimeout(() => {
+                        var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
+                        getSectionName.style.opacity = "0"
+                        getSectionName.style.transform = "scale(0)"
+                        getSectionName.style.pointerEvents = "none"
+                        getSectionContent.style.width = "100%"
+                    }, n * 100);
+                })
+            }
+        }
+        else{
+            //console.log("animation will not get triggert since device width is smaller than 900")
+        }
+        
+    }
+    //setting style for right section-button after checking url
+    useEffect(() =>{
+        setTarget(location.pathname)
+        //resetting sectionName for better ui
+        timeout = setTimeout(() => {
             toogleSectionName(false)
         }, 3000);
-        //Checks if scroll up/down to then adds 1 to locationIndex and replace
+    })
+    //adding scroll effect
+    useEffect(() =>{
+        //Checks if scroll up or down to then add 1 to locationIndex and replace url with right path
         function wheelListner(e: any) {
             //wheel UP
             if(e.deltaY < 0){
@@ -161,8 +163,8 @@ const SectionManager = (props: any) => {
                 else if(locationIndex === 3){
                     path.replace("/home/daily")
                 }
-                
                 clearTimeout(timeout)
+                
             }
             //wheel DOWN
             else{
@@ -188,13 +190,32 @@ const SectionManager = (props: any) => {
                 clearTimeout(timeout)
             }
         }
-
         //Eventlistener that uses the function wheellistner
         window.addEventListener("wheel", wheelListner)
+        //Using keydownListener function to disable wheel event to properly zoom in and out without changing home section/urls
+        function keydownListener(e: any) {
+            if(e.which === 17){
+                window.removeEventListener("wheel", wheelListner)
+            }
+        }
+        //Using keyupListener function to enable wheel event back to properly switch between sections section/urls
+        function keyupListener(e: any) {
+            if(e.which === 17){
+                window.addEventListener("wheel", wheelListner)
+            }
+        }
+        //Eventlistener to disable or enable wheel event with their functions
+        window.addEventListener("keydown", keydownListener)
+        window.addEventListener("keyup", keyupListener)
+        //Cleanup to disable all eventlistener for no memory leaks
         return(() =>{
+            console.log("all disabled")
             window.removeEventListener("wheel", wheelListner)
+            window.removeEventListener("keydown", keydownListener)
+            window.removeEventListener("keyup", keyupListener)
         })
-    })
+    }, [path])
+
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} className="SectionContainer">
             <div id="sectionContent" className="sectionContent" onMouseEnter={() => toogleSectionName(true)} onMouseLeave={() => toogleSectionName(false)}>
