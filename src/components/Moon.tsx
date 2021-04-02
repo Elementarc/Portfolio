@@ -4,7 +4,6 @@ import {motion} from "framer-motion"
 
 import "./styleSheets/moon.scss"
 import {useLocation } from 'react-router';
-import { fileURLToPath } from 'node:url';
 
 const Moon = (props: any) => {
     const [AnimationProps, setAnimationProps] = useState({
@@ -27,6 +26,7 @@ const Moon = (props: any) => {
     });
     
     var location = useLocation().pathname
+    //changes moon animation props everytime the url changes
     useEffect(() => {
         if(location === "/home"){
             setAnimationProps({
@@ -47,7 +47,6 @@ const Moon = (props: any) => {
                     y: -500,
                 },
             });
-            console.log("we are at home")
         }
         else if(location === "/home/strength"){
             setAnimationProps({
@@ -68,7 +67,6 @@ const Moon = (props: any) => {
                     y: -500,
                 },
             });
-            console.log("we are somwhere else")
         }
         else if(location === "/home/routine"){
             setAnimationProps({
@@ -89,7 +87,6 @@ const Moon = (props: any) => {
                     y: -500,
                 },
             });
-            console.log("we are somwhere else")
         }
         else if(location === "/home/daily"){
             setAnimationProps({
@@ -110,14 +107,10 @@ const Moon = (props: any) => {
                     y: -500,
                 },
             });
-            console.log("we are somwhere else")
         }
         
     },[location]);
-
-    //Props for animation
-
-        
+    
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={AnimationProps} id="moon" className="moonContainer">
             <div className="moonLight"></div>

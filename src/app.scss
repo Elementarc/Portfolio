@@ -10,6 +10,8 @@ body{
     max-height: 1350px;
     margin: 0 auto;
     overflow: hidden;
+    background: rgb(0, 23, 46);
+    background: linear-gradient(180deg, rgba(0, 23, 46, 1) 0%, rgba(9, 9, 9, 1) 100%);
 }
 @media (max-width: 900px){
     .App{

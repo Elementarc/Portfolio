@@ -1,19 +1,21 @@
 import React from "react"
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
-
+import {motion} from "framer-motion"
 import "./app.scss"
 
 //import components
 import Homepage from "./pages/Homepage"
 import DesignPage from "./pages/Design"
 import Nav from "./components/Nav"
+import Blackbar from "./components/Blackbar"
+import Logo from "./components/LogoName"
+
+
 
 function App() {
   return (
-    <div className="App">
+    <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App">
       <Router>
-        <Nav/>
-        
         <Switch>
           <Route path="/design" component={DesignPage} />
           <Route path="/home" component={Homepage} />
@@ -22,12 +24,12 @@ function App() {
             <Redirect to="/home"/>
           </Route>
         </Switch>
-        
 
+        <Nav/>
+        <Blackbar/>
+        <Logo/>
       </Router>
-      
-      
-    </div>
+    </motion.div>
   );
 }
 
