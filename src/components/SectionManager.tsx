@@ -145,8 +145,8 @@ const SectionManager = (props: any) => {
                 toogleSectionName(true)
                 
                 locationIndex--
-                if(locationIndex > 3){
-                    locationIndex= 3
+                if(locationIndex > 2){
+                    locationIndex = 2
                 }
 
                 if(locationIndex === 0){
