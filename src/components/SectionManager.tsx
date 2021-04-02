@@ -1,7 +1,10 @@
 import React, {useEffect} from 'react';
 import "./styleSheets/sectionManager.scss"
-import {Link, useHistory} from "react-router-dom"
+import {Link, useLocation, useHistory} from "react-router-dom"
 import {motion} from "framer-motion"
+
+
+var locationIndex = 0
 //Toggles Animation for sectionNames on Hover. Does not get triggert when device width is below 600px
 function toogleSectionName(toggle: boolean) {
     var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
@@ -15,7 +18,7 @@ function toogleSectionName(toggle: boolean) {
             arr.push(i)
         }
 
-        if(toggle === false){
+        if(toggle === true){
             arr.forEach( i => {
                 setTimeout(() => {
                     var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
@@ -44,7 +47,7 @@ function toogleSectionName(toggle: boolean) {
     }
     
 }
-//sets style for section: takes url as parameter to check which section button needs to light up
+//sets style for section: takes url as parameter to check which section button needs to light up and also sets the location index for wheelListener function
 function setTarget(url: string) {
     var getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
     var getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
@@ -67,7 +70,7 @@ function setTarget(url: string) {
         getShadowTarget2.classList.remove("sectionShadowTarget")
         getShadowTarget3.classList.remove("sectionShadowTarget")
         getShadowTarget4.classList.remove("sectionShadowTarget")
-        
+        locationIndex = 0
     }
     else if(url === "/home/strength"){
         getSectionTarget2.classList.add("sectionsTarget")
@@ -80,6 +83,7 @@ function setTarget(url: string) {
         getShadowTarget1.classList.remove("sectionShadowTarget")
         getShadowTarget3.classList.remove("sectionShadowTarget")
         getShadowTarget4.classList.remove("sectionShadowTarget")
+        locationIndex = 1
     }
     else if(url === "/home/routine"){
         getSectionTarget3.classList.add("sectionsTarget")
@@ -92,6 +96,7 @@ function setTarget(url: string) {
         getShadowTarget1.classList.remove("sectionShadowTarget")
         getShadowTarget2.classList.remove("sectionShadowTarget")
         getShadowTarget4.classList.remove("sectionShadowTarget")
+        locationIndex = 2
     }
     else if(url === "/home/daily"){
         getSectionTarget4.classList.add("sectionsTarget")
@@ -104,6 +109,7 @@ function setTarget(url: string) {
         getShadowTarget1.classList.remove("sectionShadowTarget")
         getShadowTarget2.classList.remove("sectionShadowTarget")
         getShadowTarget3.classList.remove("sectionShadowTarget")
+        locationIndex = 3
     }
 }
 //Props for animation
@@ -120,16 +126,78 @@ var interfaceAnimation = {
         opacity: 0,
     },
 }
+
 const SectionManager = (props: any) => {
-    var url = useHistory()
-
+    const location = useLocation()
+    var path = useHistory()
     useEffect(() =>{
-        setTarget(url.location.pathname)
-    })
+        //setting style for right section-button after checking url
+        setTarget(location.pathname)
 
+        //Disables sectionnames after 3 seconds no wheel inputs for better ui
+        var timeout = setTimeout(() => {
+            toogleSectionName(false)
+        }, 3000);
+        //Checks if scroll up/down to then adds 1 to locationIndex and replace
+        function wheelListner(e: any) {
+            //wheel UP
+            if(e.deltaY < 0){
+                toogleSectionName(true)
+                
+                locationIndex--
+                if(locationIndex > 3){
+                    locationIndex= 3
+                }
+
+                if(locationIndex === 0){
+                    path.replace("/home")
+                }
+                else if(locationIndex === 1){
+                    path.replace("/home/strength")
+                }
+                else if(locationIndex === 2){
+                    path.replace("/home/routine")
+                }
+                else if(locationIndex === 3){
+                    path.replace("/home/daily")
+                }
+                
+                clearTimeout(timeout)
+            }
+            //wheel DOWN
+            else{
+                toogleSectionName(true)
+
+                locationIndex++
+                if(locationIndex < 1){
+                    locationIndex= 1
+                }
+
+                if(locationIndex === 0){
+                    path.replace("/home")
+                }
+                else if(locationIndex === 1){
+                    path.replace("/home/strength")
+                }
+                else if(locationIndex === 2){
+                    path.replace("/home/routine")
+                }
+                else if(locationIndex === 3){
+                    path.replace("/home/daily")
+                }
+                clearTimeout(timeout)
+            }
+        }
+
+        //Eventlistener that uses the function wheellistner
+        window.addEventListener("wheel", wheelListner)
+        return(() =>{
+            window.removeEventListener("wheel", wheelListner)
+        })
+    })
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} className="SectionContainer">
-            <div id="sectionContent" className="sectionContent" onMouseEnter={() => toogleSectionName(false)} onMouseLeave={() => toogleSectionName(true)}>
+            <div id="sectionContent" className="sectionContent" onMouseEnter={() => toogleSectionName(true)} onMouseLeave={() => toogleSectionName(false)}>
                         <Link id="sections1" className="sections1" to="/home">
                             <div id="sectionShadowTarget1" className="sectionShadow"></div>
                             <div className="section">

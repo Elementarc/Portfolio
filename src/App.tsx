@@ -1,5 +1,5 @@
 import React from "react"
-import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
+import {BrowserRouter as Router, Redirect, Route, Switch, useLocation} from "react-router-dom"
 import {motion} from "framer-motion"
 import "./app.scss"
 
@@ -11,11 +11,10 @@ import Blackbar from "./components/Blackbar"
 import Logo from "./components/LogoName"
 
 
-
 function App() {
   return (
-    <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App">
-      <Router>
+    <Router>
+      <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App">
         <Switch>
           <Route path="/design" component={DesignPage} />
           <Route path="/home" component={Homepage} />
@@ -28,8 +27,8 @@ function App() {
         <Nav/>
         <Blackbar/>
         <Logo/>
-      </Router>
-    </motion.div>
+      </motion.div>
+    </Router>
   );
 }
 
