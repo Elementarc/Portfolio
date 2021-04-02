@@ -142,14 +142,20 @@ const SectionManager = (props: any) => {
     
     //adding scroll effect
     useEffect(() =>{
+        //Toggles sectionNames on pageStart and closes it
         toogleSectionName(true)
+        setTimeout(() => {
+            toogleSectionName(false)
+        }, 3400);
         //Checks if scroll up or down to then add 1 to locationIndex and replace url with right path
         function wheelListner(e: any) {
+            //Toggles sectionNames on scroll and closes it after 3seconds no scrolling
             toogleSectionName(true)
             clearTimeout(timeout)
             timeout = setTimeout(() => {
                 toogleSectionName(false)
             }, 3000);
+            
             //wheel UP
             if(e.deltaY < 0){
                 locationIndex--
