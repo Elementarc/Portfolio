@@ -84,10 +84,12 @@ var interfaceAnimation = {
         opacity: 0,
     },
 }
+
 var timeout: any
 const SectionManager = (props: any) => {
     const location = useLocation()
     const path = useHistory()
+    
     //Toggles Animation for sectionNames on Hover. Does not get triggert when device width is below 600px
     function toogleSectionName(toggle: boolean) {
         var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
@@ -134,18 +136,22 @@ const SectionManager = (props: any) => {
     useEffect(() =>{
         setTarget(location.pathname)
         //resetting sectionName for better ui
-        timeout = setTimeout(() => {
-            toogleSectionName(false)
-        }, 3000);
+        
+        
     })
+    
     //adding scroll effect
     useEffect(() =>{
+        toogleSectionName(true)
         //Checks if scroll up or down to then add 1 to locationIndex and replace url with right path
         function wheelListner(e: any) {
+            toogleSectionName(true)
+            clearTimeout(timeout)
+            timeout = setTimeout(() => {
+                toogleSectionName(false)
+            }, 3000);
             //wheel UP
             if(e.deltaY < 0){
-                toogleSectionName(true)
-                
                 locationIndex--
                 if(locationIndex > 2){
                     locationIndex = 2
@@ -163,13 +169,9 @@ const SectionManager = (props: any) => {
                 else if(locationIndex === 3){
                     path.replace("/home/daily")
                 }
-                clearTimeout(timeout)
-                
             }
             //wheel DOWN
             else{
-                toogleSectionName(true)
-
                 locationIndex++
                 if(locationIndex < 1){
                     locationIndex= 1
@@ -187,8 +189,8 @@ const SectionManager = (props: any) => {
                 else if(locationIndex === 3){
                     path.replace("/home/daily")
                 }
-                clearTimeout(timeout)
             }
+            
         }
         //Eventlistener that uses the function wheellistner
         window.addEventListener("wheel", wheelListner)
