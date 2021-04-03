@@ -7,15 +7,14 @@ import Moon from "../components/Moon"
 import SectionManager from "../components/SectionManager"
 import HomepageContent from "../components/HomepageContent"
 import ScrollDown from "../components/ScrollDown"
-import {AnimatePresence} from "framer-motion"
-
+import {AnimatePresence, motion} from "framer-motion"
 //CSS
 import "./styleSheetPage/homepage.scss"
 const HomepageContainer = (props: any) => {
     const location = useLocation()
 
     return(
-        <div className="homepageContainer" id="home">
+        <motion.div exit={{opacity: 0}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
             <AnimatePresence exitBeforeEnter>
                 <Switch location={location} key={location.key}>
                     <Route exact strict path="/home">
@@ -44,7 +43,7 @@ const HomepageContainer = (props: any) => {
             <Moon/>
             <ScrollDown/>
             
-        </div>
+        </motion.div>
     );
 }
 

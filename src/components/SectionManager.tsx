@@ -5,7 +5,7 @@ import {motion} from "framer-motion"
 
 
 var locationIndex = 0
-//sets style for section: takes url as parameter to check which section button needs to light up and also sets the location index for wheelListener function
+//sets style for section: takes url as parameter to check which section button needs to light up, and also sets the location index for wheelListener function
 function setTarget(url: string) {
     var getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
     var getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
@@ -85,16 +85,18 @@ var interfaceAnimation = {
     },
 }
 
+
 var timeout: any
 const SectionManager = (props: any) => {
     const location = useLocation()
     const path = useHistory()
+
     
     //Toggles Animation for sectionNames on Hover. Does not get triggert when device width is below 600px
     function toogleSectionName(toggle: boolean) {
-        var getSections = document.getElementsByClassName("sectionName") as HTMLCollection
-        var getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
-
+        clearTimeout(timeout)
+        let getSections = document.getElementsByClassName("sectionName") as HTMLCollection
+        let getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
         //Animation only happens if device width is > 900
         if(window.innerWidth >= 900){
             //Creating an array with for index to be able to loop through with foreach
@@ -135,26 +137,19 @@ const SectionManager = (props: any) => {
     //setting style for right section-button after checking url
     useEffect(() =>{
         setTarget(location.pathname)
-        //resetting sectionName for better ui
-        
-        
     })
+    
     
     //adding scroll effect
     useEffect(() =>{
-        //Toggles sectionNames on pageStart and closes it
-        toogleSectionName(true)
-        setTimeout(() => {
-            toogleSectionName(false)
-        }, 3400);
-        //Checks if scroll up or down to then add 1 to locationIndex and replace url with right path
+        //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
         function wheelListner(e: any) {
             //Toggles sectionNames on scroll and closes it after 3seconds no scrolling
             toogleSectionName(true)
             clearTimeout(timeout)
             timeout = setTimeout(() => {
                 toogleSectionName(false)
-            }, 3000);
+            }, 2000);
             
             //wheel UP
             if(e.deltaY < 0){
@@ -198,8 +193,6 @@ const SectionManager = (props: any) => {
             }
             
         }
-        //Eventlistener that uses the function wheellistner
-        window.addEventListener("wheel", wheelListner)
         //Using keydownListener function to disable wheel event to properly zoom in and out without changing home section/urls
         function keydownListener(e: any) {
             if(e.which === 17){
@@ -212,16 +205,31 @@ const SectionManager = (props: any) => {
                 window.addEventListener("wheel", wheelListner)
             }
         }
-        //Eventlistener to disable or enable wheel event with their functions
-        window.addEventListener("keydown", keydownListener)
-        window.addEventListener("keyup", keyupListener)
-        //Cleanup to disable all eventlistener for no memory leaks
-        return(() =>{
-            console.log("all disabled")
-            window.removeEventListener("wheel", wheelListner)
-            window.removeEventListener("keydown", keydownListener)
-            window.removeEventListener("keyup", keyupListener)
-        })
+        if(window.innerHeight > 950){
+            //Toggles sectionNames on pageStart and closes it
+            toogleSectionName(true)
+            clearTimeout(timeout)
+            timeout = setTimeout(() => {
+                toogleSectionName(false)
+            }, 3400);
+            
+            //Eventlistener that uses the function wheellistner
+            window.addEventListener("wheel", wheelListner)
+            
+            //Eventlistener to disable or enable wheel event with their functions
+            window.addEventListener("keydown", keydownListener)
+            window.addEventListener("keyup", keyupListener)
+            //Cleanup to disable all eventlistener for no memory leaks
+            return(() =>{
+                console.log("all disabled")
+                window.removeEventListener("wheel", wheelListner)
+                window.removeEventListener("keydown", keydownListener)
+                window.removeEventListener("keyup", keyupListener)
+            })
+        }
+        else{
+            console.log("device is smaller than 900px")
+        }
     }, [path])
 
     return (
