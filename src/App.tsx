@@ -1,5 +1,5 @@
 import React from "react"
-import {BrowserRouter as Router, Redirect, Route, Switch, useLocation} from "react-router-dom"
+import {Redirect, Route, Switch, useLocation} from "react-router-dom"
 import {AnimatePresence ,motion} from "framer-motion"
 import "./app.scss"
 
@@ -15,15 +15,16 @@ function App() {
   const location = useLocation()
   return (
     <motion.div exit={{opacity: 0}} animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App">
-        <Switch>
-          <Route path="/design" component={DesignPage} />
-          <Route path="/home" component={Homepage}/>
-          
+      <AnimatePresence>
+        <Switch location={location} key={location.pathname.includes("/home") ? "true" : "false"}>
+          <Route strict path="/design" component={DesignPage}/>
+          <Route strict path="/home" component={Homepage}/>
+
           <Route exact path="/">
             <Redirect to="/home"/>
           </Route>
-  
         </Switch>
+      </AnimatePresence>
 
       <Nav/>
       <Blackbar/>

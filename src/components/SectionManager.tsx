@@ -1,21 +1,22 @@
-import React, {useEffect} from 'react';
+import React, {useCallback ,useEffect} from 'react';
 import "./styleSheets/sectionManager.scss"
 import {Link, useLocation, useHistory} from "react-router-dom"
 import {motion} from "framer-motion"
 
 
 var locationIndex = 0
+
 //sets style for section: takes url as parameter to check which section button needs to light up, and also sets the location index for wheelListener function
 function setTarget(url: string) {
-    var getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
-    var getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
-    var getSectionTarget3 = document.getElementById("sections3") as HTMLDivElement
-    var getSectionTarget4 = document.getElementById("sections4") as HTMLDivElement
+    let getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
+    let getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
+    let getSectionTarget3 = document.getElementById("sections3") as HTMLDivElement
+    let getSectionTarget4 = document.getElementById("sections4") as HTMLDivElement
 
-    var getShadowTarget1 = document.getElementById("sectionShadowTarget1") as HTMLDivElement
-    var getShadowTarget2 = document.getElementById("sectionShadowTarget2") as HTMLDivElement
-    var getShadowTarget3 = document.getElementById("sectionShadowTarget3") as HTMLDivElement
-    var getShadowTarget4 = document.getElementById("sectionShadowTarget4") as HTMLDivElement
+    let getShadowTarget1 = document.getElementById("sectionShadowTarget1") as HTMLDivElement
+    let getShadowTarget2 = document.getElementById("sectionShadowTarget2") as HTMLDivElement
+    let getShadowTarget3 = document.getElementById("sectionShadowTarget3") as HTMLDivElement
+    let getShadowTarget4 = document.getElementById("sectionShadowTarget4") as HTMLDivElement
     
     if(url === "/home"){
         getSectionTarget1.classList.add("sectionsTarget")
@@ -85,113 +86,127 @@ var interfaceAnimation = {
     },
 }
 
-
-var timeout: any
+var timer: any
 const SectionManager = (props: any) => {
     const location = useLocation()
     const path = useHistory()
-
     
-    //Toggles Animation for sectionNames on Hover. Does not get triggert when device width is below 600px
-    function toogleSectionName(toggle: boolean) {
-        clearTimeout(timeout)
-        let getSections = document.getElementsByClassName("sectionName") as HTMLCollection
-        let getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
-        //Animation only happens if device width is > 900
-        if(window.innerWidth >= 900){
-            //Creating an array with for index to be able to loop through with foreach
-            var arr = []
-            for(var i = 0; i < getSections.length; i++){
-                arr.push(i)
-            }
-
-            if(toggle === true){
-                arr.forEach( i => {
-                    setTimeout(() => {
-                        var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
-                        getSectionName.style.opacity = "1"
-                        getSectionName.style.transform = "scale(1)"
-                        getSectionName.style.pointerEvents = "visible"
-                        getSectionContent.style.width = "180px"
-                    }, i * 100)
-                })
-                
+    //Toggles Animation for sectionNames. Does not get triggert when device width is below 900px Its a Callback
+    const SectionName = useCallback((state: boolean) =>{
+        function toggleSectionName(toggle: boolean) {
+            let getSections = document.getElementsByClassName("sectionName") as HTMLCollection
+            let getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
+            //Animation only happens if device width is > 900
+            if(window.innerWidth >= 900){
+                if(path.location.pathname.includes("/home") === true){
+                    //Creating an array with for index to be able to loop through with foreach
+                    let arr = []
+                    for(let i = 0; i < getSections.length; i++){
+                        arr.push(i)
+                    }
+    
+                    if(toggle === true){
+                        arr.forEach( i => {
+                            setTimeout(() => {
+                                var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
+                                getSectionName.style.opacity = "1"
+                                getSectionName.style.transform = "scale(1)"
+                                getSectionName.style.pointerEvents = "visible"
+                                getSectionContent.style.width = "180px"
+                            }, i * 100)
+                        })
+                        
+                    }
+                    else{
+                        arr.forEach( n =>{
+                            setTimeout(() => {
+                                var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
+                                getSectionName.style.opacity = "0"
+                                getSectionName.style.transform = "scale(0)"
+                                getSectionName.style.pointerEvents = "none"
+                                getSectionContent.style.width = "100%"
+                            }, n * 100);
+                        })
+                    }
+                }
             }
             else{
-                arr.forEach(n =>{
-                    setTimeout(() => {
-                        var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
-                        getSectionName.style.opacity = "0"
-                        getSectionName.style.transform = "scale(0)"
-                        getSectionName.style.pointerEvents = "none"
-                        getSectionContent.style.width = "100%"
-                    }, n * 100);
-                })
+                //console.log("animation will not get triggert since device width is smaller than 900")
             }
-        }
-        else{
-            //console.log("animation will not get triggert since device width is smaller than 900")
-        }
-        
-    }
-    //setting style for right section-button after checking url
+        } 
+        toggleSectionName(state)
+    }, [path])
+    //setting style for right section-button after checking url.
     useEffect(() =>{
         setTarget(location.pathname)
+        //Toggles sectionNames on pageStart and closes it
+        SectionName(true)
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            SectionName(false)
+        }, 3400);
     })
-    
-    
-    //adding scroll effect
-    useEffect(() =>{
+    //Adding eventlistener on mount and removing on unmount
+    useEffect(() => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
         function wheelListner(e: any) {
-            //Toggles sectionNames on scroll and closes it after 3seconds no scrolling
-            toogleSectionName(true)
-            clearTimeout(timeout)
-            timeout = setTimeout(() => {
-                toogleSectionName(false)
-            }, 2000);
-            
-            //wheel UP
-            if(e.deltaY < 0){
-                locationIndex--
-                if(locationIndex > 2){
-                    locationIndex = 2
-                }
+            if(path.location.pathname.includes("/home") === true){
+                if(window.innerWidth >= 900){
+                    //Toggles sectionNames on scroll and closes it after 3seconds no scrolling
+                    SectionName(true)
+                    clearTimeout(timer)
+                    timer = setTimeout(() => {
+                        SectionName(false)
+                    }, 2000);
+                    
+                    //wheel UP
+                    if(e.deltaY < 0){
+                        locationIndex--
+                        if(locationIndex > 2){
+                            locationIndex = 2
+                        }
 
-                if(locationIndex === 0){
-                    path.replace("/home")
+                        if(locationIndex === 0){
+                            path.replace("/home")
+                        }
+                        else if(locationIndex === 1){
+                            path.replace("/home/strength")
+                        }
+                        else if(locationIndex === 2){
+                            path.replace("/home/routine")
+                        }
+                        else if(locationIndex === 3){
+                            path.replace("/home/daily")
+                        }
+                    }
+                    //wheel DOWN
+                    else{
+                        locationIndex++
+                        if(locationIndex < 1){
+                            locationIndex= 1
+                        }
+
+                        if(locationIndex === 0){
+                            path.replace("/home")
+                        }
+                        else if(locationIndex === 1){
+                            path.replace("/home/strength")
+                        }
+                        else if(locationIndex === 2){
+                            path.replace("/home/routine")
+                        }
+                        else if(locationIndex === 3){
+                            path.replace("/home/daily")
+                        }
+                    }
                 }
-                else if(locationIndex === 1){
-                    path.replace("/home/strength")
-                }
-                else if(locationIndex === 2){
-                    path.replace("/home/routine")
-                }
-                else if(locationIndex === 3){
-                    path.replace("/home/daily")
+                else{
+                    //console.log("device smalelr than 900px")
                 }
             }
-            //wheel DOWN
             else{
-                locationIndex++
-                if(locationIndex < 1){
-                    locationIndex= 1
-                }
-
-                if(locationIndex === 0){
-                    path.replace("/home")
-                }
-                else if(locationIndex === 1){
-                    path.replace("/home/strength")
-                }
-                else if(locationIndex === 2){
-                    path.replace("/home/routine")
-                }
-                else if(locationIndex === 3){
-                    path.replace("/home/daily")
-                }
+                //console.log("we are not a home anymore!")
             }
-            
         }
         //Using keydownListener function to disable wheel event to properly zoom in and out without changing home section/urls
         function keydownListener(e: any) {
@@ -205,36 +220,23 @@ const SectionManager = (props: any) => {
                 window.addEventListener("wheel", wheelListner)
             }
         }
-        if(window.innerHeight > 950){
-            //Toggles sectionNames on pageStart and closes it
-            toogleSectionName(true)
-            clearTimeout(timeout)
-            timeout = setTimeout(() => {
-                toogleSectionName(false)
-            }, 3400);
-            
-            //Eventlistener that uses the function wheellistner
-            window.addEventListener("wheel", wheelListner)
-            
-            //Eventlistener to disable or enable wheel event with their functions
-            window.addEventListener("keydown", keydownListener)
-            window.addEventListener("keyup", keyupListener)
-            //Cleanup to disable all eventlistener for no memory leaks
-            return(() =>{
-                console.log("all disabled")
-                window.removeEventListener("wheel", wheelListner)
-                window.removeEventListener("keydown", keydownListener)
-                window.removeEventListener("keyup", keyupListener)
-            })
-        }
-        else{
-            console.log("device is smaller than 900px")
-        }
-    }, [path])
-
+        //Eventlistener that uses the function wheellistner
+        window.addEventListener("wheel", wheelListner)
+        
+        //Eventlistener to disable or enable wheel event with their functions
+        window.addEventListener("keydown", keydownListener)
+        window.addEventListener("keyup", keyupListener)
+        //Cleanup to disable all eventlistener for no memory leaks
+        return(() =>{
+            console.log("all disabled")
+            window.removeEventListener("wheel", wheelListner)
+            window.removeEventListener("keydown", keydownListener)
+            window.removeEventListener("keyup", keyupListener)
+        })
+    }, [path, SectionName])
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} className="SectionContainer">
-            <div id="sectionContent" className="sectionContent" onMouseEnter={() => toogleSectionName(true)} onMouseLeave={() => toogleSectionName(false)}>
+            <div id="sectionContent" className="sectionContent" onMouseEnter={() => SectionName(true)} onMouseLeave={() => SectionName(false)}>
                         <Link id="sections1" className="sections1" to="/home">
                             <div id="sectionShadowTarget1" className="sectionShadow"></div>
                             <div className="section">

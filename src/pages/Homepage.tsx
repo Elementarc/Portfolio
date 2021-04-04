@@ -14,24 +14,24 @@ const HomepageContainer = (props: any) => {
     const location = useLocation()
 
     return(
-        <motion.div exit={{opacity: 0}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
+        <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
             <AnimatePresence exitBeforeEnter>
                 <Switch location={location} key={location.key}>
-                    <Route exact strict path="/home">
+                    <Route exact path='/home'>
                         <HomepageContent/>
                     </Route>
 
-                    <Route exact path="/home/strength">
+                    <Route exact path='home/strength'>
                         
 
                     </Route>
 
-                    <Route exact path="/home/routine">
+                    <Route exact path='home/routine'>
                                 
                             
                     </Route>
 
-                    <Route exact path="/home/daily" >
+                    <Route exact path='home/daily'>
                                 
                             
                     </Route>
@@ -42,7 +42,6 @@ const HomepageContainer = (props: any) => {
             <SectionManager/>
             <Moon/>
             <ScrollDown/>
-            
         </motion.div>
     );
 }
