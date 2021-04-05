@@ -14,7 +14,7 @@ const HomepageContainer = (props: any) => {
     return(
         <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
             <AnimatePresence exitBeforeEnter>
-                <Switch location={location} key={location.key}>
+                <Switch location={location} key={location.pathname}>
                     <Route exact path='/home'>
                         <HomepageContent/>
                     </Route>
