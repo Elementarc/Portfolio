@@ -5,6 +5,7 @@
 .NavigationContainer {
     position: fixed;
     pointer-events: none;
+    overflow: hidden;
     z-index: 100;
     top: 0;
     width: 100%;

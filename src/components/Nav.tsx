@@ -40,11 +40,12 @@ function animationNav(toggle: any){
 var navState = false
 function toggleNav(){
     if(navState === false){
+        document.body.style.overflow = "hidden"
         animationNav(true)
         navState = true
-        
     }
     else{
+        document.body.style.overflow = "unset"
         animationNav(false)
         navState = false
     }
