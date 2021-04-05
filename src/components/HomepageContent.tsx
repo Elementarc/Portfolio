@@ -1,6 +1,7 @@
 //components
 import React from 'react';
 import {motion} from "framer-motion"
+import ScrollDown from "./ScrollDown"
 //css
 import "./styleSheets/homeContent.scss"
 //Toggles Animation for hovering over GetStarted button.
@@ -31,10 +32,11 @@ const HomepageContent = (props: any) => {
                 </motion.div>
                 <motion.div transition={{duration: 0.8, delay: 1.3}} animate={{opacity: 1}} initial={{opacity: 0}} >
                 <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
-                        <div>GET STARTED</div>
-                        <div id="buttonStyleBox" className="buttonStyleBox"></div>
-                    </button>
+                    <div>GET STARTED</div>
+                    <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                </button>
                 </motion.div>
+                <ScrollDown/>
             </div>
         </motion.div>
     );

@@ -3,8 +3,15 @@ import React, {useEffect} from "react"
 import {Link} from "react-router-dom"
 import {useLocation} from "react-router-dom"
 
+//icons
+import {ReactComponent as HomeIcon} from "../assets/icons/HomeIcon.svg"
+import {ReactComponent as DesignIcon} from "../assets/icons/DesignIcon.svg"
+import {ReactComponent as WorkIcon} from "../assets/icons/WorkIcon.svg"
+import {ReactComponent as ContactIcon} from "../assets/icons/ContactIcon.svg"
+import {ReactComponent as NavCloseIcon} from "../assets/icons/NavCloseIcon.svg"
+import {ReactComponent as ProjectsIcon} from "../assets/icons/ProjectIcon.svg"
+import {ReactComponent as MenuIcon} from "../assets/icons/MenuIcon.svg"
 //Import components
-import SelectIcon from "./SelectIcon" //SelectIcon has icon prop that takes the name of the svg. It needs to get imported to the selectIcon component
 import {motion} from "framer-motion"
 //CSS
 import "./styleSheets/nav.scss"
@@ -146,6 +153,7 @@ var interfaceAnimation = {
         opacity: 0,
     },
 }
+//COMPONENT
 const Nav = (props: any) => {
     var url = useLocation().pathname
     //componentDidMount to give navItem the right class at the beginning of pageload
@@ -157,42 +165,42 @@ const Nav = (props: any) => {
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
             <div onClick={toggleNav} className="navOpenIcon">
-                <SelectIcon icon="MenuIcon"></SelectIcon>
+                <MenuIcon/>
             </div>
             <div onClick={toggleNav} id="navigationBlur" className="navigationBlur"></div>
             <div id="navigation" className="navigation">
                     <ul>
                         <Link className="linkHome" id="navHome" to="/home" onClick={toggleNav}>
                                 <div className="navbarListIconContainer">
-                                    <SelectIcon icon="HomeIcon"/>
+                                    <HomeIcon/>
                                 </div>
                                 HOME
                         </Link>
 
                         <Link className="linkDesign" id="navDesign" to="/design" onClick={toggleNav}>
                                 <div className="navbarListIconContainer">
-                                    <SelectIcon icon="DesignIcon"/>
+                                    <DesignIcon/>
                                 </div>
                                 DESIGN
                         </Link>
 
                         <Link className="linkProjects" id="navProjects" to="/projects" onClick={toggleNav}>
                                 <div className="navbarListIconContainer">
-                                    <SelectIcon icon="ProjectsIcon"/>
+                                    <ProjectsIcon/>
                                 </div>
                                 PROJECTS
                         </Link>
 
                         <Link className="linkWorkspace" id="navWorkspace" to="/workspace" onClick={toggleNav}>
                                 <div className="navbarListIconContainer">
-                                    <SelectIcon icon="WorkIcon"/>
+                                    <WorkIcon/>
                                 </div>
                                 WORKSPACE
                         </Link>
 
                         <Link className="linkContact" id="navContact" to="/contact" onClick={toggleNav}>
                                 <div className="navbarListIconContainer">
-                                    <SelectIcon icon="ContactIcon"/>
+                                    <ContactIcon/>
                                 </div>
                                 CONTACT
                         </Link>
@@ -200,7 +208,7 @@ const Nav = (props: any) => {
 
                     <button onClick={toggleNav} className="navCloseButton">
                         <div className="navCloseIcon">
-                            <SelectIcon icon="NavCloseIcon"/>
+                            <NavCloseIcon/>
                         </div>
                     </button>
                 </div>

@@ -10,6 +10,7 @@
     width: 100%;
     max-width: 2400px;
     height: 100%;
+    min-height: 100%;
 
     .navigationBlur {
         position: fixed;
@@ -275,10 +276,11 @@
             top: 0;
             right: 0;
             opacity: 0;
-            max-width: 20rem;
-            width: 90%;
+            max-width: 18rem;
+            width: 70%;
             box-shadow: black 0px 0px 6px;
             height: 100%;
+            min-height: 100%;
             background: linear-gradient(90deg, #161616 50%, #131313 100%);
             transition: 0.3s ease-in-out;
         
@@ -286,13 +288,12 @@
                 margin-top: 3rem;
                 list-style: none;
                 
-                
                 a{
                     text-decoration: none;
                     display: block;
-                    padding: 1.8rem 0 1.8rem 25%;
+                    padding: 1.8rem 0 1.8rem 26%;
                     color: white;
-                    font-size: 16px;
+                    font-size: 14px;
                     font-family: "Noto Sans";
                     font-weight: 700;
                     transition: 0.1s ease-in-out;
@@ -303,8 +304,8 @@
                         display: inline-block;
                         top: 1px;
                         margin-right: 1.4rem;
-                        height: 16px;
-                        width: 16px;
+                        height: 14px;
+                        width: 14px;
                     }
                 }
                 a:hover{

@@ -6,7 +6,6 @@ import Backgrounds from "../components/Backgrounds"
 import Moon from "../components/Moon"
 import SectionManager from "../components/SectionManager"
 import HomepageContent from "../components/HomepageContent"
-import ScrollDown from "../components/ScrollDown"
 import {AnimatePresence, motion} from "framer-motion"
 //CSS
 import "./styleSheetPage/homepage.scss"
@@ -41,7 +40,6 @@ const HomepageContainer = (props: any) => {
             <Backgrounds/>
             <SectionManager/>
             <Moon/>
-            <ScrollDown/>
         </motion.div>
     );
 }

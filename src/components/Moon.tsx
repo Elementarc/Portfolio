@@ -19,9 +19,9 @@ const Moon = (props: any) => {
             opacity: 1,
         },
         out: {
-            transition: {duration: 0.2},
+            transition: {duration: 0.5},
             opacity: 0,
-            y: -500,
+            y: 0,
         },
     });
     
@@ -42,9 +42,9 @@ const Moon = (props: any) => {
                     opacity: 1,
                 },
                 out: {
-                    transition: {duration: 0.2},
+                    transition: {duration: 0.5},
                     opacity: 0,
-                    y: -500,
+                    y: 0,
                 },
             });
         }
@@ -62,9 +62,9 @@ const Moon = (props: any) => {
                     opacity: 1,
                 },
                 out: {
-                    transition: {duration: 0.2},
+                    transition: {duration: 0.5},
                     opacity: 0,
-                    y: -500,
+                    y: 0,
                 },
             });
         }
@@ -82,9 +82,9 @@ const Moon = (props: any) => {
                     opacity: 1,
                 },
                 out: {
-                    transition: {duration: 0.2},
+                    transition: {duration: 0.5},
                     opacity: 0,
-                    y: -500,
+                    y: 0,
                 },
             });
         }
@@ -112,10 +112,10 @@ const Moon = (props: any) => {
     },[location]);
     
     return (
-        <motion.div animate="in" exit="out" initial="initial" variants={AnimationProps} id="moon" className="moonContainer">
+        <motion.div animate="in" exit="out" initial="initial" variants={AnimationProps} id="moon"  className="moonContainer">
             <div className="moonLight"></div>
             <div className="moonLightV2"></div>
-        </motion.div>
+        </motion.div>        
     );
 }
 

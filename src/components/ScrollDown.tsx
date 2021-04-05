@@ -1,13 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {motion} from "framer-motion"
 import "./styleSheets/scrollDown.scss"
-import SelectIcon from "./SelectIcon"
 
+//icons
+import {ReactComponent as ScrollDownIcon} from "../assets/icons/DownArrowIcon.svg"
 
+//Props for animation
+var interfaceAnimation = {
+    initial: {
+        opacity: 0,
+    },
+    in: {
+        transition: {delay: 2, duration: 1},
+        opacity: 1,
+    },
+    out: {
+        transition: {duration: 0.2},
+        opacity: 0,
+    },
+}
 const ScrollDown = () => {
-    function scrolldownContainer(scrollY: number) {
+    function scrolldownContainer() {
         var getScrolldownContainer = document.getElementById("ScrolldownContainer") as HTMLDivElement
-        
+        var scrollY: number = window.scrollY
+
         if(scrollY > 1){
+            getScrolldownContainer.style.transition = "0.2s ease-in-out"
             getScrolldownContainer.style.opacity = "0"
         }
         else{
@@ -15,17 +33,17 @@ const ScrollDown = () => {
         }
     }
     
-    
-    window.addEventListener("scroll", () =>{
-        var scrollY: number = window.scrollY
-
-        scrolldownContainer(scrollY)
-    })
+    useEffect(() => {
+        window.addEventListener("scroll", scrolldownContainer)
+        return () => {
+            window.removeEventListener("scroll", scrolldownContainer)
+        };
+    }, []);
     
     return (
-        <div id="ScrolldownContainer" className="ScrolldownContainer">
-            <SelectIcon icon="DownArrowIcon"></SelectIcon>
-        </div>
+        <motion.div initial="initial" exit="out" animate="in" variants={interfaceAnimation} id="ScrolldownContainer" className="ScrolldownContainer">
+            <ScrollDownIcon/>
+        </motion.div>
     );
 }
 

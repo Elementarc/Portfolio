@@ -1,5 +1,6 @@
 .moonContainer {
     position: absolute;
+    transform: scale(2);
     top: -30px;
     left: -100px;
     height: 200px;
@@ -7,7 +8,6 @@
     z-index: 1;
     box-shadow: 3px 3px rgba(0, 0, 0, 0.452);
     border-radius: 50%;
-    background-color: white;
     align-self: flex-start;
     background-image: url("../../assets/images/Moon.png");
     background-position: center;
@@ -37,5 +37,42 @@
     }
 }
 
-
+@media (max-width: 900px){
+    .moonContainer {
+        position: absolute;
+        top: 0px;
+        left: -70px;
+        height: 120px;
+        width: 120px;
+        z-index: 1;
+        box-shadow: 3px 3px rgba(0, 0, 0, 0.452);
+        border-radius: 50%;
+        background-color: white;
+        align-self: flex-start;
+        background-image: url("../../assets/images/Moon.png");
+        background-position: center;
+    
+        .moonLight {
+            position: absolute;
+            box-shadow: 16px 12px 100px 36px #ffffff;
+            opacity: 0.4;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            border-radius: 50%;
+            align-self: flex-start;
+        }
+    
+        .moonLightV2 {
+            position: absolute;
+            box-shadow: 16px 12px 100px 100px #ffffff;
+            opacity: 0.1;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            border-radius: 50%;
+            align-self: flex-start;
+        }
+    }
+}
 

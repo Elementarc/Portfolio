@@ -1,60 +1,29 @@
 .ScrolldownContainer {
     position: fixed;
-    pointer-events: none;
-    transition: 0.2s ease-in-out;
-    opacity: 1;
+    left: 0;
     bottom: 1rem;
+    pointer-events: none;
+    opacity: 1;
     transform: translateY(10px);
     z-index: 1;
-    height: 30px;
+    height: 25px;
     width: 100%;
     max-width: 2400px;
     animation: ScrollDownIconAnimation 0.5s infinite;
     animation-direction: alternate;
 }
 
-@media (max-width: 1200px){
+@media (max-width: 900px) {
     .ScrolldownContainer {
-        position: fixed;
+        position: relative;
+        left: unset;
+        margin-top: 2rem;
+        bottom: unset;
         pointer-events: none;
-        transition: 0.2s ease-in-out;
         opacity: 1;
-        bottom: 1rem;
         transform: translateY(10px);
         z-index: 1;
-        height: 30px;
-        width: 100%;
-        max-width: 2400px;
-        animation: ScrollDownIconAnimation 0.5s infinite;
-        animation-direction: alternate;
-    }
-}
-@media (max-width: 900px){
-    .ScrolldownContainer {
-        position: fixed;
-        pointer-events: none;
-        transition: 0.2s ease-in-out;
-        opacity: 1;
-        bottom: 6rem;
-        transform: translateY(10px);
-        z-index: 1;
-        height: 24px;
-        width: 100%;
-        max-width: 2400px;
-        animation: ScrollDownIconAnimation 0.5s infinite;
-        animation-direction: alternate;
-    }
-}
-@media (max-height: 700px){
-    .ScrolldownContainer {
-        position: fixed;
-        pointer-events: none;
-        transition: 0.2s ease-in-out;
-        opacity: 1;
-        bottom: 1rem;
-        transform: translateY(10px);
-        z-index: 1;
-        height: 24px;
+        height: 20px;
         width: 100%;
         max-width: 2400px;
         animation: ScrollDownIconAnimation 0.5s infinite;
