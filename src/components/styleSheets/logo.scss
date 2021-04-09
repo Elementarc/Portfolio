@@ -1,6 +1,6 @@
 //Logo
 .LogoContainer {
-    position: absolute;
+    position: fixed;
     pointer-events: none;
     margin: 2rem 5rem;
     bottom: 0rem;
@@ -18,8 +18,28 @@
         font-weight: 400;
     }
 }
-
-@media (max-width: 900px){
+@media (min-width: 2400px){
+    .LogoContainer {
+        position: absolute;
+        pointer-events: none;
+        margin: 2rem 5rem;
+        bottom: 0rem;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 34px;
+        z-index: 2;
+        p{
+            color: white;
+            font-family: "Noto Sans";
+            letter-spacing: 0.1rem;
+            font-size: 15px;
+            font-weight: 400;
+        }
+    }
+}
+@media (max-width: 1000px){
     .LogoContainer {
         position: fixed;
         pointer-events: none;

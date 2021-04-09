@@ -12,8 +12,24 @@
     animation: ScrollDownIconAnimation 0.5s infinite;
     animation-direction: alternate;
 }
-
-@media (max-width: 900px) {
+@media (min-width: 2600px) {
+    .ScrolldownContainer {
+        position: absolute;
+        top: 81rem;
+        left: 0;
+        bottom: 1rem;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(10px);
+        z-index: 1;
+        height: 25px;
+        width: 100%;
+        max-width: 2400px;
+        animation: ScrollDownIconAnimation 0.5s infinite;
+        animation-direction: alternate;
+    }
+}
+@media (max-width: 1000px) {
     .ScrolldownContainer {
         position: relative;
         left: unset;

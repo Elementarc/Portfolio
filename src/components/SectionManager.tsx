@@ -151,7 +151,7 @@ const SectionManager = (props: any) => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
         function wheelListner(e: any) {
             if(path.location.pathname.includes("/home") === true){
-                if(window.innerWidth >= 900){
+                if(window.innerWidth >= 900 && window.innerHeight >= 950){
                     //Toggles sectionNames on scroll and closes it after 3seconds no scrolling
                     SectionName(true)
                     clearTimeout(timer)

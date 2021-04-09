@@ -9,11 +9,10 @@ body{
     max-width: 2400px;
     max-height: 1350px;
     margin: 0 auto;
-    overflow: hidden;
     background: rgb(0, 23, 46);
     background: linear-gradient(180deg, rgba(0, 23, 46, 1) 0%, rgb(2, 6, 12) 100%);
 }
-@media (max-width: 900px){
+@media (max-width: 1000px){
     .App{
         position: relative;
         display: block;
