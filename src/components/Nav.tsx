@@ -165,7 +165,7 @@ const Nav = (props: any) => {
     
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
-            <div onClick={toggleNav} className="navOpenIcon">
+            <div onClick={toggleNav} className="navOpenIconContainer">
                 <MenuIcon/>
             </div>
             <div onClick={toggleNav} id="navigationBlur" className="navigationBlur"></div>

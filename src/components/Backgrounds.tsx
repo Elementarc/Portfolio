@@ -22,7 +22,7 @@ var backgroundProps = {
     out: {
         x: 0,
         y: 0,
-        transition: {delay: 0.2, duration: 1},
+        transition: {delay: 0.5, duration: 1},
         opacity: 0,
     },
 }

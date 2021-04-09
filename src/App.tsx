@@ -26,8 +26,8 @@ function App() {
   
   return (
     <motion.div exit={{opacity: 0}} animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
-      <AnimatePresence exitBeforeEnter>
-        <Switch location={location} key={location.pathname.includes("/home") ? "true" : "false"}>
+      <AnimatePresence>
+        <Switch location={location} key={location.pathname.includes(`/home`) ? "true" : "false"}>
           <Route strict path="/design" component={DesignPage}/>
           <Route strict path="/home" component={Homepage}/>
 

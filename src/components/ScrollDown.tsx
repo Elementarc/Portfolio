@@ -15,7 +15,7 @@ var interfaceAnimation = {
         opacity: 1,
     },
     out: {
-        transition: {duration: 0.2},
+        transition: {delay: 0, duration: 0},
         opacity: 0,
     },
 }
@@ -25,7 +25,6 @@ const ScrollDown = () => {
         var scrollY: number = window.scrollY
 
         if(scrollY > 1){
-            getScrolldownContainer.style.transition = "0.2s ease-in-out"
             getScrolldownContainer.style.opacity = "0"
         }
         else{
