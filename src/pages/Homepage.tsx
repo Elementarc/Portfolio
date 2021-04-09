@@ -11,12 +11,7 @@ import {AnimatePresence, motion} from "framer-motion"
 import "./styleSheetPage/homepage.scss"
 const HomepageContainer = (props: any) => {
     const location = useLocation()
-    //Making scrolling not possible on this page
-    useEffect(() => {
-        let getApp = document.getElementById("App") as HTMLDivElement
 
-        getApp.style.overflow = "hidden"
-    });
     return(
         <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
             <AnimatePresence exitBeforeEnter>

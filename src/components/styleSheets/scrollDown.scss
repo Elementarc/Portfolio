@@ -15,6 +15,7 @@
 @media (min-width: 2600px) {
     .ScrolldownContainer {
         position: absolute;
+        overflow: hidden;
         top: 81rem;
         left: 0;
         bottom: 1rem;

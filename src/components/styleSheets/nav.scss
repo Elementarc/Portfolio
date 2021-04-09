@@ -11,7 +11,7 @@
     width: 100%;
     max-width: 2400px;
     height: 100%;
-    min-height: 100%;
+    max-height: 1350px;
 
     .navigationBlur {
         position: fixed;
@@ -127,21 +127,19 @@
     .NavigationContainer {
         position: sticky;
         pointer-events: none;
-        overflow: hidden;
         z-index: 100;
         top: 0;
         width: 100%;
         max-width: 2400px;
         height: 100%;
-        min-height: 100%;
+        max-height: 1350px;
     
         .navigationBlur {
-            position: fixed;
+            position: sticky;
+            overflow: hidden;
             z-index: 3;
             top: 0;
             width: 100%;
-            max-width: 2400px;
-            max-height: 1350px;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             pointer-events: none;
@@ -175,6 +173,7 @@
             right: 0;
             opacity: 0;
             width: 24rem;
+            overflow: hidden;
             box-shadow: black 0px 0px 6px;
             height: 100%;
             background: linear-gradient(90deg, #161616 50%, #131313 100%);
