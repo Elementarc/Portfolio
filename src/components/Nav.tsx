@@ -114,8 +114,8 @@ function giveNavStyleTarget(url: string) {
         getNavItemWorkspaceIcon.classList.add("targetNavIcon")
         //removing style from all others
         getNavItemHome.classList.remove("targetNavItem")
-        getNavItemHomeIcon.classList.remove("targetIcon")
-        getNavItemDesign.classList.remove("targetNavNavItem")
+        getNavItemHomeIcon.classList.remove("targetNavIcon")
+        getNavItemDesign.classList.remove("targetNavItem")
         getNavItemDesignIcon.classList.remove("targetNavIcon")
         getNavItemProjects.classList.remove("targetNavItem")
         getNavItemProjectsIcon.classList.remove("targetNavIcon")

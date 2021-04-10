@@ -1,8 +1,8 @@
-import React, {useEffect} from "react"
+import React from "react"
 import {Route, Switch, useLocation} from "react-router-dom"
 
 //Import components
-import Backgrounds from "../components/Backgrounds"
+import Stars from "../components/Stars"
 import Moon from "../components/Moon"
 import SectionManager from "../components/SectionManager"
 import HomepageContent from "../components/HomepageContent"
@@ -37,7 +37,7 @@ const HomepageContainer = (props: any) => {
                 </Switch>
             </AnimatePresence>
 
-            <Backgrounds/>
+            <Stars/>
             <SectionManager/>
             <Moon/>
         </motion.div>

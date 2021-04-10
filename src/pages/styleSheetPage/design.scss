@@ -5,6 +5,12 @@
     width: 100%;
     max-height: 1350px;
     overflow: hidden;
-    background: rgb(0, 23, 46);
-    background: linear-gradient(180deg, rgba(0, 23, 46, 1) 0%, rgb(2, 6, 12) 100%);
+    .BackgroundSlide1{
+        height: 100%;
+        width: 100%;
+        background-image: url("../../assets/images/Wallpaper.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }

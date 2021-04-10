@@ -20,12 +20,13 @@
         font-weight: 400;
     }
 }
+
 @media (min-width: 2400px){
     .LogoContainer {
         position: absolute;
         pointer-events: none;
         margin: 2rem 5rem;
-        bottom: 0rem;
+        top: 78rem;
         width: 100%;
         display: flex;
         justify-content: flex-start;

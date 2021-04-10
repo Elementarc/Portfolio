@@ -7,7 +7,9 @@ body{
     overflow: hidden;
     height: 100vh;
     max-width: 2400px;
-    background-color: rgb(34, 34, 34);
+    max-height: 1350px;
+    background: rgb(0, 23, 46);
+    background: linear-gradient(180deg, rgba(0, 23, 46, 1) 0%, rgb(2, 6, 12) 100%);
     margin: 0 auto;
 }
 @media (max-width: 1000px){

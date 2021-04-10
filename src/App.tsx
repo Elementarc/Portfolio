@@ -10,7 +10,6 @@ import Nav from "./components/Nav"
 import Blackbar from "./components/Blackbar"
 import Logo from "./components/LogoName"
 
-
 function App() { 
   const location = useLocation()
   //scrolls to top whenever URL changes for better ux
@@ -25,11 +24,11 @@ function App() {
   }, [location.pathname]);
   
   return (
-    <motion.div exit={{opacity: 0}} animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
+    <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
       <AnimatePresence>
         <Switch location={location} key={location.pathname.includes(`/home`) ? "true" : "false"}>
-          <Route strict path="/design" component={DesignPage}/>
           <Route strict path="/home" component={Homepage}/>
+          <Route strict path="/design" component={DesignPage}/>
 
           <Route exact path="/">
             <Redirect to="/home"/>

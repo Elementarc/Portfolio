@@ -3,8 +3,8 @@ import Particles from "react-tsparticles"
 import ParticlesConfig from "../assets/ParticlesConfig/particlesjs-config.json"
 import {motion} from "framer-motion"
 
-import "./styleSheets/background.scss"
-import { useLocation } from 'react-router';
+import "./styleSheets/stars.scss"
+import {useLocation} from 'react-router';
 
 var backgroundProps = {
     initial: {
@@ -22,7 +22,7 @@ var backgroundProps = {
     out: {
         x: 0,
         y: 0,
-        transition: {delay: 0.5, duration: 1},
+        transition: {delay: 0.2, duration: 0.5},
         opacity: 0,
     },
 }
@@ -30,7 +30,7 @@ var backgroundProps = {
 var num: number = 0
 //inserts num to the css prop to make it animate like an elevator
 function particlesAnimation(direction: string) {
-    var getParticles = document.getElementById("Background") as HTMLDivElement
+    var getParticles = document.getElementById("Stars") as HTMLDivElement
     if(direction === "forward"){
         getParticles.style.top = `${-num}%`;
     }
@@ -38,7 +38,7 @@ function particlesAnimation(direction: string) {
         getParticles.style.top = `${-num}%`;
     }
 }
-const Backgrounds = (props: any) => {
+const Stars = (props: any) => {
     const location = useLocation().pathname
     //Creating a number for each section to than use it for particlesAnimation
     useEffect(() =>{
@@ -66,10 +66,9 @@ const Backgrounds = (props: any) => {
     
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={backgroundProps}>
-            <Particles className="Background" id="Background" options={ParticlesConfig}></Particles>
+            <Particles className="Stars" id="Stars" options={ParticlesConfig}></Particles>
         </motion.div>
-        
     );
 }
 
-export default Backgrounds;
+export default Stars;
