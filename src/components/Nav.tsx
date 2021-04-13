@@ -156,13 +156,13 @@ var interfaceAnimation = {
 }
 //COMPONENT
 const Nav = (props: any) => {
-    var url = useLocation().pathname
+    const location = useLocation()
     //componentDidMount to give navItem the right class at the beginning of pageload
     useEffect(() =>{
-        giveNavStyleTarget(url)
-    })
+        giveNavStyleTarget(location.pathname)
+    },[location.pathname])
     
-    
+    console.log("Rerenderd")
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
             <div onClick={toggleNav} className="navOpenIconContainer">
