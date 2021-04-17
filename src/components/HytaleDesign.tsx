@@ -86,8 +86,9 @@ var preview3Styles = {
 const HytaleDesign = () => {
     const [State, setState] = useState(false);
 
+    //Animates Images
     useEffect(() => {
-        //Animation for Images
+        //Animation for Images changes State at the end of the function to rerender the component
         function changeStyle() {
             if(window.innerWidth > 1000){
                 previewState++
@@ -343,10 +344,13 @@ const HytaleDesign = () => {
                 console.log("Devices smaller than 1000px")
             }
         }
+        //Function gets called every 3.5seconds 
         setTimeout(() => {
             changeStyle()
         }, 3500);
     }, [State]);
+    
+    //Return JSX
     if(window.innerWidth > 1000){
         return (
             <div className="hytaleDesignBackground">

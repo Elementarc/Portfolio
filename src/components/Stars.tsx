@@ -43,6 +43,7 @@ const Stars = (props: any) => {
     //Creating a number for each section to than use it for particlesAnimation
     useEffect(() =>{
         var numBefore = num
+
         if(location === "/home"){
             num = 100
         }
@@ -56,19 +57,35 @@ const Stars = (props: any) => {
             num = 400
         }
 
-        if(num > numBefore){
-            particlesAnimation("forward")
+        if(window.innerWidth > 1000){
+            if(num > numBefore){
+                particlesAnimation("forward")
+            }
+            else if(num < numBefore){
+                particlesAnimation("backwards")
+            }
         }
-        else if(num < numBefore){
-            particlesAnimation("backwards")
+        else{
+            console.log("Devices is smaller than 1000px width. (Component Stars)")
         }
+        
     }, [location])
     
-    return (
-        <motion.div animate="in" exit="out" initial="initial" variants={backgroundProps}>
-            <Particles className="Stars" id="Stars" options={ParticlesConfig}></Particles>
-        </motion.div>
-    );
+    if(window.innerWidth > 1000){
+        return (
+            <motion.div animate="in" exit="out" initial="initial" variants={backgroundProps}>
+                <Particles className="Stars" id="Stars" options={ParticlesConfig}></Particles>
+            </motion.div>
+        );
+    }
+    else{
+        return (
+            <motion.div animate="in" exit="out" initial="initial" variants={backgroundProps}>
+                <Particles className="StarsMobile" id="Stars" options={ParticlesConfig}></Particles>
+            </motion.div>
+        )
+    }
+    
 }
 
 export default Stars;
