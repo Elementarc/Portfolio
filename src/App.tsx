@@ -5,7 +5,7 @@ import "./app.scss"
 
 //import components
 import Homepage from "./pages/Homepage"
-import DesignPage from "./pages/Design"
+import DesignPage from "./pages/DesignPage"
 import Nav from "./components/Nav"
 import Blackbar from "./components/Blackbar"
 import Logo from "./components/LogoName"

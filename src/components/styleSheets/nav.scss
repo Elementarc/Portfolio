@@ -125,7 +125,7 @@
 /*END--NavBar Styles--END*/
 @media (min-width: 2400px){
     .NavigationContainer {
-        position: sticky;
+        position: absolute;
         pointer-events: none;
         z-index: 100;
         top: 0;

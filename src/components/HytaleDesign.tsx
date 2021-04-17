@@ -1,18 +1,389 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {motion} from "framer-motion"
-
-//css
 import "./styleSheets/hytaleDesign.scss"
 
-const DesignHytale = () => {
-    return (
-        <motion.div className="BackgroundSlide1">
-            <motion.div  animate={{opacity: 1, transition: {delay: 0.8, duration: 0.5}}} initial={{opacity: 0}}>
-                <button className="hytaleDesign">SEE DESIGN</button>
-            </motion.div>
-            <motion.div animate={{y: 0, transition: {delay: 0.5, duration: 1, type: 'spring'}}} exit="out" initial={{y: 200}} className="bottomDeco"></motion.div>
-        </motion.div>
-    );
+var previewState: number = 1
+
+var preview1Styles = {
+    init: {
+        zIndex: 0,
+        x: 0,
+        y: 0,
+        opacity: 0,
+        scale: 0,
+        transition: {duration: 1, delay: 0, type: 'spring'}
+    },
+    in: {
+        zIndex: 3,
+        x: 0,
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+    },
+    exit: {
+        zIndex: 0,
+        x: 0,
+        y: 0,
+        opacity: 0,
+        scale: 0.4,
+        transition: {duration: 0.5, delay: 0, type: 'spring'}
+    },
+}
+var preview2Styles = {
+    init: {
+        zIndex: 0,
+        x: 0,
+        y: 0,
+        opacity: 0,
+        scale: 0,
+        transition: {duration: 1, delay: 0, type: 'spring'}
+    },
+    in: {
+        zIndex: 2,
+        x: -200,
+        y: -130,
+        opacity: 0.6,
+        scale: 0.6,
+        transition: {duration: 2, delay: 0.5, type: 'spring'}
+    },
+    exit: {
+        zIndex: 0,
+        x: 0,
+        y: 0,
+        opacity: 0,
+        scale: 0.4,
+        transition: {duration: 0.5, delay: 0, type: 'spring'}
+    },
+}
+var preview3Styles = {
+    init: {
+        zIndex: 0,
+        x: 0,
+        y: 0,
+        opacity: 0,
+        scale: 0,
+        transition: {duration: 1, delay: 0, type: 'spring'}
+    },
+    in: {
+        zIndex: 1,
+        x: -70,
+        y: -220,
+        opacity: 0.6,
+        scale: 0.3,
+        transition: {duration: 1.5, delay: 0.5, type: 'spring'}
+    },
+    exit: {
+        zIndex: 0,
+        x: 0,
+        y: 0,
+        opacity: 0,
+        scale: 0.4,
+        transition: {duration: 0.5, delay: 0, type: 'spring'}
+    },
 }
 
-export default DesignHytale;
+const HytaleDesign = () => {
+    const [State, setState] = useState(false);
+
+    useEffect(() => {
+        //Animation for Images
+        function changeStyle() {
+            if(window.innerWidth > 1000){
+                previewState++
+                if(previewState > 3){
+                    previewState = 1
+                }
+
+                if(previewState === 1){
+                    //First Box Preview1
+                    preview1Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                    preview2Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 2,
+                            x: -200,
+                            y: -130,
+                            opacity: 0.6,
+                            scale: 0.6,
+                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                    preview3Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 1,
+                            x: -70,
+                            y: -220,
+                            opacity: 0.6,
+                            scale: 0.3,
+                            transition: {duration: 1.5, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                }
+                else if(previewState === 2){
+                    preview2Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                    preview3Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 2,
+                            x: -200,
+                            y: -130,
+                            opacity: 0.6,
+                            scale: 0.6,
+                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                    preview1Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 1,
+                            x: -70,
+                            y: -220,
+                            opacity: 0.6,
+                            scale: 0.3,
+                            transition: {duration: 1.5, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                }
+                else if(previewState === 3){
+                    preview3Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                    preview1Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 2,
+                            x: -200,
+                            y: -130,
+                            opacity: 0.6,
+                            scale: 0.6,
+                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                    preview2Styles = {
+                        init: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0,
+                            transition: {duration: 1, delay: 0, type: 'spring'}
+                        },
+                        in: {
+                            zIndex: 1,
+                            x: -70,
+                            y: -220,
+                            opacity: 0.6,
+                            scale: 0.3,
+                            transition: {duration: 1.5, delay: 0.5, type: 'spring'}
+                        },
+                        exit: {
+                            zIndex: 0,
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.4,
+                            transition: {duration: 0.5, delay: 0, type: 'spring'}
+                        },
+                    }
+                }
+                console.log(previewState)
+                setState(!State)
+            }
+            else{
+                console.log("Devices smaller than 1000px")
+            }
+        }
+        setTimeout(() => {
+            changeStyle()
+        }, 3500);
+    }, [State]);
+    if(window.innerWidth > 1000){
+        return (
+            <div className="hytaleDesignBackground">
+                <div className="previewContainer">
+                    <motion.div animate="in" exit="exit" initial="init" variants={preview1Styles} id="preview1" className="previews preview1">
+                        <div className="preview1Background"/>
+                    </motion.div>
+
+                    <motion.div animate="in" exit="exit" initial="init" variants={preview2Styles} id="preview2" className="previews preview2">
+                        <div className="preview2Background"/>
+                    </motion.div>
+
+                    <motion.div animate="in" exit="exit" initial="init" variants={preview3Styles} id="preview3" className="previews preview3">
+                        <div className="preview3Background"/>
+                    </motion.div>
+                </div>
+            </div>
+        )
+    }
+    return(
+        <div className="hytaleDesignBackground">
+            <div className="previewContainer">
+                <div id="preview1" className="previews preview1">
+                    <div className="preview1Background"/>
+                </div>
+
+                <div id="preview2" className="previews preview2">
+                    <div className="preview2Background"/>
+                </div>
+
+                <div id="preview3" className="previews preview3">
+                    <div className="preview3Background"/>
+                </div>
+            </div>
+        </div>
+    )   
+    
+}
+
+export default HytaleDesign;
