@@ -11,9 +11,9 @@ const DesignPage = () => {
             <HytaleDesign/>
             
             <motion.div animate={{opacity: 1, transition:{delay: 0.5, duration: 1}}} exit={{opacity: 0, transition: {duration: 0.4}}} initial={{opacity: 0}} className="pageButtonContainer">
-                <button className="pageButton">SEE DESIGN</button>
+                <button className="pageButton">VIEW DESIGN</button>
             </motion.div>
-            <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 1}}} className='pageBottomDesign'></motion.div>
+            <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='pageBottomDesign'></motion.div>
         </motion.div>
     );
 }

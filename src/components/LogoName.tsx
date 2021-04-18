@@ -17,13 +17,13 @@ var interfaceAnimation = {
     },
 }
 const LogoName = (props: any) => {
-    const [Logo, setLogo] = useState("Created by Arctyp");
+    const [Logo, setLogo] = useState("Created by Elementarc");
 
     useEffect(() =>{
         var windowWidth = window.innerWidth
 
         if(windowWidth <= 900){
-            setLogo("ARCTYP")
+            setLogo("ELEMENTARC")
         }
     }, [])
     

@@ -13,11 +13,10 @@
             left: 17rem;
             height: 250px;
             width: 400px;
-            background-color: rgb(255, 255, 255);
-            border: 1px solid #FFF494;
-            border-radius: 3px;
-            box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.6);
+            
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
             overflow: hidden;
+            
         }
 
         .preview1Background{
@@ -66,13 +65,10 @@
             .previews{
                 position: absolute;
                 bottom: 21rem;
-                left: 10rem;
+                left: 12rem;
                 height: 250px;
                 width: 400px;
-                background-color: rgb(255, 255, 255);
-                border: 1px solid #FFF494;
-                border-radius: 3px;
-                box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.4);
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
                 overflow: hidden;
             }
     
@@ -126,13 +122,13 @@
                 position: absolute;
                 bottom: unset;
                 left: unset;
-                margin-top: 6rem;
-                height: 250px;
-                width: 101%;
-                background-color: rgb(255, 255, 255);
+                margin-top: 10rem;
+                height: 200px;
+                max-width: 350px;
+                width: 90%;
                 border: unset;
-                border-radius: 3px;
-                box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.4);
+                border-radius: 5px;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.4);
                 overflow: hidden;
             }
     
@@ -167,5 +163,42 @@
                 transform: scale(1);
             }
         }
+        .designSectionContainer{
+            z-index: 1;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0.5rem;
+            width: 100%;
+            height: 30px;
+            .designSection1{
+                margin: 0.7rem;
+                height: 10px;
+                border-radius: 50%;
+                width: 10px;
+                transition: 0.2s ease-in-out;
+                box-shadow: 0px 3px 10px 0px black;
+                background-color: #F5FC95;
+                .designSection1Shadow{
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                    box-shadow: 0px 0px 50px 36px #f5fc952c;
+                    transition: 0.4s ease-in-out;
+                }
+            }
+        }
+        .bottomBlur{
+            position: fixed;
+            z-index: 0;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            background: rgb(0,0,0);
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(9,9,9,0) 100%);
+        }
     }
 }
+
+
