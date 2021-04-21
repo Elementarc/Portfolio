@@ -1,22 +1,32 @@
-.hytaleDesignBackground{
+.hytaleDesignContainer{
     height: 100%;
     width: 100%;
-    background-image: url("../../assets/images/Wallpaper.jpg");
-    background-size: cover;
-    .previewContainer{
-        position: relative;
+    .designBackground{
+        position: absolute;
+        z-index: 0;
+        top: 0;
         height: 100%;
         width: 100%;
+        transform: scale(1.1);
+        background-image: url("../../assets/images/Wallpaper.jpg");
+        transition-duration: 0.1s;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .previewContainer{
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        pointer-events: none;
         .previews{
             position: absolute;
-            bottom: 21rem;
+            pointer-events: visible;
+            bottom: 23rem;
             left: 17rem;
-            height: 250px;
-            width: 400px;
-            
+            height: 255px;
+            width: 410px;
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
             overflow: hidden;
-            
         }
 
         .preview1Background{
@@ -53,21 +63,31 @@
 }
 
 @media (max-width: 1200px){
-    .hytaleDesignBackground{
+    .hytaleDesignContainer{
         height: 100%;
         width: 100%;
-        background-image: url("../../assets/images/Wallpaper.jpg");
-        background-size: cover;
+        .designBackground{
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            transform: scale(1.1);
+            background-image: url("../../assets/images/Wallpaper.jpg");
+            transition-duration: 0.1s;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
         .previewContainer{
             position: relative;
             height: 100%;
             width: 100%;
             .previews{
                 position: absolute;
-                bottom: 21rem;
+                bottom: 23rem;
                 left: 12rem;
-                height: 250px;
-                width: 400px;
+                height: 255px;
+                width: 410px;
                 box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
                 overflow: hidden;
             }
@@ -106,13 +126,21 @@
     }
 }
 @media (max-width: 1000px){
-    .hytaleDesignBackground{
+    .hytaleDesignContainer{
         height: 100%;
         width: 100%;
-        background-image: url("../../assets/images/Wallpaper.jpg");
-        background-size: cover;
+        .designBackground{
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            transform: scale(1.1);
+            background-image: url("../../assets/images/Wallpaper.jpg");
+            transition-duration: 0.1s;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
         .previewContainer{
-            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -127,7 +155,7 @@
                 max-width: 350px;
                 width: 90%;
                 border: unset;
-                border-radius: 5px;
+                border-radius: 3px;
                 box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.4);
                 overflow: hidden;
             }
@@ -196,7 +224,7 @@
             height: 50px;
             width: 100%;
             background: rgb(0,0,0);
-            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(9,9,9,0) 100%);
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0, 0, 0, 0) 100%);
         }
     }
 }

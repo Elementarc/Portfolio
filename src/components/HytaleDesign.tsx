@@ -162,10 +162,38 @@ var preview3StylesMobile = {
         transition: {duration: 0.5, delay: 0, type: 'spring'}
     },
 }
-
 const HytaleDesign = () => {
     const [State, setState] = useState(false);
-    
+
+    useEffect(() => {
+        function parallax(e: any) {
+            if(window.innerWidth > 1000){
+                var hytaleBackground = document.getElementById("hytaleBackground") as HTMLDivElement
+
+                var designBottomIllustration = document.getElementById("designBottomIllustration") as HTMLDivElement
+                var designButton = document.getElementById("designButton") as HTMLDivElement
+
+                const xBackground = ((e.clientX) / 50 * 0.4) - (window.innerWidth / 100 * 0.4)
+                const yBackground = ((e.clientY) / 50 * 0.4) - (window.innerHeight / 100 * 0.4)
+
+                const xIllustration = ((e.clientX) / 50) - (window.innerWidth / 100)
+                const yIllustration = ((e.clientY) / 50) - (window.innerHeight / 100)
+                
+                const xButton = ((e.clientX) / 50 * 0.3) - (window.innerWidth / 100 * 0.3)
+                const yButton = ((e.clientY) / 50 * 0.3) - (window.innerHeight / 100 * 0.3)
+                designBottomIllustration.style.transform = `scale(1.1) translateX(${xIllustration}px) translateY(${yIllustration}px)`
+                hytaleBackground.style.transform = `scale(1.1) translateX(${xBackground}px) translateY(${yBackground}px)`
+                designButton.style.transform = `translateX(${xButton}px) translateY(${yButton}px)`
+            }
+            else{
+                //console.log("parallax not working because window is < 1000px")
+            }
+        }
+        window.addEventListener("mousemove", parallax)
+        return () => {
+            window.removeEventListener("mousemove", parallax)
+        };
+    }, []);
     //Animates Images
     useEffect(() => {
         //Animation for Images changes State at the end of the function to rerender the component
@@ -417,7 +445,6 @@ const HytaleDesign = () => {
                         },
                     }
                 }
-                console.log(previewState)
                 setState(!State)
             }
             else{
@@ -425,7 +452,7 @@ const HytaleDesign = () => {
                 if(previewState > 3){
                     previewState = 1
                 }
-
+                console.log("mobile")
                 if(previewState === 1){
                     //First Box Preview1
                     preview1StylesMobile = {
@@ -667,22 +694,22 @@ const HytaleDesign = () => {
                         },
                     }
                 }
-                console.log(previewState)
                 setState(!State)
-                console.log("Devices smaller than 1000px")
             }
         }
         //Function gets called every 3.5seconds 
-        setTimeout(() => {
+        var timer = setTimeout(() => {
             changeStyle()
         }, 3500);
+        return (() =>{
+            clearTimeout(timer)
+        })
     }, [State]);
     
     //Return JSX Desktop
     if(window.innerWidth > 1000){
         return (
-
-            <div className="hytaleDesignBackground">
+            <div className="hytaleDesignContainer">
                 <div className="previewContainer">
                     <motion.div animate="in" exit="out" initial="init" variants={preview1Styles} id="preview1" className="previews preview1">
                         <div className="preview1Background"/>
@@ -696,34 +723,41 @@ const HytaleDesign = () => {
                         <div className="preview3Background"/>
                     </motion.div>
                 </div>
+                <div className="designBackground" id="hytaleBackground"></div>
             </div>
         )
     }
     //Return JSX Mobile
-    return(
-        <div className="hytaleDesignBackground">
-            <div className="designSectionContainer">
-                <div className="designSection1">
-                    <div className="designSection1Shadow"></div>
+    else{
+        return(
+            <div className="hytaleDesignContainer">
+                <div className="designSectionContainer">
+                    <div className="designSection1">
+                        <div className="designSection1Shadow"></div>
+                    </div>
                 </div>
-            </div>
-            <div className="previewContainer">
-                <motion.div animate="in" exit="out" initial="init" variants={preview1StylesMobile} id="preview1" className="previews preview1">
-                    <div className="preview1Background"/>
-                </motion.div>
 
-                <motion.div animate="in" exit="out" initial="init" variants={preview2StylesMobile} id="preview2" className="previews preview2">
-                    <div className="preview2Background"/>
-                </motion.div>
+                <div className="previewContainer">
+                    <motion.div animate="in" exit="out" initial="init" variants={preview1StylesMobile} id="preview1" className="previews preview1">
+                        <div className="preview1Background"/>
+                    </motion.div>
 
-                <motion.div animate="in" exit="out" initial="init" variants={preview3StylesMobile} id="preview3" className="previews preview3">
-                    <div className="preview3Background"/>
-                </motion.div>
+                    <motion.div animate="in" exit="out" initial="init" variants={preview2StylesMobile} id="preview2" className="previews preview2">
+                        <div className="preview2Background"/>
+                    </motion.div>
+
+                    <motion.div animate="in" exit="out" initial="init" variants={preview3StylesMobile} id="preview3" className="previews preview3">
+                        <div className="preview3Background"/>
+                    </motion.div>
+                </div>
+                <div className="designBackground" id="hytaleBackground"></div>
+                
+                <div className="bottomBlur"></div>
+                
             </div>
-            <div className="bottomBlur"></div>
-        </div>
-    )   
-    
+        )    
+    }
+
 }
 
 export default HytaleDesign;

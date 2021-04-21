@@ -12,15 +12,16 @@
     
 }
 
-.pageButtonContainer{
+.designPageButtonContainer{
     position: absolute;
+    z-index: 0;
     top: 0;
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    .pageButton{
+    .designButton{
         margin-bottom: 10rem;
         width: 210px;
         height: 46px;
@@ -29,25 +30,35 @@
         outline: none;
         border: unset;
         font-family: "PT Serif";
+        transition-duration: 0.1s;
         font-size: 16px;
         letter-spacing: 1px;
         font-weight: 700;
         border-radius: 5px;
         box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.93);
     }
-    .pageButton:hover{
+    .designButton:hover{
         background-color: #1b1b1b;
         cursor: pointer;
     }
 }
-.pageBottomDesign{
+.designBottomIllustrationContainer{
     position: absolute;
     pointer-events: none;
+    z-index: 0;
     bottom: 0;
     width: 100%;
     height: 250px;
-    background-image: url("../../assets/illustrations/DesignBottomDeco.png");
-    background-position: center;
+    .designBottomIllustration{
+        height: 100%;
+        width: 100%;
+        transition-duration: 0.1s;
+        transform: scale(1.1) translateX(1px);
+        background-image: url("../../assets/illustrations/DesignBottomDeco.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;  
+    }
 }
 
 @media (max-width: 1000px){
@@ -65,7 +76,7 @@
     
     .pageButtonContainer{
         position: fixed;
-        top: 0;
+        bottom: 0;
         height: 100%;
         width: 100%;
         display: flex;
@@ -92,16 +103,20 @@
             cursor: pointer;
         }
     }
-    .pageBottomDesign{
+    .designBottomIllustrationContainer{
         position: fixed;
         bottom: 0;
-        background-image: unset;
         pointer-events: none;
-        background-size: cover;
-        background-repeat: no-repeat;
-        bottom: 0;
-        width: 100%;
-        height: 350px;
-        background-position: center;
+        .designBottomIllustration{
+            height: 100%;
+            width: 100%;
+            transition-duration: 0.1s;
+            transform: scale(1.1) translateX(1px);
+            background-image: url("../../assets/illustrations/DesignBottomDeco.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;  
+        }
     }
 }
+
