@@ -1,4 +1,5 @@
 .hytaleDesignContainer{
+    position: relative;
     height: 100%;
     width: 100%;
     .designBackground{
@@ -14,6 +15,7 @@
         background-repeat: no-repeat;
     }
     .previewContainer{
+        position: relative;
         height: 100%;
         width: 100%;
         z-index: 1;
@@ -64,6 +66,7 @@
 
 @media (max-width: 1200px){
     .hytaleDesignContainer{
+        position: relative;
         height: 100%;
         width: 100%;
         .designBackground{
