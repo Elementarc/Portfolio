@@ -24,8 +24,7 @@
     align-items: flex-end;
     .designButton{
         margin-bottom: 10rem;
-        width: 210px;
-        height: 46px;
+        padding: 0.8rem 2.8rem;
         background-color: #161616;
         color: white;
         outline: none;
@@ -75,31 +74,31 @@
         
     }
     
-    .pageButtonContainer{
+    .designPageButtonContainer{
         position: fixed;
-        bottom: 0;
+        z-index: 0;
+        top: 0;
         height: 100%;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        z-index: 5;
-        .pageButton{
-            margin-bottom: 5rem;
-            width: 190px;
-            height: 46px;
+        .designButton{
+            margin-bottom: 6rem;
+            padding: 0.85rem 2.6rem;
             background-color: #161616;
             color: white;
             outline: none;
             border: unset;
             font-family: "PT Serif";
+            transition-duration: 0.1s;
             font-size: 14px;
             letter-spacing: 1px;
-            border-radius: 5px;
             font-weight: 700;
+            border-radius: 5px;
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.93);
         }
-        .pageButton:hover{
+        .designButton:hover{
             background-color: #1b1b1b;
             cursor: pointer;
         }

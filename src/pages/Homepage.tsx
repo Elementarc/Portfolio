@@ -5,8 +5,9 @@ import {Route, Switch, useLocation} from "react-router-dom"
 import Stars from "../components/Stars"
 import Moon from "../components/Moon"
 import SectionManager from "../components/SectionManager"
-import HomeContent from "../components/HomepageComponents/HomeContent"
 import {AnimatePresence, motion} from "framer-motion"
+
+import HomeContent from "../components/HomepageComponents/HomeContent"
 //CSS
 import "./styleSheetPage/homepage.scss"
 
@@ -15,18 +16,35 @@ const HomepageContainer = (props: any) => {
     useEffect(() =>{
         var getContent = document.getElementById("contentContainer") as HTMLDivElement
 
-        if(location.pathname === "/home"){
-            getContent.style.top = "0"
+        if(window.innerWidth > 1000){
+            if(location.pathname === "/home"){
+                getContent.style.top = "0"
+            }
+            else if(location.pathname === "/home/strength"){
+                getContent.style.top = "-100vh"
+            }
+            else if(location.pathname === "/home/routine"){
+                getContent.style.top = "-200vh"
+            }
+            else if(location.pathname === "/home/daily"){
+                getContent.style.top = "-300vh"
+            }
         }
-        else if(location.pathname === "/home/strength"){
-            getContent.style.top = "-100vh"
+        else if(window.innerWidth < 1000) {
+            if(location.pathname === "/home"){
+                getContent.style.left = "0"
+            }
+            else if(location.pathname === "/home/strength"){
+                getContent.style.left = "-100vw"
+            }
+            else if(location.pathname === "/home/routine"){
+                getContent.style.left = "-200vw"
+            }
+            else if(location.pathname === "/home/daily"){
+                getContent.style.left = "-300vw"
+            }
         }
-        else if(location.pathname === "/home/routine"){
-            getContent.style.top = "-200vh"
-        }
-        else if(location.pathname === "/home/daily"){
-            getContent.style.top = "-300vh"
-        }
+        
 
     }, [location.pathname])
     return(
@@ -34,16 +52,16 @@ const HomepageContainer = (props: any) => {
             <div className="contentContainer" id="contentContainer">
                 <AnimatePresence>
                     <Switch location={location} key={location.pathname}>
-                        <Route path="/home">
+                        <Route exact path="/home">
                             <HomeContent/>
                         </Route>
-                        <Route path="/home/strength">
+                        <Route exact path="/home/strength">
+                            <HomeContent/>
+                        </Route>
+                        <Route exact path="/home/routine">
                             
                         </Route>
-                        <Route path="/home/routine">
-                            
-                        </Route>
-                        <Route path="/home/daily">
+                        <Route exact path="/home/daily">
                             
                         </Route>
                     </Switch>
