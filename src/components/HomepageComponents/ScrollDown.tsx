@@ -3,7 +3,7 @@ import {motion} from "framer-motion"
 import "./styleSheets/scrollDown.scss"
 
 //icons
-import {ReactComponent as ScrollDownIcon} from "../assets/icons/DownArrowIcon.svg"
+import {ReactComponent as ScrollDownIcon} from "../../assets/icons/DownArrowIcon.svg"
 
 //Props for animation
 var interfaceAnimation = {

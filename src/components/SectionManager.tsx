@@ -177,6 +177,7 @@ const SectionManager = (props: any) => {
                         }
                         else if(locationIndex === 3){
                             path.replace("/home/daily")
+                            
                         }
                     }
                     //wheel DOWN

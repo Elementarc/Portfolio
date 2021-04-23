@@ -2,6 +2,7 @@
 import React from 'react';
 import {motion} from "framer-motion"
 import ScrollDown from "./ScrollDown"
+
 //css
 import "./styleSheets/homeContent.scss"
 //Toggles Animation for hovering over GetStarted button.
@@ -18,9 +19,11 @@ function hoverButton(){
     }
 }
 
-const HomepageContent = (props: any) => {
+//exit={{y: props.direction ? -500 : 500, opacity: 0, transition:{duration: 0.5}}}
+const HomepageHomeContent = (props: any) => {
+    
     return (
-        <motion.div animate={{y: 0, transition: {delay: 0.25, duration: 1.2}}} exit={{y: -500, opacity: 0, transition:{duration: 0.5}}} initial={{y: -50}} id="homeContent" className="homeContent">
+        <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -50, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0.15}}} id="homeContent" className="homeContent">
             <div className="content">
                 <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                     <h1>{"SIMPLE & CLEAN"}</h1>
@@ -41,7 +44,7 @@ const HomepageContent = (props: any) => {
     );
 }
 
-export default HomepageContent;
+export default HomepageHomeContent;
 
 
 

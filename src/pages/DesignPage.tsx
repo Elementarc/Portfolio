@@ -4,7 +4,7 @@ import {motion} from "framer-motion"
 import "./styleSheetPage/designPage.scss"
 
 //components
-import HytaleDesign from "../components/HytaleDesign"
+import HytaleDesign from "../components/DesignPageComponents/HytaleDesign"
 const DesignPage = () => {
     return (
         <motion.div animate={{opacity: 1, transition: {duration: 2.5, type: 'spring'}}} initial={{opacity: 0}} exit={{opacity: 0, transition: {duration: 1, delay: 0.15, type: 'spring'}}} className="DesignPageContainer">

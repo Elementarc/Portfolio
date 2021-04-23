@@ -2,17 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 /*START--Content Style--START*/
 .homeContent {
-    position: relative;
-    display: flex;
-    padding-top: 10rem;
-    flex-direction: column;
-    justify-content: center;
+    position: absolute;
+    top: 0;
     color: white;
     width: 100%;
-    height: auto;
+    height: 100vh;
     pointer-events: visible;
     z-index: 2;
     .content{
+        padding-top: 10rem;
         width: 100%;
         margin-left: 16rem;
         h1{
@@ -73,16 +71,15 @@
 
 @media (max-width: 1200px){
     .homeContent {
-        display: flex;
-        padding-top: 10rem;
-        flex-direction: column;
-        justify-content: center;
+        position: absolute;
+        top: 0;
         color: white;
         width: 100%;
-        height: auto;
+        height: 100vh;
         pointer-events: visible;
         z-index: 2;
         .content{
+            padding-top: 10rem;
             width: 100%;
             margin-left: 12rem;
             h1{
@@ -110,11 +107,11 @@
                 width: 210px;
                 height: 46px;
                 background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.384);
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                 border-radius: 5px;
                 border-style: none;
                 color: white;
-                font-size: 17px;
+                font-size: 16px;
                 font-family: "PT Serif";
                 letter-spacing: 1px;
                 font-weight: 700;
@@ -139,8 +136,8 @@
                 cursor: pointer;
             }
         }
-        
     }
+    
 }
 @media (max-width: 1000px){
     .homeContent {
