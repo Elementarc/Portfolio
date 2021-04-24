@@ -10,11 +10,13 @@ import {AnimatePresence, motion} from "framer-motion"
 import HomeContent from "../components/HomepageComponents/HomeContent"
 //CSS
 import "./styleSheetPage/homepage.scss"
+
+
 const HomepageContainer = (props: any) => {
     const location = useLocation()
-    //getting changed on resize
+    //Used to rerender Whenever Device gets below 1000 or above 1000 inner.width
     const [State, setState] = useState(false);
-    //changing State Whenever Width is > 1000 or < 1000 on resize using eventlistener resize
+    //changing State Whenever Width is > 1000 or < 1000 on resize using eventlistener resize, to rerender component
     useEffect(() => {
         function changeState() {
             if(window.innerWidth > 1000){
@@ -29,8 +31,8 @@ const HomepageContainer = (props: any) => {
         return(() =>{
             window.removeEventListener("resize", changeState)
         })
-    },[]);
-    //Animation for scrolling between routes also properly changes view when resizing app because of State depency
+    },[location]);
+    //Animation for scrolling between routes also properly changes view when resizing app
     useEffect(() =>{
         function homepageContentAnimation() {
             var getContent = document.getElementById("contentContainer") as HTMLDivElement
@@ -73,7 +75,7 @@ const HomepageContainer = (props: any) => {
         }
         homepageContentAnimation()
     }, [location.pathname, State])
-    
+
     return(
         <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
             <div className="contentContainer" id="contentContainer">

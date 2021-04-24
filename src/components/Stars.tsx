@@ -43,28 +43,33 @@ const Stars = (props: any) => {
     //Creating a number for each section to than use it for particlesAnimation
     useEffect(() =>{
         var numBefore = num
+        function starsAnimation() {
+            if(window.innerWidth > 1000){
+                if(location.pathname === "/home"){
+                    num = 100
+                }
+                else if(location.pathname === "/home/strength"){
+                    num = 200
+                }
+                else if(location.pathname ==="/home/routine"){
+                    num = 300
+                }
+                else if(location.pathname ==="/home/daily"){
+                    num = 400
+                }
 
-        if(location.pathname === "/home"){
-            num = 100
-        }
-        else if(location.pathname === "/home/strength"){
-            num = 200
-        }
-        else if(location.pathname ==="/home/routine"){
-            num = 300
-        }
-        else if(location.pathname ==="/home/daily"){
-            num = 400
-        }
+                if(num > numBefore){
+                    particlesAnimation("forward")
+                }
+                else if(num < numBefore){
+                    particlesAnimation("backwards")
+                }
 
-        if(window.innerWidth > 1000){
-            if(num > numBefore){
-                particlesAnimation("forward")
             }
-            else if(num < numBefore){
-                particlesAnimation("backwards")
-            }
+            else return
+            
         }
+        starsAnimation()
     }, [location.pathname])
 
     if(window.innerWidth > 1000){
