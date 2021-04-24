@@ -181,6 +181,7 @@ const HytaleDesign = () => {
                 
                 const xButton = ((e.clientX) / 50 * 0.3) - (window.innerWidth / 100 * 0.3)
                 const yButton = ((e.clientY) / 50 * 0.3) - (window.innerHeight / 100 * 0.3)
+                
                 designBottomIllustration.style.transform = `scale(1.1) translateX(${xIllustration}px) translateY(${yIllustration}px)`
                 hytaleBackground.style.transform = `scale(1.1) translateX(${xBackground}px) translateY(${yBackground}px)`
                 designButton.style.transform = `translateX(${xButton}px) translateY(${yButton}px)`

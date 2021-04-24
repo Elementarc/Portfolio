@@ -39,21 +39,21 @@ function particlesAnimation(direction: string) {
     }
 }
 const Stars = (props: any) => {
-    const location = useLocation().pathname
+    const location = useLocation()
     //Creating a number for each section to than use it for particlesAnimation
     useEffect(() =>{
         var numBefore = num
 
-        if(location === "/home"){
+        if(location.pathname === "/home"){
             num = 100
         }
-        else if(location === "/home/strength"){
+        else if(location.pathname === "/home/strength"){
             num = 200
         }
-        else if(location ==="/home/routine"){
+        else if(location.pathname ==="/home/routine"){
             num = 300
         }
-        else if(location ==="/home/daily"){
+        else if(location.pathname ==="/home/daily"){
             num = 400
         }
 
@@ -65,12 +65,8 @@ const Stars = (props: any) => {
                 particlesAnimation("backwards")
             }
         }
-        else{
-            console.log("Devices is smaller than 1000px width. (Component Stars)")
-        }
-        
-    }, [location])
-    
+    }, [location.pathname])
+
     if(window.innerWidth > 1000){
         return (
             <motion.div animate="in" exit="out" initial="initial" variants={backgroundProps}>

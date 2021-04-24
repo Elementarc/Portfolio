@@ -162,7 +162,6 @@ const Nav = (props: any) => {
         giveNavStyleTarget(location.pathname)
     },[location.pathname])
     
-    console.log("Rerenderd")
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
             <div onClick={toggleNav} className="navOpenIconContainer">

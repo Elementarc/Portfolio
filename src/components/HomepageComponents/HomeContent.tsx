@@ -24,7 +24,9 @@ function hoverButton(){
 const HomeContent = (props: any) => {
     const location = useLocation()
 
+    //DESKTOP JSX
     if(window.innerWidth > 1000){
+        //ROUTES
         if(location.pathname === "/home"){
             return (
                 <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -50, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0.15}}} id="homeContent" className="homeContent">
@@ -37,10 +39,10 @@ const HomeContent = (props: any) => {
                             <p>There are diffrent ways to talk to a customer and design is an important one. Let's create something unique. </p>
                         </motion.div>
                         <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
-                            <div>GET STARTED</div>
-                            <div id="buttonStyleBox" className="buttonStyleBox"></div>
-                        </button>
+                            <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
+                                <div>GET STARTED</div>
+                                <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                            </button>
                         </motion.div>
                         <ScrollDown/>
                     </div>
@@ -63,14 +65,10 @@ const HomeContent = (props: any) => {
                 </motion.div>
             )
         }
-        else if(location.pathname === "/home/strength"){
-            return null
-        }
-        else if(location.pathname === "/home/strength"){
-            return null
-        }
+        else return null
     }
-    else if(window.innerWidth < 1000){
+    //MOBILE JSX
+    else {
         if(location.pathname === "/home"){
             return (
                 <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0.15}}} id="homeContent" className="homeContent">
@@ -83,10 +81,10 @@ const HomeContent = (props: any) => {
                             <p>There are diffrent ways to talk to a customer and design is an important one. Let's create something unique. </p>
                         </motion.div>
                         <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
-                            <div>GET STARTED</div>
-                            <div id="buttonStyleBox" className="buttonStyleBox"></div>
-                        </button>
+                            <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
+                                <div>GET STARTED</div>
+                                <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                            </button>
                         </motion.div>
                         <ScrollDown/>
                     </div>
@@ -109,14 +107,8 @@ const HomeContent = (props: any) => {
                 </motion.div>
             )
         }
-        else if(location.pathname === "/home/strength"){
-            return null
-        }
-        else if(location.pathname === "/home/strength"){
-            return null
-        }
+        else return null
     }
-    
 }
 
 export default HomeContent;
