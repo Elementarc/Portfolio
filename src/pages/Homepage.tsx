@@ -1,12 +1,10 @@
 import React, {useEffect} from "react"
 import {Route, Switch, useLocation} from "react-router-dom"
-
 //Import components
 import Stars from "../components/Stars"
 import Moon from "../components/Moon"
 import SectionManager from "../components/SectionManager"
 import {AnimatePresence, motion} from "framer-motion"
-
 import HomeContent from "../components/HomepageComponents/HomeContent"
 //CSS
 import "./styleSheetPage/homepage.scss"

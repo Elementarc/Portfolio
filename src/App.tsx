@@ -2,7 +2,6 @@ import React, {useEffect} from "react"
 import {Redirect, Route, Switch, useLocation} from "react-router-dom"
 import {AnimatePresence ,motion} from "framer-motion"
 import "./app.scss"
-
 //import components
 import Homepage from "./pages/Homepage"
 import DesignPage from "./pages/DesignPage"
