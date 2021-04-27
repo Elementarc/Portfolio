@@ -71,20 +71,6 @@ function setTarget(url: string) {
         locationIndex = 3
     }
 }
-//Props for animation
-var interfaceAnimation = {
-    initial: {
-        opacity: 0,
-    },
-    in: {
-        transition: {delay: 2, duration: 1},
-        opacity: 1,
-    },
-    out: {
-        transition: {duration: 0.2},
-        opacity: 0,
-    },
-}
 
 var timer: any
 const SectionManager = (props: any) => {
@@ -236,7 +222,7 @@ const SectionManager = (props: any) => {
         })
     }, [path, SectionName])
     return (
-        <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} className="SectionContainer">
+        <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
             <div id="sectionContent" className="sectionContent" onMouseEnter={() => {SectionName(true); clearTimeout(timer)}} onMouseLeave={() => SectionName(false)}>
                         <Link id="sections1" className="sections1" to="/home">
                             <div id="sectionShadowTarget1" className="sectionShadow"></div>

@@ -140,20 +140,6 @@ function giveNavStyleTarget(url: string) {
         console.log("couldnt find url")
     }
 }
-//Props for animation
-var interfaceAnimation = {
-    initial: {
-        opacity: 0,
-    },
-    in: {
-        transition: {delay: 2, duration: 1},
-        opacity: 1,
-    },
-    out: {
-        transition: {duration: 0.2},
-        opacity: 0,
-    },
-}
 //COMPONENT
 const Nav = (props: any) => {
     const location = useLocation()
@@ -163,7 +149,7 @@ const Nav = (props: any) => {
     },[location.pathname])
     
     return(
-        <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
+        <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
             <div onClick={toggleNav} className="navOpenIconContainer">
                 <MenuIcon/>
             </div>

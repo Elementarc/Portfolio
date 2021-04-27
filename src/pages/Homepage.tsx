@@ -14,7 +14,7 @@ import "./styleSheetPage/homepage.scss"
 
 const HomepageContainer = (props: any) => {
     const location = useLocation()
-    //Animation for scrolling between routes also properly changes view when resizing app
+    //Animation for scrolling between routes for mobile & desktop
     useEffect(() =>{
         function homepageContentAnimation() {
             var getContent = document.getElementById("contentContainer") as HTMLDivElement
@@ -80,7 +80,7 @@ const HomepageContainer = (props: any) => {
             </div>
             
             <Stars/>
-            <SectionManager/>
+            <SectionManager interfaceAnimation={props.interfaceAnimation}/>
             <Moon/>
         </motion.div>
     );

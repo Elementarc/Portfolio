@@ -1,6 +1,8 @@
 //components
 import React, {useEffect} from 'react';
-import {motion} from "framer-motion"
+import {addScaleCorrection, motion, transform, useMotionValue} from "framer-motion"
+import {useSpring, animated} from "react-spring"
+import {useDrag} from "react-use-gesture"
 import ScrollDown from "./ScrollDown"
 
 //css
@@ -25,6 +27,7 @@ const HomeContent = (props: any) => {
     const location = useLocation()
     const history = useHistory()
     
+ 
     //Setting locationIndex
     useEffect(() => {
         if(location.pathname === "/home"){
@@ -55,7 +58,7 @@ const HomeContent = (props: any) => {
             history.replace("/home/daily")
         }
     }, [history]);
-    
+
     //DESKTOP JSX
     if(window.innerWidth > 1000){
         //ROUTES
@@ -103,9 +106,8 @@ const HomeContent = (props: any) => {
     else {
         if(location.pathname === "/home"){
             return (
-                <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0.15}}} id="homeContent" className="homeContent">
+                <motion.div animate={{y: 0, opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeContent">
                     <motion.div className="content">
-                        
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                             <h1>{"SIMPLE & CLEAN"}</h1>
                             <h2>THE WORLD OF DESIGN</h2>
@@ -126,7 +128,7 @@ const HomeContent = (props: any) => {
         }
         else if(location.pathname === "/home/strength"){
             return(
-                <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.5, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0.15}}} id="homeStrengthContent" className="homeStrengthContent">
+                <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.5, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeStrengthContent" className="homeStrengthContent">
                     <div className="content">
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                             <h1>{"STRENGTH & PASSION"}</h1>

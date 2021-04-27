@@ -10,6 +10,19 @@ import Nav from "./components/Nav"
 import Blackbar from "./components/Blackbar"
 import Logo from "./components/LogoName"
 
+var interfaceAnimation = {
+  initial: {
+      opacity: 0,
+  },
+  in: {
+      transition: {delay: 2, duration: 1},
+      opacity: 1,
+  },
+  out: {
+      transition: {duration: 0.2},
+      opacity: 0,
+  },
+}
 function App() { 
   const location = useLocation()
   //scrolls to top whenever URL changes for better ux
@@ -27,7 +40,9 @@ function App() {
     <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
       <AnimatePresence>
         <Switch location={location} key={location.pathname.includes(`/home`) ? "true" : "false"}>
-          <Route strict path="/home" component={Homepage}/>
+          <Route strict path="/home">
+            <Homepage interfaceAnimation={interfaceAnimation}/>
+          </Route>
           <Route strict path="/design" component={DesignPage}/>
 
           <Route exact path="/">
@@ -36,9 +51,9 @@ function App() {
         </Switch>
       </AnimatePresence>
 
-      <Nav/>
-      <Blackbar/>
-      <Logo/>
+      <Nav interfaceAnimation={interfaceAnimation}/>
+      <Blackbar interfaceAnimation={interfaceAnimation}/>
+      <Logo interfaceAnimation={interfaceAnimation}/>
     </motion.div>
   );
 }

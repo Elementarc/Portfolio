@@ -3,6 +3,7 @@
 /*START--Content Style--START*/
 .homeContent {
     position: absolute;
+    touch-action: pan-y;
     top: 0;
     color: white;
     width: 100%;
