@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect} from "react"
 import {Route, Switch, useLocation} from "react-router-dom"
 
 //Import components
@@ -14,24 +14,6 @@ import "./styleSheetPage/homepage.scss"
 
 const HomepageContainer = (props: any) => {
     const location = useLocation()
-    //Used to rerender Whenever Device gets below 1000 or above 1000 inner.width
-    const [State, setState] = useState(false);
-    //changing State Whenever Width is > 1000 or < 1000 on resize using eventlistener resize, to rerender component
-    useEffect(() => {
-        function changeState() {
-            if(window.innerWidth > 1000){
-                setState(true)
-            }
-            else{
-                setState(false)
-            }
-        }
-        
-        window.addEventListener("resize", changeState)
-        return(() =>{
-            window.removeEventListener("resize", changeState)
-        })
-    },[location]);
     //Animation for scrolling between routes also properly changes view when resizing app
     useEffect(() =>{
         function homepageContentAnimation() {
@@ -74,7 +56,7 @@ const HomepageContainer = (props: any) => {
             }
         }
         homepageContentAnimation()
-    }, [location.pathname, State])
+    }, [location.pathname])
 
     return(
         <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
@@ -97,7 +79,6 @@ const HomepageContainer = (props: any) => {
                 </AnimatePresence>
             </div>
             
-
             <Stars/>
             <SectionManager/>
             <Moon/>

@@ -145,7 +145,7 @@ const SectionManager = (props: any) => {
         timer = setTimeout(() => {
             SectionName(false)
         }, 3400);
-    })
+    },[location.pathname, SectionName])
     //Adding eventlistener on mount and removing on unmount
     useEffect(() => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
@@ -237,7 +237,7 @@ const SectionManager = (props: any) => {
     }, [path, SectionName])
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={interfaceAnimation} className="SectionContainer">
-            <div id="sectionContent" className="sectionContent" onMouseEnter={() => SectionName(true)} onMouseLeave={() => SectionName(false)}>
+            <div id="sectionContent" className="sectionContent" onMouseEnter={() => {SectionName(true); clearTimeout(timer)}} onMouseLeave={() => SectionName(false)}>
                         <Link id="sections1" className="sections1" to="/home">
                             <div id="sectionShadowTarget1" className="sectionShadow"></div>
                             <div className="section">
