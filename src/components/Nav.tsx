@@ -1,5 +1,5 @@
 
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import {Link} from "react-router-dom"
 import {useLocation} from "react-router-dom"
 
@@ -15,41 +15,8 @@ import {ReactComponent as MenuIcon} from "../assets/icons/MenuIcon.svg"
 import {motion} from "framer-motion"
 //CSS
 import "./styleSheets/nav.scss"
+import { Spring } from "@react-spring/core"
 
-//Animation for navigation. Takes true / false as parameter. Is used by toggleNav() function
-
-function animationNav(toggle: any){
-    var getNavBlur = document.getElementById("navigationBlur") as HTMLDivElement
-    var getNav = document.getElementById("navigation") as HTMLDivElement
-    if(toggle === true)
-    {
-        getNav.style.marginRight = "0"
-        getNav.style.opacity = "1"
-        getNavBlur.style.opacity = "1"
-        getNavBlur.style.pointerEvents = "all"
-    }
-    else{
-        getNav.style.marginRight = "-26rem"
-        getNav.style.opacity = "1"
-        getNavBlur.style.opacity = "0"
-        getNavBlur.style.pointerEvents = "none"
-    }
-    
-}
-//Toggles Navigation. Using the function: animationNav() to animate the toggle.
-var navState = false
-function toggleNav(){
-    if(navState === false){
-        document.body.style.overflow = "hidden"
-        animationNav(true)
-        navState = true
-    }
-    else{
-        document.body.style.overflow = "unset"
-        animationNav(false)
-        navState = false
-    }
-}
 function giveNavStyleTarget(url: string) {
     var getNavItemHome = document.getElementById("navHome") as HTMLDivElement
     var getNavItemHomeIcon = document.getElementById("HomeIcon") as HTMLDivElement
@@ -140,65 +107,116 @@ function giveNavStyleTarget(url: string) {
         console.log("couldnt find url")
     }
 }
+
+//Animation Props for Navigation
+const navAnimation = {
+    enter: {
+        x: 0,
+        transition: {duration: 0.8, type: "spring"},
+        height: "100%",
+        width: "24rem",
+        minHeight: "100%",
+    },
+    exit: {
+        x: 15,
+        transition: {duration: 0.8, delay: 0.2, type: "spring"},
+        height: "100%",
+        width: "0rem",
+    },
+}
+//Animation Props for NavigationBlur
+const navBlurAnimation = {
+    enter: {
+        opacity: 1,
+    },
+    exit: {
+        opacity: 0,
+    },
+}
+//Animation Props for NavItems
+const navItemAnimation = {
+    init: {
+        opacity: 0,
+    },
+    enter: {
+        transition: {delay: 0.2, type: 'spring'},
+        opacity: 1,
+    },
+    exit: {
+        opacity: 0,
+    },
+}
 //COMPONENT
 const Nav = (props: any) => {
     const location = useLocation()
+    //Using NavState to toggle between Enter & Exit animaiton
+    const [NavState, setNavState] = useState(false);
     //componentDidMount to give navItem the right class at the beginning of pageload
     useEffect(() =>{
         giveNavStyleTarget(location.pathname)
     },[location.pathname])
     
+    useEffect(() => {
+        var getNavigation = document.getElementById("navigation") as HTMLDivElement
+        var getNavigationBlur = document.getElementById("navigationBlur") as HTMLDivElement
+        if(NavState === false){
+            getNavigation.style.pointerEvents = "none"
+            getNavigationBlur.style.pointerEvents = "none"
+            document.body.style.overflow = "unset"
+        }
+        else{
+            getNavigation.style.pointerEvents = "visible"
+            getNavigationBlur.style.pointerEvents = "visible"
+            document.body.style.overflow = "hidden"
+        }
+        console.log(NavState)
+    }, [NavState]);
+
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
-            <div onClick={toggleNav} className="navOpenIconContainer">
+            <div onClick={() => setNavState(!NavState)} className="navOpenIconContainer">
                 <MenuIcon/>
             </div>
-            <div onClick={toggleNav} id="navigationBlur" className="navigationBlur"></div>
-            <div id="navigation" className="navigation">
-                    <ul>
-                        <Link className="linkHome" id="navHome" to="/home" onClick={toggleNav}>
-                                <div className="navbarListIconContainer">
-                                    <HomeIcon/>
-                                </div>
-                                HOME
-                        </Link>
 
-                        <Link className="linkDesign" id="navDesign" to="/design" onClick={toggleNav}>
-                                <div className="navbarListIconContainer">
-                                    <DesignIcon/>
-                                </div>
-                                DESIGN
-                        </Link>
+            <motion.div onClick={() => setNavState(!NavState)} animate={NavState ? "enter" : "exit"} variants={navBlurAnimation} id="navigationBlur" className="navigationBlur"></motion.div>
+            <motion.div animate={NavState ? "enter" : "exit"} variants={navAnimation} id="navigation" className="navigation">
+                <motion.ul initial="init" animate={NavState ? "enter" : "exit"} variants={navItemAnimation}>
+                    <Link onClick={() => setNavState(!NavState)} className="linkHome" id="navHome" to="/home">
+                            <div className="navbarListIconContainer">
+                                <HomeIcon/>
+                            </div>
+                            HOME
+                    </Link>
 
-                        <Link className="linkProjects" id="navProjects" to="/projects" onClick={toggleNav}>
-                                <div className="navbarListIconContainer">
-                                    <ProjectsIcon/>
-                                </div>
-                                PROJECTS
-                        </Link>
+                    <Link onClick={() => setNavState(!NavState)} className="linkDesign" id="navDesign" to="/design">
+                            <div className="navbarListIconContainer">
+                                <DesignIcon/>
+                            </div>
+                            DESIGN
+                    </Link>
 
-                        <Link className="linkWorkspace" id="navWorkspace" to="/workspace" onClick={toggleNav}>
-                                <div className="navbarListIconContainer">
-                                    <WorkIcon/>
-                                </div>
-                                WORKSPACE
-                        </Link>
+                    <Link onClick={() => setNavState(!NavState)} className="linkProjects" id="navProjects" to="/projects">
+                            <div className="navbarListIconContainer">
+                                <ProjectsIcon/>
+                            </div>
+                            PROJECTS
+                    </Link>
 
-                        <Link className="linkContact" id="navContact" to="/contact" onClick={toggleNav}>
-                                <div className="navbarListIconContainer">
-                                    <ContactIcon/>
-                                </div>
-                                CONTACT
-                        </Link>
-                    </ul>
+                    <Link onClick={() => setNavState(!NavState)} className="linkWorkspace" id="navWorkspace" to="/workspace">
+                            <div className="navbarListIconContainer">
+                                <WorkIcon/>
+                            </div>
+                            WORKSPACE
+                    </Link>
 
-                    <button onClick={toggleNav} className="navCloseButton">
-                        <div className="navCloseIcon">
-                            <NavCloseIcon/>
-                        </div>
-                    </button>
-                </div>
-            
+                    <Link onClick={() => setNavState(!NavState)} className="linkContact" id="navContact" to="/contact">
+                            <div className="navbarListIconContainer">
+                                <ContactIcon/>
+                            </div>
+                            CONTACT
+                    </Link>
+                </motion.ul>
+            </motion.div>
         </motion.div>
     );
 }

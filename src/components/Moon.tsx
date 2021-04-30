@@ -28,6 +28,7 @@ const Moon = (props: any) => {
     var x = useMotionValue(0)
     var y = useMotionValue(-200)
     var opacity = useMotionValue(0)
+    //Changes moon style properties for specific url. Takes init as parameter to include an initial animation whenever page first opens
     function changeStyle(init: boolean) {
         if(init === true){
             if(location.pathname === "/home"){
@@ -83,7 +84,7 @@ const Moon = (props: any) => {
         }
         
     }
-    //changes moon animation props everytime the url changes
+    //Calls changeStyle function on every URL change
     useEffect(() => {
         if(y.get() == -200 && x.get() == 0){
             changeStyle(true)
@@ -93,6 +94,7 @@ const Moon = (props: any) => {
         }
     },[location.pathname]);
     
+    //JSX
     return (
         <motion.div style={{x: x, y: y, opacity: opacity}} exit={{opacity: 0, y: -500}} id="moon"  className="moonContainer">
             <div className="moonLight"></div>

@@ -22,7 +22,7 @@ var interfaceAnimation = {
       opacity: 0,
   },
 }
-function App() { 
+function App() {  
   const location = useLocation()
   //scrolls to top whenever URL changes for better ux
   useEffect(() => {
@@ -39,9 +39,11 @@ function App() {
     <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
       <AnimatePresence>
         <Switch location={location} key={location.pathname.includes(`/home`) ? "true" : "false"}>
+
           <Route strict path="/home">
             <Homepage interfaceAnimation={interfaceAnimation}/>
           </Route>
+
           <Route strict path="/design" component={DesignPage}/>
 
           <Route exact path="/">

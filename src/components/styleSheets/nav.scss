@@ -20,11 +20,9 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.8);
-        pointer-events: none;
-        opacity: 0;
-        transition: 0.4s;
+        pointer-events: visible;
+        opacity: 1;
     }
-
     .navOpenIconContainer {
         position: absolute;
         right: 0;
@@ -42,20 +40,17 @@
         cursor: pointer;
     }
 
+    
     .navigation{
         position: fixed;
         pointer-events: visible;
         z-index: 3;
-        margin-right: -26rem;
         top: 0;
         right: 0;
-        opacity: 0;
         width: 24rem;
-        box-shadow: black 0px 0px 6px;
         height: 100%;
+        box-shadow: black 0px 0px 6px;
         background: linear-gradient(90deg, #161616 50%, #131313 100%);
-        transition: 0.3s ease-in-out;
-    
         ul{
             margin-top: 3rem;
             list-style: none;
@@ -72,15 +67,13 @@
                 color: white;
                 text-decoration: none;
                 font-size: 18px;
-                font-family: "Noto Sans";
-                font-weight: 700;
-                transition: 0.1s ease-in-out;
+                font-family: "PT Serif";
+                font-weight: 600;
                 .navbarListIconContainer {
                     position: relative;
                     overflow: hidden;
                     transform: scale(1.5);
                     display: inline-block;
-                    top: 1px;
                     margin-right: 1.4rem;
                     height: 18px;
                     width: 18px;
@@ -89,70 +82,29 @@
             a:hover{
                 background-color: rgba(255, 255, 255, 0.191);
                 cursor: pointer;
-                transition: 0.1s ease-in-out;
             }
-        }
-
-        .navCloseButton {
-            position: absolute;
-            pointer-events: visible;
-            outline: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 25px;
-            height: 120px;
-            top: 50%;
-            margin-top: -60px;
-            margin-left: -7px;
-            border-radius: 2px;
-            border: none;
-            background-color: #161616;
-            box-shadow: #000000b2 0px 3px 6px;
-
-            .navCloseIcon {
-                height: 16px;
-                width: 16px;
-            }
-        }
-        .navCloseButton:hover {
-            cursor: pointer;
-            background-color: #333333;
         }
     }
     
 }
 /*END--NavBar Styles--END*/
 @media (min-width: 2400px){
-    .NavigationContainer {
+    .NavigationContainer{
         position: absolute;
-        pointer-events: none;
-        z-index: 100;
-        top: 0;
-        width: 100%;
-        max-width: 2400px;
-        height: 100%;
-        max-height: 1350px;
-    
-        .navigationBlur {
-            position: sticky;
-            overflow: hidden;
-            z-index: 3;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            pointer-events: none;
-            opacity: 0;
-            transition: 0.4s;
-        }
-    
-        .navOpenIconContainer {
+        .navigationBlur{
             position: absolute;
-            right: 0;
+        }
+        .navigation{
+            position: absolute;
+        }
+    }
+}
+@media (max-width: 1200px){
+    .NavigationContainer{
+        .navOpenIconContainer {
             pointer-events: visible;
             z-index: 2;
-            margin: 9rem 9rem 0 0;
+            margin: 9rem 5rem 0 0;
             height: 32px;
             width: 32px;
             .menuIconSVG{
@@ -160,236 +112,15 @@
                 height: 32px;
             }
         }
-        .navOpenIconContainer:hover {
-            cursor: pointer;
-        }
-    
-        .navigation{
-            position: absolute;
-            pointer-events: visible;
-            z-index: 3;
-            margin-right: -26rem;
-            top: 0;
-            right: 0;
-            opacity: 0;
-            width: 24rem;
-            overflow: hidden;
-            box-shadow: black 0px 0px 6px;
-            height: 100%;
-            background: linear-gradient(90deg, #161616 50%, #131313 100%);
-            transition: 0.3s ease-in-out;
-        
-            ul{
-                margin-top: 3rem;
-                list-style: none;
-                .targetNavItem{
-                    color: rgb(61, 251, 210);
-                }
-                .targetNavIcon{
-                    fill: rgb(61, 251, 210);
-                }
-                a{
-                    text-decoration: none;
-                    display: block;
-                    padding: 1.8rem 0 1.8rem 6.3rem;
-                    color: white;
-                    text-decoration: none;
-                    font-size: 18px;
-                    font-family: "Noto Sans";
-                    font-weight: 700;
-                    transition: 0.1s ease-in-out;
-                    .navbarListIconContainer {
-                        position: relative;
-                        overflow: hidden;
-                        transform: scale(1.5);
-                        display: inline-block;
-                        top: 1px;
-                        margin-right: 1.4rem;
-                        height: 18px;
-                        width: 18px;
-                    }
-                }
-                a:hover{
-                    background-color: rgba(255, 255, 255, 0.191);
-                    cursor: pointer;
-                    transition: 0.1s ease-in-out;
-                }
-            }
-    
-            .navCloseButton {
-                position: absolute;
-                pointer-events: visible;
-                outline: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 25px;
-                height: 120px;
-                top: 50%;
-                margin-top: -60px;
-                margin-left: -7px;
-                border-radius: 2px;
-                border: none;
-                background-color: #161616;
-                box-shadow: #000000b2 0px 3px 6px;
-    
-                .navCloseIcon {
-                    height: 16px;
-                    width: 16px;
-                }
-            }
-            .navCloseButton:hover {
-                cursor: pointer;
-                background-color: #333333;
-            }
-        }
-        
     }
-}
-@media (max-width: 1200px){
-    .NavigationContainer {
-        position: fixed;
-        pointer-events: none;
-        z-index: 100;
-        top: 0;
-        width: 100%;
-        height: 100%;
     
-        .navigationBlur {
-            position: fixed;
-            z-index: 3;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            max-height: 1350px;
-            background-color: rgba(0, 0, 0, 0.8);
-            pointer-events: none;
-            opacity: 0;
-            transition: 0.4s;
-        }
-    
-        .navOpenIcon {
-            position: absolute;
-            right: 0;
-            pointer-events: visible;
-            z-index: 2;
-            margin: 9rem 4rem 0 0;
-            height: 32px;
-            width: 32px;
-        }
-        .navOpenIcon:hover {
-            cursor: pointer;
-        }
-    
-        .navigation{
-            position: fixed;
-            pointer-events: visible;
-            z-index: 3;
-            margin-right: -26rem;
-            top: 0;
-            right: 0;
-            opacity: 0;
-            width: 24rem;
-            box-shadow: black 0px 0px 6px;
-            height: 100%;
-            background: linear-gradient(90deg, #161616 50%, #131313 100%);
-            transition: 0.3s ease-in-out;
-        
-            ul{
-                margin-top: 3rem;
-                list-style: none;
-                .targetNavItem{
-                    color: rgb(61, 251, 210);
-                }
-                .targetNavIcon{
-                    fill: rgb(61, 251, 210);
-                }
-                a{
-                    text-decoration: none;
-                    display: block;
-                    padding: 1.8rem 0 1.8rem 6.3rem;
-                    color: white;
-                    text-decoration: none;
-                    font-size: 18px;
-                    font-family: "Noto Sans";
-                    font-weight: 700;
-                    transition: 0.1s ease-in-out;
-                    .navbarListIconContainer {
-                        position: relative;
-                        overflow: hidden;
-                        transform: scale(1.5);
-                        display: inline-block;
-                        top: 1px;
-                        margin-right: 1.4rem;
-                        height: 18px;
-                        width: 18px;
-                    }
-                }
-                a:hover{
-                    background-color: rgba(255, 255, 255, 0.191);
-                    cursor: pointer;
-                    transition: 0.1s ease-in-out;
-                }
-            }
-    
-            .navCloseButton {
-                position: absolute;
-                pointer-events: visible;
-                outline: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 25px;
-                height: 120px;
-                top: 50%;
-                margin-top: -60px;
-                margin-left: -7px;
-                border-radius: 2px;
-                border: none;
-                background-color: #161616;
-                box-shadow: #000000b2 0px 3px 6px;
-    
-                .navCloseIcon {
-                    height: 16px;
-                    width: 16px;
-                }
-            }
-            .navCloseButton:hover {
-                cursor: pointer;
-                background-color: #333333;
-            }
-        }
-        
-    }
 }
 @media (max-width: 1000px){
     .NavigationContainer {
-        position: fixed;
-        pointer-events: none;
-        z-index: 100;
-        top: 0;
-        width: 100%;
-        height: 100%;
-    
-        .navigationBlur {
-            position: fixed;
-            z-index: 3;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            max-height: 1350px;
-            background-color: rgba(0, 0, 0, 0.8);
-            pointer-events: none;
-            opacity: 0;
-            transition: 0.4s;
-        }
         .navOpenIconContainer {
-            position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
-            right: 0;
-            pointer-events: visible;
             z-index: 2;
             margin: 0.1rem 0;
             height: 50px;
@@ -399,38 +130,18 @@
                 height: 25px;
             }
         }
-        .navOpenIconContainer:hover {
-            cursor: pointer;
-        }
-    
         .navigation{
-            position: fixed;
-            pointer-events: visible;
-            z-index: 3;
-            margin-right: -26rem;
-            top: 0;
-            right: 0;
-            opacity: 0;
-            max-width: 18rem;
+            max-width: 70%;
             width: 70%;
             box-shadow: black 0px 0px 6px;
             height: 100%;
             min-height: 100%;
-            background: linear-gradient(90deg, #161616 50%, #131313 100%);
-            transition: 0.3s ease-in-out;
-        
             ul{
                 margin-top: 3rem;
                 list-style: none;
                 a{
-                    text-decoration: none;
-                    display: block;
                     padding: 1.8rem 0 1.8rem 26%;
-                    color: white;
                     font-size: 14px;
-                    font-family: "Noto Sans";
-                    font-weight: 700;
-                    transition: 0.5s ease-in-out;
                     .navbarListIconContainer {
                         position: relative;
                         overflow: hidden;
@@ -442,46 +153,7 @@
                         width: 14px;
                     }
                 }
-                a:hover{
-                    background-color: rgba(255, 255, 255, 0.191);
-                    cursor: pointer;
-                    transition: 0.1s ease-in-out;
-                }
-                .targetNavItem{
-                    color: rgb(61, 251, 210);
-                }
-                .targetNavIcon{
-                    fill: rgb(61, 251, 210);
-                }
-
             }
-            .navCloseButton {
-                position: absolute;
-                pointer-events: visible;
-                outline: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 25px;
-                height: 120px;
-                top: 50%;
-                margin-top: -60px;
-                margin-left: -7px;
-                border-radius: 2px;
-                border: none;
-                background-color: #161616;
-                box-shadow: #000000b2 0px 3px 6px;
-    
-                .navCloseIcon {
-                    height: 16px;
-                    width: 16px;
-                }
-            }
-            .navCloseButton:hover {
-                cursor: pointer;
-                background-color: #333333;
-            }
-            
         }
         
     }
