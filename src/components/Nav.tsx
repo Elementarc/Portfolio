@@ -112,14 +112,14 @@ function giveNavStyleTarget(url: string) {
 const navAnimation = {
     enter: {
         x: 0,
-        transition: {duration: 0.8, type: "spring"},
+        transition: {duration: 0.4},
         height: "100%",
         width: "24rem",
         minHeight: "100%",
     },
     exit: {
         x: 15,
-        transition: {duration: 0.8, delay: 0.2, type: "spring"},
+        transition: {duration: 0.4, delay: 0.2},
         height: "100%",
         width: "0rem",
     },
@@ -156,6 +156,7 @@ const Nav = (props: any) => {
         giveNavStyleTarget(location.pathname)
     },[location.pathname])
     
+    //Making sure that there are no pointer events when navigation is closed also to not be able to scroll around while navigation is opened
     useEffect(() => {
         var getNavigation = document.getElementById("navigation") as HTMLDivElement
         var getNavigationBlur = document.getElementById("navigationBlur") as HTMLDivElement
