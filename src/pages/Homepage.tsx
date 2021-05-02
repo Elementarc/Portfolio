@@ -1,14 +1,13 @@
-import React, {useEffect} from "react"
-import {Route, Switch, useLocation} from "react-router-dom"
+import React, {useEffect, useState} from "react"
+import {Route, Switch, useHistory, useLocation} from "react-router-dom"
 //Import components
 import Stars from "../components/Stars"
 import Moon from "../components/Moon"
 import SectionManager from "../components/SectionManager"
-import {AnimatePresence, motion} from "framer-motion"
+import {AnimatePresence, motion, useMotionValue} from "framer-motion"
 import HomeContent from "../components/HomepageComponents/HomeContent"
 //CSS
 import "./styleSheetPage/homepage.scss"
-
 
 const HomepageContainer = (props: any) => {
     const location = useLocation()
@@ -57,8 +56,8 @@ const HomepageContainer = (props: any) => {
     }, [location.pathname])
 
     return(
-        <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
-            <div className="contentContainer" id="contentContainer">
+        <motion.div  exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
+            <motion.div className="contentContainer" id="contentContainer">
                 <AnimatePresence>
                     <Switch location={location} key={location.pathname}>
                         <Route exact path="/home">
@@ -75,7 +74,7 @@ const HomepageContainer = (props: any) => {
                         </Route>
                     </Switch>
                 </AnimatePresence>
-            </div>
+            </motion.div>
             
             <Stars/>
             <SectionManager interfaceAnimation={props.interfaceAnimation}/>

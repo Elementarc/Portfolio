@@ -4,79 +4,79 @@ import {Link, useLocation, useHistory} from "react-router-dom"
 import {motion} from "framer-motion"
 
 
+
+
 var locationIndex = 0
-
-//sets style for section: takes url as parameter to check which section button needs to light up, and also sets the location index for wheelListener function
-function setTarget(url: string) {
-    let getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
-    let getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
-    let getSectionTarget3 = document.getElementById("sections3") as HTMLDivElement
-    let getSectionTarget4 = document.getElementById("sections4") as HTMLDivElement
-
-    let getShadowTarget1 = document.getElementById("sectionShadowTarget1") as HTMLDivElement
-    let getShadowTarget2 = document.getElementById("sectionShadowTarget2") as HTMLDivElement
-    let getShadowTarget3 = document.getElementById("sectionShadowTarget3") as HTMLDivElement
-    let getShadowTarget4 = document.getElementById("sectionShadowTarget4") as HTMLDivElement
-    
-    if(url === "/home"){
-        getSectionTarget1.classList.add("sectionsTarget")
-        getShadowTarget1.classList.add("sectionShadowTarget")
-
-        getSectionTarget2.classList.remove("sectionsTarget")
-        getSectionTarget3.classList.remove("sectionsTarget")
-        getSectionTarget4.classList.remove("sectionsTarget")
-
-        getShadowTarget2.classList.remove("sectionShadowTarget")
-        getShadowTarget3.classList.remove("sectionShadowTarget")
-        getShadowTarget4.classList.remove("sectionShadowTarget")
-        locationIndex = 0
-    }
-    else if(url === "/home/strength"){
-        getSectionTarget2.classList.add("sectionsTarget")
-        getShadowTarget2.classList.add("sectionShadowTarget")
-
-        getSectionTarget1.classList.remove("sectionsTarget")
-        getSectionTarget3.classList.remove("sectionsTarget")
-        getSectionTarget4.classList.remove("sectionsTarget")
-
-        getShadowTarget1.classList.remove("sectionShadowTarget")
-        getShadowTarget3.classList.remove("sectionShadowTarget")
-        getShadowTarget4.classList.remove("sectionShadowTarget")
-        locationIndex = 1
-    }
-    else if(url === "/home/routine"){
-        getSectionTarget3.classList.add("sectionsTarget")
-        getShadowTarget3.classList.add("sectionShadowTarget")
-
-        getSectionTarget1.classList.remove("sectionsTarget")
-        getSectionTarget2.classList.remove("sectionsTarget")
-        getSectionTarget4.classList.remove("sectionsTarget")
-
-        getShadowTarget1.classList.remove("sectionShadowTarget")
-        getShadowTarget2.classList.remove("sectionShadowTarget")
-        getShadowTarget4.classList.remove("sectionShadowTarget")
-        locationIndex = 2
-    }
-    else if(url === "/home/daily"){
-        getSectionTarget4.classList.add("sectionsTarget")
-        getShadowTarget4.classList.add("sectionShadowTarget")
-
-        getSectionTarget1.classList.remove("sectionsTarget")
-        getSectionTarget2.classList.remove("sectionsTarget")
-        getSectionTarget3.classList.remove("sectionsTarget")
-
-        getShadowTarget1.classList.remove("sectionShadowTarget")
-        getShadowTarget2.classList.remove("sectionShadowTarget")
-        getShadowTarget3.classList.remove("sectionShadowTarget")
-        locationIndex = 3
-    }
-}
-
 var timer: any
 const SectionManager = (props: any) => {
+    
     const location = useLocation()
     const path = useHistory()
-    
+    //sets style for section: takes url as parameter to check which section button needs to light up, and also sets the location index for wheelListener function
+    function setTarget(url: string) {
+        let getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
+        let getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
+        let getSectionTarget3 = document.getElementById("sections3") as HTMLDivElement
+        let getSectionTarget4 = document.getElementById("sections4") as HTMLDivElement
+
+        let getShadowTarget1 = document.getElementById("sectionShadowTarget1") as HTMLDivElement
+        let getShadowTarget2 = document.getElementById("sectionShadowTarget2") as HTMLDivElement
+        let getShadowTarget3 = document.getElementById("sectionShadowTarget3") as HTMLDivElement
+        let getShadowTarget4 = document.getElementById("sectionShadowTarget4") as HTMLDivElement
+        
+        if(url === "/home"){
+            getSectionTarget1.classList.add("sectionsTarget")
+            getShadowTarget1.classList.add("sectionShadowTarget")
+
+            getSectionTarget2.classList.remove("sectionsTarget")
+            getSectionTarget3.classList.remove("sectionsTarget")
+            getSectionTarget4.classList.remove("sectionsTarget")
+
+            getShadowTarget2.classList.remove("sectionShadowTarget")
+            getShadowTarget3.classList.remove("sectionShadowTarget")
+            getShadowTarget4.classList.remove("sectionShadowTarget")
+            locationIndex = 0
+        }
+        else if(url === "/home/strength"){
+            getSectionTarget2.classList.add("sectionsTarget")
+            getShadowTarget2.classList.add("sectionShadowTarget")
+
+            getSectionTarget1.classList.remove("sectionsTarget")
+            getSectionTarget3.classList.remove("sectionsTarget")
+            getSectionTarget4.classList.remove("sectionsTarget")
+
+            getShadowTarget1.classList.remove("sectionShadowTarget")
+            getShadowTarget3.classList.remove("sectionShadowTarget")
+            getShadowTarget4.classList.remove("sectionShadowTarget")
+            locationIndex = 1
+        }
+        else if(url === "/home/routine"){
+            getSectionTarget3.classList.add("sectionsTarget")
+            getShadowTarget3.classList.add("sectionShadowTarget")
+
+            getSectionTarget1.classList.remove("sectionsTarget")
+            getSectionTarget2.classList.remove("sectionsTarget")
+            getSectionTarget4.classList.remove("sectionsTarget")
+
+            getShadowTarget1.classList.remove("sectionShadowTarget")
+            getShadowTarget2.classList.remove("sectionShadowTarget")
+            getShadowTarget4.classList.remove("sectionShadowTarget")
+            locationIndex = 2
+        }
+        else if(url === "/home/daily"){
+            getSectionTarget4.classList.add("sectionsTarget")
+            getShadowTarget4.classList.add("sectionShadowTarget")
+
+            getSectionTarget1.classList.remove("sectionsTarget")
+            getSectionTarget2.classList.remove("sectionsTarget")
+            getSectionTarget3.classList.remove("sectionsTarget")
+
+            getShadowTarget1.classList.remove("sectionShadowTarget")
+            getShadowTarget2.classList.remove("sectionShadowTarget")
+            getShadowTarget3.classList.remove("sectionShadowTarget")
+            locationIndex = 3
+        }
+    }
     //Toggles Animation for sectionNames. Does not get triggert when device width is below 900px Its a Callback
     const SectionName = useCallback((state: boolean) =>{
         function toggleSectionName(toggle: boolean) {
@@ -148,8 +148,8 @@ const SectionManager = (props: any) => {
                     //wheel UP
                     if(e.deltaY < 0){
                         locationIndex--
-                        if(locationIndex > 2){
-                            locationIndex = 2
+                        if(locationIndex < 0){
+                            locationIndex = 0
                         }
 
                         if(locationIndex === 0){
@@ -169,8 +169,8 @@ const SectionManager = (props: any) => {
                     //wheel DOWN
                     else{
                         locationIndex++
-                        if(locationIndex < 1){
-                            locationIndex= 1
+                        if(locationIndex > 3){
+                            locationIndex= 3
                         }
 
                         if(locationIndex === 0){

@@ -1,8 +1,6 @@
 //components
-import React, {useEffect} from 'react';
-import {addScaleCorrection, motion, transform, useMotionValue} from "framer-motion"
-import {useSpring, animated} from "react-spring"
-import {useDrag} from "react-use-gesture"
+import React, {useEffect, useState} from 'react';
+import {motion, useMotionValue} from "framer-motion"
 import ScrollDown from "./ScrollDown"
 
 //css
@@ -26,7 +24,7 @@ var locationIndex: number = 0
 const HomeContent = (props: any) => {
     const location = useLocation()
     const history = useHistory()
-    
+    const [State, setState] = useState(true);
  
     //Setting locationIndex
     useEffect(() => {
@@ -58,7 +56,60 @@ const HomeContent = (props: any) => {
             history.replace("/home/daily")
         }
     }, [history]);
+    var x = useMotionValue(0)
+    //Moves Homecontent along the X axis while pan
+    function onPan(event: any, info: any) {
+        var getItem = document.getElementById("homeContent") as HTMLDivElement
+        getItem.style.transition = ""
+        x.set(info.offset.x / 2)
+    }
+    //If Enough pan velocity is reached it will automaticly change the url to the right index
+    function onPanEnd(event: any, info: any) {
+        var getItem = document.getElementById("homeContent") as HTMLDivElement
+        getItem.style.transition = "0.6s"
+        x.set(0)
+        if(info.velocity.x < -100){
+            //Forward
+            locationIndex++
+            if(locationIndex > 2){
+                locationIndex = 2
+            }
 
+            if(locationIndex === 0){
+                history.replace("/home")
+            }
+            else if(locationIndex === 1){
+                history.replace("/home/strength")
+            }
+            else if(locationIndex === 2){
+                history.replace("/home/routine")
+            }
+            else if(locationIndex === 3){
+                history.replace("/home/daily")
+            }
+        }
+        else if(info.velocity.x > 100){
+            //Backwards
+            locationIndex--
+            if(locationIndex < 0){
+                locationIndex= 0
+            }
+
+            if(locationIndex === 0){
+                history.replace("/home")
+            }
+            else if(locationIndex === 1){
+                history.replace("/home/strength")
+            }
+            else if(locationIndex === 2){
+                history.replace("/home/routine")
+            }
+            else if(locationIndex === 3){
+                history.replace("/home/daily")
+            }
+            console.log(locationIndex)
+        }
+    }
     //DESKTOP JSX
     if(window.innerWidth > 1000){
         //ROUTES
@@ -106,8 +157,8 @@ const HomeContent = (props: any) => {
     else {
         if(location.pathname === "/home"){
             return (
-                <motion.div animate={{y: 0, opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeContent">
-                    <motion.div className="content">
+                <motion.div style={{x: x}} onPan={onPan} onPanEnd={onPanEnd} animate={{y: 0, opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeContent">
+                    <div className="content">
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                             <h1>{"SIMPLE & CLEAN"}</h1>
                             <h2>THE WORLD OF DESIGN</h2>
@@ -122,13 +173,13 @@ const HomeContent = (props: any) => {
                             </button>
                         </motion.div>
                         <ScrollDown/>
-                    </motion.div>
+                    </div>
                 </motion.div>
             );
         }
         else if(location.pathname === "/home/strength"){
             return(
-                <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.5, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeStrengthContent" className="homeStrengthContent">
+                <motion.div style={{x: x}} onPan={onPan} onPanEnd={onPanEnd} animate={{y: 0,opacity: 1, transition: {delay: 0.5, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeStrengthContent">
                     <div className="content">
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                             <h1>{"STRENGTH & PASSION"}</h1>

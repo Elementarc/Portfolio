@@ -8,14 +8,12 @@ import {ReactComponent as HomeIcon} from "../assets/icons/HomeIcon.svg"
 import {ReactComponent as DesignIcon} from "../assets/icons/DesignIcon.svg"
 import {ReactComponent as WorkIcon} from "../assets/icons/WorkIcon.svg"
 import {ReactComponent as ContactIcon} from "../assets/icons/ContactIcon.svg"
-import {ReactComponent as NavCloseIcon} from "../assets/icons/NavCloseIcon.svg"
 import {ReactComponent as ProjectsIcon} from "../assets/icons/ProjectIcon.svg"
 import {ReactComponent as MenuIcon} from "../assets/icons/MenuIcon.svg"
 //Import components
 import {motion} from "framer-motion"
 //CSS
 import "./styleSheets/nav.scss"
-import { Spring } from "@react-spring/core"
 
 function giveNavStyleTarget(url: string) {
     var getNavItemHome = document.getElementById("navHome") as HTMLDivElement
