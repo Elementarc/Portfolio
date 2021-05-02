@@ -168,7 +168,6 @@ const Nav = (props: any) => {
             getNavigationBlur.style.pointerEvents = "visible"
             document.body.style.overflow = "hidden"
         }
-        console.log(NavState)
     }, [NavState]);
 
     return(

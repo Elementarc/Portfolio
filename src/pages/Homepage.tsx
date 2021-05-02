@@ -4,13 +4,45 @@ import {Route, Switch, useHistory, useLocation} from "react-router-dom"
 import Stars from "../components/Stars"
 import Moon from "../components/Moon"
 import SectionManager from "../components/SectionManager"
-import {AnimatePresence, motion, useMotionValue} from "framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
 import HomeContent from "../components/HomepageComponents/HomeContent"
 //CSS
 import "./styleSheetPage/homepage.scss"
 
 const HomepageContainer = (props: any) => {
     const location = useLocation()
+    const history = useHistory()
+    const [LocationIndex, setLocationIndex] = useState(() =>{
+        if(location.pathname.toLowerCase() === "/home"){
+            return 0
+        }
+        else if(location.pathname.toLowerCase() === "/home/strength"){
+            return 1
+        }
+        else if(location.pathname.toLowerCase() === "/home/routine"){
+            return 2
+        }
+        else if(location.pathname.toLowerCase() === "/home/daily"){
+            return 3
+        }
+    })
+    //Checks LocationIndex to then switch to the correct URL
+    useEffect(() => {
+        if(LocationIndex === 0){
+            history.replace("/home")
+        }
+        else if(LocationIndex === 1){
+            history.replace("/home/strength")
+        }
+        else if(LocationIndex === 2){
+            history.replace("/home/routine")
+        }
+        else if(LocationIndex === 3){
+            history.replace("/home/daily")
+        }
+        
+    }, [LocationIndex, history]);
+
     //Animation for scrolling between routes for mobile & desktop
     useEffect(() =>{
         function homepageContentAnimation() {
@@ -61,10 +93,10 @@ const HomepageContainer = (props: any) => {
                 <AnimatePresence>
                     <Switch location={location} key={location.pathname}>
                         <Route exact path="/home">
-                            <HomeContent/>
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
                         </Route>
                         <Route exact path="/home/strength">
-                            <HomeContent/>
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
                         </Route>
                         <Route exact path="/home/routine">
                             
@@ -77,7 +109,7 @@ const HomepageContainer = (props: any) => {
             </motion.div>
             
             <Stars/>
-            <SectionManager interfaceAnimation={props.interfaceAnimation}/>
+            <SectionManager interfaceAnimation={props.interfaceAnimation} locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
             <Moon/>
         </motion.div>
     );

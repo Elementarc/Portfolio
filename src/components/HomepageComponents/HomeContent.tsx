@@ -1,11 +1,11 @@
 //components
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {motion, useMotionValue} from "framer-motion"
 import ScrollDown from "./ScrollDown"
 
 //css
 import "./styleSheets/homeContent.scss"
-import {useHistory, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 //Toggles Animation for hovering over GetStarted button.
 var buttonState = true
 function hoverButton(){
@@ -20,42 +20,9 @@ function hoverButton(){
     }
 }
 
-var locationIndex: number = 0
 const HomeContent = (props: any) => {
     const location = useLocation()
-    const history = useHistory()
-    const [State, setState] = useState(true);
- 
-    //Setting locationIndex
-    useEffect(() => {
-        if(location.pathname === "/home"){
-            locationIndex = 0
-        }
-        else if(location.pathname === "/home/strength"){
-            locationIndex = 1
-        }
-        else if(location.pathname === "/home/routine"){
-            locationIndex = 2
-        }
-        else if(location.pathname === "/home/daily"){
-            locationIndex = 3
-        }
-    }, [location.pathname]);
-    //Changes url based on locationIndex
-    useEffect(() => {
-        if(locationIndex === 0){
-            history.replace("/home")
-        }
-        else if(locationIndex === 1){
-            history.replace("/home/strength")
-        }
-        else if(locationIndex === 2){
-            history.replace("/home/routine")
-        }
-        else if(locationIndex === 3){
-            history.replace("/home/daily")
-        }
-    }, [history]);
+    //Tracking X value for mobile
     var x = useMotionValue(0)
     //Moves Homecontent along the X axis while pan
     function onPan(event: any, info: any) {
@@ -68,48 +35,30 @@ const HomeContent = (props: any) => {
         var getItem = document.getElementById("homeContent") as HTMLDivElement
         getItem.style.transition = "0.6s"
         x.set(0)
+        //Checks if gesture is to the left or right
         if(info.velocity.x < -100){
             //Forward
-            locationIndex++
-            if(locationIndex > 2){
-                locationIndex = 2
+            //Changes locationIndex to the right Index
+            if(props.locationIndex === 3){
+                props.setLocationIndex(3)
             }
-
-            if(locationIndex === 0){
-                history.replace("/home")
+            else{
+                props.setLocationIndex(props.locationIndex + 1)
             }
-            else if(locationIndex === 1){
-                history.replace("/home/strength")
-            }
-            else if(locationIndex === 2){
-                history.replace("/home/routine")
-            }
-            else if(locationIndex === 3){
-                history.replace("/home/daily")
-            }
+            
         }
         else if(info.velocity.x > 100){
             //Backwards
-            locationIndex--
-            if(locationIndex < 0){
-                locationIndex= 0
+            //Changes locationIndex to the right Index
+            if(props.locationIndex === 0){
+                props.setLocationIndex(0)
             }
-
-            if(locationIndex === 0){
-                history.replace("/home")
+            else{
+                props.setLocationIndex(props.locationIndex - 1)
             }
-            else if(locationIndex === 1){
-                history.replace("/home/strength")
-            }
-            else if(locationIndex === 2){
-                history.replace("/home/routine")
-            }
-            else if(locationIndex === 3){
-                history.replace("/home/daily")
-            }
-            console.log(locationIndex)
         }
     }
+
     //DESKTOP JSX
     if(window.innerWidth > 1000){
         //ROUTES
