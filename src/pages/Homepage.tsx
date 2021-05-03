@@ -12,6 +12,7 @@ import "./styleSheetPage/homepage.scss"
 const HomepageContainer = (props: any) => {
     const location = useLocation()
     const history = useHistory()
+    //Sets initial State based on url
     const [LocationIndex, setLocationIndex] = useState(() =>{
         if(location.pathname.toLowerCase() === "/home"){
             return 0

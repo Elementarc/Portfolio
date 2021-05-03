@@ -24,17 +24,25 @@ const HomeContent = (props: any) => {
     const location = useLocation()
     //Tracking X value for mobile
     var x = useMotionValue(0)
+    var opacity = useMotionValue(1)
     //Moves Homecontent along the X axis while pan
     function onPan(event: any, info: any) {
         var getItem = document.getElementById("homeContent") as HTMLDivElement
         getItem.style.transition = ""
-        x.set(info.offset.x / 2)
+        if(info.offset.x < 0){
+            opacity.set(1 - (-info.offset.x / 300))
+        }
+        else{
+            opacity.set(1 - (info.offset.x / 400))
+        }
+        x.set(info.offset.x / 4)
     }
     //If Enough pan velocity is reached it will automaticly change the url to the right index
     function onPanEnd(event: any, info: any) {
         var getItem = document.getElementById("homeContent") as HTMLDivElement
         getItem.style.transition = "0.6s"
         x.set(0)
+        opacity.set(1)
         //Checks if gesture is to the left or right
         if(info.velocity.x < -100){
             //Forward
@@ -44,6 +52,7 @@ const HomeContent = (props: any) => {
             }
             else{
                 props.setLocationIndex(props.locationIndex + 1)
+                opacity.set(0)
             }
             
         }
@@ -55,6 +64,7 @@ const HomeContent = (props: any) => {
             }
             else{
                 props.setLocationIndex(props.locationIndex - 1)
+                opacity.set(0)
             }
         }
     }
@@ -106,7 +116,7 @@ const HomeContent = (props: any) => {
     else {
         if(location.pathname === "/home"){
             return (
-                <motion.div style={{x: x}} onPan={onPan} onPanEnd={onPanEnd} animate={{y: 0, opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeContent">
+                <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate={{y: 0, opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeContent">
                     <div className="content">
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                             <h1>{"SIMPLE & CLEAN"}</h1>
@@ -128,7 +138,7 @@ const HomeContent = (props: any) => {
         }
         else if(location.pathname === "/home/strength"){
             return(
-                <motion.div style={{x: x}} onPan={onPan} onPanEnd={onPanEnd} animate={{y: 0,opacity: 1, transition: {delay: 0.5, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeStrengthContent">
+                <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate={{y: 0,opacity: 1, transition: {delay: 0.5, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeStrengthContent">
                     <div className="content">
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                             <h1>{"STRENGTH & PASSION"}</h1>

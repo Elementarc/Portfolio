@@ -203,7 +203,7 @@ const SectionManager = (props: any) => {
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
             <div id="sectionContent" className="sectionContent" onMouseEnter={() => {SectionName(true); clearTimeout(timer)}} onMouseLeave={() => SectionName(false)}>
-                        <Link id="sections1" className="sections1" to="/home">
+                        <Link onClick={() => props.setLocationIndex(0)} id="sections1" className="sections1" to="/home">
                             <div id="sectionShadowTarget1" className="sectionShadow"></div>
                             <div className="section">
                                 <div id="sectionName1" className="sectionName">Homepage</div>
@@ -211,21 +211,21 @@ const SectionManager = (props: any) => {
                             
                         </Link>
                         
-                        <Link id="sections2" to="/home/strength">
+                        <Link onClick={() => props.setLocationIndex(1)} id="sections2" to="/home/strength">
                             <div id="sectionShadowTarget2" className="sectionShadow"></div>
                             <div  className="section">
                                 <div id="sectionName2" className="sectionName">Strength</div>
                             </div>
                         </Link>
                         
-                        <Link id="sections3" to="/home/routine">
+                        <Link onClick={() => props.setLocationIndex(2)} id="sections3" to="/home/routine">
                             <div id="sectionShadowTarget3" className="sectionShadow"></div>
                             <div  className="section">
                                 <div id="sectionName3" className="sectionName">Routine</div>
                             </div>
                         </Link>
                         
-                        <Link id="sections4" to="/home/daily">
+                        <Link onClick={() => props.setLocationIndex(3)} id="sections4" to="/home/daily">
                             <div id="sectionShadowTarget4" className="sectionShadow"></div>
                             <div  className="section">
                                 <div id="sectionName4" className="sectionName">Daily</div>
