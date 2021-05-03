@@ -149,19 +149,16 @@ const SectionManager = (props: any) => {
                     //wheel UP
                     if(e.deltaY < 0){
                         //Setting the locationIndex so Partent component can switch to the right URL
-                        if(properties.locationIndex < 0){
-                            properties.setLocationIndex(0)
-                        }
-                        else{
+                        if(properties.locationIndex > 0){
                             properties.setLocationIndex(properties.locationIndex - 1)
                         }
+                        
+                        
+                        
                     }
                     //wheel DOWN
                     else{
-                        if(properties.locationIndex > 3){
-                            properties.setLocationIndex(3)
-                        }
-                        else{
+                        if(properties.locationIndex < 3){
                             properties.setLocationIndex(properties.locationIndex + 1)
                         }
                     }

@@ -47,24 +47,16 @@ const HomeContent = (props: any) => {
         if(info.velocity.x < -100){
             //Forward
             //Changes locationIndex to the right Index
-            if(props.locationIndex === 3){
-                props.setLocationIndex(3)
-            }
-            else{
+            if(props.locationIndex < 3){
                 props.setLocationIndex(props.locationIndex + 1)
-                opacity.set(0)
             }
             
         }
         else if(info.velocity.x > 100){
             //Backwards
             //Changes locationIndex to the right Index
-            if(props.locationIndex === 0){
-                props.setLocationIndex(0)
-            }
-            else{
+            if(props.locationIndex > 0){
                 props.setLocationIndex(props.locationIndex - 1)
-                opacity.set(0)
             }
         }
     }
