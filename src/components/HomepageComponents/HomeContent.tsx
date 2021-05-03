@@ -44,19 +44,21 @@ const HomeContent = (props: any) => {
         x.set(0)
         opacity.set(1)
         //Checks if gesture is to the left or right
-        if(info.velocity.x < -100){
+        if(info.velocity.x < -80){
             //Forward
             //Changes locationIndex to the right Index
             if(props.locationIndex < 3){
                 props.setLocationIndex(props.locationIndex + 1)
+                opacity.set(0)
             }
             
         }
-        else if(info.velocity.x > 100){
+        else if(info.velocity.x > 80){
             //Backwards
             //Changes locationIndex to the right Index
             if(props.locationIndex > 0){
                 props.setLocationIndex(props.locationIndex - 1)
+                opacity.set(0)
             }
         }
     }

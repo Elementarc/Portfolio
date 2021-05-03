@@ -41,6 +41,7 @@ const HomepageContainer = (props: any) => {
         else if(LocationIndex === 3){
             history.replace("/home/daily")
         }
+        console.log(LocationIndex)
     }, [LocationIndex, history]);
 
     //Animation for scrolling between routes for mobile & desktop
