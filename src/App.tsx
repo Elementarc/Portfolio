@@ -2,9 +2,11 @@ import React, {useEffect} from "react"
 import {Redirect, Route, Switch, useLocation} from "react-router-dom"
 import {AnimatePresence ,motion} from "framer-motion"
 import "./app.scss"
-//import components
+//import Page components
 import Homepage from "./pages/Homepage"
 import DesignPage from "./pages/DesignPage"
+import ContactPage from "./pages/ContactPage"
+//Import components
 import Nav from "./components/Nav"
 import Blackbar from "./components/Blackbar"
 import Logo from "./components/LogoName"
@@ -44,9 +46,15 @@ function App() {
             <Homepage interfaceAnimation={interfaceAnimation}/>
           </Route>
 
-          <Route strict path="/design" component={DesignPage}/>
+          <Route strict path="/design" >
+            <DesignPage/>
+          </Route>
 
-          <Route exact path="/">
+          <Route strict path="/contact" >
+            <ContactPage/>
+          </Route>
+          
+          <Route exact path = "/">
             <Redirect to="/home"/>
           </Route>
         </Switch>

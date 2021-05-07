@@ -15,6 +15,7 @@ import {motion} from "framer-motion"
 //CSS
 import "./styleSheets/nav.scss"
 
+//cheking url to give navItem the target class
 function giveNavStyleTarget(url: string) {
     var getNavItemHome = document.getElementById("navHome") as HTMLDivElement
     var getNavItemHomeIcon = document.getElementById("HomeIcon") as HTMLDivElement
@@ -92,20 +93,16 @@ function giveNavStyleTarget(url: string) {
         getNavItemContact.classList.add("targetNavItem")
         getNavItemContactIcon.classList.add("targetNavIcon")
         //removing style from all others
-        getNavItemHome.classList.remove("targetNavItem")
-        getNavItemHomeIcon.classList.remove("targetNavIcon")
-        getNavItemDesign.classList.remove("targetNavNavItem")
+        getNavItemDesign.classList.remove("targetNavItem")
         getNavItemDesignIcon.classList.remove("targetNavIcon")
         getNavItemProjects.classList.remove("targetNavItem")
         getNavItemProjectsIcon.classList.remove("targetNavIcon")
         getNavItemWorkspace.classList.remove("targetNavItem")
         getNavItemWorkspaceIcon.classList.remove("targetNavIcon")
-    }
-    else{
-        console.log("couldnt find url")
+        getNavItemHome.classList.remove("targetNavItem")
+        getNavItemHomeIcon.classList.remove("targetNavIcon")
     }
 }
-
 //Animation Props for Navigation
 const navAnimation = {
     enter: {
@@ -151,7 +148,7 @@ const Nav = (props: any) => {
     const [NavState, setNavState] = useState(false);
     //componentDidMount to give navItem the right class at the beginning of pageload
     useEffect(() =>{
-        giveNavStyleTarget(location.pathname)
+        giveNavStyleTarget(location.pathname.toLowerCase())
     },[location.pathname])
     
     //Making sure that there are no pointer events when navigation is closed also to not be able to scroll around while navigation is opened

@@ -12,6 +12,7 @@ import "./styleSheetPage/homepage.scss"
 const HomepageContainer = (props: any) => {
     const location = useLocation()
     const history = useHistory()
+
     //Sets initial State based on url
     const [LocationIndex, setLocationIndex] = useState(() =>{
         if(location.pathname.toLowerCase() === "/home"){
@@ -26,7 +27,9 @@ const HomepageContainer = (props: any) => {
         else if(location.pathname.toLowerCase() === "/home/daily"){
             return 3
         }
+        
     })
+    console.log(LocationIndex)
     //Checks LocationIndex to then switch to the correct URL
     useEffect(() => {
         if(LocationIndex === 0){
@@ -41,7 +44,7 @@ const HomepageContainer = (props: any) => {
         else if(LocationIndex === 3){
             history.replace("/home/daily")
         }
-        console.log(LocationIndex)
+        
     }, [LocationIndex, history]);
 
     //Animation for scrolling between routes for mobile & desktop

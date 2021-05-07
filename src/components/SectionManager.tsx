@@ -1,12 +1,14 @@
 import React, {useCallback ,useEffect, useMemo} from 'react';
 import "./styleSheets/sectionManager.scss"
-import {Link, useLocation} from "react-router-dom"
+import {Link, useHistory, useLocation} from "react-router-dom"
 import {motion} from "framer-motion"
 
 
 var timer: any
 const SectionManager = (props: any) => {
     const location = useLocation()
+    const history = useHistory()
+
     //Toggles Animation for sectionNames. Does not get triggert when device width is below 900px Its a Callback
     const SectionName = useCallback((state: boolean) =>{
         function toggleSectionName(toggle: boolean) {
@@ -24,25 +26,30 @@ const SectionManager = (props: any) => {
     
                     if(toggle === true){
                         arr.forEach( i => {
-                            setTimeout(() => {
-                                var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
-                                getSectionName.style.opacity = "1"
-                                getSectionName.style.transform = "scale(1)"
-                                getSectionName.style.pointerEvents = "visible"
-                                getSectionContent.style.width = "180px"
-                            }, i * 100)
+                            var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
+                            if(getSectionName){
+                                setTimeout(() => {
+                                    getSectionName.style.opacity = "1"
+                                    getSectionName.style.transform = "scale(1)"
+                                    getSectionName.style.pointerEvents = "visible"
+                                    getSectionContent.style.width = "180px"
+                                }, i * 100)
+                            }
                         })
                         
                     }
                     else{
                         arr.forEach( n =>{
-                            setTimeout(() => {
-                                var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
-                                getSectionName.style.opacity = "0"
-                                getSectionName.style.transform = "scale(0)"
-                                getSectionName.style.pointerEvents = "none"
-                                getSectionContent.style.width = "100%"
-                            }, n * 100);
+                            var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
+
+                            if(getSectionName){
+                                setTimeout(() => {
+                                    getSectionName.style.opacity = "0"
+                                    getSectionName.style.transform = "scale(0)"
+                                    getSectionName.style.pointerEvents = "none"
+                                    getSectionContent.style.width = "100%"
+                                }, n * 100);
+                            }
                         })
                     }
                 }
@@ -53,6 +60,7 @@ const SectionManager = (props: any) => {
         } 
         toggleSectionName(state)
     }, [location.pathname])
+
     //setting style for right section-button after checking url.
     useEffect(() =>{
         //sets style for section: takes url as parameter to check which section button needs to light up, and also sets the location index for wheelListener function
@@ -66,7 +74,6 @@ const SectionManager = (props: any) => {
             let getShadowTarget2 = document.getElementById("sectionShadowTarget2") as HTMLDivElement
             let getShadowTarget3 = document.getElementById("sectionShadowTarget3") as HTMLDivElement
             let getShadowTarget4 = document.getElementById("sectionShadowTarget4") as HTMLDivElement
-            
             if(url === "/home"){
                 getSectionTarget1.classList.add("sectionsTarget")
                 getShadowTarget1.classList.add("sectionShadowTarget")
@@ -116,7 +123,7 @@ const SectionManager = (props: any) => {
                 getShadowTarget3.classList.remove("sectionShadowTarget")
             }
         }
-        setTarget(location.pathname)
+        setTarget(location.pathname.toLowerCase())
         //Toggles sectionNames on pageStart and closes it
         SectionName(true)
         clearTimeout(timer)
@@ -125,7 +132,7 @@ const SectionManager = (props: any) => {
         }, 3400);
     },[location.pathname, SectionName])
 
-    //Adding eventlistener on mount and removing on unmount
+    //Saving props into cache to not always re compute it on every rerender
     var properties = useMemo(() =>{
         var properties = {
             locationIndex: props.locationIndex,
@@ -134,10 +141,11 @@ const SectionManager = (props: any) => {
         return properties
     }, [props.locationIndex, props.setLocationIndex])
     
+    //Adds listeners and removes them
     useEffect(() => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
         function wheelListner(e: any) {
-            if(location.pathname.includes("/home") === true){
+            if(history.location.pathname.includes("/home") === true){
                 if(window.innerWidth >= 900 && window.innerHeight >= 950){
                     //Toggles sectionNames on scroll and closes it after 3seconds no scrolling
                     SectionName(true)
@@ -152,9 +160,6 @@ const SectionManager = (props: any) => {
                         if(properties.locationIndex > 0){
                             properties.setLocationIndex(properties.locationIndex - 1)
                         }
-                        
-                        
-                        
                     }
                     //wheel DOWN
                     else{
@@ -163,12 +168,6 @@ const SectionManager = (props: any) => {
                         }
                     }
                 }
-                else{
-                    //console.log("device smalelr than 900px")
-                }
-            }
-            else{
-                //console.log("we are not a home anymore!")
             }
         }
         //Using keydownListener function to disable wheel event to properly zoom in and out without changing home section/urls
@@ -195,40 +194,40 @@ const SectionManager = (props: any) => {
             window.removeEventListener("keydown", keydownListener)
             window.removeEventListener("keyup", keyupListener)
         })
-    }, [properties,location.pathname, SectionName])
+    }, [properties,history, SectionName])
 
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
             <div id="sectionContent" className="sectionContent" onMouseEnter={() => {SectionName(true); clearTimeout(timer)}} onMouseLeave={() => SectionName(false)}>
-                        <Link onClick={() => props.setLocationIndex(0)} id="sections1" className="sections1" to="/home">
-                            <div id="sectionShadowTarget1" className="sectionShadow"></div>
-                            <div className="section">
-                                <div id="sectionName1" className="sectionName">Homepage</div>
-                            </div>
-                            
-                        </Link>
-                        
-                        <Link onClick={() => props.setLocationIndex(1)} id="sections2" to="/home/strength">
-                            <div id="sectionShadowTarget2" className="sectionShadow"></div>
-                            <div  className="section">
-                                <div id="sectionName2" className="sectionName">Strength</div>
-                            </div>
-                        </Link>
-                        
-                        <Link onClick={() => props.setLocationIndex(2)} id="sections3" to="/home/routine">
-                            <div id="sectionShadowTarget3" className="sectionShadow"></div>
-                            <div  className="section">
-                                <div id="sectionName3" className="sectionName">Routine</div>
-                            </div>
-                        </Link>
-                        
-                        <Link onClick={() => props.setLocationIndex(3)} id="sections4" to="/home/daily">
-                            <div id="sectionShadowTarget4" className="sectionShadow"></div>
-                            <div  className="section">
-                                <div id="sectionName4" className="sectionName">Daily</div>
-                            </div>
-                        </Link>
+                <Link onClick={() => props.setLocationIndex(0)} id="sections1" className="sections1" to="/home">
+                    <div id="sectionShadowTarget1" className="sectionShadow"></div>
+                    <div className="section">
+                        <div id="sectionName1" className="sectionName">Homepage</div>
                     </div>
+                    
+                </Link>
+                
+                <Link onClick={() => props.setLocationIndex(1)} id="sections2" to="/home/strength">
+                    <div id="sectionShadowTarget2" className="sectionShadow"></div>
+                    <div  className="section">
+                        <div id="sectionName2" className="sectionName">Strength</div>
+                    </div>
+                </Link>
+                
+                <Link onClick={() => props.setLocationIndex(2)} id="sections3" to="/home/routine">
+                    <div id="sectionShadowTarget3" className="sectionShadow"></div>
+                    <div  className="section">
+                        <div id="sectionName3" className="sectionName">Routine</div>
+                    </div>
+                </Link>
+                
+                <Link onClick={() => props.setLocationIndex(3)} id="sections4" to="/home/daily">
+                    <div id="sectionShadowTarget4" className="sectionShadow"></div>
+                    <div  className="section">
+                        <div id="sectionName4" className="sectionName">Daily</div>
+                    </div>
+                </Link>
+            </div>
         </motion.div>
     );
 }

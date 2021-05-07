@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.contactPageContainer{
+    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    height: 100vh;
+    width: 100%;
+    max-height: 1350px;
+    z-index: 5;
+    background-color: #090909;
+    overflow: hidden;
+    .contactContentContainer{
+        background-color: #ffffff17;
+        width: 100%;
+        color: white;
+        font-family: "PT Serif" cursive;
+        margin-top: 18rem;
+        h1{
+            display: block;
+            padding-top: 1rem;
+            font-family: "PT Serif";
+            font-size: 20px;
+            margin: 5rem 0 0rem 12rem;
+        }
+        h2{
+            display: block;
+            font-family: "PT Serif";
+            font-size: 39px;
+            margin: -0.4rem 0 0rem 12rem;
+        }
+        p{
+            display: block;
+            font-size: 18px;
+            margin: 1rem 0 0rem 12rem;
+            line-height: 2rem;
+            font-family: "Noto Sans";
+            width: 37rem;
+            padding-bottom: 1rem;
+        }
+    }
+    .contactFlexContainer{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+        span{
+            align-self: center;
+            height: 1px;
+            width: 40px;
+            margin: 0rem 2rem;
+            background-color: white;
+        }
+        .contactBox{
+            height: 154px;
+            width: 430px;
+            margin: 7rem 0rem;
+            background-color: rgb(10, 10, 10);
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.164);
+            background: rgb(138,35,128);
+            border-radius: 3px;
+            background: linear-gradient(90deg, rgba(138,35,128,1) 0%, rgba(233,64,87,1) 50%, rgba(242,113,32,1) 100%);
+        }
+        .contactBox:hover{
+            cursor: pointer;
+        }
+    }
+    .workLink{
+        text-align: center;
+        color: white;
+        font-size: 22px;
+        font-family: "PT Serif";
+        a{
+            color: #71AAFF;
+            text-decoration: underline;
+        }
+    }
+}
