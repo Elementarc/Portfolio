@@ -7,6 +7,7 @@ import {motion} from "framer-motion"
 var timer: any
 const SectionManager = (props: any) => {
     const location = useLocation()
+    const path = useLocation().pathname.toLowerCase()
     const history = useHistory()
 
     //Toggles Animation for sectionNames. Does not get triggert when device width is below 900px Its a Callback
@@ -17,7 +18,8 @@ const SectionManager = (props: any) => {
             //Animation only happens if device width is > 900
             if(window.innerWidth >= 900){
                 //Using this if statement to make sure this is not getting triggered when changing to another page because forEach takes a while
-                if(location.pathname.includes("/home") === true){
+                if(path.includes("/home") === true){
+                    
                     //Creating an array with for index to be able to loop through with foreach
                     let arr = []
                     for(let i = 0; i < getSections.length; i++){
@@ -59,7 +61,7 @@ const SectionManager = (props: any) => {
             }
         } 
         toggleSectionName(state)
-    }, [location.pathname])
+    }, [path])
 
     //setting style for right section-button after checking url.
     useEffect(() =>{
@@ -123,14 +125,14 @@ const SectionManager = (props: any) => {
                 getShadowTarget3.classList.remove("sectionShadowTarget")
             }
         }
-        setTarget(location.pathname.toLowerCase())
+        setTarget(path)
         //Toggles sectionNames on pageStart and closes it
         SectionName(true)
         clearTimeout(timer)
         timer = setTimeout(() => {
             SectionName(false)
         }, 3400);
-    },[location.pathname, SectionName])
+    },[path, SectionName])
 
     //Saving props into cache to not always re compute it on every rerender
     var properties = useMemo(() =>{
@@ -194,7 +196,7 @@ const SectionManager = (props: any) => {
             window.removeEventListener("keydown", keydownListener)
             window.removeEventListener("keyup", keyupListener)
         })
-    }, [properties,history, SectionName])
+    }, [properties,history.location.pathname, SectionName])
 
     return (
         <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">

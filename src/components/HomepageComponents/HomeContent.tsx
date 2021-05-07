@@ -21,8 +21,8 @@ function hoverButton(){
 }
 
 const HomeContent = (props: any) => {
-    const location = useLocation()
-    //Tracking X value for mobile
+    const path = useLocation().pathname.toLowerCase()
+    //Tracking X value for mobile drag animation
     var x = useMotionValue(0)
     var opacity = useMotionValue(1)
     //Moves Homecontent along the X axis while pan
@@ -66,7 +66,7 @@ const HomeContent = (props: any) => {
     //DESKTOP JSX
     if(window.innerWidth > 1000){
         //ROUTES
-        if(location.pathname.toLowerCase() === "/home"){
+        if(path === "/home"){
             return (
                 <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -50, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0.15}}} id="homeContent" className="homeContent">
                     <motion.div className="content">
@@ -88,7 +88,7 @@ const HomeContent = (props: any) => {
                 </motion.div>
             );
         }
-        else if(location.pathname.toLowerCase() === "/home/strength"){
+        else if(path === "/home/strength"){
             return(
                 <motion.div animate={{y: 0,opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -50, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0.15}}} id="homeStrengthContent" className="homeStrengthContent">
                     <div className="content">
@@ -108,7 +108,7 @@ const HomeContent = (props: any) => {
     }
     //MOBILE JSX
     else {
-        if(location.pathname.toLowerCase() === "/home"){
+        if(path === "/home"){
             return (
                 <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate={{y: 0, opacity: 1, transition: {delay: 0.25, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeContent">
                     <div className="content">
@@ -130,7 +130,7 @@ const HomeContent = (props: any) => {
                 </motion.div>
             );
         }
-        else if(location.pathname.toLowerCase() === "/home/strength"){
+        else if(path === "/home/strength"){
             return(
                 <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate={{y: 0,opacity: 1, transition: {delay: 0.5, duration: 1.2}}} initial={{y: -20, opacity: 0}} exit={{opacity: 0, transition: {duration: 0.4, delay: 0}}} id="homeContent" className="homeStrengthContent">
                     <div className="content">

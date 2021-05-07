@@ -11,26 +11,26 @@ import "./styleSheetPage/homepage.scss"
 
 const HomepageContainer = (props: any) => {
     const location = useLocation()
+    const path = useLocation().pathname.toLowerCase()
     const history = useHistory()
 
     //Sets initial State based on url
     const [LocationIndex, setLocationIndex] = useState(() =>{
-        if(location.pathname.toLowerCase() === "/home"){
+        if(path === "/home"){
             return 0
         }
-        else if(location.pathname.toLowerCase() === "/home/strength"){
+        else if(path === "/home/strength"){
             return 1
         }
-        else if(location.pathname.toLowerCase() === "/home/routine"){
+        else if(path === "/home/routine"){
             return 2
         }
-        else if(location.pathname.toLowerCase() === "/home/daily"){
+        else if(path === "/home/daily"){
             return 3
         }
         
     })
-    console.log(LocationIndex)
-    //Checks LocationIndex to then switch to the correct URL
+    //Changes url based on Location index. Allows us to cycle through urls when adding or subtracting 1 from LocationIndex
     useEffect(() => {
         if(LocationIndex === 0){
             history.replace("/home")
@@ -44,7 +44,6 @@ const HomepageContainer = (props: any) => {
         else if(LocationIndex === 3){
             history.replace("/home/daily")
         }
-        
     }, [LocationIndex, history]);
 
     //Animation for scrolling between routes for mobile & desktop
@@ -52,60 +51,60 @@ const HomepageContainer = (props: any) => {
         function homepageContentAnimation() {
             var getContent = document.getElementById("contentContainer") as HTMLDivElement
             if(window.innerWidth > 1000){
-                if(location.pathname === "/home"){
+                if(path === "/home"){
                     getContent.style.top = "0"
                     getContent.style.left = "0"
                 }
-                else if(location.pathname === "/home/strength"){
+                else if(path === "/home/strength"){
                     getContent.style.top = "-100vh"
                     getContent.style.left = "0"
                 }
-                else if(location.pathname === "/home/routine"){
+                else if(path === "/home/routine"){
                     getContent.style.top = "-200vh"
                     getContent.style.left = "0"
                 }
-                else if(location.pathname === "/home/daily"){
+                else if(path === "/home/daily"){
                     getContent.style.top = "-300vh"
                     getContent.style.left = "0"
                 }
             }
             else if(window.innerWidth < 1000) {
-                if(location.pathname === "/home"){
+                if(path === "/home"){
                     getContent.style.top = "0"
                     getContent.style.left = "0"
                 }
-                else if(location.pathname === "/home/strength"){
+                else if(path === "/home/strength"){
                     getContent.style.top = "0"
                     getContent.style.left = "-100vw"
                 }
-                else if(location.pathname === "/home/routine"){
+                else if(path === "/home/routine"){
                     getContent.style.top = "0"
                     getContent.style.left = "-200vw"
                 }
-                else if(location.pathname === "/home/daily"){
+                else if(path === "/home/daily"){
                     getContent.style.top = "0"
                     getContent.style.left = "-300vw"
                 }
             }
         }
         homepageContentAnimation()
-    }, [location.pathname])
+    }, [path])
 
     return(
         <motion.div  exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
             <motion.div className="contentContainer" id="contentContainer">
                 <AnimatePresence>
-                    <Switch location={location} key={location.pathname}>
-                        <Route exact path="/home">
+                    <Switch location={location} key={path}>
+                        <Route strict path="/home">
                             <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
                         </Route>
-                        <Route exact path="/home/strength">
+                        <Route strict path="/home/strength">
                             <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
                         </Route>
-                        <Route exact path="/home/routine">
+                        <Route strict path="/home/routine">
                             
                         </Route>
-                        <Route exact path="/home/daily">
+                        <Route strict path="/home/daily">
                             
                         </Route>
                     </Switch>

@@ -26,6 +26,7 @@ var interfaceAnimation = {
 }
 function App() {  
   const location = useLocation()
+  const path = useLocation().pathname.toLowerCase()
   //scrolls to top whenever URL changes for better ux
   useEffect(() => {
     function scrollToTop() {
@@ -35,12 +36,12 @@ function App() {
       }, 500);
     }
     scrollToTop()
-  }, [location.pathname]);
+  }, [path]);
   
   return (
     <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
       <AnimatePresence>
-        <Switch location={location} key={location.pathname.includes(`/home`) ? "true" : "false"}>
+        <Switch location={location} key={path.includes(`/home`) ? "true" : "false"}>
 
           <Route strict path="/home">
             <Homepage interfaceAnimation={interfaceAnimation}/>
