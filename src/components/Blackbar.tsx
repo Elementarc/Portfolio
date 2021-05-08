@@ -1,5 +1,5 @@
 import React from 'react';
-import "./styleSheets/topBar.scss"
+import "./styleSheets/blackBar.scss"
 import {motion} from "framer-motion"
 //Props for animation
 

@@ -11,9 +11,10 @@
     justify-content: flex-start;
     align-items: center;
     height: 34px;
-    z-index: 2;
+    z-index: 90;
     p{
         color: white;
+        pointer-events: visible;
         font-family: "Noto Sans";
         letter-spacing: 0.1rem;
         font-size: 15px;

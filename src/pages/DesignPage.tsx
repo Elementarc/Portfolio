@@ -1,6 +1,5 @@
 import React from 'react';
 import {motion} from "framer-motion"
-import {Route, Switch, useHistory, useLocation} from "react-router-dom"
 import "./styleSheetPage/designPage.scss"
 
 //components

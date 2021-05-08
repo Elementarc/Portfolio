@@ -6,7 +6,6 @@ import {motion} from "framer-motion"
 
 var timer: any
 const SectionManager = (props: any) => {
-    const location = useLocation()
     const path = useLocation().pathname.toLowerCase()
     const history = useHistory()
 

@@ -1,21 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 .hytaleDesignContainer{
     position: relative;
     height: 100%;
     width: 100%;
-    .designBackground{
-        position: absolute;
-        z-index: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        transform: scale(1.1);
-        background-image: url("../../../assets/images/Wallpaper.jpg");
-        transition-duration: 0.1s;
-        background-size: cover;
-        background-repeat: no-repeat;
+    .hytaleHeader{
+        position: relative;
+        display: block;
+        text-align: center;
+        color: white;
+        font-family: "PT Serif";
+        font-weight: 700;
+        div{
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            top: 160px;
+            background-image: url("../../../assets/svgs/headerDesign.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            pointer-events: none;
+        }
+        h1{
+           position: relative;
+           padding-top: 9rem;
+           font-size: 22px;
+           text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        }
+        
+        h2{
+           margin-top: -0.3rem;
+           text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+           font-size: 39px;
+            
+        }
+       
+    }
+    .hytaleContent{
+        color: white;
+        margin-left: 11rem;
+        margin-top: 16rem;
+        h1{
+            display: block;
+            font-family: "PT Serif";
+            color: #FFDA72;
+            font-size: 20px;
+            margin: 5rem 0 0rem 0rem;
+        }
+        h2{
+            display: block;
+            font-family: "PT Serif";
+            color: #FFDA72;
+            font-size: 28px;
+            margin: -0.4rem 0 0rem 0;
+        }
+        p{
+            font-size: 18px;
+            margin: 1rem 0 0rem 0;
+            line-height: 2rem;
+            font-family: "Noto Sans";
+            width: 40%;
+        }
     }
     .previewContainer{
-        position: relative;
+        position: absolute;
+        top: 0;
         height: 100%;
         width: 100%;
         z-index: 1;
@@ -23,12 +73,13 @@
         .previews{
             position: absolute;
             pointer-events: visible;
-            bottom: 23rem;
-            left: 17rem;
-            height: 255px;
-            width: 410px;
-            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+            bottom: 20rem;
+            right: 14.5rem;
+            height: 230px;
+            width: 400px;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            border-radius: 3px;
         }
 
         .preview1Background{
@@ -62,174 +113,113 @@
             transform: scale(1.1);
         }
     }
+    .designBackground{
+        position: absolute;
+        pointer-events: none;
+        z-index: -1;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        transform: scale(1.1);
+        background-image: url("../../../assets/images/Wallpaper.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        .darkerBackground{
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.45);
+            pointer-events: none;
+        }
+    }
 }
 
 @media (max-width: 1200px){
     .hytaleDesignContainer{
-        position: relative;
-        height: 100%;
-        width: 100%;
-        .designBackground{
-            position: absolute;
-            z-index: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            transform: scale(1.1);
-            background-image: url("../../../assets/images/Wallpaper.jpg");
-            transition-duration: 0.1s;
-            background-size: cover;
-            background-repeat: no-repeat;
+        .hytaleHeader{
+            div{
+                background-size: cover;
+            }
+            
         }
         .previewContainer{
-            position: relative;
-            height: 100%;
-            width: 100%;
             .previews{
-                position: absolute;
-                bottom: 23rem;
-                left: 12rem;
-                height: 255px;
-                width: 410px;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-                overflow: hidden;
+                right: 5.5rem;
+                height: 200px;
+                width: 340px;
             }
-    
-            .preview1Background{
-                height: 100%;
-                width: 100%;
-                background-image: url("../../../assets/images/Hytale.PNG");
-                background-position: center;
-                background-repeat: no-repeat;
-                transition: 0.5s ease-in-out;
-                background-size: cover;
-                transform: scale(1.1);
+        }
+        .hytaleContent{
+            margin-left: 5rem;
+            p{
+                
+                width: 50%;
             }
-            .preview2Background{
-                height: 100%;
-                width: 100%;
-                background-image: url("../../../assets/images/team.jpg");
-                background-position: center;
-                background-repeat: no-repeat;
-                transition: 0.5s ease-in-out;
-                background-size: cover;
-                transform: scale(1.1);
-            }
-            .preview3Background{
-                height: 100%;
-                width: 100%;
-                background-image: url("../../../assets/images/ice_dragon.jpg");
-                background-position: center;
-                background-repeat: no-repeat;
-                transition: 0.5s ease-in-out;
-                background-size: cover;
-                transform: scale(1.1);
-            }
+        }
+    }
+}
+@media (max-height: 950px){
+    .hytaleDesignContainer{
+        .hytaleContent{
+            margin-top: 13rem;
         }
     }
 }
 @media (max-width: 1000px){
     .hytaleDesignContainer{
-        height: 100%;
-        width: 100%;
-        .designBackground{
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            transform: scale(1.1);
-            background-image: url("../../../assets/images/Wallpaper.jpg");
-            transition-duration: 0.1s;
-            background-size: cover;
-            background-repeat: no-repeat;
+        .hytaleHeader{
+            z-index: 2;
+            div{
+                background: unset;
+            }
+            h1{
+               padding-top: 6rem;
+               font-size: 16px;
+            }
+            
+            h2{
+               margin-top: -0.3rem;
+               text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+               font-size: 30px;
+            }
+           
+        }
+        .hytaleContent{
+            text-align: center;
+            margin: 14rem 0 0rem 0;
+            h1{
+                font-size: 16px;
+            }
+            h2{
+                margin-top: -0.3rem;
+               text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+               font-size: 30px;
+            }
+            p{
+                text-align: center;
+                margin: unset;
+                font-size: 14px;
+                padding: 1rem 1rem 12rem 1rem;
+                width: 100%;
+            }
         }
         .previewContainer{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-            .previews{
-                position: absolute;
-                bottom: unset;
-                left: unset;
-                margin-top: 10rem;
-                height: 200px;
-                max-width: 350px;
-                width: 90%;
-                border: unset;
-                border-radius: 3px;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.4);
-                overflow: hidden;
-            }
-    
-            .preview1Background{
-                height: 100%;
-                width: 100%;
-                background-image: url("../../../assets/images/Hytale.PNG");
-                background-position: center;
-                background-repeat: no-repeat;
-                transition: 0.5s ease-in-out;
-                background-size: cover;
-                transform: scale(1);
-            }
-            .preview2Background{
-                height: 100%;
-                width: 100%;
-                background-image: url("../../../assets/images/team.jpg");
-                background-position: center;
-                background-repeat: no-repeat;
-                transition: 0.5s ease-in-out;
-                background-size: cover;
-                transform: scale(1);
-            }
-            .preview3Background{
-                height: 100%;
-                width: 100%;
-                background-image: url("../../../assets/images/ice_dragon.jpg");
-                background-position: center;
-                background-repeat: no-repeat;
-                transition: 0.5s ease-in-out;
-                background-size: cover;
-                transform: scale(1);
-            }
-        }
-        .designSectionContainer{
-            z-index: 1;
-            position: fixed;
+            position: absolute;
+            overflow: hidden;
             display: flex;
             justify-content: center;
-            align-items: center;
-            bottom: 0.5rem;
-            width: 100%;
-            height: 30px;
-            .designSection1{
-                margin: 0.7rem;
-                height: 10px;
-                border-radius: 50%;
-                width: 10px;
-                transition: 0.2s ease-in-out;
-                box-shadow: 0px 3px 10px 0px black;
-                background-color: #F5FC95;
-                .designSection1Shadow{
-                    border-radius: 50%;
-                    width: 100%;
-                    height: 100%;
-                    box-shadow: 0px 0px 50px 36px #f5fc952c;
-                    transition: 0.4s ease-in-out;
-                }
+            .previews{
+                top: 8.5rem;
+                right: unset;
+                height: 200px;
+                width: 325px;
             }
+    
         }
-        .bottomBlur{
-            position: fixed;
-            z-index: 0;
-            bottom: 0;
-            height: 50px;
-            width: 100%;
-            background: rgb(0,0,0);
-            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0, 0, 0, 0) 100%);
+        .designBackground{
+            transform: scale(1);
         }
     }
 }
+
 
 
