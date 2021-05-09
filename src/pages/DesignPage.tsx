@@ -1,5 +1,6 @@
 import React from 'react';
 import {motion} from "framer-motion"
+import {Link} from "react-router-dom"
 import "./styleSheetPage/designPage.scss"
 
 //components
@@ -12,8 +13,17 @@ const DesignPage = () => {
                 <button className="designButton" id="designButton">VIEW DESIGN</button>
             </motion.div>
             <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designBottomIllustrationContainer' id="designBottomIllustrationContainer">
+                <div className="bottomGradient"></div>
                 <div className="designBottomIllustration" id="designBottomIllustration"></div>
+                
             </motion.div>
+
+
+            <div className="designManager">
+                <Link to="#" className="designSection">
+                    <div/>
+                </Link>
+            </div>
         </motion.div>
     );
 }
