@@ -4,87 +4,8 @@ import "./styleSheets/hytaleDesign.scss"
 
 //Using this state number to cycle through 3 animation phases
 var previewState: number = 1
-//Desktop animationProps
+//AnimationProps for PreviewImages
 var preview1Styles = {
-    init: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0,
-        transition: {duration: 1, delay: 0, type: 'spring'}
-    },
-    in: {
-        zIndex: 3,
-        x: 0,
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        transition: {duration: 1, delay: 0.5, type: 'spring'}
-    },
-    out: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0.4,
-        transition: {duration: 0.5, delay: 0, type: 'spring'}
-    },
-}
-var preview2Styles = {
-    init: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0,
-        transition: {duration: 1, delay: 0, type: 'spring'}
-    },
-    in: {
-        zIndex: 2,
-        x: 200,
-        y: -130,
-        opacity: 0.6,
-        scale: 0.6,
-        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-    },
-    out: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0.4,
-        transition: {duration: 0.5, delay: 0, type: 'spring'}
-    },
-}
-var preview3Styles = {
-    init: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0,
-        transition: {duration: 1, delay: 0, type: 'spring'}
-    },
-    in: {
-        zIndex: 1,
-        x: 70,
-        y: -220,
-        opacity: 0.6,
-        scale: 0.3,
-        transition: {duration: 1.4, delay: 0.5, type: 'spring'}
-    },
-    out: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0.4,
-        transition: {duration: 0.5, delay: 0, type: 'spring'}
-    },
-}
-//Mobile animationProps
-var preview1StylesMobile = {
     init: {
         zIndex: 0,
         x: 0,
@@ -110,7 +31,7 @@ var preview1StylesMobile = {
         transition: {duration: 0.5, delay: 0, type: 'spring'}
     },
 }
-var preview2StylesMobile = {
+var preview2Styles = {
     init: {
         zIndex: 0,
         x: 0,
@@ -136,7 +57,7 @@ var preview2StylesMobile = {
         transition: {duration: 0.5, delay: 0, type: 'spring'}
     },
 }
-var preview3StylesMobile = {
+var preview3Styles = {
     init: {
         zIndex: 0,
         x: 0,
@@ -242,10 +163,10 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 2,
-                            x: 200,
-                            y: -130,
+                            x: -130,
+                            y: 0,
                             opacity: 0.6,
-                            scale: 0.6,
+                            scale: 0.7,
                             transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
@@ -267,11 +188,11 @@ const HytaleDesign = () => {
                             transition: {duration: 1, delay: 0, type: 'spring'}
                         },
                         in: {
-                            zIndex: 1,
-                            x: 70,
-                            y: -220,
+                            zIndex: 2,
+                            x: 130,
+                            y: 0,
                             opacity: 0.6,
-                            scale: 0.3,
+                            scale: 0.7,
                             transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
@@ -322,10 +243,10 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 2,
-                            x: 200,
-                            y: -130,
+                            x: -130,
+                            y: 0,
                             opacity: 0.6,
-                            scale: 0.6,
+                            scale: 0.7,
                             transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
@@ -347,11 +268,11 @@ const HytaleDesign = () => {
                             transition: {duration: 1, delay: 0, type: 'spring'}
                         },
                         in: {
-                            zIndex: 1,
-                            x: 70,
-                            y: -220,
+                            zIndex: 3,
+                            x: 130,
+                            y: 0,
                             opacity: 0.6,
-                            scale: 0.3,
+                            scale: 0.7,
                             transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
@@ -402,10 +323,10 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 2,
-                            x: 200,
-                            y: -130,
+                            x: -130,
+                            y: 0,
                             opacity: 0.6,
-                            scale: 0.6,
+                            scale: 0.7,
                             transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
@@ -427,11 +348,11 @@ const HytaleDesign = () => {
                             transition: {duration: 1, delay: 0, type: 'spring'}
                         },
                         in: {
-                            zIndex: 1,
-                            x: 70,
-                            y: -220,
+                            zIndex: 2,
+                            x: 130,
+                            y: 0,
                             opacity: 0.6,
-                            scale: 0.3,
+                            scale: 0.7,
                             transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
@@ -454,7 +375,7 @@ const HytaleDesign = () => {
                 console.log("mobile")
                 if(previewState === 1){
                     //First Box Preview1
-                    preview1StylesMobile = {
+                    preview1Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -480,7 +401,7 @@ const HytaleDesign = () => {
                             transition: {duration: 0.5, delay: 0, type: 'spring'}
                         },
                     }
-                    preview2StylesMobile = {
+                    preview2Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -506,7 +427,7 @@ const HytaleDesign = () => {
                             transition: {duration: 0.5, delay: 0, type: 'spring'}
                         },
                     }
-                    preview3StylesMobile = {
+                    preview3Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -534,7 +455,7 @@ const HytaleDesign = () => {
                     }
                 }
                 else if(previewState === 2){
-                    preview2StylesMobile = {
+                    preview2Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -560,7 +481,7 @@ const HytaleDesign = () => {
                             transition: {duration: 0.5, delay: 0, type: 'spring'}
                         },
                     }
-                    preview3StylesMobile = {
+                    preview3Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -586,7 +507,7 @@ const HytaleDesign = () => {
                             transition: {duration: 0.5, delay: 0, type: 'spring'}
                         },
                     }
-                    preview1StylesMobile = {
+                    preview1Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -614,7 +535,7 @@ const HytaleDesign = () => {
                     }
                 }
                 else if(previewState === 3){
-                    preview3StylesMobile = {
+                    preview3Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -640,7 +561,7 @@ const HytaleDesign = () => {
                             transition: {duration: 0.5, delay: 0, type: 'spring'}
                         },
                     }
-                    preview1StylesMobile = {
+                    preview1Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -666,7 +587,7 @@ const HytaleDesign = () => {
                             transition: {duration: 0.5, delay: 0, type: 'spring'}
                         },
                     }
-                    preview2StylesMobile = {
+                    preview2Styles = {
                         init: {
                             zIndex: 0,
                             x: 0,
@@ -706,74 +627,37 @@ const HytaleDesign = () => {
     }, [State]);
     
     //Return JSX Desktop
-    if(window.innerWidth > 1000){
-        return (
-            <div className="hytaleDesignContainer" >
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}} className="hytaleHeader">
-                    <div className="decoImage"></div>
-                    <h1>GAMING {"&"} DESIGN </h1>
-                    <h2>DESIRE THE FANTASY</h2>
+    return (
+        <div className="hytaleDesignContainer" >
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}} className="hytaleHeader">
+                <div className="decoImage"></div>
+                <h1>GAMING {"&"} DESIGN </h1>
+                <h2>DESIRE THE FANTASY</h2>
+            </motion.div>
+
+            <div className="previewContainer" id="previewContainer">
+                <motion.div animate="in" exit="out" initial="init" variants={preview1Styles} id="preview1" className="previews preview1">
+                    <div className="preview1Background"/>
                 </motion.div>
 
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5 , duration: 0.5}}} className="hytaleContent">
-                    <h1>PLAY {"&"} CONNECT</h1>
-                    <h2>A DEFINED WORLD</h2>
-                    <p >But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete. But I must explain to you how all this mistaken idea of denouncing pleasure u a complete.</p>
+                <motion.div animate="in" exit="out" initial="init" variants={preview2Styles} id="preview2" className="previews preview2">
+                    <div className="preview2Background"/>
                 </motion.div>
-                <div className="previewContainer" id="previewContainer">
-                    <motion.div animate="in" exit="out" initial="init" variants={preview1Styles} id="preview1" className="previews preview1">
-                        <div className="preview1Background"/>
-                    </motion.div>
 
-                    <motion.div animate="in" exit="out" initial="init" variants={preview2Styles} id="preview2" className="previews preview2">
-                        <div className="preview2Background"/>
-                    </motion.div>
-
-                    <motion.div animate="in" exit="out" initial="init" variants={preview3Styles} id="preview3" className="previews preview3">
-                        <div className="preview3Background"/>
-                    </motion.div>
-                </div>
-                <div className="designBackground" id="hytaleBackground">
-                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
-                </div>
+                <motion.div animate="in" exit="out" initial="init" variants={preview3Styles} id="preview3" className="previews preview3">
+                    <div className="preview3Background"/>
+                </motion.div>
             </div>
-        )
-    }
-    //Return JSX Mobile
-    else{
-        return(
-            <div className="hytaleDesignContainer" >
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}} className="hytaleHeader">
-                    <div className="decoImage"></div>
-                    <h1>GAMING {"&"} DESIGN </h1>
-                    <h2>DESIRE THE FANTASY</h2>
-                </motion.div>
-
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5 , duration: 0.5}}} className="hytaleContent">
-                    <h1>PLAY {"&"} CONNECT</h1>
-                    <h2>A DEFINED WORLD</h2>
-                    <p >But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete. But I must explain to you how all this mistaken idea of denouncing pleasure u a complete.</p>
-                </motion.div>
-                <div className="previewContainer" id="previewContainer">
-                    <motion.div animate="in" exit="out" initial="init" variants={preview1StylesMobile} id="preview1" className="previews preview1">
-                        <div className="preview1Background"/>
-                    </motion.div>
-
-                    <motion.div animate="in" exit="out" initial="init" variants={preview2StylesMobile} id="preview2" className="previews preview2">
-                        <div className="preview2Background"/>
-                    </motion.div>
-
-                    <motion.div animate="in" exit="out" initial="init" variants={preview3StylesMobile} id="preview3" className="previews preview3">
-                        <div className="preview3Background"/>
-                    </motion.div>
-                </div>
-                <div className="designBackground" id="hytaleBackground">
-                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
-                </div>
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5 , duration: 0.5}}} className="hytaleContent">
+                <h2>A DEFINED WORLD</h2>
+                <p >But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete. But I must explain to you how all this mistaken idea of denouncing pleasure u a complete.</p>
+            </motion.div>
+            
+            <div className="designBackground" id="hytaleBackground">
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
             </div>
-        )    
-    }
-
+        </div>
+    )
 }
 
 export default HytaleDesign;
