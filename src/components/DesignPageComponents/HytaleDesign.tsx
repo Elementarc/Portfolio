@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {animate, motion} from "framer-motion"
+import {motion} from "framer-motion"
 import "./styleSheets/hytaleDesign.scss"
 
 //Using this state number to cycle through 3 animation phases
@@ -20,7 +20,7 @@ var preview1Styles = {
         y: 0,
         opacity: 1,
         scale: 1,
-        transition: {duration: 1.5, delay: 0.5, type: 'spring'}
+        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
     },
     out: {
         zIndex: 0,
@@ -46,7 +46,7 @@ var preview2Styles = {
         y: 0,
         opacity: 0.6,
         scale: 0.7,
-        transition: {duration: 1.5, delay: 0.5, type: 'spring'}
+        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
     },
     out: {
         zIndex: 0,
@@ -72,7 +72,7 @@ var preview3Styles = {
         y: 0,
         opacity: 0.6,
         scale: 0.7,
-        transition: {duration: 1.5, delay: 0.5, type: 'spring'}
+        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
     },
     out: {
         zIndex: 0,
@@ -629,7 +629,7 @@ const HytaleDesign = () => {
     //Return JSX Desktop
     return (
         <div className="hytaleDesignContainer" >
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}} className="hytaleHeader">
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleHeader">
                 <div className="decoImage"></div>
                 <h1>GAMING {"&"} DESIGN </h1>
                 <h2>DESIRE THE FANTASY</h2>
@@ -648,7 +648,7 @@ const HytaleDesign = () => {
                     <div className="preview3Background"/>
                 </motion.div>
             </div>
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5 , duration: 0.5}}} className="hytaleContent">
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleContent">
                 <h2>A DEFINED WORLD</h2>
                 <p >But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete. But I must explain to you how all this mistaken idea of denouncing pleasure u a complete.</p>
             </motion.div>
