@@ -112,13 +112,15 @@
     }
     .designBottomIllustrationContainer{
         position: fixed;
+        width: 100%;
+        height: 180px;
         bottom: 0;
         pointer-events: none;
         .designBottomIllustration{
             height: 100%;
             width: 100%;
             transition-duration: 0.1s;
-            transform: scale(1.1) translateX(1px);
+            transform: scale(1) translateX(0);
             background-image: url("../../assets/illustrations/DesignBottomDeco.png");
             background-position: center;
             background-size: cover;

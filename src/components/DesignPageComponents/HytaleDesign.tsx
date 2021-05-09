@@ -99,7 +99,7 @@ var preview1StylesMobile = {
         y: 0,
         opacity: 1,
         scale: 1,
-        transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+        transition: {duration: 1.5, delay: 0.5, type: 'spring'}
     },
     out: {
         zIndex: 0,
@@ -125,7 +125,7 @@ var preview2StylesMobile = {
         y: 0,
         opacity: 0.6,
         scale: 0.7,
-        transition: {duration: 2, delay: 0.5, type: 'spring'}
+        transition: {duration: 1.5, delay: 0.5, type: 'spring'}
     },
     out: {
         zIndex: 0,
@@ -151,7 +151,7 @@ var preview3StylesMobile = {
         y: 0,
         opacity: 0.6,
         scale: 0.7,
-        transition: {duration: 2, delay: 0.5, type: 'spring'}
+        transition: {duration: 1.5, delay: 0.5, type: 'spring'}
     },
     out: {
         zIndex: 0,
@@ -469,7 +469,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 1,
                             scale: 1,
-                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -495,7 +495,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 0.6,
                             scale: 0.7,
-                            transition: {duration: 2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -521,7 +521,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 0.6,
                             scale: 0.7,
-                            transition: {duration: 2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -549,7 +549,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 1,
                             scale: 1,
-                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -575,7 +575,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 0.6,
                             scale: 0.7,
-                            transition: {duration: 2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -601,7 +601,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 0.6,
                             scale: 0.7,
-                            transition: {duration: 2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -629,7 +629,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 1,
                             scale: 1,
-                            transition: {duration: 2.4, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -655,7 +655,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 0.6,
                             scale: 0.7,
-                            transition: {duration: 2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -681,7 +681,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 0.6,
                             scale: 0.7,
-                            transition: {duration: 2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -717,7 +717,7 @@ const HytaleDesign = () => {
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5 , duration: 0.5}}} className="hytaleContent">
                     <h1>PLAY {"&"} CONNECT</h1>
-                    <h2>A WORLD DEFINED BY YOU</h2>
+                    <h2>A DEFINED WORLD</h2>
                     <p >But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete. But I must explain to you how all this mistaken idea of denouncing pleasure u a complete.</p>
                 </motion.div>
                 <div className="previewContainer" id="previewContainer">
