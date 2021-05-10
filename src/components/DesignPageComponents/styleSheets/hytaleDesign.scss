@@ -2,10 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 .hytaleDesignContainer{
     position: relative;
-    height: 100%;
+    height: 100vh;
+    min-height: 950px;
+    max-height: 1350px;
     width: 100%;
     .hytaleHeader{
         position: relative;
+        padding-top: 7rem;
         display: block;
         text-align: center;
         color: white;
@@ -15,7 +18,7 @@
             position: absolute;
             width: 100%;
             height: 50px;
-            top: 173px;
+            top: 125px;
             background-image: url("../../../assets/svgs/headerDesign.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -24,7 +27,6 @@
         }
         h1{
            position: relative;
-           padding-top: 10rem;
            font-size: 22px;
            text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
         }
@@ -37,39 +39,21 @@
         }
        
     }
-    .hytaleContent{
-        color: white;
-        padding-left: 12rem;
-        margin-top: 13rem;
-        h2{
-            display: block;
-            font-family: "PT Serif";
-            color: #FFDA72;
-            font-size: 28px;
-            margin: -0.4rem 0 0rem 0;
-        }
-        p{
-            font-size: 18px;
-            margin: 0.5rem 0 0rem 0;
-            line-height: 2rem;
-            font-family: "Noto Sans";
-            width: 40%;
-        }
-    }
     .previewContainer{
-        position: absolute;
-        margin-top: 11rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4rem;
         height: 100%;
-        max-height: 230px;
-        width: 100%;
+        max-height: 360px;
+        width: 100vw;
         z-index: 1;
         pointer-events: none;
         .previews{
             position: absolute;
             pointer-events: visible;
-            right: 14rem;
-            height: 230px;
-            width: 400px;
+            height: 360px;
+            width: 650px;
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             border-radius: 3px;
@@ -106,6 +90,51 @@
             transform: scale(1.1);
         }
     }
+    .hytaleContent{
+        display: flex;
+        justify-content: center;
+        color: white;
+        p{
+            text-align: center;
+            font-size: 18px;
+            margin: 2rem 0 0rem 0;
+            line-height: 2rem;
+            font-family: "Noto Sans";
+            width: 30%;
+            min-width: 400px;
+        }
+    }
+    
+    .designPageButtonContainer{
+        pointer-events: none;
+        margin-top: 3rem;
+        z-index: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        .designButton{
+            position: relative;
+            pointer-events: visible;
+            padding: 0.8rem 2.8rem;
+            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+            border-radius: 5px;
+            border-style: none;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            font-family: "PT Serif";
+            letter-spacing: 1px;
+            font-weight: 700;
+            outline: none;
+            background: rgb(255,213,99);
+            background: linear-gradient(180deg, rgba(255,213,99,1) 0%, rgba(255,194,28,1) 100%);
+        }
+        .designButton:hover{
+            background: rgb(255,213,99);
+            background: linear-gradient(180deg, rgb(255, 217, 114) 0%, rgb(255, 200, 50) 100%);
+            cursor: pointer;
+        }
+    }
     .designBackground{
         position: absolute;
         pointer-events: none;
@@ -125,69 +154,21 @@
         }
     }
 }
-@media (max-width: 1400px){
-    .hytaleDesignContainer{
-        .previewContainer{
-            position: absolute;
-            .previews{
-                right: 9rem;
-                height: 230px;
-                width: 400px;
-            }
-        }
-    }
-}
-@media (max-width: 1200px){
-    .hytaleDesignContainer{
-        .hytaleHeader{
-            div{
-                background-size: cover;
-            }
-            
-        }
-        .previewContainer{
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 3rem;
-            .previews{
-                right: unset;
-                height: 200px;
-                width: 330px;
-            }
-        }
-        .hytaleContent{
-            padding-left: 0rem;
-            margin-top: 20rem;
-            h2{
-                text-align: center;
-                margin: unset;
-                padding: unset;
-            }
-            p{
-                text-align: center;
-                
-                margin: unset;
-                padding: 0.5rem 10rem;
-                width: 100%;
-            }
-        }
-    }
-}
 
 @media (max-width: 1000px){
     .hytaleDesignContainer{
+        height: 100%;
+        min-height: 100vh;
         .hytaleHeader{
             z-index: 2;
+            padding-top: 6rem;
             div{
                 background: unset;
             }
             h1{
-               padding-top: 6rem;
+               padding-top: 0rem;
                font-size: 16px;
             }
-            
             h2{
                margin-top: -0.3rem;
                text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
@@ -195,27 +176,9 @@
             }
            
         }
-        .hytaleContent{
-            text-align: center;
-            margin: 14.5rem 0 0rem 0;
-            padding-left: 0rem;
-            h2{
-                padding: 1rem 1rem;
-                margin-top: -0.3rem;
-                text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-                font-size: 26px;
-            }
-            p{
-                text-align: center;
-                font-size: 14px;
-                padding: 0.5rem 1rem 13rem 1rem;
-                margin: -1rem 0rem;
-                width: 100%;
-            }
-        }
         .previewContainer{
-            position: absolute;
-            margin-top: unset;
+            margin-top: 3rem;
+            height: 200px;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -228,6 +191,33 @@
                 max-width: 350px;
             }
     
+        }
+        .hytaleContent{
+            margin-top: 2rem;
+            padding: 0;
+            width: 100%;
+            p{
+                text-align: center;
+                font-size: 14px;
+                padding: 0 1rem;
+                margin: 0;
+                width: 100%;
+                min-width: unset;
+                
+            }
+        }
+        
+        .designPageButtonContainer{
+            margin: 0;
+            padding-top:3rem;
+            padding-bottom: 6rem;
+            .designButton{
+                padding: 0.85rem 2.6rem;
+                color: rgb(0, 0, 0);
+                font-size: 14px;
+                letter-spacing: 1px;
+                outline: none;
+            }
         }
         .designBackground{
             transform: scale(1);

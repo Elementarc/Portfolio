@@ -42,9 +42,9 @@ var preview2Styles = {
     },
     in: {
         zIndex: 2,
-        x: -130,
+        x: -250,
         y: 0,
-        opacity: 0.6,
+        opacity: 0.5,
         scale: 0.7,
         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
     },
@@ -68,9 +68,9 @@ var preview3Styles = {
     },
     in: {
         zIndex: 2,
-        x: 130,
+        x: 250,
         y: 0,
-        opacity: 0.6,
+        opacity: 0.5,
         scale: 0.7,
         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
     },
@@ -141,7 +141,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 1,
                             scale: 1,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -163,11 +163,11 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 2,
-                            x: -130,
+                            x: -250,
                             y: 0,
-                            opacity: 0.6,
+                            opacity: 0.5,
                             scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -189,11 +189,11 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 2,
-                            x: 130,
+                            x: 250,
                             y: 0,
-                            opacity: 0.6,
+                            opacity: 0.5,
                             scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -221,7 +221,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 1,
                             scale: 1,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -243,11 +243,11 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 2,
-                            x: -130,
+                            x: -250,
                             y: 0,
-                            opacity: 0.6,
+                            opacity: 0.5,
                             scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -269,11 +269,11 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 3,
-                            x: 130,
+                            x: 250,
                             y: 0,
-                            opacity: 0.6,
+                            opacity: 0.5,
                             scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -301,7 +301,7 @@ const HytaleDesign = () => {
                             y: 0,
                             opacity: 1,
                             scale: 1,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -323,11 +323,11 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 2,
-                            x: -130,
+                            x: -250,
                             y: 0,
-                            opacity: 0.6,
+                            opacity: 0.5,
                             scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -349,11 +349,11 @@ const HytaleDesign = () => {
                         },
                         in: {
                             zIndex: 2,
-                            x: 130,
+                            x: 250,
                             y: 0,
-                            opacity: 0.6,
+                            opacity: 0.5,
                             scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                         },
                         out: {
                             zIndex: 0,
@@ -634,7 +634,7 @@ const HytaleDesign = () => {
                 <h1>GAMING {"&"} DESIGN </h1>
                 <h2>DESIRE THE FANTASY</h2>
             </motion.div>
-
+            
             <div className="previewContainer" id="previewContainer">
                 <motion.div animate="in" exit="out" initial="init" variants={preview1Styles} id="preview1" className="previews preview1">
                     <div className="preview1Background"/>
@@ -648,9 +648,12 @@ const HytaleDesign = () => {
                     <div className="preview3Background"/>
                 </motion.div>
             </div>
+
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleContent">
-                <h2>A DEFINED WORLD</h2>
-                <p >But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete. But I must explain to you how all this mistaken idea of denouncing pleasure u a complete.</p>
+                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.</p>
+            </motion.div>
+            <motion.div animate={{opacity: 1, transition:{delay: 0.5, duration: 1}}} exit={{opacity: 0, transition: {duration: 0.4}}} initial={{opacity: 0}} className="designPageButtonContainer">
+                <button className="designButton" id="designButton">VIEW DESIGN</button>
             </motion.div>
             
             <div className="designBackground" id="hytaleBackground">
