@@ -149,6 +149,7 @@ const Nav = (props: any) => {
     //componentDidMount to give navItem the right class at the beginning of pageload
     useEffect(() =>{
         giveNavStyleTarget(location.pathname.toLowerCase())
+        window.scrollTo(0, 0)
     },[location.pathname])
     
     //Making sure that there are no pointer events when navigation is closed also to not be able to scroll around while navigation is opened
@@ -165,6 +166,7 @@ const Nav = (props: any) => {
             getNavigationBlur.style.pointerEvents = "visible"
             document.body.style.overflow = "hidden"
         }
+        
     }, [NavState]);
 
     return(

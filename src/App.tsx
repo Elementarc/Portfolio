@@ -60,7 +60,7 @@ function App() {
           </Route>
         </Switch>
       </AnimatePresence>
-
+      
       <Nav interfaceAnimation={interfaceAnimation}/>
       <Blackbar interfaceAnimation={interfaceAnimation}/>
       <Logo interfaceAnimation={interfaceAnimation}/>
