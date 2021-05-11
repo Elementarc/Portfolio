@@ -207,7 +207,6 @@
                 
             }
         }
-        
         .designPageButtonContainer{
             margin: 0;
             padding-top:3rem;
@@ -221,7 +220,8 @@
             }
         }
         .designBackground{
-            
+            position: fixed;
+            min-height: 100vh;
             transform: scale(1);
         }
     }

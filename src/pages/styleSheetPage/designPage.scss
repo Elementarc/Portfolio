@@ -6,7 +6,6 @@
     grid-column: 1;
     grid-row: 1;
     height: auto;
-    top: 0;
     overflow: hidden;
     
     .designBottomIllustrationContainer{
@@ -64,7 +63,6 @@
         z-index: 2;
         grid-column: 1;
         grid-row: 1;
-        top: 0;
         overflow-x: hidden;
         .designBottomIllustrationContainer{
             position: fixed;
