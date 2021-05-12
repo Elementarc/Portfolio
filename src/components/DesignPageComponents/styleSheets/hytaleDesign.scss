@@ -178,7 +178,7 @@
            
         }
         .previewContainer{
-            margin-top: 3rem;
+            margin-top: 2.8rem;
             height: 200px;
             overflow: hidden;
             display: flex;
@@ -209,19 +209,23 @@
         }
         .designPageButtonContainer{
             margin: 0;
-            padding-top:3rem;
-            padding-bottom: 6rem;
+            padding-top:2rem;
+            padding-bottom: 7rem;
             .designButton{
                 padding: 0.85rem 2.6rem;
                 color: rgb(0, 0, 0);
                 font-size: 14px;
+                background: rgb(255,213,99);
+                background: linear-gradient(180deg, rgb(253, 216, 114) 0%, rgb(197, 150, 20) 100%);
                 letter-spacing: 1px;
                 outline: none;
             }
         }
         .designBackground{
-            position: fixed;
+            position: absolute;
+            height: 950px;
             min-height: 100vh;
+            pointer-events: none;
             transform: scale(1);
         }
     }
