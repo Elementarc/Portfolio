@@ -161,7 +161,7 @@ const Nav = (props: any) => {
             getNavigationBlur.style.pointerEvents = "none"
             setTimeout(() => {
                 document.body.style.overflow = "unset"
-            }, 500);
+            }, 700);
         }
         else{
             getNavigation.style.pointerEvents = "visible"
