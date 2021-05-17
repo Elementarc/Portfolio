@@ -4,12 +4,12 @@ import {Link} from "react-router-dom"
 import {useLocation} from "react-router-dom"
 
 //icons
-import {ReactComponent as HomeIcon} from "../assets/icons/HomeIcon.svg"
-import {ReactComponent as DesignIcon} from "../assets/icons/DesignIcon.svg"
-import {ReactComponent as WorkIcon} from "../assets/icons/WorkIcon.svg"
-import {ReactComponent as ContactIcon} from "../assets/icons/ContactIcon.svg"
-import {ReactComponent as ProjectsIcon} from "../assets/icons/ProjectIcon.svg"
-import {ReactComponent as MenuIcon} from "../assets/icons/MenuIcon.svg"
+import {ReactComponent as HomeIcon} from "../../assets/icons/HomeIcon.svg"
+import {ReactComponent as DesignIcon} from "../../assets/icons/DesignIcon.svg"
+import {ReactComponent as WorkIcon} from "../../assets/icons/WorkIcon.svg"
+import {ReactComponent as ContactIcon} from "../../assets/icons/ContactIcon.svg"
+import {ReactComponent as ProjectsIcon} from "../../assets/icons/ProjectIcon.svg"
+import {ReactComponent as MenuIcon} from "../../assets/icons/MenuIcon.svg"
 //Import components
 import {motion} from "framer-motion"
 //CSS

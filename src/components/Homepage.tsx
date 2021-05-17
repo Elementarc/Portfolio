@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react"
+import {AnimatePresence, motion} from "framer-motion"
 import {Route, Switch, useHistory, useLocation} from "react-router-dom"
 //Import components
-import Stars from "../components/Stars"
-import Moon from "../components/Moon"
-import SectionManager from "../components/SectionManager"
-import {AnimatePresence, motion} from "framer-motion"
-import HomeContent from "../components/HomepageComponents/HomeContent"
+import Stars from "./HomePageComponents/Stars"
+import Moon from "./HomePageComponents/Moon"
+import SectionManager from "./HomePageComponents/SectionManager"
+import HomeContent from "./HomePageComponents/HomeContent"
 //CSS
-import "./styleSheetPage/homepage.scss"
+import "./styleSheets/homepage.scss"
 
 const HomepageContainer = (props: any) => {
     const location = useLocation()

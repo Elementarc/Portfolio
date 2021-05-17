@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import {motion} from "framer-motion"
 import {Link} from "react-router-dom"
-import "./styleSheetPage/designPage.scss"
+import "./styleSheets/designPage.scss"
 
 //components
-import HytaleDesign from "../components/DesignPageComponents/HytaleDesign"
+import HytaleDesign from "./DesignPageComponents/HytaleDesign"
 const DesignPage = () => {
     
     return (

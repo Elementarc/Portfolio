@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
-import {motion} from "framer-motion"
-import {Link} from "react-router-dom"
-import "./styleSheetPage/contactPage.scss"
+
+//CSS
+import "./styleSheets/contactPage.scss"
 var rThunderNum = 5
 function ContactPage(props: any) {
     var rainDrops: any = []
