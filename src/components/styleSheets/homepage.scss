@@ -12,6 +12,8 @@ html{
     width: 100%;
     max-height: 1350px;
     min-height: 950px;
+    background: rgb(0, 23, 46);
+    background: linear-gradient(180deg, rgba(0, 23, 46, 1) 0%, rgb(2, 6, 12) 100%);
     overflow: hidden;
     .contentContainer{
         position: absolute;

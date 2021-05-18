@@ -4,7 +4,7 @@ import "./styleSheets/logo.scss"
 
 
 const LogoName = (props: any) => {
-    const [Logo, setLogo] = useState("Created by Elementarc");
+    const [Logo, setLogo] = useState("Presented by Elementarc");
 
     useEffect(() =>{
         var windowWidth = window.innerWidth
