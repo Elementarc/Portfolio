@@ -1,5 +1,5 @@
-import React, {useEffect} from "react"
-import {Redirect, Route, Switch, useLocation} from "react-router-dom"
+import React, {useEffect,useState} from "react"
+import {Redirect, Route, Switch, useHistory, useLocation} from "react-router-dom"
 import {AnimatePresence ,motion} from "framer-motion"
 import "./app.scss"
 //import Page components
@@ -24,24 +24,32 @@ var interfaceAnimation = {
       opacity: 0,
   },
 }
+var timer: any
 function App() {  
   const location = useLocation()
-  const path = useLocation().pathname.toLowerCase()
   //scrolls to top whenever URL changes for better ux
   useEffect(() => {
+    
     function scrollToTop() {
-      setTimeout(() => {
+      timer = setTimeout(() => {
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
       }, 500);
     }
     scrollToTop()
-  }, [path]);
+    
+  }, [location.pathname]);
   
+  //Using to cleanup timers 
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer)
+    };
+  }, []);
   return (
     <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
       <AnimatePresence>
-        <Switch location={location} key={path.includes(`/home`) ? "true" : "false"}>
+        <Switch location={location} key={location.pathname.includes(`/home`) ? "true" : "false"}>
 
           <Route strict path="/home">
             <Homepage interfaceAnimation={interfaceAnimation}/>

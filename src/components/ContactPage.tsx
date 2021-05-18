@@ -6,41 +6,49 @@ import "./styleSheets/contactPage.scss"
 var rThunderNum = 5
 var timer: any
 function ContactPage(props: any) {
+    //An array where JSX will be filled in to be displayed on screen RAIN DROPS
     var rainDrops: any = []
+    //Creates 100divs to display rain drops pushes JSX INTO RainDrops array that will be randomized
+    function rain(){
+        for(var i = 0; i < 100; i++){
+            //random number between 1 - 99 used to place raindrops on device width
+            var rNum = Math.floor(Math.random() * 100 + 1)
+            //random number between 1 - 5 used to randomize speed of each raindrop
+            var rNum2 =  0.3 * Math.random() + 0.5
+            
+            rainDrops.push(<div key={i} className="rain" style={{left: `${rNum}vw`, animation: `drop ${rNum2}s linear infinite`, backgroundColor: `rgba(255,255,255,${Math.random() * 0.3})`}} />)
+        }
+    }
+    //Using state variable to rerender component on every Thunder() call
     const [State, setState] = useState(false);
     
+    //Thunder Function to randomize the number of times the opacity of background goes up to imitate a thunder 
     function thunder(){
         //getting background to animate Thunder
         var getBackground = document.getElementById("rainContainer") as HTMLDivElement
         rThunderNum = Math.floor(Math.random() * 30 + 1)
         
         getBackground.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.5})`
-        setTimeout(() => {
+        timer = setTimeout(() => {
             getBackground.style.backgroundColor = `rgba(255, 255, 255, 0)`
         }, 100);
         setState(!State)
     }
-    //Creates 100divs to display rain drops
-    function rain(){
-        for(var i = 0; i < 100; i++){
-            //random number between 1 - 99
-            var rNum = Math.floor(Math.random() * 100 + 1)
-            //random number between 1 - 5
-            var rNum2 =  0.3 * Math.random() + 0.5
-            
-            rainDrops.push(<div key={i} className="rain" style={{left: `${rNum}vw`, animation: `drop ${rNum2}s linear infinite`, backgroundColor: `rgba(255,255,255,${Math.random() * 0.3})`}} />)
-        }
-    }
     
+    
+    //Calling thunder function everytime the thunder() is getting called with an random number. Starts with number 5 * 1000 = 1s
     useEffect(() => {
         timer = setTimeout(() => {
             thunder()
         }, rThunderNum * 1000);
-        return(() =>{
-            clearTimeout(timer)
-        })
     }, [State]);
-    
+
+    //Using to clean up timers
+    useEffect(() => {
+        return () => {
+            clearTimeout(timer)
+        };
+    }, []);
     rain()
     return (
         <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="contactPageContainer">
@@ -79,7 +87,7 @@ function ContactPage(props: any) {
                 <p>Not convinced yet? Checkout my work <Link to="/design">here</Link></p>
             </motion.div>
 
-            <motion.div animate={{opacity: 1, height: "100%", transition: {delay: 2.2}}} initial={{opacity: 0, height: 0}} id="rainContainer" className="rainContainer">
+            <motion.div animate={{opacity: 1, height: "100%", transition: {delay: 2}}} initial={{opacity: 0, height: 0}} id="rainContainer" className="rainContainer">
                 {rainDrops}
             </motion.div>
         </motion.div>
