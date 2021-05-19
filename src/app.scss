@@ -9,6 +9,7 @@ body{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     max-width: 2400px;
-    
+    background: rgb(0, 23, 46);
+    background: linear-gradient(180deg, rgba(0, 23, 46, 1) 0%, rgb(2, 6, 12) 100%);
     margin: 0 auto;
 }

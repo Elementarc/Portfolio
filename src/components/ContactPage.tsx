@@ -10,14 +10,29 @@ function ContactPage(props: any) {
     var rainDrops: any = []
     //Creates 100divs to display rain drops pushes JSX INTO RainDrops array that will be randomized
     function rain(){
-        for(var i = 0; i < 100; i++){
-            //random number between 1 - 99 used to place raindrops on device width
-            var rNum = Math.floor(Math.random() * 100 + 1)
-            //random number between 1 - 5 used to randomize speed of each raindrop
-            var rNum2 =  0.3 * Math.random() + 0.5
-            
-            rainDrops.push(<div key={i} className="rain" style={{left: `${rNum}vw`, animation: `drop ${rNum2}s linear infinite`, backgroundColor: `rgba(255,255,255,${Math.random() * 0.3})`}} />)
+        //DESKTOP Has more Loops
+        if(window.innerWidth > 1000){
+            for(var i = 0; i < 100; i++){
+                //random number between 1 - 99 used to place raindrops on device width
+                var rNum = Math.floor(Math.random() * 100 + 1)
+                //random number between 1 - 5 used to randomize speed of each raindrop
+                var rNum2 =  0.3 * Math.random() + 0.5
+                
+                rainDrops.push(<div key={i} className="rain" style={{left: `${rNum}vw`, animation: `drop ${rNum2}s linear infinite`, backgroundColor: `rgba(255,255,255,${Math.random() * 0.3})`}} />)
+            }
         }
+        //DESKTOP Has less Loops
+        else{
+            for(var i = 0; i < 40; i++){
+                //random number between 1 - 99 used to place raindrops on device width
+                var rNum = Math.floor(Math.random() * 100 + 1)
+                //random number between 1 - 5 used to randomize speed of each raindrop
+                var rNum2 =  0.3 * Math.random() + 0.5
+                
+                rainDrops.push(<div key={i} className="rain" style={{left: `${rNum}vw`, animation: `drop ${rNum2}s linear infinite`, backgroundColor: `rgba(255,255,255,${Math.random() * 0.3})`}} />)
+            }
+        }
+        
     }
     //Using state variable to rerender component on every Thunder() call
     const [State, setState] = useState(false);
@@ -77,6 +92,11 @@ function ContactPage(props: any) {
                 </div>
             </motion.div>
 
+
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1.5, duration: 1}}} className="designRef">
+                <p>Not convinced yet? Checkout my work <Link to="/design">here</Link></p>
+            </motion.div>
+
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1.5, duration: 1}}} className="footer">
                 <Link to="#">TERMS</Link>
                 <span/>
@@ -85,11 +105,7 @@ function ContactPage(props: any) {
                 <Link to="#">COOKIES</Link>
             </motion.div>
 
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1.5, duration: 1}}} className="designRef">
-                <p>Not convinced yet? Checkout my work <Link to="/design">here</Link></p>
-            </motion.div>
-
-            <motion.div animate={{opacity: 1, height: "100%", transition: {delay: 2}}} initial={{opacity: 0, height: 0}} id="rainContainer" className="rainContainer">
+            <motion.div animate={{opacity: 1, height: "100%", transition: {delay: 1}}} initial={{opacity: 0, height: 0}} id="rainContainer" className="rainContainer">
                 {rainDrops}
             </motion.div>
         </motion.div>

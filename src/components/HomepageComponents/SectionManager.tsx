@@ -17,7 +17,7 @@ const SectionManager = (props: any) => {
             let getSections = document.getElementsByClassName("sectionName") as HTMLCollection
             let getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
             //Animation only happens if device width is > 900
-            if(window.innerWidth >= 900){
+            if(window.innerWidth >= 1000){
                 //Using this if statement to make sure this is not getting triggered when changing to another page because forEach takes a while
                 if(path.includes("/home") === true){
                     
@@ -230,7 +230,7 @@ const SectionManager = (props: any) => {
                     </div>
                 </Link>
                 
-                <Link onClick={() => props.setLocationIndex(3)} id="sections4" to="/home/daily">
+                <Link onClick={() => props.setLocationIndex(3)} id="sections4" className="sections4" to="/home/daily">
                     <div id="sectionShadowTarget4" className="sectionShadow"></div>
                     <div  className="section">
                         <div id="sectionName4" className="sectionName">Daily</div>

@@ -72,14 +72,7 @@
             bottom: 0;
             pointer-events: none;
             .designBottomIllustration{
-                height: 100%;
-                width: 100%;
-                transition-duration: 0.1s;
-                transform: scale(1) translateX(0);
-                background-image: url("../../assets/illustrations/DesignBottomDeco.png");
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;  
+                background: unset;
             }
         }
         .designManager{
