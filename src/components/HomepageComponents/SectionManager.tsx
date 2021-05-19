@@ -5,10 +5,12 @@ import {motion} from "framer-motion"
 
 
 var timer: any
+var timer2: any
 const SectionManager = (props: any) => {
     const path = useLocation().pathname.toLowerCase()
     const history = useHistory()
-
+    
+    
     //Toggles Animation for sectionNames. Does not get triggert when device width is below 900px Its a Callback
     const SectionName = useCallback((state: boolean) =>{
         function toggleSectionName(toggle: boolean) {
@@ -29,7 +31,7 @@ const SectionManager = (props: any) => {
                         arr.forEach( i => {
                             var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
                             if(getSectionName){
-                                setTimeout(() => {
+                                timer2 = setTimeout(() => {
                                     getSectionName.style.opacity = "1"
                                     getSectionName.style.transform = "scale(1)"
                                     getSectionName.style.pointerEvents = "visible"
@@ -44,7 +46,7 @@ const SectionManager = (props: any) => {
                             var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
 
                             if(getSectionName){
-                                setTimeout(() => {
+                                timer2 = setTimeout(() => {
                                     getSectionName.style.opacity = "0"
                                     getSectionName.style.transform = "scale(0)"
                                     getSectionName.style.pointerEvents = "none"
@@ -133,6 +135,12 @@ const SectionManager = (props: any) => {
         }, 3400);
     },[path, SectionName])
 
+    //cleanUp 
+    useEffect(() => {
+        return () => {
+            clearTimeout(timer2)
+        };
+    }, []);
     //Saving props into cache to not always re compute it on every rerender
     var properties = useMemo(() =>{
         var properties = {
@@ -142,13 +150,13 @@ const SectionManager = (props: any) => {
         return properties
     }, [props.locationIndex, props.setLocationIndex])
     
-    //Adds listeners and removes them
+    //Adds listeners and removes them. For wheel
     useEffect(() => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
         function wheelListner(e: any) {
             if(history.location.pathname.includes("/home") === true){
                 if(window.innerWidth >= 900 && window.innerHeight >= 950){
-                    //Toggles sectionNames on scroll and closes it after 3seconds no scrolling
+                    //Toggles sectionNames on scroll and closes it after 2seconds no scrolling
                     SectionName(true)
                     clearTimeout(timer)
                     timer = setTimeout(() => {

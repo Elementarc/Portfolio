@@ -22,22 +22,24 @@ function ContactPage(props: any) {
     //Using state variable to rerender component on every Thunder() call
     const [State, setState] = useState(false);
     
-    //Thunder Function to randomize the number of times the opacity of background goes up to imitate a thunder 
-    function thunder(){
-        //getting background to animate Thunder
-        var getBackground = document.getElementById("rainContainer") as HTMLDivElement
-        rThunderNum = Math.floor(Math.random() * 30 + 1)
-        
-        getBackground.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.5})`
-        timer = setTimeout(() => {
-            getBackground.style.backgroundColor = `rgba(255, 255, 255, 0)`
-        }, 100);
-        setState(!State)
-    }
+    
     
     
     //Calling thunder function everytime the thunder() is getting called with an random number. Starts with number 5 * 1000 = 1s
     useEffect(() => {
+        //Thunder Function to randomize the number of times the opacity of background goes up to imitate a thunder 
+        function thunder(){
+            //getting background to animate Thunder
+            var getBackground = document.getElementById("rainContainer") as HTMLDivElement
+            rThunderNum = Math.floor(Math.random() * 30 + 1)
+            
+            getBackground.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.5})`
+            timer = setTimeout(() => {
+                getBackground.style.backgroundColor = `rgba(255, 255, 255, 0)`
+            }, 100);
+            setState(!State)
+        }
+        
         timer = setTimeout(() => {
             thunder()
         }, rThunderNum * 1000);

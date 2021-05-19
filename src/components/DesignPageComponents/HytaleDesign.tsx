@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {motion} from "framer-motion"
 import "./styleSheets/hytaleDesign.scss"
+import { useHistory } from 'react-router';
 
 //Using this state number to cycle through 3 animation phases
 var previewState: number = 1
@@ -85,11 +86,11 @@ var preview3Styles = {
 }
 const HytaleDesign = () => {
     const [State, setState] = useState(false);
-
+    const history = useHistory()
     //adding parallax
     useEffect(() => {
         function parallax(e: any) {
-            if(window.innerWidth > 1000){
+            if(window.innerWidth > 1000 && history.location.pathname.toLowerCase() === "/design"){
                 var hytaleBackground = document.getElementById("hytaleBackground") as HTMLDivElement
                 var designBottomIllustration = document.getElementById("designBottomIllustration") as HTMLDivElement
                 var designButton = document.getElementById("designButton") as HTMLDivElement
@@ -106,14 +107,12 @@ const HytaleDesign = () => {
                 designButton.style.transform = `translateX(${xSlow}px) translateY(${ySlow}px)`
                 previewContent.style.transform = `translateX(${xSlow}px) translateY(${ySlow}px)`
             }
-
-            
         }
         window.addEventListener("mousemove", parallax)
         return () => {
             window.removeEventListener("mousemove", parallax)
         };
-    }, []);
+    }, [history]);
     //Animates Images
     useEffect(() => {
         //Animation for Images changes State at the end of the function to rerender the component

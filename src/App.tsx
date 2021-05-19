@@ -1,5 +1,5 @@
-import React, {useEffect,useState} from "react"
-import {Redirect, Route, Switch, useHistory, useLocation} from "react-router-dom"
+import React, {useEffect} from "react"
+import {Redirect, Route, Switch, useLocation} from "react-router-dom"
 import {AnimatePresence ,motion} from "framer-motion"
 import "./app.scss"
 //import Page components
@@ -40,6 +40,27 @@ function App() {
     
   }, [location.pathname]);
   
+  //Function is used to change the Switch components key to always rerender if pathname does not include the Pages name for proper exit / in animations
+  function keyTest(): string{
+    if(location.pathname.toLowerCase().includes("/home") === true){
+      return "/home"
+    }
+    else if(location.pathname.toLowerCase().includes("/design") === true){
+      return "/design"
+    }
+    else if(location.pathname.toLowerCase().includes("/projects") === true){
+      return "/projects"
+    }
+    else if(location.pathname.toLowerCase().includes("/workspace") === true){
+      return "/workspace"
+    }
+    else if(location.pathname.toLowerCase().includes("/contact") === true){
+      return "/contact"
+    }
+    else{
+      return "/"
+    }
+  }
   //Using to cleanup timers 
   useEffect(() => {
     return () => {
@@ -49,7 +70,7 @@ function App() {
   return (
     <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
       <AnimatePresence>
-        <Switch location={location} key={location.pathname.includes(`/home`) ? "true" : "false"}>
+        <Switch location={location} key={keyTest()}>
 
           <Route strict path="/home">
             <Homepage interfaceAnimation={interfaceAnimation}/>
