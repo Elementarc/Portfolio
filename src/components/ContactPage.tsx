@@ -12,22 +12,22 @@ function ContactPage(props: any) {
     function rain(){
         //DESKTOP Has more Loops
         if(window.innerWidth > 1000){
-            for(var i = 0; i < 100; i++){
+            for(let i = 0; i < 100; i++){
                 //random number between 1 - 99 used to place raindrops on device width
-                var rNum = Math.floor(Math.random() * 100 + 1)
+                let rNum = Math.floor(Math.random() * 100 + 1)
                 //random number between 1 - 5 used to randomize speed of each raindrop
-                var rNum2 =  0.3 * Math.random() + 0.5
+                let rNum2 =  0.3 * Math.random() + 0.5
                 
                 rainDrops.push(<div key={i} className="rain" style={{left: `${rNum}vw`, animation: `drop ${rNum2}s linear infinite`, backgroundColor: `rgba(255,255,255,${Math.random() * 0.3})`}} />)
             }
         }
         //DESKTOP Has less Loops
         else{
-            for(var i = 0; i < 40; i++){
+            for(let i = 0; i < 40; i++){
                 //random number between 1 - 99 used to place raindrops on device width
-                var rNum = Math.floor(Math.random() * 100 + 1)
+                let rNum = Math.floor(Math.random() * 100 + 1)
                 //random number between 1 - 5 used to randomize speed of each raindrop
-                var rNum2 =  0.3 * Math.random() + 0.5
+                let rNum2 =  0.3 * Math.random() + 0.5
                 
                 rainDrops.push(<div key={i} className="rain" style={{left: `${rNum}vw`, animation: `drop ${rNum2}s linear infinite`, backgroundColor: `rgba(255,255,255,${Math.random() * 0.3})`}} />)
             }

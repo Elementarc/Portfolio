@@ -1,145 +1,21 @@
-import React, {useCallback ,useEffect, useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import "./styleSheets/sectionManager.scss"
 import {Link, useHistory, useLocation} from "react-router-dom"
+import {ReactComponent as HomePagination} from "../../assets/svgs/homePagination.svg"
 import {motion} from "framer-motion"
 
 
-var timer: any
-var timer2: any
+
+
 const SectionManager = (props: any) => {
-    const path = useLocation().pathname.toLowerCase()
+    const location = useLocation()
     const history = useHistory()
-    
-    
-    //Toggles Animation for sectionNames. Does not get triggert when device width is below 900px Its a Callback
-    const SectionName = useCallback((state: boolean) =>{
-        function toggleSectionName(toggle: boolean) {
-            let getSections = document.getElementsByClassName("sectionName") as HTMLCollection
-            let getSectionContent = document.getElementById("sectionContent") as HTMLDivElement
-            //Animation only happens if device width is > 900
-            if(window.innerWidth >= 1000){
-                //Using this if statement to make sure this is not getting triggered when changing to another page because forEach takes a while
-                if(path.includes("/home") === true){
-                    
-                    //Creating an array with for index to be able to loop through with foreach
-                    let arr = []
-                    for(let i = 0; i < getSections.length; i++){
-                        arr.push(i)
-                    }
-    
-                    if(toggle === true){
-                        arr.forEach( i => {
-                            var getSectionName = document.getElementById(`sectionName${1 + i}`) as HTMLDivElement
-                            if(getSectionName){
-                                timer2 = setTimeout(() => {
-                                    getSectionName.style.opacity = "1"
-                                    getSectionName.style.transform = "scale(1)"
-                                    getSectionName.style.pointerEvents = "visible"
-                                    getSectionContent.style.width = "180px"
-                                }, i * 100)
-                            }
-                        })
-                        
-                    }
-                    else{
-                        arr.forEach( n =>{
-                            var getSectionName = document.getElementById(`sectionName${1 + n }`) as HTMLDivElement
 
-                            if(getSectionName){
-                                timer2 = setTimeout(() => {
-                                    getSectionName.style.opacity = "0"
-                                    getSectionName.style.transform = "scale(0)"
-                                    getSectionName.style.pointerEvents = "none"
-                                    getSectionContent.style.width = "100%"
-                                }, n * 100);
-                            }
-                        })
-                    }
-                }
-            }
-            else{
-                //console.log("animation will not get triggert since device width is smaller than 900")
-            }
-        } 
-        toggleSectionName(state)
-    }, [path])
-
-    //setting style for right section-button after checking url.
-    useEffect(() =>{
-        //sets style for section: takes url as parameter to check which section button needs to light up, and also sets the location index for wheelListener function
-        function setTarget(url: string) {
-            let getSectionTarget1 = document.getElementById("sections1") as HTMLDivElement
-            let getSectionTarget2 = document.getElementById("sections2") as HTMLDivElement
-            let getSectionTarget3 = document.getElementById("sections3") as HTMLDivElement
-            let getSectionTarget4 = document.getElementById("sections4") as HTMLDivElement
-
-            let getShadowTarget1 = document.getElementById("sectionShadowTarget1") as HTMLDivElement
-            let getShadowTarget2 = document.getElementById("sectionShadowTarget2") as HTMLDivElement
-            let getShadowTarget3 = document.getElementById("sectionShadowTarget3") as HTMLDivElement
-            let getShadowTarget4 = document.getElementById("sectionShadowTarget4") as HTMLDivElement
-            if(url === "/home"){
-                getSectionTarget1.classList.add("sectionsTarget")
-                getShadowTarget1.classList.add("sectionShadowTarget")
-
-                getSectionTarget2.classList.remove("sectionsTarget")
-                getSectionTarget3.classList.remove("sectionsTarget")
-                getSectionTarget4.classList.remove("sectionsTarget")
-
-                getShadowTarget2.classList.remove("sectionShadowTarget")
-                getShadowTarget3.classList.remove("sectionShadowTarget")
-                getShadowTarget4.classList.remove("sectionShadowTarget")
-            }
-            else if(url === "/home/strength"){
-                getSectionTarget2.classList.add("sectionsTarget")
-                getShadowTarget2.classList.add("sectionShadowTarget")
-
-                getSectionTarget1.classList.remove("sectionsTarget")
-                getSectionTarget3.classList.remove("sectionsTarget")
-                getSectionTarget4.classList.remove("sectionsTarget")
-
-                getShadowTarget1.classList.remove("sectionShadowTarget")
-                getShadowTarget3.classList.remove("sectionShadowTarget")
-                getShadowTarget4.classList.remove("sectionShadowTarget")
-            }
-            else if(url === "/home/routine"){
-                getSectionTarget3.classList.add("sectionsTarget")
-                getShadowTarget3.classList.add("sectionShadowTarget")
-
-                getSectionTarget1.classList.remove("sectionsTarget")
-                getSectionTarget2.classList.remove("sectionsTarget")
-                getSectionTarget4.classList.remove("sectionsTarget")
-
-                getShadowTarget1.classList.remove("sectionShadowTarget")
-                getShadowTarget2.classList.remove("sectionShadowTarget")
-                getShadowTarget4.classList.remove("sectionShadowTarget")
-            }
-            else if(url === "/home/daily"){
-                getSectionTarget4.classList.add("sectionsTarget")
-                getShadowTarget4.classList.add("sectionShadowTarget")
-
-                getSectionTarget1.classList.remove("sectionsTarget")
-                getSectionTarget2.classList.remove("sectionsTarget")
-                getSectionTarget3.classList.remove("sectionsTarget")
-
-                getShadowTarget1.classList.remove("sectionShadowTarget")
-                getShadowTarget2.classList.remove("sectionShadowTarget")
-                getShadowTarget3.classList.remove("sectionShadowTarget")
-            }
-        }
-        setTarget(path)
-        //Toggles sectionNames on pageStart and closes it
-        SectionName(true)
-        clearTimeout(timer)
-        timer = setTimeout(() => {
-            SectionName(false)
-        }, 3400);
-    },[path, SectionName])
 
     //cleanUp 
     useEffect(() => {
-        return () => {
-            clearTimeout(timer2)
-        };
+        
+        
     }, []);
     //Saving props into cache to not always re compute it on every rerender
     var properties = useMemo(() =>{
@@ -149,20 +25,12 @@ const SectionManager = (props: any) => {
         }
         return properties
     }, [props.locationIndex, props.setLocationIndex])
-    
-    //Adds listeners and removes them. For wheel
+    //Adds listeners and removes them. So wheel changes url on wheelup / wheeldown
     useEffect(() => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
         function wheelListner(e: any) {
             if(history.location.pathname.includes("/home") === true){
                 if(window.innerWidth >= 900 && window.innerHeight >= 950){
-                    //Toggles sectionNames on scroll and closes it after 2seconds no scrolling
-                    SectionName(true)
-                    clearTimeout(timer)
-                    timer = setTimeout(() => {
-                        SectionName(false)
-                    }, 2000);
-                    
                     //wheel UP
                     if(e.deltaY < 0){
                         //Setting the locationIndex so Partent component can switch to the right URL
@@ -203,40 +71,116 @@ const SectionManager = (props: any) => {
             window.removeEventListener("keydown", keydownListener)
             window.removeEventListener("keyup", keyupListener)
         })
-    }, [properties,history.location.pathname, SectionName])
+    }, [properties,history.location.pathname])
 
+    useEffect(() => {
+        
+        function setTarget() {
+            console.log(history.location.pathname)
+            var getIcon = document.querySelectorAll(".icon")
+            var getIconShadow = document.querySelectorAll(".iconShadow")
+            var getSectionName = document.querySelectorAll(".sectionName")
+
+            if(location.pathname.toLowerCase() === "/home"){
+                getIcon[0].classList.add("svgIconTarget")
+                getIconShadow[0].classList.add("iconShadowTarget")
+                getSectionName[0].classList.add("sectionNameTarget")
+
+                getIcon[1].classList.remove("svgIconTarget")
+                getIconShadow[1].classList.remove("iconShadowTarget")
+                getSectionName[1].classList.remove("sectionNameTarget")
+
+                getIcon[2].classList.remove("svgIconTarget")
+                getIconShadow[2].classList.remove("iconShadowTarget")
+                getSectionName[2].classList.remove("sectionNameTarget")
+
+                getIcon[3].classList.remove("svgIconTarget")
+                getIconShadow[3].classList.remove("iconShadowTarget")
+                getSectionName[3].classList.remove("sectionNameTarget")
+            }
+            else if(location.pathname.toLowerCase() === "/home/strength"){
+
+                getIcon[1].classList.add("svgIconTarget")
+                getIconShadow[1].classList.add("iconShadowTarget")
+                getSectionName[1].classList.add("sectionNameTarget")
+
+                getIcon[0].classList.remove("svgIconTarget")
+                getIconShadow[0].classList.remove("iconShadowTarget")
+                getSectionName[0].classList.remove("sectionNameTarget")
+
+                getIcon[2].classList.remove("svgIconTarget")
+                getIconShadow[2].classList.remove("iconShadowTarget")
+                getSectionName[2].classList.remove("sectionNameTarget")
+
+                getIcon[3].classList.remove("svgIconTarget")
+                getIconShadow[3].classList.remove("iconShadowTarget")
+                getSectionName[3].classList.remove("sectionNameTarget")
+            }
+            else if(location.pathname.toLowerCase() === "/home/routine"){
+                getIcon[2].classList.add("svgIconTarget")
+                getIconShadow[2].classList.add("iconShadowTarget")
+                getSectionName[2].classList.add("sectionNameTarget")
+
+                getIcon[1].classList.remove("svgIconTarget")
+                getIconShadow[1].classList.remove("iconShadowTarget")
+                getSectionName[1].classList.remove("sectionNameTarget")
+
+                getIcon[0].classList.remove("svgIconTarget")
+                getIconShadow[0].classList.remove("iconShadowTarget")
+                getSectionName[0].classList.remove("sectionNameTarget")
+
+                getIcon[3].classList.remove("svgIconTarget")
+                getIconShadow[3].classList.remove("iconShadowTarget")
+                getSectionName[3].classList.remove("sectionNameTarget")
+            }
+            else if(location.pathname.toLowerCase() === "/home/daily"){
+                getIcon[3].classList.add("svgIconTarget")
+                getIconShadow[3].classList.add("iconShadowTarget")
+                getSectionName[3].classList.add("sectionNameTarget")
+
+                getIcon[1].classList.remove("svgIconTarget")
+                getIconShadow[1].classList.remove("iconShadowTarget")
+                getSectionName[1].classList.remove("sectionNameTarget")
+
+                getIcon[2].classList.remove("svgIconTarget")
+                getIconShadow[2].classList.remove("iconShadowTarget")
+                getSectionName[2].classList.remove("sectionNameTarget")
+
+                getIcon[0].classList.remove("svgIconTarget")
+                getIconShadow[0].classList.remove("iconShadowTarget")
+                getSectionName[0].classList.remove("sectionNameTarget")
+            }
+        }
+        
+        setTarget()
+    }, [location.pathname]);
     return (
-        <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
-            <div id="sectionContent" className="sectionContent" onMouseEnter={() => {SectionName(true); clearTimeout(timer)}} onMouseLeave={() => SectionName(false)}>
-                <Link onClick={() => props.setLocationIndex(0)} id="sections1" className="sections1" to="/home">
-                    <div id="sectionShadowTarget1" className="sectionShadow"></div>
-                    <div className="section">
-                        <div id="sectionName1" className="sectionName">Homepage</div>
-                    </div>
-                    
-                </Link>
+        <motion.div  animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
+            <Link onClick={() => properties.setLocationIndex(0)} to="/home">
+                <div className="iconShadow" />
+                <p  className="sectionName" id="sectionName0">Homepage</p>
+
+                <HomePagination className="icon" id="icon0" />
+            </Link>
+            <span />
+            <Link onClick={() => properties.setLocationIndex(1)}  to="/home/strength">
+                <div className="iconShadow" />
+                <p className="sectionName" id="sectionName1">Strength</p>
+                <HomePagination  className="icon" id="icon1"/>
+            </Link>
+            <span />
+            <Link onClick={() => properties.setLocationIndex(2)} to="/home/routine">
+                <div className="iconShadow" />
+                <p className="sectionName" id="sectionName2">Routine</p>
+                <HomePagination className="icon" id="icon2"/>
+            </Link>
+            <span />
+            <Link onClick={() => properties.setLocationIndex(3)} to="/home/daily">
+                <div className="iconShadow" />
+                <p className="sectionName" id="sectionName3">Daily</p>
+                <HomePagination className="icon" id="icon3"/>
                 
-                <Link onClick={() => props.setLocationIndex(1)} id="sections2" to="/home/strength">
-                    <div id="sectionShadowTarget2" className="sectionShadow"></div>
-                    <div  className="section">
-                        <div id="sectionName2" className="sectionName">Strength</div>
-                    </div>
-                </Link>
-                
-                <Link onClick={() => props.setLocationIndex(2)} id="sections3" to="/home/routine">
-                    <div id="sectionShadowTarget3" className="sectionShadow"></div>
-                    <div  className="section">
-                        <div id="sectionName3" className="sectionName">Routine</div>
-                    </div>
-                </Link>
-                
-                <Link onClick={() => props.setLocationIndex(3)} id="sections4" className="sections4" to="/home/daily">
-                    <div id="sectionShadowTarget4" className="sectionShadow"></div>
-                    <div  className="section">
-                        <div id="sectionName4" className="sectionName">Daily</div>
-                    </div>
-                </Link>
-            </div>
+            </Link>
         </motion.div>
     );
 }
