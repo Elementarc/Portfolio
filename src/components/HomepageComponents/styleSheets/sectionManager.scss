@@ -27,11 +27,21 @@
             opacity: 1;
             color: white;
             margin-left: 2rem;
+            transition: 0.1s ease-in-out;
         }
         .sectionNameTarget{
             color: #56FFDC;
         }
+        
     }
+    span{
+        width: 1px;
+        margin: 0.3rem 0 0.5rem 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        height: 10px;
+    }
+    
+    //Shadow when Icon is targeted
     .iconShadowTarget{
         position: absolute;
         height: 5px;
@@ -40,6 +50,7 @@
         box-shadow: 0px 0px 50px 20px #56ffdd2c;
         transition: 0.2s ease-in-out;
     }
+    //Style when Icon is targeted
     .svgIconTarget{
         .innerIcon{
             fill: #56FFDC;
@@ -50,12 +61,22 @@
             transition: 0.1s ease-in-out;
         }
     }
-    span{
-        width: 1px;
-        margin: 0.3rem 0 0.5rem 0;
-        background-color: rgba(255, 255, 255, 0.3);
-        height: 10px;
+    
+    //Style when Hoverd. Class is getting added via js
+    .svgIconHover{
+        .innerIcon{
+            fill: #56FFDC;
+            transition: 0.1s ease-in-out;
+        }
+        .outerIcon{
+            stroke: #56FFDC;
+            transition: 0.1s ease-in-out;
+        }
     }
+    .sectionNameHover{
+        color: #56FFDC;
+    }
+    
 }
 
 @media (max-width: 1200px){
@@ -146,13 +167,16 @@
             padding: 0;
             p{
                 position: absolute;
-                bottom: 1.5rem;
-                font-size: 14px;
+                bottom: 1rem;
+                font-size: 11px;
                 pointer-events: none;
                 padding: 1rem 0rem;
                 margin: 0rem;
                 opacity: 0;
                 color: white;
+            }
+            .pTarget{
+                opacity: 1;
             }
             .sectionNameTarget{
                 color: #56FFDC;
@@ -177,6 +201,10 @@
                 transition: 0.1s ease-in-out;
             }
         }
+        .icon{
+            height: 20px;
+            width: 20px;
+        }
         span{
             align-self: flex-end;
             width: 10px;
@@ -184,8 +212,6 @@
             background-color: rgba(255, 255, 255, 0.3);
             height: 1px;
         }
-    
-        
     }
 }
 /*END--Section Circles--END*/

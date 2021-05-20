@@ -1,7 +1,7 @@
-<svg width="25" height="25" version="1.1" viewBox="0 0 8.7233 8.7233" xmlns="http://www.w3.org/2000/svg">
+<svg classname="sectionIcon" width="25" height="25" version="1.1" viewBox="0 0 8.7233 8.7233" xmlns="http://www.w3.org/2000/svg">
  <g transform="translate(-2.2529 -.93003)">
-  <path classname="outerIcon" d="m6.6146 1.3229-3.9687 3.9688 3.9687 3.9688 3.9687-3.9688z" fill="none" stroke="#fff" stroke-width=".55" style="paint-order:stroke markers fill"/>
+  <path id="outerIcon" classname="outerIcon" d="m6.6146 1.3229-3.9687 3.9688 3.9687 3.9688 3.9687-3.9688z" fill="none" stroke="#fff" stroke-width=".55" style="paint-order:stroke markers fill"/>
   <path d="m6.6146 2.6458-2.6458 2.6458 2.6458 2.6458 2.6458-2.6458z" fill-opacity="0" stroke-opacity="0"/>
-  <path classname="innerIcon" d="m6.624 3.5784-1.7198 1.7213 1.7198 1.7213 1.7198-1.7213z" fill="#fff"/>
+  <path id="innerIcon" classname="innerIcon" d="m6.624 3.5784-1.7198 1.7213 1.7198 1.7213 1.7198-1.7213z" fill="#fff"/>
  </g>
 </svg>
