@@ -90,7 +90,7 @@ const HytaleDesign = () => {
     //adding parallax
     useEffect(() => {
         function parallax(e: any) {
-            if(window.innerWidth > 1000 && history.location.pathname.toLowerCase() === "/design"){
+            if(window.innerWidth > 900 && history.location.pathname.toLowerCase() === "/design"){
                 var hytaleBackground = document.getElementById("hytaleBackground") as HTMLDivElement
                 var designBottomIllustration = document.getElementById("designBottomIllustration") as HTMLDivElement
                 var designButton = document.getElementById("designButton") as HTMLDivElement
@@ -117,7 +117,7 @@ const HytaleDesign = () => {
     useEffect(() => {
         //Animation for Images changes State at the end of the function to rerender the component
         function changeStyle() {
-            if(window.innerWidth > 1000){
+            if(window.innerWidth > 900){
                 previewState++
                 if(previewState > 3){
                     previewState = 1

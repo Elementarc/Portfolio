@@ -50,7 +50,7 @@ const HomepageContainer = (props: any) => {
     useEffect(() =>{
         function homepageContentAnimation() {
             var getContent = document.getElementById("contentContainer") as HTMLDivElement
-            if(window.innerWidth > 1000){
+            if(window.innerWidth > 900){
                 if(path === "/home"){
                     getContent.style.top = "0"
                     getContent.style.left = "0"
@@ -68,7 +68,7 @@ const HomepageContainer = (props: any) => {
                     getContent.style.left = "0"
                 }
             }
-            else if(window.innerWidth < 1000) {
+            else if(window.innerWidth < 900) {
                 if(path === "/home"){
                     getContent.style.top = "0"
                     getContent.style.left = "0"
@@ -90,6 +90,7 @@ const HomepageContainer = (props: any) => {
         homepageContentAnimation()
     }, [path])
 
+    
     return(
         <motion.div  exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
             <motion.div className="contentContainer" id="contentContainer">
@@ -99,7 +100,7 @@ const HomepageContainer = (props: any) => {
                             <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
                         </Route>
                         <Route strict path="/home/strength">
-                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} />
                         </Route>
                         <Route strict path="/home/routine">
                             

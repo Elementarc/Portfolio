@@ -12,7 +12,7 @@ const SectionManager = (props: any) => {
     const history = useHistory()
 
     function hoverEffects(hover: boolean, linkIndex: number){
-        if(window.innerWidth > 1000){
+        if(window.innerWidth > 900){
             var getIcon = document.querySelectorAll(".icon")
             var getSectionName = document.querySelectorAll(".sectionName")
 
@@ -206,6 +206,7 @@ const SectionManager = (props: any) => {
                 <HomePagination className="icon" id="icon3"/>
                 
             </Link>
+            <div className="sectionBackground"></div>
         </motion.div>
     );
 }

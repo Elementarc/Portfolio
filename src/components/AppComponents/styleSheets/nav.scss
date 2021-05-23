@@ -104,7 +104,7 @@
         .navOpenIconContainer {
             pointer-events: visible;
             z-index: 2;
-            margin: 9rem 5rem 0 0;
+            margin: 7rem 5rem 0 0;
             height: 32px;
             width: 32px;
             .menuIconSVG{
@@ -115,7 +115,7 @@
     }
     
 }
-@media (max-width: 1000px){
+@media (max-width: 900px){
     .NavigationContainer {
         .navOpenIconContainer {
             display: flex;

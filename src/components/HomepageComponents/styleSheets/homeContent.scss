@@ -137,6 +137,9 @@
 @media (max-width: 1200px){
     .homeContent {
         position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         top: 0;
         color: white;
         width: 100%;
@@ -144,11 +147,16 @@
         pointer-events: visible;
         z-index: 2;
         .content{
-            padding-top: 16rem;
-            width: 100%;
-            padding-left: 16rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 10rem;
+            width: 65%;
+            padding-left: unset;
             h1{
                 display: block;
+                text-align: center;
                 font-family: "PT Serif";
                 font-size: 20px;
                 margin: 0rem 0 0rem 0rem;
@@ -158,6 +166,7 @@
                 font-family: "PT Serif";
                 font-size: 39px;
                 margin: -0.4rem 0 0rem 0;
+                text-align: center;
             }
             p{
                 display: block;
@@ -165,7 +174,8 @@
                 font-size: 18px;
                 line-height: 2rem;
                 font-family: "Noto Sans";
-                width: 37rem;
+                width: 100%;
+                text-align: center;
             }
             button{
                 position: relative;
@@ -203,6 +213,9 @@
     }
     .homeStrengthContent {
         position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         top: 100vh;
         color: white;
         width: 100%;
@@ -210,11 +223,16 @@
         pointer-events: visible;
         z-index: 2;
         .content{
-            padding-top: 16rem;
-            width: 100%;
-            padding-left: 16rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 10rem;
+            width: 65%;
+            padding-left: unset;
             h1{
                 display: block;
+                text-align: center;
                 font-family: "PT Serif";
                 font-size: 20px;
                 margin: 0rem 0 0rem 0rem;
@@ -224,6 +242,7 @@
                 font-family: "PT Serif";
                 font-size: 39px;
                 margin: -0.4rem 0 0rem 0;
+                text-align: center;
             }
             p{
                 display: block;
@@ -231,7 +250,8 @@
                 font-size: 18px;
                 line-height: 2rem;
                 font-family: "Noto Sans";
-                width: 37rem;
+                width: 100%;
+                text-align: center;
             }
             button{
                 position: relative;
@@ -268,10 +288,11 @@
         }
     }
 }
-@media (max-width: 1000px){
+@media (max-width: 900px){
     .homeContent {
         position: absolute;
         touch-action: pan-y;
+        display: unset;
         top: 0;
         left: 0;
         color: white;
@@ -353,6 +374,7 @@
     .homeStrengthContent {
         position: absolute;
         touch-action: pan-y;
+        display: unset;
         top: 0;
         left: 100vw;
         color: white;

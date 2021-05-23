@@ -111,6 +111,9 @@
                 color: #56FFDC;
             }
         }
+        .sectionName{
+            display: none;
+        }
         .iconShadowTarget{
             position: absolute;
             height: 5px;
@@ -139,7 +142,7 @@
         
     }
 }
-@media (max-width: 1000px){
+@media (max-width: 900px){
     .SectionContainer {
         position: fixed;
         pointer-events: visible;
@@ -181,6 +184,9 @@
             .sectionNameTarget{
                 color: #56FFDC;
             }
+        }
+        .sectionName{
+            display: unset;
         }
         .iconShadowTarget{
             position: absolute;

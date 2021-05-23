@@ -44,7 +44,7 @@ const Stars = (props: any) => {
     useEffect(() =>{
       var numBefore = num
       function starsAnimation() {
-        if(window.innerWidth > 1000){
+        if(window.innerWidth > 900){
           if(location.pathname.toLowerCase() === "/home"){
             num = 100
           }
@@ -70,7 +70,7 @@ const Stars = (props: any) => {
       starsAnimation()
     }, [location.pathname])
 
-    if(window.innerWidth > 1000){
+    if(window.innerWidth > 900){
       return (
         <motion.div animate="in" exit="out" initial="initial" variants={backgroundProps}>
             <Particles className="Stars" id="Stars" options={{

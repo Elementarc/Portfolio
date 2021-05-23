@@ -1,5 +1,5 @@
 //components
-import React from 'react';
+import React, {useEffect} from 'react';
 import {motion, useMotionValue} from "framer-motion"
 import ScrollDown from "./ScrollDown"
 
@@ -29,6 +29,7 @@ const HomeContent = (props: any) => {
     function onPan(event: any, info: any) {
         var getItem = document.getElementById("homeContent") as HTMLDivElement
         getItem.style.transition = ""
+        //reduces content opacity when moving finger left or right for better ux
         if(info.offset.x < 0){
             opacity.set(1 - (-info.offset.x / 300))
         }
@@ -43,6 +44,7 @@ const HomeContent = (props: any) => {
         getItem.style.transition = "0.6s"
         x.set(0)
         opacity.set(1)
+        
         //Checks if gesture is to the left or right
         if(info.velocity.x < -80){
             //Forward
@@ -51,7 +53,6 @@ const HomeContent = (props: any) => {
                 props.setLocationIndex(props.locationIndex + 1)
                 opacity.set(0)
             }
-            
         }
         else if(info.velocity.x > 80){
             //Backwards
@@ -62,7 +63,6 @@ const HomeContent = (props: any) => {
             }
         }
     }
-
     //DESKTOP JSX
     if(window.innerWidth > 1000){
         //ROUTES
