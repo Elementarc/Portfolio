@@ -87,6 +87,7 @@ var preview3Styles = {
 const HytaleDesign = () => {
     const [State, setState] = useState(false);
     const history = useHistory()
+    
     //adding parallax
     useEffect(() => {
         function parallax(e: any) {
@@ -371,7 +372,6 @@ const HytaleDesign = () => {
                 if(previewState > 3){
                     previewState = 1
                 }
-                console.log("mobile")
                 if(previewState === 1){
                     //First Box Preview1
                     preview1Styles = {
@@ -655,9 +655,9 @@ const HytaleDesign = () => {
                 <button className="designButton" id="designButton">VIEW DESIGN</button>
             </motion.div>
             
-            <div className="designBackground" id="hytaleBackground">
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designBackground" id="hytaleBackground">
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
-            </div>
+            </motion.div>
         </div>
     )
 }

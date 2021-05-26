@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo} from 'react';
 import "./styleSheets/sectionManager.scss"
 import {Link, useHistory, useLocation} from "react-router-dom"
-import {ReactComponent as HomePagination} from "../../assets/svgs/homePagination.svg"
+import {ReactComponent as HomePagination} from "../../assets/svgs/homeSectionIcon.svg"
 import {motion} from "framer-motion"
 
 
@@ -179,6 +179,7 @@ const SectionManager = (props: any) => {
         }
         setTarget()
     }, [location.pathname]);
+    
     return (
         <motion.div  animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
             <Link onMouseEnter={() => hoverEffects(true, 0)} onMouseLeave={() => hoverEffects(false, 0)} onClick={() => properties.setLocationIndex(0)} to="/home">
@@ -207,6 +208,7 @@ const SectionManager = (props: any) => {
                 
             </Link>
             <div className="sectionBackground"></div>
+            <div className="sectionBottomGradiant"></div>
         </motion.div>
     );
 }

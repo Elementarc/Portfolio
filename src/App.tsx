@@ -77,11 +77,11 @@ function App() {
           </Route>
 
           <Route strict path="/design" >
-            <DesignPage/>
+            <DesignPage interfaceAnimation={interfaceAnimation}/>
           </Route>
 
           <Route strict path="/contact" >
-            <ContactPage/>
+            <ContactPage />
           </Route>
           
           <Route exact path = "/">

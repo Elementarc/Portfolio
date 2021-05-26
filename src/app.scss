@@ -2,8 +2,10 @@ body{
     background: rgb(14, 14, 14);
 }
 
+::-webkit-scrollbar{
+    overflow: overlay;
+}
 .App{
-
     position: relative;
     overflow: hidden;
     display: grid;

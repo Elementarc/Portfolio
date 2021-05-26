@@ -20,7 +20,9 @@ function hoverButton(){
     }
 }
 
+
 const HomeContent = (props: any) => {
+    window.onload = () => {window.scrollTo(0, 1)}
     const path = useLocation().pathname.toLowerCase()
     //Tracking X value for mobile drag animation
     var x = useMotionValue(0)
@@ -63,8 +65,9 @@ const HomeContent = (props: any) => {
             }
         }
     }
+
     //DESKTOP JSX
-    if(window.innerWidth > 1000){
+    if(window.innerWidth > 900){
         //ROUTES
         if(path === "/home"){
             return (
