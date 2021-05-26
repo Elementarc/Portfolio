@@ -1,5 +1,5 @@
 //components
-import React, {useEffect} from 'react';
+import React from 'react';
 import {motion, useMotionValue} from "framer-motion"
 import ScrollDown from "./ScrollDown"
 

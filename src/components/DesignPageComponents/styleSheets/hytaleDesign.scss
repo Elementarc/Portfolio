@@ -160,9 +160,21 @@
 }
 
 
+@media (max-width: 1300px){
+    .hytaleDesignContainer{
+        .hytaleHeader{
+            div{
+                display: none;
+            }
+        }
+    }
+}
 @media (max-width: 900px){
     .hytaleDesignContainer{
-        
+        display: block;
+        display: block;
+        flex-direction: unset;
+        justify-content: unset;
         z-index: 0;
         height: 100%;
         min-height: 100vh;

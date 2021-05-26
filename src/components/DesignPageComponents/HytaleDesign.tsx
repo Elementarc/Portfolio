@@ -649,7 +649,7 @@ const HytaleDesign = () => {
             </div>
 
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleContent">
-                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.</p>
+                <p>A world fulfilled with desires and colors needs atleast a design nothing less than that.</p>
             </motion.div>
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPageButtonContainer">
                 <button className="designButton" id="designButton">VIEW DESIGN</button>
