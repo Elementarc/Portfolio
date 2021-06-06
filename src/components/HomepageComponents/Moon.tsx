@@ -15,7 +15,7 @@ const Moon = (props: any) => {
         //Changes moon style properties for specific url. Takes init as parameter to include an initial animation whenever page first opens
         function changeStyle(init: boolean) {
             if(init === true){
-                if(location.pathname === "/home"){
+                if(props.locationIndex === 0){
                     if(y.get() === -200 && x.get() === 0){
                         setTimeout(() => {
                             x.set(0)
@@ -24,7 +24,7 @@ const Moon = (props: any) => {
                         }, 2000);
                     }
                 }
-                else if(location.pathname === "/home/strength"){
+                else if(props.locationIndex === 1){
                     setTimeout(() => {
                         x.set(15)
                         y.set(-20)
@@ -33,14 +33,14 @@ const Moon = (props: any) => {
                     
                     
                 }
-                else if(location.pathname === "/home/routine"){
+                else if(props.locationIndex === 2){
                     setTimeout(() => {
                         x.set(30)
                         y.set(-40)
                         opacity.set(1)
                     }, 2000);
                 }
-                else if(location.pathname === "/home/daily"){
+                else if(props.locationIndex === 3){
                     setTimeout(() => {
                         x.set(45)
                         y.set(-60)
@@ -49,19 +49,19 @@ const Moon = (props: any) => {
                 }
             }
             else {
-                if(location.pathname === "/home"){
+                if(props.locationIndex === 0){
                     x.set(0)
                     y.set(0)
                 }
-                else if(location.pathname === "/home/strength"){
+                else if(props.locationIndex === 1){
                     x.set(15)
                     y.set(-20)
                 }
-                else if(location.pathname === "/home/routine"){
+                else if(props.locationIndex === 2){
                     x.set(30)
                     y.set(-40)
                 }
-                else if(location.pathname === "/home/daily"){
+                else if(props.locationIndex === 3){
                     x.set(45)
                     y.set(-60)
                 } 

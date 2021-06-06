@@ -45,16 +45,16 @@ const Stars = (props: any) => {
       var numBefore = num
       function starsAnimation() {
         if(window.innerWidth > 900){
-          if(location.pathname.toLowerCase() === "/home"){
+          if(props.locationIndex === 0){
             num = 100
           }
-          else if(location.pathname.toLowerCase() === "/home/strength"){
+          else if(props.locationIndex === 1){
             num = 200
           }
-          else if(location.pathname.toLowerCase() ==="/home/routine"){
+          else if(props.locationIndex === 2){
             num = 300
           }
-          else if(location.pathname.toLowerCase() ==="/home/daily"){
+          else if(props.locationIndex === 3){
             num = 400
           }
 

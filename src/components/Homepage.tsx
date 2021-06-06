@@ -19,30 +19,31 @@ const HomepageContainer = (props: any) => {
         if(path === "/home"){
             return 0
         }
-        else if(path === "/home/strength"){
+        else if(path === "/home/passion"){
             return 1
         }
-        else if(path === "/home/routine"){
+        else if(path === "/home/news"){
             return 2
         }
-        else if(path === "/home/daily"){
+        else if(path === "/home/contact"){
             return 3
         }
         
     })
     //Changes url based on Location index. Allows us to cycle through urls when adding or subtracting 1 from LocationIndex
     useEffect(() => {
+        
         if(LocationIndex === 0){
             history.replace("/home")
         }
         else if(LocationIndex === 1){
-            history.replace("/home/strength")
+            history.replace("/home/passion")
         }
         else if(LocationIndex === 2){
-            history.replace("/home/routine")
+            history.replace("/home/news")
         }
         else if(LocationIndex === 3){
-            history.replace("/home/daily")
+            history.replace("/home/contact")
         }
     }, [LocationIndex, history]);
 
@@ -51,44 +52,44 @@ const HomepageContainer = (props: any) => {
         function homepageContentAnimation() {
             var getContent = document.getElementById("contentContainer") as HTMLDivElement
             if(window.innerWidth > 900){
-                if(path === "/home"){
+                if(LocationIndex === 0){
                     getContent.style.top = "0"
                     getContent.style.left = "0"
                 }
-                else if(path === "/home/strength"){
+                else if(LocationIndex === 1){
                     getContent.style.top = "-100vh"
                     getContent.style.left = "0"
                 }
-                else if(path === "/home/routine"){
+                else if(LocationIndex === 2){
                     getContent.style.top = "-200vh"
                     getContent.style.left = "0"
                 }
-                else if(path === "/home/daily"){
+                else if(LocationIndex === 3){
                     getContent.style.top = "-300vh"
                     getContent.style.left = "0"
                 }
             }
             else if(window.innerWidth < 900) {
-                if(path === "/home"){
+                if(LocationIndex === 0){
                     getContent.style.top = "0"
                     getContent.style.left = "0"
                 }
-                else if(path === "/home/strength"){
+                else if(LocationIndex === 1){
                     getContent.style.top = "0"
                     getContent.style.left = "-100vw"
                 }
-                else if(path === "/home/routine"){
+                else if(LocationIndex === 2){
                     getContent.style.top = "0"
                     getContent.style.left = "-200vw"
                 }
-                else if(path === "/home/daily"){
+                else if(LocationIndex === 3){
                     getContent.style.top = "0"
                     getContent.style.left = "-300vw"
                 }
             }
         }
         homepageContentAnimation()
-    }, [path])
+    }, [LocationIndex])
 
     
     return(
@@ -99,22 +100,22 @@ const HomepageContainer = (props: any) => {
                         <Route strict path="/home">
                             <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
                         </Route>
-                        <Route strict path="/home/strength">
+                        <Route strict path="/home/passion">
                             <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} />
                         </Route>
-                        <Route strict path="/home/routine">
+                        <Route strict path="/home/news">
                             
                         </Route>
-                        <Route strict path="/home/daily">
+                        <Route strict path="/home/contact">
                             
                         </Route>
                     </Switch>
                 </AnimatePresence>
             </motion.div>
             
-            <Stars/>
+            <Stars locationIndex={LocationIndex}/>
             <SectionManager interfaceAnimation={props.interfaceAnimation} locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
-            <Moon/>
+            <Moon locationIndex={LocationIndex}/>
         </motion.div>
     );
 }

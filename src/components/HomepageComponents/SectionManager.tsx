@@ -90,7 +90,7 @@ const SectionManager = (props: any) => {
             var getIconShadow = document.querySelectorAll(".iconShadow")
             var getSectionName = document.querySelectorAll(".sectionName")
 
-            if(location.pathname.toLowerCase() === "/home"){
+            if(props.locationIndex === 0){
                 getIcon[0].classList.add("svgIconTarget")
                 getIconShadow[0].classList.add("iconShadowTarget")
                 getSectionName[0].classList.add("sectionNameTarget")
@@ -112,7 +112,7 @@ const SectionManager = (props: any) => {
                 getSectionName[3].classList.remove("sectionNameTarget")
                 getSectionName[3].classList.remove("pTarget")
             }
-            else if(location.pathname.toLowerCase() === "/home/strength"){
+            else if(props.locationIndex === 1){
 
                 getIcon[1].classList.add("svgIconTarget")
                 getIconShadow[1].classList.add("iconShadowTarget")
@@ -134,7 +134,7 @@ const SectionManager = (props: any) => {
                 getSectionName[3].classList.remove("sectionNameTarget")
                 getSectionName[3].classList.remove("pTarget")
             }
-            else if(location.pathname.toLowerCase() === "/home/routine"){
+            else if(props.locationIndex === 2){
                 getIcon[2].classList.add("svgIconTarget")
                 getIconShadow[2].classList.add("iconShadowTarget")
                 getSectionName[2].classList.add("sectionNameTarget")
@@ -155,7 +155,7 @@ const SectionManager = (props: any) => {
                 getSectionName[3].classList.remove("sectionNameTarget")
                 getSectionName[3].classList.remove("pTarget")
             }
-            else if(location.pathname.toLowerCase() === "/home/daily"){
+            else if(props.locationIndex === 3){
                 getIcon[3].classList.add("svgIconTarget")
                 getIconShadow[3].classList.add("iconShadowTarget")
                 getSectionName[3].classList.add("sectionNameTarget")
