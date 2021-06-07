@@ -109,10 +109,12 @@ const HomeContent = (props: any) => {
                         <h1>{"SIMPLE & CLEAN"}</h1>
                         <br />
                         <h2>THE WORLD OF CREATIVITY</h2>
-                        <span/>
+                        <motion.span initial={{width: 0}} animate={{width: 750, transition: {duration: 2, delay:0.8}}}>
+                            <motion.span initial={{opacity: 0}} animate={{opacity: 1}} className="underlineIcon"></motion.span>
+                        </motion.span>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>There are diffrent ways to talk to a customer and design is an important one. Let's create something unique. </p>
+                        <p>There are different ways to talk to a customer and design is an important one. Let's create something unique. </p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
@@ -131,7 +133,7 @@ const HomeContent = (props: any) => {
 
                             <div className="item1Content">
                                 <h1>Design</h1>
-                                <p> View a world full of different designs to get inspired!  Maybe  there even is more</p>
+                                <p> Experience a world full of different designs! Maybe  there even is more</p>
                                 <Link to="/design">SEE DESIGNS</Link>
                             </div>
                         </div>
