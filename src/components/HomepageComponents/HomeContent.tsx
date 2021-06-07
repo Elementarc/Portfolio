@@ -107,10 +107,9 @@ const HomeContent = (props: any) => {
                 <motion.div className="content">
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"SIMPLE & CLEAN"}</h1>
-                        <br />
                         <h2>THE WORLD OF CREATIVITY</h2>
-                        <motion.span initial={{width: 0}} animate={{width: 750, transition: {duration: 2, delay:0.8}}}>
-                            <motion.span initial={{opacity: 0}} animate={{opacity: 1}} className="underlineIcon"></motion.span>
+                        <motion.span initial={{opacity: 0}} animate={{opacity: 1,transition: {duration: 1, delay:0.8}}}>
+                            <motion.span initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1}}} className="underlineIcon"></motion.span>
                         </motion.span>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
