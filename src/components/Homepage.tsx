@@ -28,11 +28,9 @@ const HomepageContainer = (props: any) => {
         else if(path === "/home/contact"){
             return 3
         }
-        
     })
     //Changes url based on Location index. Allows us to cycle through urls when adding or subtracting 1 from LocationIndex
     useEffect(() => {
-        
         if(LocationIndex === 0){
             history.replace("/home")
         }

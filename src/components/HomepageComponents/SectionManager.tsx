@@ -191,19 +191,19 @@ const SectionManager = (props: any) => {
             <span />
             <Link onMouseEnter={() => hoverEffects(true, 1)} onMouseLeave={() => hoverEffects(false, 1)} onClick={() => properties.setLocationIndex(1)}  to="/home/strength">
                 <div className="iconShadow" />
-                <p className="sectionName" id="sectionName1">Strength</p>
+                <p className="sectionName" id="sectionName1">Passion</p>
                 <HomePagination  className="icon" id="icon1"/>
             </Link>
             <span />
             <Link onMouseEnter={() => hoverEffects(true, 2)} onMouseLeave={() => hoverEffects(false, 2)} onClick={() => properties.setLocationIndex(2)} to="/home/routine">
                 <div className="iconShadow" />
-                <p className="sectionName" id="sectionName2">Routine</p>
+                <p className="sectionName" id="sectionName2">News</p>
                 <HomePagination className="icon" id="icon2"/>
             </Link>
             <span />
             <Link onMouseEnter={() => hoverEffects(true, 3)} onMouseLeave={() => hoverEffects(false, 3)} onClick={() => properties.setLocationIndex(3)} to="/home/daily">
                 <div className="iconShadow" />
-                <p className="sectionName" id="sectionName3">Daily</p>
+                <p className="sectionName" id="sectionName3">Contact</p>
                 <HomePagination className="icon" id="icon3"/>
                 
             </Link>

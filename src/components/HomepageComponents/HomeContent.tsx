@@ -1,6 +1,7 @@
 //components
 import React from 'react';
 import {motion, useMotionValue} from "framer-motion"
+import {Link} from "react-router-dom"
 import ScrollDown from "./ScrollDown"
 
 //css
@@ -99,7 +100,6 @@ const HomeContent = (props: any) => {
             }
         }
     }
-
     //ROUTES
     if(path === "/home"){
         return (
@@ -107,7 +107,9 @@ const HomeContent = (props: any) => {
                 <motion.div className="content">
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"SIMPLE & CLEAN"}</h1>
-                        <h2>THE WORLD OF DESIGN</h2>
+                        <br />
+                        <h2>THE WORLD OF CREATIVITY</h2>
+                        <span/>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
                         <p>There are diffrent ways to talk to a customer and design is an important one. Let's create something unique. </p>
@@ -119,7 +121,48 @@ const HomeContent = (props: any) => {
                         </button>
                     </motion.div>
                 </motion.div>
-                <ScrollDown/>
+                
+                <motion.div  className="homepageMenuContainer">
+                    <motion.div initial={{opacity: 0, scale: 0.2, x: 200, y: -200}} animate={{opacity: 1, scale: 1, x: 0, y:0, transition: {duration: 1.4, delay: 2, type: 'spring'}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
+                        
+                        <div className="item item1">
+                            <span className="bottomBorder"/>
+                            <div className="item1Background"></div>
+
+                            <div className="item1Content">
+                                <h1>Design</h1>
+                                <p> View a world full of different designs to get inspired!  Maybe  there even is more</p>
+                                <Link to="/design">SEE DESIGNS</Link>
+                            </div>
+                        </div>
+
+                        <div className="item item2">
+                            <div className="imageBlur"/>
+                            <span className="bottomBorder"/>
+                            
+                            <div className="item2Background"></div>
+                            <div className="item2Content">
+                                <h1>Art</h1>
+                                <p>?Interested in artwork</p>
+                                <Link to="/design">SEE ART-WORK</Link>
+                            </div>
+                        </div>
+
+                        <div className="item item3">
+                            <div className="imageBlur"/>
+                            <span className="bottomBorder"/>
+                            
+                            <div className="item3Background"></div>
+
+                            <div className="item3Content">
+                                <h1>Project</h1>
+                                <p>Here you can see the projects we are currently working on</p>
+                                <Link to="/projects">SEE PROJECTS</Link>
+                            </div>
+                        </div>
+                    </motion.div>
+                </motion.div>
+                
             </motion.div>
         );
     }
