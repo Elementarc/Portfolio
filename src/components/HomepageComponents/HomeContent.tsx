@@ -107,6 +107,7 @@ const HomeContent = (props: any) => {
                 <motion.div className="content">
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"SIMPLE & CLEAN"}</h1>
+                        <br className="lineBreak" />
                         <h2>THE WORLD OF CREATIVITY</h2>
                         <motion.span initial={{opacity: 0}} animate={{opacity: 1,transition: {duration: 1, delay:0.8}}}>
                             <motion.span initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1}}} className="underlineIcon"></motion.span>
@@ -125,7 +126,6 @@ const HomeContent = (props: any) => {
                 
                 <motion.div  className="homepageMenuContainer">
                     <motion.div initial={{opacity: 0, scale: 0.2, x: 200, y: -200}} animate={{opacity: 1, scale: 1, x: 0, y:0, transition: {duration: 1.4, delay: 2, type: 'spring'}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
-                        
                         <div className="item item1">
                             <span className="bottomBorder"/>
                             <div className="item1Background"></div>
@@ -136,7 +136,6 @@ const HomeContent = (props: any) => {
                                 <Link to="/design">SEE DESIGNS</Link>
                             </div>
                         </div>
-
                         <div className="item item2">
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
@@ -148,7 +147,6 @@ const HomeContent = (props: any) => {
                                 <Link to="/design">SEE ART-WORK</Link>
                             </div>
                         </div>
-
                         <div className="item item3">
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
@@ -164,6 +162,7 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
                 
+                <div className="bottomBackground"/>
             </motion.div>
         );
     }
