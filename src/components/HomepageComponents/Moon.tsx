@@ -69,7 +69,7 @@ const Moon = (props: any) => {
             
         }
         changeStyle(init)
-    }, [location.pathname, x, y, opacity])
+    }, [x, y, opacity, props.locationIndex])
     
     //Calls changeStyle function on every URL change
     useEffect(() => {

@@ -3,7 +3,6 @@ import Particles from "react-tsparticles"
 import {motion} from "framer-motion"
 
 import "./styleSheets/stars.scss"
-import {useLocation} from 'react-router';
 
 var backgroundProps = {
     initial: {
@@ -39,7 +38,6 @@ function particlesAnimation(direction: string) {
 }
 
 const Stars = (props: any) => {
-    const location = useLocation()
     //Creating a number for each section to than use it for particlesAnimation
     useEffect(() =>{
       var numBefore = num
@@ -68,7 +66,7 @@ const Stars = (props: any) => {
         else return
       }
       starsAnimation()
-    }, [location.pathname])
+    }, [props.locationIndex])
 
     if(window.innerWidth > 900){
       return (

@@ -5,7 +5,6 @@ import "./app.scss"
 //import Page components
 import Homepage from "./components/Homepage"
 import DesignPage from "./components/DesignPage"
-import ContactPage from "./components/ContactPage"
 //Import components
 import Nav from "./components/AppComponents/Nav"
 import Blackbar from "./components/AppComponents/Blackbar"
@@ -67,6 +66,8 @@ function App() {
       clearTimeout(timer)
     };
   }, []);
+
+  
   return (
     <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
       <AnimatePresence>
@@ -80,12 +81,11 @@ function App() {
             <DesignPage interfaceAnimation={interfaceAnimation}/>
           </Route>
 
-          <Route strict path="/contact" >
-            <ContactPage />
-          </Route>
-          
           <Route exact path = "/">
             <Redirect to="/home"/>
+          </Route>
+          <Route exact path = "/contact">
+            <Redirect to="/home/contact"/>
           </Route>
         </Switch>
       </AnimatePresence>

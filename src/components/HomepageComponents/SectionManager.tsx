@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo} from 'react';
 import "./styleSheets/sectionManager.scss"
-import {Link, useHistory, useLocation} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import {ReactComponent as HomePagination} from "../../assets/svgs/homeSectionIcon.svg"
 import {motion} from "framer-motion"
 
@@ -8,7 +8,6 @@ import {motion} from "framer-motion"
 
 
 const SectionManager = (props: any) => {
-    const location = useLocation()
     const history = useHistory()
 
     function hoverEffects(hover: boolean, linkIndex: number){
@@ -40,7 +39,7 @@ const SectionManager = (props: any) => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
         function wheelListner(e: any) {
             if(history.location.pathname.includes("/home") === true){
-                if(window.innerWidth >= 900 && window.innerHeight >= 950){
+                if(window.innerWidth > 1800 && window.innerHeight >= 950){
                     //wheel UP
                     if(e.deltaY < 0){
                         //Setting the locationIndex so Partent component can switch to the right URL
@@ -178,7 +177,7 @@ const SectionManager = (props: any) => {
             }
         }
         setTarget()
-    }, [location.pathname]);
+    }, [props.locationIndex]);
     
     return (
         <motion.div  animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
@@ -189,19 +188,19 @@ const SectionManager = (props: any) => {
                 <HomePagination className="icon" id="icon0" />
             </Link>
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 1)} onMouseLeave={() => hoverEffects(false, 1)} onClick={() => properties.setLocationIndex(1)}  to="/home/strength">
+            <Link onMouseEnter={() => hoverEffects(true, 1)} onMouseLeave={() => hoverEffects(false, 1)} onClick={() => properties.setLocationIndex(1)}  to="/home/passion">
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName1">Passion</p>
                 <HomePagination  className="icon" id="icon1"/>
             </Link>
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 2)} onMouseLeave={() => hoverEffects(false, 2)} onClick={() => properties.setLocationIndex(2)} to="/home/routine">
+            <Link onMouseEnter={() => hoverEffects(true, 2)} onMouseLeave={() => hoverEffects(false, 2)} onClick={() => properties.setLocationIndex(2)} to="/home/news">
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName2">News</p>
                 <HomePagination className="icon" id="icon2"/>
             </Link>
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 3)} onMouseLeave={() => hoverEffects(false, 3)} onClick={() => properties.setLocationIndex(3)} to="/home/daily">
+            <Link onMouseEnter={() => hoverEffects(true, 3)} onMouseLeave={() => hoverEffects(false, 3)} onClick={() => properties.setLocationIndex(3)} to="/home/contact">
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName3">Contact</p>
                 <HomePagination className="icon" id="icon3"/>

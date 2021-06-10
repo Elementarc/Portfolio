@@ -1,9 +1,8 @@
 //components
-import React from 'react';
+import React, {useEffect} from 'react';
 import {motion, useMotionValue} from "framer-motion"
 import {Link} from "react-router-dom"
-import ScrollDown from "./ScrollDown"
-
+import {ReactComponent as ContactBox} from "../../assets/svgs/contactBox.svg"
 //css
 import "./styleSheets/homeContent.scss"
 import { useLocation } from 'react-router';
@@ -51,6 +50,7 @@ var mobileAnimationProps = {
         transition: {duration: 0.4, delay: 0}
     }
 }
+
 
 const HomeContent = (props: any) => {
     window.onload = () => {window.scrollTo(0, 1)}
@@ -100,6 +100,27 @@ const HomeContent = (props: any) => {
             }
         }
     }
+
+    //Setting Homepagecontainer min-height to adjust height for content. (Needs to be like this long story)
+    useEffect(() =>{
+        var getHomepage = document.getElementById("home") as HTMLDivElement
+
+
+        if(window.innerWidth <= 900){
+            if(props.locationIndex === 0){
+                getHomepage.style.minHeight = "1430px"
+            }
+            else if(props.locationIndex === 1){
+                //Not done yet
+            }
+            else if(props.locationIndex === 2){
+                //Not done yet
+            }
+            else if(props.locationIndex === 3){
+                getHomepage.style.minHeight = "1120px"
+            }
+        }
+    },[props.locationIndex])
     //ROUTES
     if(path === "/home"){
         return (
@@ -117,7 +138,7 @@ const HomeContent = (props: any) => {
                         <p>There are different ways to talk to a customer and design is an important one. Let's create something unique. </p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
+                        <button onMouseEnter={hoverButton} onClick={() => {props.setLocationIndex(3)}} onMouseLeave={hoverButton} id="getStartedButton"> 
                             <div>GET STARTED</div>
                             <div id="buttonStyleBox" className="buttonStyleBox"></div>
                         </button>
@@ -165,6 +186,57 @@ const HomeContent = (props: any) => {
                 <div className="bottomBackground"/>
             </motion.div>
         );
+    }
+    else if(path === "/home/contact"){
+        return(
+            <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeContact">
+                <motion.div className="content">
+                    
+                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
+                        <h1>{"CONTACT & WORK"}</h1>
+                        <h2>THE STEP TO GET CLOSER</h2>
+                    </motion.div>
+                    <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
+                        <p>I'm a 22 years old Web-developer {"&"} designer who likes to create astonishing Websites! Got interested? Lets have a chat.</p>
+                    </motion.div>
+                    <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
+                        
+                        <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
+                            <div>CONTACT</div>
+                            <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                        </button>
+                        
+                    </motion.div>
+
+                    <motion.p animate={{opacity: 1, transition: {delay: 1.5}}} initial={{opacity: 0}} className="or">OR</motion.p>
+
+                    <div className="contactContainer">
+
+                        <Link to = "/design">
+                            <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box1">
+                                <div className="work">WORK</div>
+                                <ContactBox id="contactBoxSVG" className="contactBoxSVG"/>
+                            </motion.div>
+                        </Link>
+
+                        <a href="https://discord.gg/e3EeFZnRvQ" target="_blank" rel="noreferrer">
+                            <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2.2, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box2">
+                                <div className="discord"></div>
+                                <ContactBox className="contactBoxSVG"/>
+                            </motion.div>
+                        </a>
+                        
+                        <a href="https://github.com/Arctyp" target="_blank" rel="noreferrer">
+                            <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2.4, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box3">
+                                <div className="github"></div>
+                                <ContactBox className="contactBoxSVG"/>
+                            </motion.div>
+                        </a>
+                    </div>
+                    <motion.div animate={{width: 4000, transition: {duration: 1.5, delay: 1}}} initial={{width: 0}} exit={{width: 0, opacity: 0, transition: {duration: 0.3}}} className="degRect"></motion.div>
+                </motion.div>
+            </motion.div>
+        )
     }
     else return null
 }
