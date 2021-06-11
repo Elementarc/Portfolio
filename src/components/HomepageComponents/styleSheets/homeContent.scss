@@ -11,9 +11,10 @@
     width: 100%;
     max-height: 1350px;
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: hidden;
     pointer-events: visible;
     z-index: 2;
+    
     .content{
         position: absolute;
         height: 100%;
@@ -370,12 +371,13 @@
     max-height: 1350px;
     height: 100vh;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     pointer-events: visible;
     z-index: 2;
     
     .content{
         position: absolute;
+        
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -437,18 +439,6 @@
             }
             &:hover{
                 cursor: pointer;
-                background-color: rgba(0, 0, 0, 0.3);
-            }
-            &:hover > .spanUp{
-                height: 109%;
-                
-            }
-            &:hover > .spanRight{
-                width: 102%;
-                
-            }
-            &:hover > h1{
-                color: #56FFDC;
             }
         }
         
@@ -456,6 +446,24 @@
             margin-top: 5rem;
             font-size: 16px;
             font-family: "PT Serif";
+            &::after{
+                content: "";
+                position: absolute;
+                margin-left: 1rem;
+                margin-top: 1rem;
+                width: 30px;
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                margin-left: -2.9rem;
+                margin-top: 1rem;
+                width: 30px;
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
         }
         .contactContainer{
             width: 100%;
@@ -466,7 +474,7 @@
             .box{
                 position: relative;
                 height: 150px;
-                width: 345px;
+                width: 300px;
                 margin: 0 2.7rem;
                 display: flex;
                 justify-content: center;
@@ -477,8 +485,9 @@
                     position: absolute;
                     transition: 0.1s ease-in-out;
                     .svgPath{
-
                         transition: 0.1s ease-in-out;
+                        fill: rgb(0, 0, 0);
+                        fill-opacity: .5;
                     }
                 }
 
@@ -499,7 +508,7 @@
                 
                 .discord{
                     z-index: 1;
-                    height: 50%;
+                    height: 43%;
                     width: 100%;
                     background-image: url("../../../assets/images/Discord-Logo+Wordmark-White.png");
                     background-size: contain;
@@ -510,7 +519,7 @@
                 }
                 .github{
                     z-index: 1;
-                    height: 35%;
+                    height: 33%;
                     width: 100%;
                     background-image: url("../../../assets/images/GitHub_Logo_White.png");
                     background-size: contain;
@@ -521,7 +530,7 @@
                     z-index: 5;
                     font-family: "PT Serif";
                     font-weight: 700;
-                    font-size: 33px;
+                    font-size: 30px;
                     color: white;
                 }
             }
@@ -533,9 +542,28 @@
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.226);
             height: 350px;
             transform: rotate(45deg);
-            background-color: rgba(0, 0, 0, 0.198);
+            background-color: rgba(0, 0, 0, 0.1);
             width: 4000px;
             pointer-events: none;
+        }
+    }
+}
+
+@media (max-height: 950px){
+    .homeContent{
+        overflow-y: scroll;
+    }
+
+    .homeContact{
+        overflow-y: scroll;
+    }
+}
+@media (min-width: 2000px){
+    .homeContact{
+        .content{
+            .degRect{
+                position: absolute;
+            }
         }
     }
 }
@@ -697,7 +725,7 @@
                 flex-direction: column;
                 align-items: center;
                 .box{
-                    width: 340px;
+                    width: 300px;
                     margin: 1rem 0rem;
 
                     .discord{
@@ -953,6 +981,7 @@
             }
             .degRect{
                 position: absolute;
+                display: none;
                 z-index: -1;
                 top: 500px;
                 box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.226);

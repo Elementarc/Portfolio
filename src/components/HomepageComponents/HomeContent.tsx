@@ -194,7 +194,7 @@ const HomeContent = (props: any) => {
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"CONTACT & WORK"}</h1>
-                        <h2>THE STEP TO GET CLOSER</h2>
+                        <h2>THE STEP TO GET STARTED</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
                         <p>I'm a 22 years old Web-developer {"&"} designer who likes to create astonishing Websites! Got interested? Lets have a chat.</p>
@@ -208,13 +208,13 @@ const HomeContent = (props: any) => {
                         
                     </motion.div>
 
-                    <motion.p animate={{opacity: 1, transition: {delay: 1.5}}} initial={{opacity: 0}} className="or">OR</motion.p>
+                    <motion.p animate={{opacity: 1, transition: {delay: 1.8}}} initial={{opacity: 0}} className="or">OR</motion.p>
 
                     <div className="contactContainer">
 
                         <Link to = "/design">
                             <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box1">
-                                <div className="work">WORK</div>
+                                <div className="work">DESIGN</div>
                                 <ContactBox id="contactBoxSVG" className="contactBoxSVG"/>
                             </motion.div>
                         </Link>
