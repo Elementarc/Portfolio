@@ -51,7 +51,7 @@ var mobileAnimationProps = {
     }
 }
 
-
+var timer: any
 const HomeContent = (props: any) => {
     window.onload = () => {window.scrollTo(0, 1)}
     const path = useLocation().pathname.toLowerCase()
@@ -100,27 +100,7 @@ const HomeContent = (props: any) => {
             }
         }
     }
-
-    //Setting Homepagecontainer min-height to adjust height for content. (Needs to be like this long story)
-    useEffect(() =>{
-        var getHomepage = document.getElementById("home") as HTMLDivElement
-
-
-        if(window.innerWidth <= 900){
-            if(props.locationIndex === 0){
-                getHomepage.style.minHeight = "1430px"
-            }
-            else if(props.locationIndex === 1){
-                //Not done yet
-            }
-            else if(props.locationIndex === 2){
-                //Not done yet
-            }
-            else if(props.locationIndex === 3){
-                getHomepage.style.minHeight = "1120px"
-            }
-        }
-    },[props.locationIndex])
+    
     //ROUTES
     if(path === "/home"){
         return (
@@ -146,8 +126,8 @@ const HomeContent = (props: any) => {
                 </motion.div>
                 
                 <motion.div  className="homepageMenuContainer">
-                    <motion.div initial={{opacity: 0, scale: 0.2, x: 200, y: -200}} animate={{opacity: 1, scale: 1, x: 0, y:0, transition: {duration: 1.4, delay: 2, type: 'spring'}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
-                        <div className="item item1">
+                    <motion.div exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
+                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2, type: 'spring'}}} className="item item1">
                             <span className="bottomBorder"/>
                             <div className="item1Background"></div>
 
@@ -156,8 +136,8 @@ const HomeContent = (props: any) => {
                                 <p> Experience a world full of different designs! Maybe  there even is more</p>
                                 <Link to="/design">SEE DESIGNS</Link>
                             </div>
-                        </div>
-                        <div className="item item2">
+                        </motion.div>
+                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.2, type: 'spring'}}} className="item item2">
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
@@ -167,8 +147,8 @@ const HomeContent = (props: any) => {
                                 <p>?Interested in artwork</p>
                                 <Link to="/design">SEE ART-WORK</Link>
                             </div>
-                        </div>
-                        <div className="item item3">
+                        </motion.div>
+                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.4, type: 'spring'}}} className="item item3">
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
@@ -179,11 +159,11 @@ const HomeContent = (props: any) => {
                                 <p>Here you can see the projects we are currently working on</p>
                                 <Link to="/projects">SEE PROJECTS</Link>
                             </div>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
                 
-                <div className="bottomBackground"/>
+                <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.5, type: 'spring'}}} className="bottomBackground"/>
             </motion.div>
         );
     }

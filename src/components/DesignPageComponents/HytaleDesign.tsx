@@ -627,7 +627,7 @@ const HytaleDesign = () => {
     
     //Return JSX Desktop
     return (
-        <div id="hytaleDesignContainer" className="hytaleDesignContainer" >
+        <motion.div animate={{opacity: 1}} initial={{opacity: 0}} exit={{opacity: 0, transition: {delay: 0.5}}} id="hytaleDesignContainer" className="hytaleDesignContainer" >
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleHeader">
                 <div className="decoImage"></div>
                 <h1>GAMING {"&"} DESIGN </h1>
@@ -658,7 +658,7 @@ const HytaleDesign = () => {
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designBackground" id="hytaleBackground">
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
             </motion.div>
-        </div>
+        </motion.div>
     )
 }
 

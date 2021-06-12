@@ -30,8 +30,8 @@ html{
         grid-row: 1;
         opacity: 0;
         top: 0;
-        height: 100vh;
-        min-height: 1420px;
+        height: 1430px;
+        min-height: 100vh;
         width: 100%;
         max-height: unset;
         overflow: hidden;
@@ -39,10 +39,11 @@ html{
             position: absolute;
             top: 0;
             left: 0;
-            height: 100%;
-            width: 300vw;
+            height: 2000px;
+            width: 400vw;
+            background: rgb(0, 23, 46);
+            background: linear-gradient(180deg, rgba(0, 23, 46, 1) 0%, rgb(16, 36, 66) 100%);
             transition: 0.5s ease-in-out;
-            background: unset;
         }
     }
 }

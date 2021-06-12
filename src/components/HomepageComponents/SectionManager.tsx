@@ -1,15 +1,15 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useEffect} from 'react';
 import "./styleSheets/sectionManager.scss"
 import {Link, useHistory} from "react-router-dom"
 import {ReactComponent as HomePagination} from "../../assets/svgs/homeSectionIcon.svg"
 import {motion} from "framer-motion"
 
 
-
-
+//Variable to make wheel eventlistener not change on every wheel scroll. 1 second delay before switching url again.
+var animationStop = false
+var timer: any
 const SectionManager = (props: any) => {
     const history = useHistory()
-
     function hoverEffects(hover: boolean, linkIndex: number){
         if(window.innerWidth > 900){
             var getIcon = document.querySelectorAll(".icon")
@@ -26,31 +26,33 @@ const SectionManager = (props: any) => {
         }
     }
 
-    //Saving props into cache to not always re compute it on every rerender
-    var properties = useMemo(() =>{
-        var properties = {
-            locationIndex: props.locationIndex,
-            setLocationIndex: props.setLocationIndex,
-        }
-        return properties
-    }, [props.locationIndex, props.setLocationIndex])
     //Adds listeners and removes them. So wheel changes url on wheelup / wheeldown
     useEffect(() => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
         function wheelListner(e: any) {
             if(history.location.pathname.includes("/home") === true){
-                if(window.innerWidth > 1800 && window.innerHeight >= 950){
-                    //wheel UP
-                    if(e.deltaY < 0){
-                        //Setting the locationIndex so Partent component can switch to the right URL
-                        if(properties.locationIndex > 0){
-                            properties.setLocationIndex(properties.locationIndex - 1)
+                if(window.innerWidth > 1300 && window.innerHeight >= 950){
+                    if(animationStop === false){
+                        //wheel UP
+                        if(e.deltaY < 0){
+                            //Setting the locationIndex so Partent component can switch to the right URL
+                            if(props.locationIndex > 0){
+                                props.setLocationIndex(props.locationIndex - 1)
+                                animationStop = true
+                                timer = setTimeout(() => {
+                                    animationStop = false
+                                }, 1000);
+                            }
                         }
-                    }
-                    //wheel DOWN
-                    else{
-                        if(properties.locationIndex < 3){
-                            properties.setLocationIndex(properties.locationIndex + 1)
+                        //wheel DOWN
+                        else{
+                            if(props.locationIndex < 3){
+                                props.setLocationIndex(props.locationIndex + 1)
+                                animationStop = true
+                                timer = setTimeout(() => {
+                                    animationStop = false
+                                }, 1000);
+                            }
                         }
                     }
                 }
@@ -70,7 +72,6 @@ const SectionManager = (props: any) => {
         }
         //Eventlistener that uses the function wheellistner
         window.addEventListener("wheel", wheelListner)
-        
         //Eventlistener to disable or enable wheel event with their functions
         window.addEventListener("keydown", keydownListener)
         window.addEventListener("keyup", keyupListener)
@@ -80,8 +81,14 @@ const SectionManager = (props: any) => {
             window.removeEventListener("keydown", keydownListener)
             window.removeEventListener("keyup", keyupListener)
         })
-    }, [properties,history.location.pathname])
+    }, [props, history.location.pathname])
 
+    //clearing timer animationStop Timer
+    useEffect(() => {
+        return () => {
+            clearTimeout(timer)
+        };
+    }, []);
     //Setting target Styles for sectionManager on Url change
     useEffect(() => {
         function setTarget() {
@@ -181,26 +188,26 @@ const SectionManager = (props: any) => {
     
     return (
         <motion.div  animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
-            <Link onMouseEnter={() => hoverEffects(true, 0)} onMouseLeave={() => hoverEffects(false, 0)} onClick={() => properties.setLocationIndex(0)} to="/home">
+            <Link onMouseEnter={() => hoverEffects(true, 0)} onMouseLeave={() => hoverEffects(false, 0)} onClick={() => props.setLocationIndex(0)} to="/home">
                 <div className="iconShadow" />
                 <p  className="sectionName" id="sectionName0">Homepage</p>
 
                 <HomePagination className="icon" id="icon0" />
             </Link>
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 1)} onMouseLeave={() => hoverEffects(false, 1)} onClick={() => properties.setLocationIndex(1)}  to="/home/passion">
+            <Link onMouseEnter={() => hoverEffects(true, 1)} onMouseLeave={() => hoverEffects(false, 1)} onClick={() => props.setLocationIndex(1)}  to="/home/passion">
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName1">Passion</p>
                 <HomePagination  className="icon" id="icon1"/>
             </Link>
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 2)} onMouseLeave={() => hoverEffects(false, 2)} onClick={() => properties.setLocationIndex(2)} to="/home/news">
+            <Link onMouseEnter={() => hoverEffects(true, 2)} onMouseLeave={() => hoverEffects(false, 2)} onClick={() => props.setLocationIndex(2)} to="/home/news">
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName2">News</p>
                 <HomePagination className="icon" id="icon2"/>
             </Link>
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 3)} onMouseLeave={() => hoverEffects(false, 3)} onClick={() => properties.setLocationIndex(3)} to="/home/contact">
+            <Link onMouseEnter={() => hoverEffects(true, 3)} onMouseLeave={() => hoverEffects(false, 3)} onClick={() => props.setLocationIndex(3)} to="/home/contact">
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName3">Contact</p>
                 <HomePagination className="icon" id="icon3"/>

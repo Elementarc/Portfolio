@@ -89,6 +89,30 @@ const HomepageContainer = (props: any) => {
         homepageContentAnimation()
     }, [LocationIndex])
 
+    //Setting Homepagecontainer min-height to adjust height for content. (Needs to be like this long story)
+    useEffect(() =>{
+        var getHomepage = document.getElementById("home") as HTMLDivElement
+        
+        if(window.innerWidth <= 900){
+            if(LocationIndex === 0){
+                console.log("test")
+                setTimeout(() => {
+                    getHomepage.style.height = "1430px"
+                }, 500);
+            }
+            else if(LocationIndex === 1){
+                //Not done yet
+            }
+            else if(LocationIndex === 2){
+                //Not done yet
+            }
+            else if(LocationIndex === 3){
+                setTimeout(() => {
+                    getHomepage.style.height = "1120px"
+                }, 500);
+            }
+        }
+    },[LocationIndex])
     return(
         <motion.div  exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">
             <motion.div className="contentContainer" id="contentContainer">
@@ -101,10 +125,10 @@ const HomepageContainer = (props: any) => {
                             <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} />
                         </Route>
                         <Route strict path="/home/news">
-                            
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
                         </Route>
                         <Route strict path="/home/contact">
-                            
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
                         </Route>
                     </Switch>
                 </AnimatePresence>

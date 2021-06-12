@@ -624,6 +624,7 @@
 @media (max-width: 1300px){
     .homeContent {
         position: absolute;
+        overflow-y: scroll;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -720,6 +721,7 @@
     }
 
     .homeContact{
+        overflow-y: scroll;
         .content{
             .contactContainer{
                 flex-direction: column;
@@ -846,6 +848,7 @@
                 min-width: unset;
                 .item{
                     width: 100%;
+                    box-shadow: unset;
                 }
                 .item1{
                     height: 250px;
@@ -906,7 +909,7 @@
         .bottomBackground{
             height: 100%;
             width: 100vw;
-            background-color: #000000;
+            background-color: rgba(0, 0, 0, 0.89);
         }
     }
     .homeContact{
