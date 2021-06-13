@@ -1,5 +1,5 @@
 //components
-import React, {useEffect} from 'react';
+import React from 'react';
 import {motion, useMotionValue} from "framer-motion"
 import {Link} from "react-router-dom"
 import {ReactComponent as ContactBox} from "../../assets/svgs/contactBox.svg"
@@ -51,7 +51,6 @@ var mobileAnimationProps = {
     }
 }
 
-var timer: any
 const HomeContent = (props: any) => {
     window.onload = () => {window.scrollTo(0, 1)}
     const path = useLocation().pathname.toLowerCase()
@@ -137,7 +136,7 @@ const HomeContent = (props: any) => {
                                 <Link to="/design">SEE DESIGNS</Link>
                             </div>
                         </motion.div>
-                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.2, type: 'spring'}}} className="item item2">
+                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.1, type: 'spring'}}} className="item item2">
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
@@ -148,7 +147,7 @@ const HomeContent = (props: any) => {
                                 <Link to="/design">SEE ART-WORK</Link>
                             </div>
                         </motion.div>
-                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.4, type: 'spring'}}} className="item item3">
+                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.1, type: 'spring'}}} className="item item3">
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
@@ -167,9 +166,9 @@ const HomeContent = (props: any) => {
             </motion.div>
         );
     }
-    else if(path === "/home/contact"){
+    else if(path === "/home/connect"){
         return(
-            <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeContact">
+            <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeConnect">
                 <motion.div className="content">
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
@@ -192,21 +191,21 @@ const HomeContent = (props: any) => {
 
                     <div className="contactContainer">
 
-                        <Link to = "/design">
+                        <Link to = "/design" className="firstLink">
                             <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box1">
                                 <div className="work">DESIGN</div>
                                 <ContactBox id="contactBoxSVG" className="contactBoxSVG"/>
                             </motion.div>
                         </Link>
 
-                        <a href="https://discord.gg/e3EeFZnRvQ" target="_blank" rel="noreferrer">
+                        <a href="https://discord.gg/e3EeFZnRvQ" target="_blank" rel="noreferrer" className="secondLink">
                             <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2.2, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box2">
                                 <div className="discord"></div>
                                 <ContactBox className="contactBoxSVG"/>
                             </motion.div>
                         </a>
                         
-                        <a href="https://github.com/Arctyp" target="_blank" rel="noreferrer">
+                        <a href="https://github.com/Arctyp" target="_blank" rel="noreferrer" className="thirdLink">
                             <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2.4, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box3">
                                 <div className="github"></div>
                                 <ContactBox className="contactBoxSVG"/>

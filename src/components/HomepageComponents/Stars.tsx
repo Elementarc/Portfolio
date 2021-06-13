@@ -189,7 +189,7 @@ const Stars = (props: any) => {
             <Particles className="StarsMobile" id="Stars" options={{
                     particles: {
                       number: {
-                        value: 5,
+                        value: 8,
                         density: {
                           enable: true,
                           value_area: 236.7442924896818

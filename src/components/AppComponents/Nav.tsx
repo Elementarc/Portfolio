@@ -1,6 +1,6 @@
 
 import React, {useEffect, useState} from "react"
-import {Link} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import {useLocation} from "react-router-dom"
 
 //icons
@@ -108,14 +108,11 @@ const navAnimation = {
     enter: {
         x: 0,
         transition: {duration: 0.4},
-        height: "100%",
         width: "24rem",
-        minHeight: "100%",
     },
     exit: {
         x: 15,
         transition: {duration: 0.4, delay: 0.2},
-        height: "100%",
         width: "0rem",
     },
 }
@@ -144,6 +141,7 @@ const navItemAnimation = {
 //COMPONENT
 const Nav = (props: any) => {
     const location = useLocation()
+    const history = useHistory()
     //Using NavState to toggle between Enter & Exit animaiton
     const [NavState, setNavState] = useState(false);
     //componentDidMount to give navItem the right class at the beginning of pageload
@@ -180,7 +178,7 @@ const Nav = (props: any) => {
             <motion.div onClick={() => setNavState(!NavState)} animate={NavState ? "enter" : "exit"} variants={navBlurAnimation} id="navigationBlur" className="navigationBlur"></motion.div>
             <motion.div animate={NavState ? "enter" : "exit"} variants={navAnimation} id="navigation" className="navigation">
                 <motion.ul initial="init" animate={NavState ? "enter" : "exit"} variants={navItemAnimation}>
-                    <Link onClick={() => setNavState(!NavState)} className="linkHome" id="navHome" to="/home">
+                    <Link onClick={() => {setNavState(!NavState); history.replace("/home")}} className="linkHome" id="navHome" to="/home">
                             <div className="navbarListIconContainer">
                                 <HomeIcon/>
                             </div>

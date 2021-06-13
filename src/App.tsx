@@ -85,7 +85,7 @@ function App() {
             <Redirect to="/home"/>
           </Route>
           <Route exact path = "/contact">
-            <Redirect to="/home/contact"/>
+            <Redirect to="/home/connect"/>
           </Route>
         </Switch>
       </AnimatePresence>

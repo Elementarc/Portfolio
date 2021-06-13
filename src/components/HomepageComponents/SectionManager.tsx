@@ -41,7 +41,7 @@ const SectionManager = (props: any) => {
                                 animationStop = true
                                 timer = setTimeout(() => {
                                     animationStop = false
-                                }, 1000);
+                                }, 700);
                             }
                         }
                         //wheel DOWN
@@ -51,7 +51,7 @@ const SectionManager = (props: any) => {
                                 animationStop = true
                                 timer = setTimeout(() => {
                                     animationStop = false
-                                }, 1000);
+                                }, 700);
                             }
                         }
                     }
@@ -209,7 +209,7 @@ const SectionManager = (props: any) => {
             <span />
             <Link onMouseEnter={() => hoverEffects(true, 3)} onMouseLeave={() => hoverEffects(false, 3)} onClick={() => props.setLocationIndex(3)} to="/home/contact">
                 <div className="iconShadow" />
-                <p className="sectionName" id="sectionName3">Contact</p>
+                <p className="sectionName" id="sectionName3">Connect</p>
                 <HomePagination className="icon" id="icon3"/>
                 
             </Link>
