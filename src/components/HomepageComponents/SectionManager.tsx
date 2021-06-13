@@ -5,11 +5,8 @@ import {ReactComponent as HomePagination} from "../../assets/svgs/homeSectionIco
 import {motion} from "framer-motion"
 
 
-//Variable to make wheel eventlistener not change on every wheel scroll. 1 second delay before switching url again.
-var animationStop = false
-var timer: any
+
 const SectionManager = (props: any) => {
-    const history = useHistory()
     function hoverEffects(hover: boolean, linkIndex: number){
         if(window.innerWidth > 900){
             var getIcon = document.querySelectorAll(".icon")
@@ -26,69 +23,6 @@ const SectionManager = (props: any) => {
         }
     }
 
-    //Adds listeners and removes them. So wheel changes url on wheelup / wheeldown
-    useEffect(() => {
-        //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
-        function wheelListner(e: any) {
-            if(history.location.pathname.includes("/home") === true){
-                if(window.innerWidth > 1300 && window.innerHeight >= 950){
-                    if(animationStop === false){
-                        //wheel UP
-                        if(e.deltaY < 0){
-                            //Setting the locationIndex so Partent component can switch to the right URL
-                            if(props.locationIndex > 0){
-                                props.setLocationIndex(props.locationIndex - 1)
-                                animationStop = true
-                                timer = setTimeout(() => {
-                                    animationStop = false
-                                }, 700);
-                            }
-                        }
-                        //wheel DOWN
-                        else{
-                            if(props.locationIndex < 3){
-                                props.setLocationIndex(props.locationIndex + 1)
-                                animationStop = true
-                                timer = setTimeout(() => {
-                                    animationStop = false
-                                }, 700);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        //Using keydownListener function to disable wheel event to properly zoom in and out without changing home section/urls
-        function keydownListener(e: any) {
-            if(e.which === 17){
-                window.removeEventListener("wheel", wheelListner)
-            }
-        }
-        //Using keyupListener function to enable wheel event back to properly switch between sections section/urls
-        function keyupListener(e: any) {
-            if(e.which === 17){
-                window.addEventListener("wheel", wheelListner)
-            }
-        }
-        //Eventlistener that uses the function wheellistner
-        window.addEventListener("wheel", wheelListner)
-        //Eventlistener to disable or enable wheel event with their functions
-        window.addEventListener("keydown", keydownListener)
-        window.addEventListener("keyup", keyupListener)
-        //Cleanup to disable all eventlistener for no memory leaks
-        return(() =>{
-            window.removeEventListener("wheel", wheelListner)
-            window.removeEventListener("keydown", keydownListener)
-            window.removeEventListener("keyup", keyupListener)
-        })
-    }, [props, history.location.pathname])
-
-    //clearing timer animationStop Timer
-    useEffect(() => {
-        return () => {
-            clearTimeout(timer)
-        };
-    }, []);
     //Setting target Styles for sectionManager on Url change
     useEffect(() => {
         function setTarget() {
@@ -185,7 +119,6 @@ const SectionManager = (props: any) => {
         }
         setTarget()
     }, [props.locationIndex]);
-    
     return (
         <motion.div  animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
             <Link onMouseEnter={() => hoverEffects(true, 0)} onMouseLeave={() => hoverEffects(false, 0)} onClick={() => props.setLocationIndex(0)} to="/home">

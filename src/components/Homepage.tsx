@@ -9,8 +9,10 @@ import HomeContent from "./HomePageComponents/HomeContent"
 //CSS
 import "./styleSheets/homepage.scss"
 
+//Variable to make wheel eventlistener not change on every wheel scroll. 1 second delay before switching url again.
+var animationStop = false
+var timer: any
 const HomepageContainer = (props: any) => {
-    
     const location = useLocation()
     const path = useLocation().pathname.toLowerCase()
     const history = useHistory()
@@ -30,7 +32,6 @@ const HomepageContainer = (props: any) => {
             return 3
         }
     })
-    
     //Changes url based on Location index. Allows us to cycle through urls when adding or subtracting 1 from LocationIndex
     useEffect(() => {
         if(LocationIndex === 0){
@@ -46,7 +47,6 @@ const HomepageContainer = (props: any) => {
             history.replace("/home/connect")
         }
     }, [LocationIndex, history]);
-
     //Animation for scrolling between routes for mobile & desktop
     useEffect(() =>{
         function homepageContentAnimation() {
@@ -90,8 +90,6 @@ const HomepageContainer = (props: any) => {
         }
         homepageContentAnimation()
     }, [LocationIndex])
-
-    
     //Setting Homepagecontainer min-height to adjust height for content. (Needs to be like this long story)
     useEffect(() =>{
         var getHomepage = document.getElementById("home") as HTMLDivElement
@@ -115,6 +113,68 @@ const HomepageContainer = (props: any) => {
             }
         }
     },[LocationIndex])
+    //Adds listeners and removes them. So wheel changes url on wheelup / wheeldown
+    useEffect(() => {
+        //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path
+        function wheelListner(e: any) {
+            if(history.location.pathname.includes("/home") === true){
+                if(window.innerWidth > 1300 && window.innerHeight >= 950){
+                    if(animationStop === false){
+                        //wheel UP
+                        if(e.deltaY < 0){
+                            //Setting the locationIndex so Partent component can switch to the right URL
+                            if(LocationIndex! > 0){
+                                setLocationIndex(LocationIndex! - 1)
+                                animationStop = true
+                                timer = setTimeout(() => {
+                                    animationStop = false
+                                }, 700);
+                            }
+                        }
+                        //wheel DOWN
+                        else{
+                            if(LocationIndex! < 3){
+                                setLocationIndex(LocationIndex! + 1)
+                                animationStop = true
+                                timer = setTimeout(() => {
+                                    animationStop = false
+                                }, 700);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //Using keydownListener function to disable wheel event to properly zoom in and out without changing home section/urls
+        function keydownListener(e: any) {
+            if(e.which === 17){
+                window.removeEventListener("wheel", wheelListner)
+            }
+        }
+        //Using keyupListener function to enable wheel event back to properly switch between sections section/urls
+        function keyupListener(e: any) {
+            if(e.which === 17){
+                window.addEventListener("wheel", wheelListner)
+            }
+        }
+        //Eventlistener that uses the function wheellistner
+        window.addEventListener("wheel", wheelListner)
+        //Eventlistener to disable or enable wheel event with their functions
+        window.addEventListener("keydown", keydownListener)
+        window.addEventListener("keyup", keyupListener)
+        //Cleanup to disable all eventlistener for no memory leaks
+        return(() =>{
+            window.removeEventListener("wheel", wheelListner)
+            window.removeEventListener("keydown", keydownListener)
+            window.removeEventListener("keyup", keyupListener)
+        })
+    }, [LocationIndex, history.location.pathname])
+    //clearing timer animationStop Timer
+    useEffect(() => {
+        return () => {
+            clearTimeout(timer)
+        };
+    }, []);
 
     return(
         <motion.div  exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="homepageContainer" id="home">

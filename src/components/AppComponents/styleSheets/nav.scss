@@ -56,11 +56,29 @@
         ul{
             margin-top: 3rem;
             list-style: none;
-            .targetNavItem{
-                color: #56FFDC;
-            }
-            .targetNavIcon{
-                fill: #56FFDC;
+            
+            .navHome{
+                text-decoration: none;
+                display: block;
+                padding: 1.8rem 0 1.8rem 6.3rem;
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                font-family: "PT Serif";
+                font-weight: 600;
+                .navbarListIconContainer {
+                    position: relative;
+                    overflow: hidden;
+                    transform: scale(1.5);
+                    display: inline-block;
+                    margin-right: 1.4rem;
+                    height: 18px;
+                    width: 18px;
+                }
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.191);
+                    cursor: pointer; 
+                }
             }
             a{
                 text-decoration: none;
@@ -80,10 +98,16 @@
                     height: 18px;
                     width: 18px;
                 }
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.191);
+                    cursor: pointer; 
+                }
             }
-            a:hover{
-                background-color: rgba(255, 255, 255, 0.191);
-                cursor: pointer;
+            .targetNavItem{
+                color: #56FFDC;
+            }
+            .targetNavIcon{
+                fill: #56FFDC;
             }
         }
     }
