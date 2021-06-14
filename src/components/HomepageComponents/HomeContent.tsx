@@ -2,7 +2,11 @@
 import React from 'react';
 import {motion, useMotionValue} from "framer-motion"
 import {Link} from "react-router-dom"
+
 import {ReactComponent as ContactBox} from "../../assets/svgs/contactBox.svg"
+import owl from "../../assets/images/Owl.jpg"
+import art from "../../assets/images/blood.jpg"
+import forest from "../../assets/images/forest.jpg"
 //css
 import "./styleSheets/homeContent.scss"
 import { useLocation } from 'react-router';
@@ -123,12 +127,11 @@ const HomeContent = (props: any) => {
                         </button>
                     </motion.div>
                 </motion.div>
-                
                 <motion.div  className="homepageMenuContainer">
                     <motion.div exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
                         <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2, type: 'spring'}}} className="item item1">
                             <span className="bottomBorder"/>
-                            <div className="item1Background"></div>
+                            <img loading="eager" alt="owl" src={owl} className="item1Background"></img>
 
                             <div className="item1Content">
                                 <h1>Design</h1>
@@ -140,7 +143,7 @@ const HomeContent = (props: any) => {
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
-                            <div className="item2Background"></div>
+                            <img src={art} alt="blood" loading="eager" className="item2Background"></img>
                             <div className="item2Content">
                                 <h1>Art</h1>
                                 <p>?Interested in artwork</p>
@@ -151,7 +154,7 @@ const HomeContent = (props: any) => {
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
-                            <div className="item3Background"></div>
+                            <img src={forest} alt="forest" loading="eager" className="item3Background"></img>
 
                             <div className="item3Content">
                                 <h1>Project</h1>
@@ -162,7 +165,7 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
                 
-                <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.5, type: 'spring'}}} className="bottomBackground"/>
+                <motion.div initial={{y: 100, opacity: 0}} animate={{opacity: 1, y: 0, transition:{duration: 1.5, delay: 0.5, type: 'spring'}}} className="bottomBackground"/>
             </motion.div>
         );
     }
@@ -172,7 +175,7 @@ const HomeContent = (props: any) => {
                 <motion.div className="content">
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
-                        <h1>{"CONTACT & WORK"}</h1>
+                        <h1>{"CONNECT & WORK"}</h1>
                         <h2>THE STEP TO GET STARTED</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >

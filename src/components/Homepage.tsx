@@ -97,7 +97,7 @@ const HomepageContainer = (props: any) => {
         if(window.innerWidth <= 900){
             if(LocationIndex === 0){
                 setTimeout(() => {
-                    getHomepage.style.height = "1430px"
+                    getHomepage.style.height = "1405px"
                 }, 500);
             }
             else if(LocationIndex === 1){
@@ -108,7 +108,7 @@ const HomepageContainer = (props: any) => {
             }
             else if(LocationIndex === 3){
                 setTimeout(() => {
-                    getHomepage.style.height = "1120px"
+                    getHomepage.style.height = "1150px"
                 }, 500);
             }
         }

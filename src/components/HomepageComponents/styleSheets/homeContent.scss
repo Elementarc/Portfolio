@@ -122,10 +122,8 @@
                     position: absolute;
                     height: 100%;
                     width: 100%;
-                    background-image: url("../../../assets/images/Owl.jpg");
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    object-fit: cover;
+                    object-position: center;
                     transition: 1s ease-in-out;
                 }
                 .item1Content{
@@ -207,10 +205,8 @@
                     position: absolute;
                     height: 100%;
                     width: 100%;
-                    background-image: url("../../../assets/images/blood.jpg");
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    object-position: center;
+                    object-fit: cover;
                     transition: 1s ease-in-out;
                 }
                 .item2Content{
@@ -292,10 +288,8 @@
                     position: absolute;
                     height: 100%;
                     width: 100%;
-                    background-image: url("../../../assets/images/forest.jpg");
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    object-position: center;
+                    object-fit: cover;
                     transition: 1s ease-in-out;
                 }
                 .item3Content{
@@ -412,7 +406,7 @@
         button{
             pointer-events: visible;
             position: relative;
-            padding: 0.9rem 2.8rem;
+            padding: 1rem 2.8rem;
             background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
             box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
             border-radius: 5px;
@@ -790,8 +784,7 @@
                 font-family: "PT Serif";
                 font-size: 30px;
                 margin: 0;
-                margin-top: -0.3rem;
-
+                line-height: 2.2rem;
                 padding: 0rem 1rem;
             }
             span{
@@ -809,7 +802,7 @@
             }
             button{
                 position: relative;
-                padding: 0.9rem 2.6rem;
+                padding: 1rem 2.6rem;
                 background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
                 box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                 border-radius: 5px;
@@ -841,18 +834,22 @@
             }
         }
         .homepageMenuContainer{
-            margin-top: 8rem;
+            position: absolute;
+            top: 575px;
+            
             width: 100vw;
+            height: 750px;
             display: flex;
             justify-content: center;
             .homepageMenu{
                 z-index: 10;
-                top: 3rem;
+                top: 0;
                 width: 100%;
                 padding: unset;
                 flex-direction: row;
                 min-width: unset;
                 .item{
+                    min-height: 250px;
                     width: 100%;
                     box-shadow: unset;
                 }
@@ -913,7 +910,9 @@
             }
         }
         .bottomBackground{
-            height: 100%;
+            position: absolute;
+            top: 1325px;
+            height: 100px;
             width: 100vw;
             background-color: rgba(0, 0, 0, 0.89);
         }
@@ -940,10 +939,11 @@
                 font-size: 16px;
                 width: 100%;
                 padding: 0 1rem;
-                margin-bottom: 0.3rem;
+                margin-bottom: 0.5rem;
             }
             h2{
                 font-size: 30px;
+                line-height: 2.2rem;
                 width: 100%;
                 padding: 0 1rem;
             }
@@ -960,6 +960,7 @@
             }
             .contactContainer{
                 flex-direction: column;
+                margin-top: 6rem;
                 align-items: center;
                 padding-bottom: 0rem;
                 .box{

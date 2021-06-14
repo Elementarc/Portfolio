@@ -25,42 +25,26 @@ var backgroundProps = {
     },
 }
 
-var num: number = 0
-//inserts num to the css prop to make it animate like an elevator
-function particlesAnimation(direction: string) {
-    var getParticles = document.getElementById("Stars") as HTMLDivElement
-    if(direction === "forward"){
-        getParticles.style.top = `${-num}%`;
-    }
-    else if(direction === "backwards"){
-        getParticles.style.top = `${-num}%`;
-    }
-}
-
 const Stars = (props: any) => {
     //Creating a number for each section to than use it for particlesAnimation
     useEffect(() =>{
-      var numBefore = num
+      
+
       function starsAnimation() {
+        var getParticles = document.getElementById("Stars") as HTMLDivElement
         if(window.innerWidth > 900){
           if(props.locationIndex === 0){
-            num = 50
+            
+            getParticles.style.top = `${-50}%`;
           }
           else if(props.locationIndex === 1){
-            num = 100
+            getParticles.style.top = `${-100}%`
           }
           else if(props.locationIndex === 2){
-            num = 150
+            getParticles.style.top = `${-150}%`
           }
           else if(props.locationIndex === 3){
-            num = 200
-          }
-
-          if(num > numBefore){
-              particlesAnimation("forward")
-          }
-          else if(num < numBefore){
-              particlesAnimation("backwards")
+            getParticles.style.top = `${-200}%`
           }
         }
         else return
