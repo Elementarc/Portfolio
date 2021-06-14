@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {motion} from "framer-motion"
 import "./styleSheets/hytaleDesign.scss"
 import { useHistory } from 'react-router';
-
+import HytaleBackground from "../../assets/images/Wallpaper.jpg"
 //Using this state number to cycle through 3 animation phases
 var previewState: number = 1
 //AnimationProps for PreviewImages
@@ -654,10 +654,9 @@ const HytaleDesign = () => {
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPageButtonContainer">
                 <button className="designButton" id="designButton">VIEW DESIGN</button>
             </motion.div>
-            
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designBackground" id="hytaleBackground">
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
-            </motion.div>
+
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
+            <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designBackground" id="hytaleBackground"></motion.img>
         </motion.div>
     )
 }

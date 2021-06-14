@@ -138,27 +138,28 @@
             cursor: pointer;
         }
     }
+
     .designBackground{
         position: absolute;
         pointer-events: none;
-        z-index: -1;
+        z-index: -2;
         top: 0;
         height: 100%;
         width: 100%;
         transform: scale(1.1);
-        background-image: url("../../../assets/images/Wallpaper.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        .darkerBackground{
-            height: 100%;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.45);
-            pointer-events: none;
-        }
+        object-fit: cover;
+        
+    }
+    .darkerBackground{
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.45);
+        pointer-events: none;
     }
 }
-
 
 @media (max-width: 1300px){
     .hytaleDesignContainer{
@@ -171,7 +172,6 @@
 }
 @media (max-width: 900px){
     .hytaleDesignContainer{
-        display: block;
         display: block;
         flex-direction: unset;
         justify-content: unset;
@@ -241,9 +241,10 @@
         }
         .designBackground{
             position: absolute;
+            left: -85vw;
             height: 950px;
             min-height: 100vh;
-            background-position-x: -47rem;
+            width: 200vw;
             pointer-events: none;
             transform: scale(1);
         }
