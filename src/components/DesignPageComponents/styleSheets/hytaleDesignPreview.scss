@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 .hytaleDesignContainer{
     position: relative;
     display: flex;
@@ -156,8 +158,49 @@
         z-index: -1;
         height: 100%;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.45);
+        background-color: rgba(0, 0, 0, 0.5);
         pointer-events: none;
+    }
+
+    .designBottomIllustrationContainer{
+        position: absolute;
+        pointer-events: none;
+        z-index: 2;
+        bottom: -1.5rem;
+        width: 100%;
+        height: 250px;
+        .designBottomIllustration{
+            position: absolute;
+            bottom: 1rem;
+            height: 100%;
+            width: 100%;
+            transform: scale(1.1) translateX(1px);
+            background-image: url("../../../assets/illustrations/DesignBottomDeco.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;  
+        }
+    }
+    .bottomGradient{
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        bottom: 0;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+    }
+    .closeDesign{
+        position: fixed;
+        z-index: 10;
+        display: none;
+        top: 10rem;
+        right: 10rem;
+        color: white;
+        font-size: 32px;
+        &:hover{
+            cursor: pointer;
+            color: #56FFDC;
+        }
     }
 }
 
@@ -247,6 +290,19 @@
             width: 200vw;
             pointer-events: none;
             transform: scale(1);
+        }
+
+        .designBottomIllustrationContainer{
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 200px;
+            bottom: 0;
+            pointer-events: none;
+            
+        }
+        .bottomGradient{
+            position: fixed;
         }
     }
 }

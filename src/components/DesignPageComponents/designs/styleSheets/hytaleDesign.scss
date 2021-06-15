@@ -1,0 +1,126 @@
+.hytale{
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    height: 100%;
+    max-width: 2400px;
+    overflow-y: scroll;
+    width: 100%;
+    background-color: black;
+    .background{
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../../assets/images/Desert.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .backgroundBlur{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgb(0, 0, 0) 120%);
+    }
+    .hytaleNavContainer{
+        max-width: 2400px;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        top: 5rem;
+        ul{
+            position: relative;
+            width: 60%;
+            background: rgb(29,29,29);
+            background: linear-gradient(0deg, rgba(29,29,29,1) 0%, rgba(38,38,38,1) 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+            display: flex;
+            list-style: none;
+            box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.294);
+            font-family: "Bungee";
+            .homeIcon{
+                height: 22px;
+                width: 22px;
+                margin-left: 1rem;
+                margin-top: 0.3rem;
+                &:hover{
+                    cursor: pointer;
+                }
+                
+            }
+            
+            li{
+                padding: 0rem 0;
+                &:hover{
+                    cursor: pointer;
+                    color: rgb(255, 225, 128);
+                    fill: rgba(255,204,128,1);
+                }
+            }
+            span{
+                width: 1px;
+                height: 20px;
+                background-color: rgba(255, 255, 255, 0.4);
+                margin: 0 1.2rem;
+                align-self: center;
+            }
+
+            .signIn{
+                position: absolute;
+                right: 0;
+                margin-right: 0;
+                padding: 0 2rem;
+                box-sizing: border-box;
+                color: white;
+                
+                border-radius: 10px;
+                &:hover{
+                    cursor: pointer;
+                    color: rgb(255, 225, 128);
+                }
+            }
+
+            .navTarget{
+                color: rgb(255, 225, 128);
+            }
+            .sTarget{
+                position: absolute;
+                top: 0;
+                height: 0px;
+                width: 0px;
+                background-color: orange;
+                margin: 1rem 0.65rem;
+                box-shadow: 0px 0px 40px 9px rgba(255, 234, 140, 0.8);
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1300px){
+    .hytale{
+        .hytaleNavContainer{
+            ul{
+                width: 80%;
+            }
+        }
+    }
+}
+@media (max-width: 900px){
+    .hytale{
+        position: absolute;
+        top: 0;
+
+        .hytaleNavContainer{
+            ul{
+                border-radius: unset;
+                width: 100%;
+                font-size: 14px;
+            }
+        }
+    }
+}

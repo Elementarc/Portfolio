@@ -138,6 +138,24 @@ const navItemAnimation = {
         opacity: 0,
     },
 }
+
+function navIconHover(state: boolean){
+    var getUpperLine = document.getElementById("upperLineSVG") as HTMLDivElement
+    var getUnderLine = document.getElementById("bottomLineSVG") as HTMLDivElement
+    getUpperLine.style.transition ="0.2s ease-in-out"
+    getUnderLine.style.transition ="0.3s ease-in-out"
+
+    if(state === true){
+        
+
+        getUpperLine.setAttribute("x", "29.5")
+        getUnderLine.setAttribute("x", "25.5")
+    }
+    else{
+        getUpperLine.setAttribute("x", "25.5")
+        getUnderLine.setAttribute("x", "29.5")
+    }
+}
 //COMPONENT
 const Nav = (props: any) => {
     const location = useLocation()
@@ -171,7 +189,7 @@ const Nav = (props: any) => {
 
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
-            <div onClick={() => setNavState(!NavState)} className="navOpenIconContainer">
+            <div onMouseEnter={() => navIconHover(true)} onMouseLeave={() => navIconHover(false)} onClick={() => setNavState(!NavState)} className="navOpenIconContainer">
                 <MenuIcon/>
             </div>
 
@@ -185,7 +203,7 @@ const Nav = (props: any) => {
                             HOME
                     </div>
 
-                    <Link onClick={() => setNavState(!NavState)} className="linkDesign" id="navDesign" to="/design">
+                    <Link onClick={() => setNavState(!NavState)} className="linkDesign" id="navDesign" to={`/design/${1}`}>
                             <div className="navbarListIconContainer">
                                 <DesignIcon/>
                             </div>
