@@ -625,43 +625,67 @@ const HytaleDesignPreview = () => {
     },[State])
     //Animation and renders component when clicking on View Button
     function toggleHytaleDesign(state: boolean){
-        var getCloseButton = document.getElementById("closeDesign") as HTMLDivElement
         var getPreviewContainer = document.getElementById("previewContainer") as HTMLDivElement
-        var getAppNav = document.getElementById("NavigationContainer") as HTMLDivElement
+        var getDesignSectionManger = document.getElementById("designManagerContainer") as HTMLDivElement
+        var getpreviewContentContainer = document.getElementById("previewContentContainer") as HTMLDivElement
+        var getHytaleDesignContainer = document.getElementById("hytaleDesignContainer") as HTMLDivElement
 
         if(state === true){
-            getCloseButton.style.display = "unset"
-            getAppNav.style.display = "none"
-            window.scrollTo(0, 0)
             //removes
             window.removeEventListener("mousemove", parallax)
             clearTimeout(previewTimer)
+            getDesignSectionManger.style.display ="none"
 
-            //Animation for previewContainer when button clicked
+            window.scrollTo(0, 0)
             
+            //Animation for previewContainer when button clicked
             getPreviewContainer.style.transition = "0.3s ease-in-out"
             getPreviewContainer.style.zIndex = "3"
             getPreviewContainer.style.transform = "scale(0.6)"
             transitionTimer = setTimeout(() => {
+                var getHytale = document.getElementById("hytale") as HTMLDivElement
+                
                 getPreviewContainer.style.transition = "0.5s ease-in-out"
                 getPreviewContainer.style.transform = "scale(10)"
-                
+                setTimeout(() => {
+                    getHytaleDesignContainer.style.minHeight ="unset"
+                    if(window.innerWidth > 900){
+                        getHytaleDesignContainer.style.maxHeight ="1350px"
+                    }
+                    else{
+                        getHytaleDesignContainer.style.maxHeight ="unset"
+                    }
+                    getpreviewContentContainer.style.display = "none"
+                    setTimeout(() => {
+                        getHytale.style.position ="relative"
+                    }, 100);
+                }, 200);
             }, 200);
+
+            
             //Renders HytaleDesign
             setDesignState(true)
         }
         else{
+            var getHytale = document.getElementById("hytale") as HTMLDivElement
+            getDesignSectionManger.style.display =""
             window.scrollTo(0, 0)
-            getAppNav.style.display = "unset"
-            getCloseButton.style.display = "none"
-
-            getPreviewContainer.style.transition = "0.4s ease-in-out"
-            getPreviewContainer.style.transform = "scale(1)"
+            getpreviewContentContainer.style.display = "flex"
+            getHytaleDesignContainer.style.minHeight =""
+            getHytaleDesignContainer.style.maxHeight =""
+            getHytale.style.position ="absolute"
+            setTimeout(() => {
+                
+                getPreviewContainer.style.transition = "0.4s ease-in-out"
+                getPreviewContainer.style.transform = "scale(1)"
+            }, 1);
+            
             setDesignState(false)
             transitionTimer = setTimeout(() => {
                 window.addEventListener("mousemove", parallax)
                 changeStyle()
-            }, 900);
+            }, 800);
+            setDesignState(false)
         }
     }
 
@@ -697,6 +721,8 @@ const HytaleDesignPreview = () => {
     return (
         <motion.div animate={{opacity: 1}} initial={{opacity: 0}} exit={{opacity: 0, transition: {delay: 0.5}}} id="hytaleDesignContainer" className="hytaleDesignContainer" >
             
+            <div className="previewContentContainer" id="previewContentContainer">
+
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleHeader">
                     <div className="decoImage"></div>
                     <h1>GAMING {"&"} DESIGN </h1>
@@ -726,23 +752,20 @@ const HytaleDesignPreview = () => {
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
                 <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designBackground" id="hytaleBackground"></motion.img>
+                
+                <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designBottomIllustrationContainer' id="designBottomIllustrationContainer">
+                    <div className="designBottomIllustration" id="designBottomIllustration"></div>
+                </motion.div>
+                <div className="bottomGradient"></div>
+            </div>
             
             <AnimatePresence>
-                {DesignState === false &&
-                    <div></div>
-                }
                 {DesignState === true &&
                     <HytaleDesign/>
                 }
             </AnimatePresence>
 
             
-            <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designBottomIllustrationContainer' id="designBottomIllustrationContainer">
-                <div className="designBottomIllustration" id="designBottomIllustration"></div>
-            </motion.div>
-            <div className="bottomGradient"></div>
-
-            <div onClick={() =>toggleHytaleDesign(false)} className="closeDesign" id="closeDesign">X</div>
         </motion.div>
     )
 }

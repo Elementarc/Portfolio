@@ -11,202 +11,190 @@
     min-height: 950px;
     max-height: 1350px;
     width: 100%;
-    .container{
+    .previewContentContainer{
         display: flex;
         flex-direction: column;
         justify-content: center;
         width: 100%;
         height: 100%;
-    }
-    .hytaleHeader{
-        position: relative;
-        padding-top: unset;
-        display: block;
-        text-align: center;
-        color: white;
-        font-family: "PT Serif";
-        font-weight: 700;
-        div{
+
+        .hytaleHeader{
+            position: relative;
+            padding-top: unset;
+            display: block;
+            text-align: center;
+            color: white;
+            font-family: "PT Serif";
+            font-weight: 700;
+            div{
+                position: absolute;
+                width: 100%;
+                height: 50px;
+                top: 12px;
+                background-image: url("../../../assets/svgs/headerDesign.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                pointer-events: none;
+            }
+            h1{
+               position: relative;
+               font-size: 20px;
+               text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            }
+            
+            h2{
+               margin-top: -0.3rem;
+               text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+               font-size: 39px;
+                
+            }
+           
+        }
+        .previewContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            height: 100%;
+            max-height: 360px;
+            width: 100%;
+            z-index: 1;
+            pointer-events: none;
+            .previews{
+                position: absolute;
+                pointer-events: visible;
+                height: 360px;
+                width: 650px;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                border-radius: 3px;
+            }
+    
+            .preview1Background{
+                height: 100%;
+                width: 100%;
+                background-image: url("../../../assets/images/Hytale.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                transition: 0.5s ease-in-out;
+                background-size: cover;
+                transform: scale(1.1);
+            }
+            .preview2Background{
+                height: 100%;
+                width: 100%;
+                background-image: url("../../../assets/images/team.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                transition: 0.5s ease-in-out;
+                background-size: cover;
+                transform: scale(1.1);
+            }
+            .preview3Background{
+                height: 100%;
+                width: 100%;
+                background-image: url("../../../assets/images/ice_dragon.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                transition: 0.5s ease-in-out;
+                background-size: cover;
+                transform: scale(1.1);
+            }
+        }
+        .hytaleContent{
+            display: flex;
+            justify-content: center;
+            color: white;
+            p{
+                text-align: center;
+                font-size: 18px;
+                margin: 2rem 0 0rem 0;
+                line-height: 2rem;
+                font-family: "Noto Sans";
+                width: 30%;
+                min-width: 400px;
+            }
+        }
+        
+        .designPageButtonContainer{
+            pointer-events: none;
+            margin-top: 3rem;
+            z-index: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            .designButton{
+                position: relative;
+                pointer-events: visible;
+                padding: 0.8rem 2.8rem;
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                border-radius: 5px;
+                border-style: none;
+                color: rgb(0, 0, 0);
+                font-size: 16px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                background: rgb(255,213,99);
+                background: linear-gradient(180deg, rgba(255,213,99,1) 0%, rgba(255,194,28,1) 100%);
+            }
+            .designButton:hover{
+                background: rgb(255,213,99);
+                background: linear-gradient(180deg, rgb(255, 217, 114) 0%, rgb(255, 200, 50) 100%);
+                cursor: pointer;
+            }
+        }
+    
+        .designBackground{
+            position: absolute;
+            pointer-events: none;
+            z-index: -2;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            transform: scale(1.1);
+            object-fit: cover;
+            
+        }
+        .darkerBackground{
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+        }
+    
+        .designBottomIllustrationContainer{
+            position: absolute;
+            pointer-events: none;
+            z-index: 2;
+            bottom: -1.5rem;
+            width: 100%;
+            height: 250px;
+            .designBottomIllustration{
+                position: absolute;
+                bottom: 1rem;
+                height: 100%;
+                width: 100%;
+                transform: scale(1.1) translateX(1px);
+                background-image: url("../../../assets/illustrations/DesignBottomDeco.png");
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;  
+            }
+        }
+        .bottomGradient{
             position: absolute;
             width: 100%;
             height: 50px;
-            top: 12px;
-            background-image: url("../../../assets/svgs/headerDesign.svg");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            pointer-events: none;
-        }
-        h1{
-           position: relative;
-           font-size: 20px;
-           text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-        }
-        
-        h2{
-           margin-top: -0.3rem;
-           text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-           font-size: 39px;
-            
-        }
-       
-    }
-    .previewContainer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 2rem;
-        height: 100%;
-        max-height: 360px;
-        width: 100%;
-        z-index: 1;
-        pointer-events: none;
-        .previews{
-            position: absolute;
-            pointer-events: visible;
-            height: 360px;
-            width: 650px;
-            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border-radius: 3px;
-        }
-
-        .preview1Background{
-            height: 100%;
-            width: 100%;
-            background-image: url("../../../assets/images/Hytale.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: 0.5s ease-in-out;
-            background-size: cover;
-            transform: scale(1.1);
-        }
-        .preview2Background{
-            height: 100%;
-            width: 100%;
-            background-image: url("../../../assets/images/team.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: 0.5s ease-in-out;
-            background-size: cover;
-            transform: scale(1.1);
-        }
-        .preview3Background{
-            height: 100%;
-            width: 100%;
-            background-image: url("../../../assets/images/ice_dragon.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: 0.5s ease-in-out;
-            background-size: cover;
-            transform: scale(1.1);
-        }
-    }
-    .hytaleContent{
-        display: flex;
-        justify-content: center;
-        color: white;
-        p{
-            text-align: center;
-            font-size: 18px;
-            margin: 2rem 0 0rem 0;
-            line-height: 2rem;
-            font-family: "Noto Sans";
-            width: 30%;
-            min-width: 400px;
-        }
-    }
-    
-    .designPageButtonContainer{
-        pointer-events: none;
-        margin-top: 3rem;
-        z-index: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        .designButton{
-            position: relative;
-            pointer-events: visible;
-            padding: 0.8rem 2.8rem;
-            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-            border-radius: 5px;
-            border-style: none;
-            color: rgb(0, 0, 0);
-            font-size: 16px;
-            font-family: "PT Serif";
-            letter-spacing: 1px;
-            font-weight: 700;
-            outline: none;
-            background: rgb(255,213,99);
-            background: linear-gradient(180deg, rgba(255,213,99,1) 0%, rgba(255,194,28,1) 100%);
-        }
-        .designButton:hover{
-            background: rgb(255,213,99);
-            background: linear-gradient(180deg, rgb(255, 217, 114) 0%, rgb(255, 200, 50) 100%);
-            cursor: pointer;
-        }
-    }
-
-    .designBackground{
-        position: absolute;
-        pointer-events: none;
-        z-index: -2;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        transform: scale(1.1);
-        object-fit: cover;
-        
-    }
-    .darkerBackground{
-        position: absolute;
-        top: 0;
-        z-index: -1;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        pointer-events: none;
-    }
-
-    .designBottomIllustrationContainer{
-        position: absolute;
-        pointer-events: none;
-        z-index: 2;
-        bottom: -1.5rem;
-        width: 100%;
-        height: 250px;
-        .designBottomIllustration{
-            position: absolute;
-            bottom: 1rem;
-            height: 100%;
-            width: 100%;
-            transform: scale(1.1) translateX(1px);
-            background-image: url("../../../assets/illustrations/DesignBottomDeco.png");
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;  
-        }
-    }
-    .bottomGradient{
-        position: absolute;
-        width: 100%;
-        height: 50px;
-        bottom: 0;
-        background: rgb(0,0,0);
-        background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-    }
-    .closeDesign{
-        position: fixed;
-        z-index: 10;
-        display: none;
-        top: 10rem;
-        right: 10rem;
-        color: white;
-        font-size: 32px;
-        &:hover{
-            cursor: pointer;
-            color: #56FFDC;
+            bottom: 0;
+            background: rgb(0,0,0);
+            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
         }
     }
 }
@@ -228,88 +216,91 @@
         z-index: 0;
         height: 100%;
         min-height: 100vh;
-        .hytaleHeader{
-            z-index: 2;
-            padding-top: 7rem;
-            div{
-                background: unset;
+        .previewContentContainer{
+            display: unset ;
+            .hytaleHeader{
+                z-index: 2;
+                padding-top: 7rem;
+                div{
+                    background: unset;
+                }
+                h1{
+                   padding-top: 0rem;
+                   font-size: 16px;
+                }
+                h2{
+                   margin-top: -0.3rem;
+                   text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+                   font-size: 30px;
+                }
+               
             }
-            h1{
-               padding-top: 0rem;
-               font-size: 16px;
-            }
-            h2{
-               margin-top: -0.3rem;
-               text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-               font-size: 30px;
-            }
-           
-        }
-        .previewContainer{
-            margin-top: 2rem;
-            height: 200px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .previews{
-                top: unset;
-                right: unset;
+            .previewContainer{
+                margin-top: 2rem;
                 height: 200px;
-                width: 90%;
-                max-width: 350px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .previews{
+                    top: unset;
+                    right: unset;
+                    height: 200px;
+                    width: 90%;
+                    max-width: 350px;
+                }
+        
+            }
+            .hytaleContent{
+                margin-top: 2rem;
+                padding: 0;
+                width: 100%;
+                p{
+                    text-align: center;
+                    font-size: 14px;
+                    padding: 0 1rem;
+                    margin: 0;
+                    width: 100%;
+                    min-width: unset;
+                    
+                }
+            }
+            .designPageButtonContainer{
+                margin: 0;
+                padding-top:3rem;
+                padding-bottom: 8rem;
+                .designButton{
+                    padding: 0.85rem 2.6rem;
+                    color: rgb(0, 0, 0);
+                    font-size: 14px;
+                    background: rgb(255,213,99);
+                    background: linear-gradient(180deg, rgb(253, 216, 114) 0%, rgb(197, 150, 20) 100%);
+                    letter-spacing: 1px;
+                    outline: none;
+                }
+            }
+            .designBackground{
+                position: absolute;
+                left: -85vw;
+                height: 950px;
+                min-height: 100vh;
+                width: 200vw;
+                pointer-events: none;
+                transform: scale(1);
             }
     
-        }
-        .hytaleContent{
-            margin-top: 2rem;
-            padding: 0;
-            width: 100%;
-            p{
-                text-align: center;
-                font-size: 14px;
-                padding: 0 1rem;
-                margin: 0;
+            .designBottomIllustrationContainer{
+                display: none;
+                position: fixed;
                 width: 100%;
-                min-width: unset;
+                height: 200px;
+                bottom: 0;
+                pointer-events: none;
                 
             }
-        }
-        .designPageButtonContainer{
-            margin: 0;
-            padding-top:3rem;
-            padding-bottom: 8rem;
-            .designButton{
-                padding: 0.85rem 2.6rem;
-                color: rgb(0, 0, 0);
-                font-size: 14px;
-                background: rgb(255,213,99);
-                background: linear-gradient(180deg, rgb(253, 216, 114) 0%, rgb(197, 150, 20) 100%);
-                letter-spacing: 1px;
-                outline: none;
+            .bottomGradient{
+                position: fixed;
             }
-        }
-        .designBackground{
-            position: absolute;
-            left: -85vw;
-            height: 950px;
-            min-height: 100vh;
-            width: 200vw;
-            pointer-events: none;
-            transform: scale(1);
-        }
-
-        .designBottomIllustrationContainer{
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 200px;
-            bottom: 0;
-            pointer-events: none;
-            
-        }
-        .bottomGradient{
-            position: fixed;
         }
     }
 }

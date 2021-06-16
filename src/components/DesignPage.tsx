@@ -11,7 +11,7 @@ const DesignPage = (props: any) => {
             <HytaleDesignPreview/>
             
 
-            <motion.div animate={{opacity: 1, transition: {delay: 1}}} initial={{opacity: 0}} className="designManagerContainer">
+            <motion.div animate={{opacity: 1, transition: {delay: 1}}} initial={{opacity: 0}} className="designManagerContainer" id="designManagerContainer">
                 <div className="sectionBackground"></div>
                 <DesignSectionIcon className="designSectionIcon"/>
                 <span />
