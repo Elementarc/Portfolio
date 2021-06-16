@@ -24,8 +24,30 @@ const hytaleDesign = () => {
 
     return (
         <motion.div initial={{opacity: 0, scale: 3}} animate={{opacity: 1, scale: 1, transition: {duration: 0.2, delay: 0.2}}} exit={{opacity: 0, transition: {duration: 0.2}}} className="hytale">
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="background"></motion.div>
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="backgroundBlur"></motion.div>
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="background">
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="backgroundBlur">
+                    <div className="hytaleContent">
+                        <h1>COMING SOON</h1>
+                        <h2>A NEW DAWN HAS ARRIVED</h2>
+                        <button className="hytaleSignUp">SIGN-UP</button>
+
+                        <div className="informationContainer">
+                            <div className="hytaleInfos">
+                                <h2>NEW ADVENTURE</h2>
+                                <p>The master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how. But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</p>
+                                <h3>LEARN MORE</h3>
+                            </div>
+                            <div className="youtubeWindowContainer">
+                                <div className="youtubeWindow">
+                                    <div className="innerBorder"/>
+                                    <div className="playButton"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+            </motion.div>
+
 
             <motion.div initial={{opacity: 0, y: -50}} animate={{opacity: 1, y: 0, transition: {duration: 0.7, delay: 1}}} className="hytaleNavContainer">
                 <ul>
@@ -63,6 +85,8 @@ const hytaleDesign = () => {
                     </div>
                 </ul>
             </motion.div>
+        
+            
         </motion.div>
     );
 }

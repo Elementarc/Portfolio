@@ -623,7 +623,7 @@ const HytaleDesignPreview = () => {
         }
         changeStyle()
     },[State])
-    //Animation and renders component when clicking on Button
+    //Animation and renders component when clicking on View Button
     function toggleHytaleDesign(state: boolean){
         var getCloseButton = document.getElementById("closeDesign") as HTMLDivElement
         var getPreviewContainer = document.getElementById("previewContainer") as HTMLDivElement
@@ -661,7 +661,7 @@ const HytaleDesignPreview = () => {
             transitionTimer = setTimeout(() => {
                 window.addEventListener("mousemove", parallax)
                 changeStyle()
-            }, 1000);
+            }, 900);
         }
     }
 
@@ -697,37 +697,40 @@ const HytaleDesignPreview = () => {
     return (
         <motion.div animate={{opacity: 1}} initial={{opacity: 0}} exit={{opacity: 0, transition: {delay: 0.5}}} id="hytaleDesignContainer" className="hytaleDesignContainer" >
             
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleHeader">
-                <div className="decoImage"></div>
-                <h1>GAMING {"&"} DESIGN </h1>
-                <h2>DESIRE THE FANTASY</h2>
-            </motion.div>
-            
-            <div className="previewContainer" id="previewContainer">
-                <motion.div animate="in" exit="out" initial="init" variants={preview1Styles} id="preview1" className="previews preview1">
-                    <div className="preview1Background"/>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleHeader">
+                    <div className="decoImage"></div>
+                    <h1>GAMING {"&"} DESIGN </h1>
+                    <h2>DESIRE THE FANTASY</h2>
+                </motion.div>
+                
+                <div className="previewContainer" id="previewContainer">
+                    <motion.div animate="in" exit="out" initial="init" variants={preview1Styles} id="preview1" className="previews preview1">
+                        <div className="preview1Background"/>
+                    </motion.div>
+
+                    <motion.div animate="in" exit="out" initial="init" variants={preview2Styles} id="preview2" className="previews preview2">
+                        <div className="preview2Background"/>
+                    </motion.div>
+
+                    <motion.div animate="in" exit="out" initial="init" variants={preview3Styles} id="preview3" className="previews preview3">
+                        <div className="preview3Background"/>
+                    </motion.div>
+                </div>
+
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleContent">
+                    <p>A world fulfilled with desires and colors needs atleast a design nothing less than that.</p>
+                </motion.div>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPageButtonContainer">
+                    <button onClick={() => toggleHytaleDesign(true)} className="designButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
-                <motion.div animate="in" exit="out" initial="init" variants={preview2Styles} id="preview2" className="previews preview2">
-                    <div className="preview2Background"/>
-                </motion.div>
-
-                <motion.div animate="in" exit="out" initial="init" variants={preview3Styles} id="preview3" className="previews preview3">
-                    <div className="preview3Background"/>
-                </motion.div>
-            </div>
-
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="hytaleContent">
-                <p>A world fulfilled with desires and colors needs atleast a design nothing less than that.</p>
-            </motion.div>
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPageButtonContainer">
-                <button onClick={() => toggleHytaleDesign(true)} className="designButton" id="designButton">VIEW DESIGN</button>
-            </motion.div>
-
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
-            <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designBackground" id="hytaleBackground"></motion.img>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
+                <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designBackground" id="hytaleBackground"></motion.img>
             
             <AnimatePresence>
+                {DesignState === false &&
+                    <div></div>
+                }
                 {DesignState === true &&
                     <HytaleDesign/>
                 }

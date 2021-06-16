@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 .hytale{
     position: absolute;
     top: 0;
@@ -7,22 +11,6 @@
     overflow-y: scroll;
     width: 100%;
     background-color: black;
-    .background{
-        height: 100%;
-        width: 100%;
-        background-image: url("../../../../assets/images/Desert.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .backgroundBlur{
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        background: rgb(0,0,0);
-        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgb(0, 0, 0) 120%);
-    }
     .hytaleNavContainer{
         max-width: 2400px;
         position: fixed;
@@ -98,6 +86,153 @@
             }
         }
     }
+
+    .background{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../../assets/images/Desert.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        .backgroundBlur{
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: rgb(0,0,0);
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgb(0, 0, 0) 100%);
+            .hytaleContent{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                padding-top: 18rem;
+                color: white;
+                font-family: "Bungee";
+                letter-spacing: 0.2rem;
+                z-index: 1;
+                h1{
+                    font-size: 18px;
+                    color: rgb(255, 255, 255);
+                }
+                h2{
+                    margin-top: -2.1rem;
+                    font-size: 34px;
+                    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.65);
+                }
+                .hytaleSignUp{
+                    margin-top: 5rem;
+                    padding: 0.8rem 3.5rem;
+                    border-radius: 5px;
+                    outline: none;
+                    border-style: none;
+                    font-family: "Bungee";
+                    font-size: 16px;
+                    color: #2D2D2D;
+                    line-height: 1.3rem;
+                    background: rgb(254,250,156);
+                    background: linear-gradient(180deg, rgba(254,250,156,1) 0%, rgba(255,170,0,1) 100%);
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.212);
+                    &:hover{
+                        cursor: pointer;
+                        background: rgb(254,250,156);
+                        background: linear-gradient(180deg, rgba(254,250,156,1) 0%, rgb(255, 190, 59) 100%);
+                    }
+                }
+
+                .informationContainer{
+                    width: 100%;
+                    font-family: "Noto Sans";
+                    margin-top: 8rem;
+                    padding-bottom: 5rem;
+                    display: flex;
+                    .hytaleInfos{
+                        padding-left: 15%;
+                        max-width: 50%;
+                        flex-grow: 1;
+                        h2{
+                            font-size: 22px;
+                            margin-top: 1rem;
+                            color: rgb(255, 215, 82);
+                        }
+                        p{
+                            margin-top: 0.8rem;
+                            letter-spacing: 0;
+                            width: 80%;
+                            line-height: 1.8rem;
+                            font-size: 18px;
+                            text-align: start;
+                        }
+                        h3{
+                            display: inline-block;
+                            font-family: "NOTO Sans";
+                            font-weight: unset;
+                            font-size: 18px;
+                            margin-top: 1.2rem;
+                            letter-spacing: 0;
+                            color: rgb(255, 215, 82);
+                            &:hover{
+                                cursor: pointer;
+                                color: rgb(255, 227, 136);
+                            }
+                        }
+                    }
+                    .youtubeWindowContainer{
+                        padding-right: 15%;
+                        width: 50%;
+                        display: flex;
+                        justify-content: flex-end;
+                        .youtubeWindow{
+                            position: relative;
+                            height: 265px;
+                            width: 500px;
+                            background-color: blue;
+                            background-image: url("../../../../assets/images/HytaleScary.jpg");
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: cover;
+                            border: 1px solid white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                            .innerBorder{
+                                height: 261px;
+                                width: 496px;
+                                border: 1px solid white;
+                            }
+                            .playButton{
+                                position: absolute;
+                                margin-left: rem;
+                                width: 0;
+                                height: 0;
+                                border-left: 30px solid transparent;
+                                border-right: 30px solid transparent;
+                                border-bottom: 50px solid rgba(255, 255, 255, 0.5);
+                                transform: rotate(90deg) scale(0.8);
+                                transition: 0.2s ease-in-out;
+                            }
+                            &:hover{
+                                .playButton{
+                                    border-bottom: 50px solid white;
+                                    transition: 0.2s ease-in-out;
+                                    transform: rotate(90deg) scale(1);
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+
+    
 }
 
 
