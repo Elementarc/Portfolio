@@ -214,7 +214,7 @@ const Nav = (props: any) => {
                             HOME
                     </div>
 
-                    <Link onClick={() => setNavState(!NavState)} className="linkDesign" id="navDesign" to={`/design/${1}?viewState=false`}>
+                    <Link onClick={() => setNavState(!NavState)} className="linkDesign" id="navDesign" to={`/design`}>
                             <div className="navbarListIconContainer">
                                 <DesignIcon/>
                             </div>

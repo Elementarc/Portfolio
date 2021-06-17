@@ -80,16 +80,12 @@ function App() {
             <Homepage interfaceAnimation={interfaceAnimation}/>
           </Route>
 
-          <Route strict path={`/design/:viewIndex?`} >
+          <Route strict path={`/design`} >
             <DesignPage interfaceAnimation={interfaceAnimation} designParameters={designParameters}/>
           </Route>
 
           <Route exact path = "/">
             <Redirect to="/home"/>
-          </Route>
-
-          <Route exact path = "/design">
-            <Redirect to={`/design/${1}`}/>
           </Route>
 
           <Route exact path = "/contact">
