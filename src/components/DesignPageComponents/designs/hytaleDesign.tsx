@@ -28,7 +28,7 @@ const hytaleDesign = (props: any) => {
                 <div className="sectionBackground"></div>
             </div>
             
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="background">
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="background" id="hytaleBackground">
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="backgroundBlur"></motion.div>
             </motion.div>
 

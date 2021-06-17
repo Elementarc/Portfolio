@@ -194,7 +194,7 @@ const Nav = (props: any) => {
             </div>
 
             <motion.div onClick={() => setNavState(!NavState)} animate={NavState ? "enter" : "exit"} variants={navBlurAnimation} id="navigationBlur" className="navigationBlur"></motion.div>
-            <div onClick={() =>{props.urlParameters.set("viewState", "false"); history.push(window.location.pathname.toLowerCase() + "?" + props.urlParameters.toString()); console.log(props.urlParameters)}} className="closeDesign">X</div>
+            <div onClick={() =>{props.designParameters.set("viewState", "false"); history.push(window.location.pathname.toLowerCase() + "?" + props.designParameters.toString())}} className="closeDesign">X</div>
 
             <motion.div animate={NavState ? "enter" : "exit"} variants={navAnimation} id="navigation" className="navigation">
                 <motion.ul initial="init" animate={NavState ? "enter" : "exit"} variants={navItemAnimation}>

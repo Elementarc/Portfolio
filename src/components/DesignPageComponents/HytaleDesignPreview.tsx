@@ -632,19 +632,24 @@ const HytaleDesignPreview = (props: any) => {
             var getDesignSectionManger = document.getElementById("designManagerContainer") as HTMLDivElement
             var getpreviewContentContainer = document.getElementById("previewContentContainer") as HTMLDivElement
             var getHytaleDesignContainer = document.getElementById("hytaleDesignContainer") as HTMLDivElement
+            var getHytaleBackground = document.getElementById("hytaleBackground") as HTMLDivElement
 
             if(state === true){
-                //removes
+                window.scrollTo(0, 0)
+                //cleanup
                 window.removeEventListener("mousemove", parallax)
                 clearTimeout(previewTimer)
+                //DesignManager
                 getDesignSectionManger.style.display ="none"
-
-                window.scrollTo(0, 0)
-                
+                //HytaleBackground
+                getHytaleBackground.style.transition = "0.5s ease-in-out"
+                getHytaleBackground.style.opacity = "0"
                 //Animation for previewContainer when button clicked
                 getPreviewContainer.style.transition = "0.3s ease-in-out"
                 getPreviewContainer.style.zIndex = "3"
                 getPreviewContainer.style.transform = "scale(0.6)"
+
+                //logic for structure of html for opening design
                 transitionTimer = setTimeout(() => {
                     var getHytale = document.getElementById("hytale") as HTMLDivElement
                     
@@ -665,10 +670,16 @@ const HytaleDesignPreview = (props: any) => {
                     }, 200);
                 }, 200);
             }
+            //Resets all back to default
             else{
-                getDesignSectionManger.style.display =""
                 window.scrollTo(0, 0)
+                //hytalebackground
+                getHytaleBackground.style.transition = ""
+                getHytaleBackground.style.opacity = "1"
+                //DesignManager
+                getDesignSectionManger.style.display =""
                 getpreviewContentContainer.style.display = "flex"
+                
                 getHytaleDesignContainer.style.minHeight =""
                 getHytaleDesignContainer.style.maxHeight =""
                 if(DesignState === true){
@@ -681,13 +692,17 @@ const HytaleDesignPreview = (props: any) => {
                 }, 1);
                 
                 transitionTimer = setTimeout(() => {
+                    
                     window.addEventListener("mousemove", parallax)
+                    getPreviewContainer.style.transform =""
+                    getPreviewContainer.style.transition = ""
+                    getPreviewContainer.style.zIndex = ""
                     changeStyle()
                 }, 800);
             }
         }
         //checks url query if view should be shown or not viewState = false = hidden
-        if(props.urlParameters.get("viewState") === 'false'){
+        if(props.designParameters.get("viewState") === 'false'){
             if(DesignState === true){
                 toggleHytaleDesign(false)
                 //Renders HytaleDesign
@@ -695,11 +710,11 @@ const HytaleDesignPreview = (props: any) => {
                 
             }
         }
-        else if(props.urlParameters.get("viewState") === 'true'){
+        else if(props.designParameters.get("viewState") === 'true'){
             toggleHytaleDesign(true)
             setDesignState(true)
         }
-    }, [DesignState, parallax, changeStyle, props.urlParameters]);
+    }, [DesignState, parallax, changeStyle, props.designParameters]);
 
     //cleanup
     useEffect(() => {
@@ -709,6 +724,7 @@ const HytaleDesignPreview = (props: any) => {
             clearTimeout(transitionTimer)
         };
     }, []);
+
     //adding parallax
     useEffect(() => {
         window.addEventListener("mousemove", parallax)
@@ -716,6 +732,7 @@ const HytaleDesignPreview = (props: any) => {
             window.removeEventListener("mousemove", parallax)
         };
     }, [parallax]);
+
     //Animates Images
     useEffect(() => {
         
@@ -759,7 +776,7 @@ const HytaleDesignPreview = (props: any) => {
                     <p>A world fulfilled with desires and colors needs atleast a design nothing less than that.</p>
                 </motion.div>
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPageButtonContainer">
-                    <button onClick={() => {props.urlParameters.set("viewState", "true"); history.push(window.location.pathname.toLowerCase() + "?" + props.urlParameters.toString()) }} className="designButton" id="designButton">VIEW DESIGN</button>
+                    <button onClick={() => {props.designParameters.set("viewState", "true"); history.push(window.location.pathname.toLowerCase() + "?" + props.designParameters.toString()) }} className="designButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>
