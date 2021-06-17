@@ -11,7 +11,6 @@ import {ReactComponent as WorkIcon} from "../../assets/icons/WorkIcon.svg"
 import {ReactComponent as ContactIcon} from "../../assets/icons/ContactIcon.svg"
 import {ReactComponent as ProjectsIcon} from "../../assets/icons/ProjectIcon.svg"
 import {ReactComponent as MenuIcon} from "../../assets/icons/MenuIcon.svg"
-import {ReactComponent as CloseView} from "../../assets/icons/closeView.svg"
 //Import components
 import {motion} from "framer-motion"
 //CSS
@@ -215,7 +214,7 @@ const Nav = (props: any) => {
                             HOME
                     </div>
 
-                    <Link onClick={() => setNavState(!NavState)} className="linkDesign" id="navDesign" to={`/design/${1}`}>
+                    <Link onClick={() => setNavState(!NavState)} className="linkDesign" id="navDesign" to={`/design/${1}?viewState=false`}>
                             <div className="navbarListIconContainer">
                                 <DesignIcon/>
                             </div>

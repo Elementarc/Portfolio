@@ -633,6 +633,7 @@ const HytaleDesignPreview = (props: any) => {
             var getpreviewContentContainer = document.getElementById("previewContentContainer") as HTMLDivElement
             var getHytaleDesignContainer = document.getElementById("hytaleDesignContainer") as HTMLDivElement
             var getHytaleBackground = document.getElementById("hytaleBackground") as HTMLDivElement
+            var getTransitionBackground = document.getElementById("transitionBackground") as HTMLDivElement
 
             if(state === true){
                 window.scrollTo(0, 0)
@@ -648,30 +649,42 @@ const HytaleDesignPreview = (props: any) => {
                 getPreviewContainer.style.transition = "0.3s ease-in-out"
                 getPreviewContainer.style.zIndex = "3"
                 getPreviewContainer.style.transform = "scale(0.6)"
-
+                
                 //logic for structure of html for opening design
                 transitionTimer = setTimeout(() => {
                     var getHytale = document.getElementById("hytale") as HTMLDivElement
                     
                     getPreviewContainer.style.transition = "0.5s ease-in-out"
-                    getPreviewContainer.style.transform = "scale(10)"
+                    if(window.innerWidth > 900){
+                        getPreviewContainer.style.transform = "scale(10)"
+                    }
+                    else{
+                        
+                        getPreviewContainer.style.transform = "scale(4)"
+                    }
+                    
                     transitionTimer =setTimeout(() => {
                         getHytaleDesignContainer.style.minHeight ="unset"
                         if(window.innerWidth > 900){
                             getHytaleDesignContainer.style.maxHeight ="1350px"
+                            getTransitionBackground.style.opacity = "1"
+                            
                         }
                         else{
                             getHytaleDesignContainer.style.maxHeight ="unset"
+                            
                         }
                         getpreviewContentContainer.style.display = "none"
                         transitionTimer = setTimeout(() => {
                             getHytale.style.position ="relative"
+
                         }, 100);
                     }, 200);
                 }, 200);
             }
             //Resets all back to default
             else{
+                getTransitionBackground.style.opacity = "0"
                 //hytalebackground
                 getHytaleBackground.style.transition = ""
                 getHytaleBackground.style.opacity = "1"
@@ -688,6 +701,7 @@ const HytaleDesignPreview = (props: any) => {
                 transitionTimer = setTimeout(() => {
                     getPreviewContainer.style.transition = "0.4s ease-in-out"
                     getPreviewContainer.style.transform = "scale(1)"
+                    
                 }, 1);
                 
                 transitionTimer = setTimeout(() => {

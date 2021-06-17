@@ -519,7 +519,7 @@
     .hytale{
         .hytaleNavContainer{
             ul{
-                width: 80%;
+                width: 70%;
             }
         }
         .hytaleContent{
@@ -835,6 +835,7 @@
     .hytale{
         height: 100%;
         overflow: unset;
+        background-color: rgba(0, 0, 0, 0.5);
         .hytaleNavContainer{
             max-width: 2400px;
             z-index: 10;

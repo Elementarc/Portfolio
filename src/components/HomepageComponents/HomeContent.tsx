@@ -136,7 +136,7 @@ const HomeContent = (props: any) => {
                             <div className="item1Content">
                                 <h1>Design</h1>
                                 <p> Experience a world full of different designs! Maybe  there even is more</p>
-                                <Link to={`/design/${1}`}>SEE DESIGNS</Link>
+                                <Link to={`/design/${1}?viewState=false`}>SEE DESIGNS</Link>
                             </div>
                         </motion.div>
                         <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.1, type: 'spring'}}} className="item item2">
