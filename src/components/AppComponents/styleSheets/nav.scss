@@ -110,7 +110,14 @@
             }
         }
     }
-    
+    .closeDesign{
+        display: inline;
+        color: white;
+        pointer-events: visible;
+        &:hover{
+            cursor: pointer;
+        }
+    }
 }
 /*END--NavBar Styles--END*/
 @media (min-width: 2400px){

@@ -26,9 +26,12 @@ var interfaceAnimation = {
 var timer: any
 function App() {  
   const location = useLocation()
+
+  //Using url string query to set/get viewState for designPages to toggle design based on value. viewState = false /close design viewState = true /openDesign
+  var parameters =  new URLSearchParams(window.location.search)
+
   //scrolls to top whenever URL changes for better ux
   useEffect(() => {
-    
     function scrollToTop() {
       timer = setTimeout(() => {
         document.body.scrollTop = 0
@@ -77,8 +80,8 @@ function App() {
             <Homepage interfaceAnimation={interfaceAnimation}/>
           </Route>
 
-          <Route strict path={`/design/:view`} >
-            <DesignPage interfaceAnimation={interfaceAnimation}/>
+          <Route strict path={`/design/:viewIndex?`} >
+            <DesignPage interfaceAnimation={interfaceAnimation} urlParameters={parameters}/>
           </Route>
 
           <Route exact path = "/">
@@ -95,7 +98,7 @@ function App() {
         </Switch>
       </AnimatePresence>
       
-      <Nav interfaceAnimation={interfaceAnimation}/>
+      <Nav interfaceAnimation={interfaceAnimation} urlParameters={parameters}/>
       <Blackbar interfaceAnimation={interfaceAnimation}/>
       <Logo interfaceAnimation={interfaceAnimation}/>
     </motion.div>
