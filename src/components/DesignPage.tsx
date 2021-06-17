@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {motion, AnimatePresence, useMotionValue} from "framer-motion"
+import {motion, AnimatePresence} from "framer-motion"
 import {ReactComponent as DesignSectionIcon} from "../assets/svgs/designSectionIcon.svg"
 import "./styleSheets/designPage.scss"
 //components
@@ -99,11 +99,10 @@ const DesignPage = (props: any) => {
                 })
                 
             }
-
         }
         function changeDesignPreview(e: any){
             //wheelUp
-            if(window.innerWidth > 900){
+            if(window.innerWidth > 1300 && window.innerHeight >= 950){
                 if(e.deltaY < 0){
                     if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                         if(parseInt(getParams.viewIndex, 10) > 1){
@@ -153,7 +152,7 @@ const DesignPage = (props: any) => {
             window.removeEventListener("keydown", keydownListener)
             window.removeEventListener("keyup", keyupListener)
         })
-    },[props, history])
+    },[props, history, getParams.viewIndex])
 
     
 
@@ -175,7 +174,7 @@ const DesignPage = (props: any) => {
 
                         <Route strict path="/design/2">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
-                                <HytaleDesignPreview designQuery={props.designQuery} getParams={getParams}/>
+                                
                             </motion.div>
                         </Route>
                     </Switch>

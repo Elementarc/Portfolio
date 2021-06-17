@@ -619,7 +619,7 @@ const HytaleDesignPreview = (props: any) => {
                     }
                 }
             }
-            setState(!State)
+            
         }
         changeStyle()
     },[State])
@@ -746,15 +746,17 @@ const HytaleDesignPreview = (props: any) => {
         };
     }, [parallax]);
 
+
     //Animates Images
     useEffect(() => {
         
         //Function gets called every 3.5seconds 
         previewTimer = setTimeout(() => {
             changeStyle()
+            setState(!State)
         }, 3500);
 
-        return (() =>{
+        return(() =>{
             clearTimeout(previewTimer)
         })
     }, [State, changeStyle]);

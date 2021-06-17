@@ -26,7 +26,6 @@ var interfaceAnimation = {
 var timer: any
 function App() {  
   const location = useLocation()
-
   //Using url string query to set/get viewState for designPages to toggle design based on value. viewState = false /close design viewState = true /openDesign
   var designQuery =  new URLSearchParams(window.location.search)
 
@@ -98,7 +97,7 @@ function App() {
         </Switch>
       </AnimatePresence>
       
-      
+
       <Nav interfaceAnimation={interfaceAnimation} designQuery={designQuery}/>
       <Blackbar interfaceAnimation={interfaceAnimation}/>
       <Logo interfaceAnimation={interfaceAnimation}/>
