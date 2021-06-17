@@ -198,8 +198,8 @@ const Nav = (props: any) => {
 
             <motion.div onClick={() => setNavState(!NavState)} animate={NavState ? "enter" : "exit"} variants={navBlurAnimation} id="navigationBlur" className="navigationBlur"></motion.div>
             <AnimatePresence>
-                {props.designParameters.get("viewState") === 'true' &&
-                    <div onClick={() =>{props.designParameters.set("viewState", "false"); history.push(window.location.pathname.toLowerCase() + "?" + props.designParameters.toString())}} className="closeDesignContainer">
+                {props.designQuery.get("viewState") === 'true' &&
+                    <div onClick={() =>{props.designQuery.set("viewState", "false"); history.push(window.location.pathname.toLowerCase() + "?" + props.designQuery.toString())}} className="closeDesignContainer">
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.2, duration: 0.5}}} exit={{opacity: 0, transition: {duration: 0.5}}} className="closeDesignIcon"></motion.div>
                     </div>
                 }

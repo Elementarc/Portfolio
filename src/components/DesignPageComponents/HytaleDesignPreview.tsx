@@ -715,7 +715,7 @@ const HytaleDesignPreview = (props: any) => {
             }
         }
         //checks url query if view should be shown or not viewState = false = hidden
-        if(props.designParameters.get("viewState") === 'false'){
+        if(props.designQuery.get("viewState") === 'false'){
             
             
             if(DesignState === true){
@@ -727,13 +727,13 @@ const HytaleDesignPreview = (props: any) => {
                 
             }
         }
-        else if(props.designParameters.get("viewState") === 'true'){
+        else if(props.designQuery.get("viewState") === 'true'){
             clearTimeout(transitionTimer)
             clearTimeout(previewTimer)
             toggleHytaleDesign(true)
             setDesignState(true)
         }
-    }, [DesignState, parallax, changeStyle, props.designParameters]);
+    }, [DesignState, parallax, changeStyle, props.designQuery]);
 
     //cleanup
     useEffect(() => {
@@ -789,7 +789,7 @@ const HytaleDesignPreview = (props: any) => {
                     <p>A world fulfilled with desires and colors needs atleast a design nothing less than that.</p>
                 </motion.div>
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPageButtonContainer">
-                    <button onClick={() => {props.designParameters.set("viewState", "true"); history.push(window.location.pathname.toLowerCase() + "?" + props.designParameters.toString()) }} className="designButton" id="designButton">VIEW DESIGN</button>
+                    <button onClick={() => {props.designQuery.set("viewState", "true"); history.push(window.location.pathname.toLowerCase() + "?" + props.designQuery.toString()) }} className="designButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="darkerBackground"></motion.div>

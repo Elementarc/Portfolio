@@ -28,7 +28,7 @@ function App() {
   const location = useLocation()
 
   //Using url string query to set/get viewState for designPages to toggle design based on value. viewState = false /close design viewState = true /openDesign
-  var designParameters =  new URLSearchParams(window.location.search)
+  var designQuery =  new URLSearchParams(window.location.search)
 
   //scrolls to top whenever URL changes for better ux
   useEffect(() => {
@@ -81,7 +81,7 @@ function App() {
           </Route>
 
           <Route strict path={`/design/:viewIndex`} >
-            <DesignPage interfaceAnimation={interfaceAnimation} designParameters={designParameters}/>
+            <DesignPage interfaceAnimation={interfaceAnimation} designQuery={designQuery}/>
           </Route>
 
           <Route exact path = "/">
@@ -98,7 +98,8 @@ function App() {
         </Switch>
       </AnimatePresence>
       
-      <Nav interfaceAnimation={interfaceAnimation} designParameters={designParameters}/>
+      
+      <Nav interfaceAnimation={interfaceAnimation} designQuery={designQuery}/>
       <Blackbar interfaceAnimation={interfaceAnimation}/>
       <Logo interfaceAnimation={interfaceAnimation}/>
     </motion.div>

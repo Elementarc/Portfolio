@@ -5,11 +5,24 @@
     z-index: 0;
     width: 100%;
     max-width: 2400px;
+    max-height: 1350px;
     grid-column: 1;
     grid-row: 1;
     height: auto;
     overflow: hidden;
     
+    //used to stack designPreviews On top of eachother
+    .designsPreviewGridContainer{
+        
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        .designsAnimationContainer{
+            grid-row: 1;
+            grid-column: 1;
+        }
+    }
+
     .designManagerContainer{
         position: fixed;
         display: flex;
@@ -82,7 +95,7 @@
         grid-column: 1;
         grid-row: 1;
         overflow-x: hidden;
-        
+        max-height: unset;
         .designManagerContainer{
             position: fixed;
             display: flex;

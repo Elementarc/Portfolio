@@ -4,7 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 .hytaleDesignContainer{
     position: relative;
+    grid-column: 1;
+    grid-row: 1;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
@@ -164,6 +167,7 @@
             top: 0;
             z-index: -1;
             height: 100%;
+            transform: scale(1.1);
             width: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             pointer-events: none;
