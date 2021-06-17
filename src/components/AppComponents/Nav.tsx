@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from "react"
 import {Link, useHistory} from "react-router-dom"
 import {useLocation} from "react-router-dom"
+import {AnimatePresence} from "framer-motion"
 
 //icons
 import {ReactComponent as HomeIcon} from "../../assets/icons/HomeIcon.svg"
@@ -10,6 +11,7 @@ import {ReactComponent as WorkIcon} from "../../assets/icons/WorkIcon.svg"
 import {ReactComponent as ContactIcon} from "../../assets/icons/ContactIcon.svg"
 import {ReactComponent as ProjectsIcon} from "../../assets/icons/ProjectIcon.svg"
 import {ReactComponent as MenuIcon} from "../../assets/icons/MenuIcon.svg"
+import {ReactComponent as CloseView} from "../../assets/icons/closeView.svg"
 //Import components
 import {motion} from "framer-motion"
 //CSS
@@ -157,11 +159,13 @@ function navIconHover(state: boolean){
     }
 }
 //COMPONENT
+
 const Nav = (props: any) => {
     const location = useLocation()
     const history = useHistory()
     //Using NavState to toggle between Enter & Exit animaiton
     const [NavState, setNavState] = useState(false);
+
     //componentDidMount to give navItem the right class at the beginning of pageload
     useEffect(() =>{
         giveNavStyleTarget(location.pathname.toLowerCase())
@@ -186,7 +190,7 @@ const Nav = (props: any) => {
         }
         
     }, [NavState]);
-
+    
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
             <div onMouseEnter={() => navIconHover(true)} onMouseLeave={() => navIconHover(false)} onClick={() => setNavState(!NavState)} className="navOpenIconContainer">
@@ -194,7 +198,13 @@ const Nav = (props: any) => {
             </div>
 
             <motion.div onClick={() => setNavState(!NavState)} animate={NavState ? "enter" : "exit"} variants={navBlurAnimation} id="navigationBlur" className="navigationBlur"></motion.div>
-            <div onClick={() =>{props.designParameters.set("viewState", "false"); history.push(window.location.pathname.toLowerCase() + "?" + props.designParameters.toString())}} className="closeDesign">X</div>
+            <AnimatePresence>
+                {props.designParameters.get("viewState") === 'true' &&
+                    <div onClick={() =>{props.designParameters.set("viewState", "false"); history.push(window.location.pathname.toLowerCase() + "?" + props.designParameters.toString())}} className="closeDesignContainer">
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.2, duration: 0.5}}} exit={{opacity: 0, transition: {duration: 0.5}}} className="closeDesignIcon"></motion.div>
+                    </div>
+                }
+            </AnimatePresence>
 
             <motion.div animate={NavState ? "enter" : "exit"} variants={navAnimation} id="navigation" className="navigation">
                 <motion.ul initial="init" animate={NavState ? "enter" : "exit"} variants={navItemAnimation}>

@@ -110,12 +110,29 @@
             }
         }
     }
-    .closeDesign{
-        display: inline;
+    .closeDesignContainer{
+        position: absolute;
+        margin: 9rem 0 0 9rem;
+        height: 40px;
+        width: 40px;
         color: white;
         pointer-events: visible;
+       
+        .closeDesignIcon{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-image: url("../../../assets/icons/closeView.svg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+        }
         &:hover{
             cursor: pointer;
+            .closeDesignIcon{
+                transform: scale(1.1);
+            }
         }
     }
 }
@@ -144,6 +161,30 @@
                 height: 32px;
             }
         }
+        .closeDesignContainer{
+            position: absolute;
+            margin: 7rem 0 0 5rem;
+            height: 40px;
+            width: 40px;
+            color: white;
+            pointer-events: visible;
+           
+            .closeDesignIcon{
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-image: url("../../../assets/icons/closeView.svg");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            &:hover{
+                cursor: pointer;
+                .closeDesignIcon{
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
     
 }
@@ -161,6 +202,31 @@
                 margin-top: 0.6rem;
                 width: 25px;
                 height: 25px;
+            }
+        }
+        .closeDesignContainer{
+            position: absolute;
+            margin: 0;
+            height: 50px;
+            width: 50px;
+            color: white;
+            pointer-events: visible;
+           
+            .closeDesignIcon{
+                position: absolute;
+                margin: 0.8rem 0 0 0.8rem;
+                height: 30px;
+                width: 30px;
+                background-image: url("../../../assets/icons/closeView.svg");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            &:hover{
+                cursor: pointer;
+                .closeDesignIcon{
+                    transform: scale(1.1);
+                }
             }
         }
         .navigation{

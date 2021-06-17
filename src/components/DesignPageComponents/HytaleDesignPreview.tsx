@@ -655,7 +655,7 @@ const HytaleDesignPreview = (props: any) => {
                     
                     getPreviewContainer.style.transition = "0.5s ease-in-out"
                     getPreviewContainer.style.transform = "scale(10)"
-                    setTimeout(() => {
+                    transitionTimer =setTimeout(() => {
                         getHytaleDesignContainer.style.minHeight ="unset"
                         if(window.innerWidth > 900){
                             getHytaleDesignContainer.style.maxHeight ="1350px"
@@ -664,7 +664,7 @@ const HytaleDesignPreview = (props: any) => {
                             getHytaleDesignContainer.style.maxHeight ="unset"
                         }
                         getpreviewContentContainer.style.display = "none"
-                        setTimeout(() => {
+                        transitionTimer = setTimeout(() => {
                             getHytale.style.position ="relative"
                         }, 100);
                     }, 200);
@@ -672,7 +672,6 @@ const HytaleDesignPreview = (props: any) => {
             }
             //Resets all back to default
             else{
-                window.scrollTo(0, 0)
                 //hytalebackground
                 getHytaleBackground.style.transition = ""
                 getHytaleBackground.style.opacity = "1"
@@ -686,7 +685,7 @@ const HytaleDesignPreview = (props: any) => {
                     var getHytale = document.getElementById("hytale") as HTMLDivElement
                     getHytale.style.position ="absolute"
                 }
-                setTimeout(() => {
+                transitionTimer = setTimeout(() => {
                     getPreviewContainer.style.transition = "0.4s ease-in-out"
                     getPreviewContainer.style.transform = "scale(1)"
                 }, 1);
@@ -703,7 +702,11 @@ const HytaleDesignPreview = (props: any) => {
         }
         //checks url query if view should be shown or not viewState = false = hidden
         if(props.designParameters.get("viewState") === 'false'){
+            
             if(DesignState === true){
+                clearTimeout(transitionTimer)
+                clearTimeout(previewTimer)
+
                 toggleHytaleDesign(false)
                 //Renders HytaleDesign
                 setDesignState(false)
@@ -711,6 +714,8 @@ const HytaleDesignPreview = (props: any) => {
             }
         }
         else if(props.designParameters.get("viewState") === 'true'){
+            clearTimeout(transitionTimer)
+            clearTimeout(previewTimer)
             toggleHytaleDesign(true)
             setDesignState(true)
         }
