@@ -98,8 +98,9 @@ const HytaleDesignPreview = (props: any) => {
     
     //Mouseeffect when moving
     var parallax = useCallback((e: any) =>{
+        console.log()
         function parallax() {
-            if(window.innerWidth > 900 && history.location.pathname.toLowerCase().includes("/design") === true){
+            if(window.innerWidth > 900 && history.location.pathname.toLowerCase() === "/design/1"){
                 var hytaleBackground = document.getElementById("hytaleBackground") as HTMLDivElement
                 var designBottomIllustration = document.getElementById("designBottomIllustration") as HTMLDivElement
                 var designButton = document.getElementById("designButton") as HTMLDivElement
@@ -370,7 +371,6 @@ const HytaleDesignPreview = (props: any) => {
                         },
                     }
                 }
-                setState(!State)
             }
             else{
                 previewState++
@@ -618,8 +618,8 @@ const HytaleDesignPreview = (props: any) => {
                         },
                     }
                 }
-                setState(!State)
             }
+            setState(!State)
         }
         changeStyle()
     },[State])
@@ -663,7 +663,7 @@ const HytaleDesignPreview = (props: any) => {
                         getPreviewContainer.style.transform = "scale(4)"
                     }
                     
-                    transitionTimer =setTimeout(() => {
+                    transitionTimer = setTimeout(() => {
                         getHytaleDesignContainer.style.minHeight ="unset"
                         if(window.innerWidth > 900){
                             getHytaleDesignContainer.style.maxHeight ="1350px"
@@ -706,10 +706,10 @@ const HytaleDesignPreview = (props: any) => {
                 
                 transitionTimer = setTimeout(() => {
                     
-                    window.addEventListener("mousemove", parallax)
                     getPreviewContainer.style.transform =""
                     getPreviewContainer.style.transition = ""
                     getPreviewContainer.style.zIndex = ""
+                    window.addEventListener("mousemove", parallax)
                     changeStyle()
                 }, 800);
             }
@@ -717,10 +717,10 @@ const HytaleDesignPreview = (props: any) => {
         //checks url query if view should be shown or not viewState = false = hidden
         if(props.designParameters.get("viewState") === 'false'){
             
+            
             if(DesignState === true){
                 clearTimeout(transitionTimer)
                 clearTimeout(previewTimer)
-
                 toggleHytaleDesign(false)
                 //Renders HytaleDesign
                 setDesignState(false)
@@ -737,17 +737,11 @@ const HytaleDesignPreview = (props: any) => {
 
     //cleanup
     useEffect(() => {
+        window.addEventListener("mousemove", parallax)
         
         return () => {
             clearTimeout(previewTimer)
             clearTimeout(transitionTimer)
-        };
-    }, []);
-
-    //adding parallax
-    useEffect(() => {
-        window.addEventListener("mousemove", parallax)
-        return () => {
             window.removeEventListener("mousemove", parallax)
         };
     }, [parallax]);

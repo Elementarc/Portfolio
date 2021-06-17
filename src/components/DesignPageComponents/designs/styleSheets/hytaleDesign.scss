@@ -836,6 +836,13 @@
         height: 100%;
         overflow: unset;
         background-color: rgba(0, 0, 0, 0.5);
+        .hytaleDesignBlackBackground{
+            position: absolute;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+        }
         .hytaleNavContainer{
             max-width: 2400px;
             z-index: 10;
