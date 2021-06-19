@@ -6,8 +6,7 @@ import { useState } from 'react';
 import "./styleSheets/designPage.scss"
 //components
 import HytaleDesignPreview from "./DesignPageComponents/HytaleDesignPreview"
-
-
+import BeautyDesignPreview from "./DesignPageComponents/BeautyDesignPreview"
 //prevents triggering changeDesignPreview unless false
 var viewIndexCockblock = false
 var changeDesignTimer: any
@@ -149,7 +148,6 @@ const DesignPage = (props: any) => {
             <div className="designsPreviewGridContainer">
                 <AnimatePresence>
                     <Switch location={location} key={getParams.viewIndex}>
-
                         <Route strict path="/design/1">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
                                 <HytaleDesignPreview designQuery={props.designQuery}/>
@@ -158,7 +156,7 @@ const DesignPage = (props: any) => {
 
                         <Route strict path="/design/2">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
-                                
+                                <BeautyDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
                     </Switch>
