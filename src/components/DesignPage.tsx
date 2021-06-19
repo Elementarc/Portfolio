@@ -1,37 +1,18 @@
 import React, {useEffect} from 'react';
 import {motion, AnimatePresence} from "framer-motion"
 import {ReactComponent as DesignSectionIcon} from "../assets/svgs/designSectionIcon.svg"
+import { useHistory, useParams , Route, Switch, useLocation} from 'react-router-dom';
+import { useState } from 'react';
 import "./styleSheets/designPage.scss"
 //components
 import HytaleDesignPreview from "./DesignPageComponents/HytaleDesignPreview"
-import { useHistory, useParams , Route, Switch, useLocation} from 'react-router-dom';
-import { useState } from 'react';
+
 
 //prevents triggering changeDesignPreview unless false
 var viewIndexCockblock = false
 var changeDesignTimer: any
 
 const DesignPage = (props: any) => {
-    //Animation between routes
-    const [Animation, setAnimation] = useState({
-        init: {
-            y: 0,
-            scale: 0,
-            opacity: 0,
-        },
-        in: {
-            y: 0,
-            scale: 1,
-            transition: {duration: 0},
-            opacity: 1,
-        },
-        out: {
-            y: 0,
-            scale: 0,
-            transition: {duration: 0},
-            opacity: 0,
-        }
-    });
     const history = useHistory()
     const getParams: any = useParams()
     const location = useLocation()
@@ -51,54 +32,61 @@ const DesignPage = (props: any) => {
         })
     },[])
 
-
+    //Changing state whenever use Switches between designPreview through function: previewSwitchAnimations(direction: string)
+    const [Animation, setAnimation] = useState({
+        in: {
+            y: [0, 0, 0],
+            scale: [1, 1, 1],
+            transition: {duration: 1, delay: 0},
+            opacity: 1,
+        },
+        out: {
+            y: [0, 0, 0],
+            scale: [1, 1, 1],
+            transition: {duration: 1},
+            opacity: 1,
+        }
+    });
     //Wheel function that changes designPreview
     useEffect(() =>{
         function previewSwitchAnimations(direction: string){
+            if(window.innerWidth > 900){
 
-            if(direction === "upwards"){
-                setAnimation({
-                    init: {
-                        y: -1200,
-                        scale: 0.2,
-                        opacity: 0,
-                    },
-                    in: {
-                        y: 0,
-                        scale: 1,
-                        transition: {duration: 1},
-                        opacity: 1,
-                    },
-                    out: {
-                        y: 800,
-                        scale: 0.2,
-                        transition: {duration: 1},
-                        opacity: 0,
-                    }
-                })
+                if(direction === "upwards"){
+                    setAnimation({
+                        in: {
+                            y: [-1350, 0, 0],
+                            scale: [0.8, 0.8, 1],
+                            transition: {duration: 0.8, delay: 0.5},
+                            opacity: 1,
+                        },
+                        out: {
+                            y: [0, 0, 1350],
+                            scale: [1, 0.8, 0.8],
+                            transition: {duration: 1},
+                            opacity: 1,
+                        }
+                    })
+                }
+                else{
+                    setAnimation({
+                        in: {
+                            y: [1350, 0, 0],
+                            scale: [0.8, 0.8, 1],
+                            transition: {duration: 1, delay: 0.5},
+                            opacity: 1,
+                        },
+                        out: {
+                            y: [0, 0, -1350],
+                            scale: [1, 0.8, 0.8],
+                            transition: {duration: 1},
+                            opacity: 1,
+                        }
+                    })
+                    
+                }
             }
-            else{
-                setAnimation({
-                    init: {
-                        y: 800,
-                        scale: 0.2,
-                        opacity: 0,
-                    },
-                    in: {
-                        y: 0,
-                        scale: 1,
-                        transition: {duration: 1},
-                        opacity: 1,
-                    },
-                    out: {
-                        y: -1200,
-                        scale: 0.2,
-                        transition: {duration: 1},
-                        opacity: 0,
-                    }
-                })
-                
-            }
+            
         }
         function changeDesignPreview(e: any){
             //wheelUp
@@ -111,7 +99,7 @@ const DesignPage = (props: any) => {
                             viewIndexCockblock = true
                             changeDesignTimer = setTimeout(() => {
                                 viewIndexCockblock = false
-                            }, 1000);
+                            }, 1800);
                         }
                     }
                 }
@@ -124,7 +112,7 @@ const DesignPage = (props: any) => {
                             viewIndexCockblock = true
                             changeDesignTimer = setTimeout(() => {
                                 viewIndexCockblock = false
-                            }, 1000);
+                            }, 1800);
                         }
                     }
                 }
@@ -154,10 +142,6 @@ const DesignPage = (props: any) => {
         })
     },[props, history, getParams.viewIndex])
 
-    
-
-
-
     return (
         <motion.div animate={{opacity: 1, transition: {delay: 0.1, duration: 0.5}}} initial={{opacity: 0}} exit={{opacity: 0, transition: {duration: 0.5}}} id="DesignPageContainer" className="DesignPageContainer">
             <div id="transitionBackground" className="transitionBackground"></div>
@@ -168,7 +152,7 @@ const DesignPage = (props: any) => {
 
                         <Route strict path="/design/1">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
-                                <HytaleDesignPreview designQuery={props.designQuery} getParams={getParams}/>
+                                <HytaleDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
 

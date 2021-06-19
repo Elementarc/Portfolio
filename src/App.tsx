@@ -29,17 +29,7 @@ function App() {
   //Using url string query to set/get viewState for designPages to toggle design based on value. viewState = false /close design viewState = true /openDesign
   var designQuery =  new URLSearchParams(window.location.search)
 
-  //scrolls to top whenever URL changes for better ux
-  useEffect(() => {
-    function scrollToTop() {
-      timer = setTimeout(() => {
-        document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
-      }, 500);
-    }
-    scrollToTop()
-    
-  }, [location.pathname]);
+
   
   //Function is used to change the Switch components key to always rerender if pathname does not include the Pages name for proper exit / in animations
   function keyTest(): string{

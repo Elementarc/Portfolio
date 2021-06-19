@@ -10,10 +10,8 @@
     grid-row: 1;
     height: auto;
     overflow: hidden;
-    
     //used to stack designPreviews On top of eachother
     .designsPreviewGridContainer{
-        
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 1fr;

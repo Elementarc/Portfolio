@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
-.hytaleDesignContainer{
+.DesignPreviewContainer{
     position: relative;
     grid-column: 1;
     grid-row: 1;
@@ -14,6 +14,8 @@
     min-height: 950px;
     max-height: 1350px;
     width: 100%;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
+
     .previewContentContainer{
         display: flex;
         flex-direction: column;
@@ -21,7 +23,7 @@
         width: 100%;
         height: 100%;
 
-        .hytaleHeader{
+        .headerContent{
             position: relative;
             padding-top: unset;
             display: block;
@@ -54,7 +56,7 @@
             }
            
         }
-        .previewContainer{
+        .previewImagesContainer{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -105,7 +107,7 @@
                 transform: scale(1.1);
             }
         }
-        .hytaleContent{
+        .designPreviewContent{
             display: flex;
             justify-content: center;
             color: white;
@@ -119,8 +121,7 @@
                 min-width: 400px;
             }
         }
-        
-        .designPageButtonContainer{
+        .designPreviewButtonContainer{
             pointer-events: none;
             margin-top: 3rem;
             z-index: 0;
@@ -150,8 +151,18 @@
                 cursor: pointer;
             }
         }
-    
-        .designBackground{
+
+        .designPreviewDarkerBackground{
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            height: 100%;
+            transform: scale(1.1);
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+        }
+        .designPreviewBackgroundImage{
             position: absolute;
             pointer-events: none;
             z-index: -2;
@@ -162,25 +173,16 @@
             object-fit: cover;
             
         }
-        .darkerBackground{
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            height: 100%;
-            transform: scale(1.1);
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            pointer-events: none;
-        }
+        
     
-        .designBottomIllustrationContainer{
+        .designPreviewBottomIllustrationContainer{
             position: absolute;
             pointer-events: none;
             z-index: 0;
             bottom: -1.5rem;
             width: 100%;
             height: 250px;
-            .designBottomIllustration{
+            .designPreviewBottomIllustration{
                 position: absolute;
                 bottom: 1rem;
                 height: 100%;
@@ -192,7 +194,7 @@
                 background-repeat: no-repeat;  
             }
         }
-        .bottomGradient{
+        .designPreviewBottomGradient{
             position: absolute;
             width: 100%;
             height: 50px;
@@ -204,8 +206,8 @@
 }
 
 @media (max-width: 1300px){
-    .hytaleDesignContainer{
-        .hytaleHeader{
+    .DesignPreviewContainer{
+        .headerContent{
             div{
                 display: none;
             }
@@ -213,7 +215,7 @@
     }
 }
 @media (max-width: 900px){
-    .hytaleDesignContainer{
+    .DesignPreviewContainer{
         display: block;
         flex-direction: unset;
         justify-content: unset;
@@ -221,8 +223,9 @@
         height: 100%;
         min-height: 100vh;
         .previewContentContainer{
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0);
             display: unset ;
-            .hytaleHeader{
+            .headerContent{
                 z-index: 2;
                 padding-top: 7rem;
                 div{
@@ -239,7 +242,7 @@
                 }
                
             }
-            .previewContainer{
+            .previewImagesContainer{
                 margin-top: 2rem;
                 height: 200px;
                 overflow: hidden;
@@ -255,7 +258,7 @@
                 }
         
             }
-            .hytaleContent{
+            .designPreviewContent{
                 margin-top: 2rem;
                 padding: 0;
                 width: 100%;
@@ -269,7 +272,7 @@
                     
                 }
             }
-            .designPageButtonContainer{
+            .designPreviewButtonContainer{
                 margin: 0;
                 padding-top:3rem;
                 padding-bottom: 8rem;
@@ -283,7 +286,7 @@
                     outline: none;
                 }
             }
-            .designBackground{
+            .designPreviewBackgroundImage{
                 position: absolute;
                 left: -85vw;
                 height: 950px;
@@ -293,7 +296,7 @@
                 transform: scale(1);
             }
     
-            .designBottomIllustrationContainer{
+            .designPreviewBottomIllustrationContainer{
                 display: none;
                 position: fixed;
                 width: 100%;
@@ -302,7 +305,7 @@
                 pointer-events: none;
                 
             }
-            .bottomGradient{
+            .designPreviewBottomGradient{
                 position: fixed;
             }
         }

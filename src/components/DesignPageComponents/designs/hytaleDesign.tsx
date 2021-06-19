@@ -24,27 +24,25 @@ function hytaleHomeIconHover(state: boolean){
 const hytaleDesign = (props: any) => {
 
     return (
-        <motion.div initial={{opacity: 0, scale: 3}} animate={{opacity: 1, scale: 1, transition: {duration: 0.2, delay: 0.2}}} exit={{opacity: 0, transition: {duration: 0.2}}} className="hytale" id="hytale">
-            <div className="closeDesignContainer">
-                <div className="sectionBackground"></div>
-            </div>
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} exit={{opacity: 0}} className="hytaleDesignBlackBackground"></motion.div>
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="background" id="hytaleBackground">
+        <motion.div initial={{opacity: 0, scale: 3}} animate={{opacity: 1, scale: 1, transition: {duration: 0.2, delay: 0.2}}} exit={{opacity: 0, transition: {duration: 0.2}}} className="hytaleDesignContainer" id="hytale">
+
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="designBackgroundImage">
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="backgroundBlur"></motion.div>
             </motion.div>
 
-            <div className="hytaleContent">
+            <div className="designContent">
                 <motion.h1 initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}}>COMING SOON</motion.h1>
                 <motion.h2 initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}}>A NEW DAWN HAS ARRIVED</motion.h2>
-                <motion.button initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.9}}} className="hytaleSignUp">SIGN-UP</motion.button>
+                <motion.button initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.9}}} className="SignUpBtn">SIGN-UP</motion.button>
 
 
                 <motion.div initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 1.3}}} className="informationContainer">
-                    <div className="hytaleInfos">
+                    <div className="infoContent">
                         <h2>NEW ADVENTURE</h2>
                         <p>The master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how. But I must explain to you how all.</p>
                         <h3>LEARN MORE</h3>
                     </div>
+
                     <div className="youtubeWindowContainer">
                         <div className="youtubeWindow">
                             <div className="innerBorder"/>
@@ -54,7 +52,7 @@ const hytaleDesign = (props: any) => {
                 </motion.div>
             </div>
             
-            <div className="sectionBar"></div>
+            <div className="greyBar"></div>
 
             <div className="panelsContainer">
 
@@ -108,7 +106,9 @@ const hytaleDesign = (props: any) => {
             
             <div className="browseMoreContainer">
                 <button>BROWSE MORE</button>
+                <div className="blackBar"></div>
             </div>
+            
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.7, delay: 1}}} className="hytaleNavContainer">
                 <ul>
                     <div className="homeIcon" onMouseEnter={() =>hytaleHomeIconHover(true)} onMouseLeave={() =>hytaleHomeIconHover(false)}>
