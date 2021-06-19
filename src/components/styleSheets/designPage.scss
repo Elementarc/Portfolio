@@ -34,40 +34,54 @@
         width: 100px;
         height: 100%;
         max-height: 1350px;
+
         .sectionBackground{
             position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             z-index: -1;
-            height: 300px;
+            height: 260px;
             width: 60px;
             background-repeat: no-repeat;
             background-position: center;
+            background-size: cover;
             opacity: 0.5;
             background-image: url("../../assets/svgs/designSectionBackground.svg");
-        }
-        .designSectionIcon{
-            height: 20px;
-            width: 20px;
-            .innerIcon{
-                fill: rgba(255, 255, 255, 0.8);
-            }
-            .outerIcon{
-                stroke: rgba(255, 255, 255, 0.8);
-            }
-        }
-        span{
-            margin: 0.5rem 0rem;
-            width: 1px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.459);
-        }
-        .designSectionIconTarget{
-            height: 30px;
-            width: 30px;
-            .innerIcon{
-                fill: #FFDB7A;
-            }
-            .outerIcon{
-                stroke: #FFDB7A;
+            overflow: hidden;
+            .iconContainer{
+                display: flex;
+                flex-direction: column;
+                .designSectionIcon{
+                    height: 20px;
+                    width: 20px;
+                    .innerIcon{
+                        fill: rgba(255, 255, 255, 0.8);
+                    }
+                    .outerIcon{
+                        stroke: rgba(255, 255, 255, 0.8);
+                    }
+                    transition: 0.2s ease-in-out;
+                }
+                span{
+                    align-self: center;
+                    margin: 0.5rem 0rem;
+                    width: 1px;
+                    height: 10px;
+                    background-color: rgba(255, 255, 255, 0.459);
+                }
+                .designSectionIconTarget{
+                    height: 30px;
+                    width: 30px;
+                    transition: 0.2s ease-in-out;
+                    .innerIcon{
+                        fill: #FFDB7A;
+                    }
+                    .outerIcon{
+                        stroke: #FFDB7A;
+                    }
+                }
             }
         }
     }

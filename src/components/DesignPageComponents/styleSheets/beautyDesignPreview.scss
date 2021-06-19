@@ -169,25 +169,16 @@
         }
         
     
-        .designPreviewBottomIllustrationContainer{
-            display: none;
+        .designPreviewBackgroundIllustration{
             position: absolute;
-            pointer-events: none;
-            z-index: 0;
-            bottom: -1.5rem;
+            z-index: -1;
+            opacity: 0.6;
+            bottom: -0.5rem;
             width: 100%;
-            height: 250px;
-            .designPreviewBottomIllustration{
-                position: absolute;
-                bottom: 1rem;
-                height: 100%;
-                width: 100%;
-                transform: scale(1.1) translateX(1px);
-                background-image: url("../../../assets/illustrations/DesignBottomDeco.png");
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;  
-            }
+            height: 300px;
+            background-image: url("../../../assets/illustrations/PinkBackground.png");
+            background-position: center;
+            background-size: cover;
         }
         .designPreviewBottomGradient{
             position: absolute;
@@ -200,8 +191,21 @@
     }
 }
 
+
 @media (max-width: 1300px){
-    .DesignPreviewContainer{
+    .DesignPreview2Container{
+        .previewContentContainer{
+            .designPreviewBackgroundCornerIllustration{
+                position: absolute;
+                z-index: -1;
+                top: -1rem;
+                right: -18rem;
+                transform: rotate(45deg);
+                width: 600px;
+                height: 300px;
+            }
+        }
+
         .headerContent{
             div{
                 display: none;
@@ -210,7 +214,7 @@
     }
 }
 @media (max-width: 900px){
-    .DesignPreviewContainer{
+    .DesignPreview2Container{
         display: block;
         flex-direction: unset;
         justify-content: unset;
@@ -273,10 +277,9 @@
                 padding-bottom: 8rem;
                 .designButton{
                     padding: 0.85rem 2.6rem;
-                    color: rgb(0, 0, 0);
+                    color: white;
                     font-size: 14px;
-                    background: rgb(255,213,99);
-                    background: linear-gradient(180deg, rgb(253, 216, 114) 0%, rgb(197, 150, 20) 100%);
+                    background: #FF008F;
                     letter-spacing: 1px;
                     outline: none;
                 }
@@ -291,14 +294,18 @@
                 transform: scale(1);
             }
     
-            .designPreviewBottomIllustrationContainer{
-                display: none;
-                position: fixed;
+            .designPreviewBackgroundIllustration{
+                position: absolute;
+                z-index: -1;
+                bottom: -3rem;
                 width: 100%;
-                height: 200px;
-                bottom: 0;
-                pointer-events: none;
-                
+                height: 300px;
+                background-image: url("../../../assets/illustrations/PinkBackground.png");
+                background-position: center;
+                background-size: cover;
+            }
+            .designPreviewBackgroundCornerIllustration{
+                display: none;
             }
             .designPreviewBottomGradient{
                 position: fixed;

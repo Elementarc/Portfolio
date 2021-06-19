@@ -11,10 +11,16 @@ import BeautyDesignPreview from "./DesignPageComponents/BeautyDesignPreview"
 var viewIndexCockblock = false
 var changeDesignTimer: any
 
+
+
+//Array of jsx secitonIcons
+var sectionManagerIcons: any[] = []
 const DesignPage = (props: any) => {
     const history = useHistory()
     const getParams: any = useParams()
     const location = useLocation()
+    
+    
     //Sets viewIndex and viewState on load of designPage to then render right designPreview Component
     useEffect(() =>{
         if(props.designQuery.get("viewState") === null){
@@ -105,7 +111,7 @@ const DesignPage = (props: any) => {
                 //wheelDown
                 else{
                     if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
-                        if(parseInt(getParams.viewIndex, 10) < 5){
+                        if(parseInt(getParams.viewIndex, 10) < 2){
                             previewSwitchAnimations("backwards")
                             history.replace(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
                             viewIndexCockblock = true
@@ -141,6 +147,38 @@ const DesignPage = (props: any) => {
         })
     },[props, history, getParams.viewIndex])
 
+    
+    
+    //Creating sectionIcons for each preview we have
+    function createSectionIcons(){
+        sectionManagerIcons = []
+        //Currently available previews
+        var previews = 2
+
+        for(var i = 0; i < previews; i++){
+            sectionManagerIcons.push(
+                <div key={`iconContainer${i}`} className="iconContainer">
+                    <DesignSectionIcon key={i} className="designSectionIcon" id={`designSectionIcon${i}`} ></DesignSectionIcon>
+                    {i < previews - 1 &&
+                        <span key={`span${i}`} />
+                    }
+                </div>
+            )
+        }
+        
+    }
+    createSectionIcons()
+
+    //Setting right sectionIcon Target on sectionManager
+    useEffect(() => {
+        var getTargetIcon = document.getElementById(`designSectionIcon${parseInt(getParams.viewIndex, 10) - 1}`) as HTMLDivElement
+        for(var i = 0; i < sectionManagerIcons.length; i++){
+            var getAllIcons = document.getElementById(`designSectionIcon${i}`) as HTMLDivElement
+            getAllIcons.classList.remove("designSectionIconTarget")
+        }
+        getTargetIcon.classList.add("designSectionIconTarget")
+        
+    }, [getParams.viewIndex]);
     return (
         <motion.div animate={{opacity: 1, transition: {delay: 0.1, duration: 0.5}}} initial={{opacity: 0}} exit={{opacity: 0, transition: {duration: 0.5}}} id="DesignPageContainer" className="DesignPageContainer">
             <div id="transitionBackground" className="transitionBackground"></div>
@@ -164,12 +202,9 @@ const DesignPage = (props: any) => {
             </div>
 
             <motion.div animate={{opacity: 1, transition: {delay: 1}}} initial={{opacity: 0}} className="designManagerContainer" id="designManagerContainer">
-                <div className="sectionBackground"></div>
-                <DesignSectionIcon className="designSectionIcon"/>
-                <span />
-                <DesignSectionIcon className="designSectionIconTarget"/>
-                <span />
-                <DesignSectionIcon className="designSectionIcon"/>
+                <div className="sectionBackground">
+                    {sectionManagerIcons}
+                </div>
             </motion.div>
 
         </motion.div>

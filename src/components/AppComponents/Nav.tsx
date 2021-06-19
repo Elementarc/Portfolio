@@ -190,10 +190,20 @@ const Nav = (props: any) => {
         
     }, [NavState]);
     
+    //Changes menuIcon color when on a specific page for better ux
+    useEffect(() => {
+        var getIcon = document.getElementById("appNavMenu") as HTMLDivElement
+        if(location.pathname === "/design/2"){
+            getIcon.style.fill = "#000000"
+        }
+        else {
+            getIcon.style.fill = "#ffffff"
+        }
+    }, [location.pathname]);
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
             <div onMouseEnter={() => navIconHover(true)} onMouseLeave={() => navIconHover(false)} onClick={() => setNavState(!NavState)} className="navOpenIconContainer">
-                <MenuIcon/>
+                <MenuIcon id="appNavMenu"/>
             </div>
 
             <motion.div onClick={() => setNavState(!NavState)} animate={NavState ? "enter" : "exit"} variants={navBlurAnimation} id="navigationBlur" className="navigationBlur"></motion.div>

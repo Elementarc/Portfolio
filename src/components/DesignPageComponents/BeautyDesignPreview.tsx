@@ -3,9 +3,6 @@ import {motion} from "framer-motion"
 import "./styleSheets/beautyDesignPreview.scss"
 import { useHistory } from 'react-router';
 import { useCallback } from 'react';
-import image1 from "../../assets/images/pinkDress.jpg"
-import image2 from "../../assets/images/beautyProduct.jpg"
-import { reject } from 'q';
 
 //Using this state number to cycle through 3 animation phases
 //AnimationProps for PreviewImages
@@ -93,7 +90,6 @@ var previewAnimationTimer: any
 
 
 const BeautyDesignPreview = (props: any) => {
-    
     const history = useHistory()
     const [State, setState] = useState(false);
 
@@ -647,8 +643,6 @@ const BeautyDesignPreview = (props: any) => {
             clearTimeout(transitionTimer)
         };
     }, []);
-    
-    
         
     //Return JSX Desktop
     return (
@@ -689,6 +683,7 @@ const BeautyDesignPreview = (props: any) => {
                 <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designPreviewBottomIllustrationContainer'>
                     <div className="designPreviewBottomIllustration" id="designPreviewBottomIllustration"></div>
                 </motion.div>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 0.6, transition: {delay: 1}}} className="designPreviewBackgroundIllustration"/>
                 <div className="designPreviewBottomGradient"></div>
             </div>
             
