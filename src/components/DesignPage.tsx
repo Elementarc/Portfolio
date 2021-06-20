@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
 import {motion, AnimatePresence} from "framer-motion"
-import {ReactComponent as DesignSectionIcon} from "../assets/svgs/designSectionIcon.svg"
 import { useHistory, useParams , Route, Switch, useLocation} from 'react-router-dom';
 import { useState } from 'react';
 import "./styleSheets/designPage.scss"
+
+import {ReactComponent as DesignSectionIcon} from "../assets/svgs/designSectionIcon.svg"
+import {ReactComponent as SectionManagerIcon} from "../assets/svgs/sectionManagerDirectionBtn.svg"
 //components
 import HytaleDesignPreview from "./DesignPageComponents/HytaleDesignPreview"
 import BeautyDesignPreview from "./DesignPageComponents/BeautyDesignPreview"
@@ -54,8 +56,10 @@ const DesignPage = (props: any) => {
             opacity: 1,
         }
     });
+
     //Wheel function that changes designPreview
     useEffect(() =>{
+        //function that animates switching between routes
         function previewSwitchAnimations(direction: string){
             if(window.innerWidth > 900){
 
@@ -95,7 +99,39 @@ const DesignPage = (props: any) => {
             }
             
         }
-        function changeDesignPreview(e: any){
+        //Changes previewDesign when btnUp pressed
+        function changeDesignPreviewBtnUp(){
+            if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
+                if(parseInt(getParams.viewIndex, 10) > 1){
+                    previewSwitchAnimations("upwards")
+                    history.replace(`/design/${parseInt(getParams.viewIndex, 10) -1}`)
+                    viewIndexCockblock = true
+                    changeDesignTimer = setTimeout(() => {
+                        viewIndexCockblock = false
+                    }, 1800);
+                }
+            }
+        }
+        //Changes previewDesign when btndown pressed
+        function changeDesignPreviewBtnDown(){
+            if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
+                if(parseInt(getParams.viewIndex, 10) < previews){
+                    previewSwitchAnimations("backwards")
+                    history.replace(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
+                    viewIndexCockblock = true
+                    changeDesignTimer = setTimeout(() => {
+                        viewIndexCockblock = false
+                    }, 1800);
+                }
+            }
+        }
+        var getUpBtn = document.getElementById("sectionBtnUp") as HTMLDivElement
+        var getDownBtn = document.getElementById("sectionBtnDown") as HTMLDivElement
+        getUpBtn.addEventListener("mousedown", changeDesignPreviewBtnUp)
+        getDownBtn.addEventListener("mousedown", changeDesignPreviewBtnDown)
+
+        //Changes previewDesign when wheel is used pressed
+        function changeDesignPreviewWheel(e: any){
             //wheelUp
             if(window.innerWidth > 1300 && window.innerHeight >= 950){
                 if(e.deltaY < 0){
@@ -113,7 +149,7 @@ const DesignPage = (props: any) => {
                 //wheelDown
                 else{
                     if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
-                        if(parseInt(getParams.viewIndex, 10) < 2){
+                        if(parseInt(getParams.viewIndex, 10) < previews){
                             previewSwitchAnimations("backwards")
                             history.replace(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
                             viewIndexCockblock = true
@@ -128,24 +164,27 @@ const DesignPage = (props: any) => {
         //Using keydownListener function to disable wheel event to properly zoom in and out without changing home section/urls
         function keydownListener(e: any) {
             if(e.which === 17){
-                window.removeEventListener("wheel", changeDesignPreview)
+                window.removeEventListener("wheel", changeDesignPreviewWheel)
             }
         }
         //Using keyupListener function to enable wheel event back to properly switch between sections section/urls
         function keyupListener(e: any) {
             if(e.which === 17){
-                window.addEventListener("wheel", changeDesignPreview)
+                window.addEventListener("wheel", changeDesignPreviewWheel)
             }
         }
 
         window.addEventListener("keydown", keydownListener)
         window.addEventListener("keyup", keyupListener)
 
-        window.addEventListener("wheel", changeDesignPreview)
+        window.addEventListener("wheel", changeDesignPreviewWheel)
         return(() =>{
-            window.removeEventListener("wheel", changeDesignPreview)
+            window.removeEventListener("wheel", changeDesignPreviewWheel)
             window.removeEventListener("keydown", keydownListener)
             window.removeEventListener("keyup", keyupListener)
+
+            getUpBtn.removeEventListener("mousedown", changeDesignPreviewBtnUp)
+            getDownBtn.removeEventListener("mousedown", changeDesignPreviewBtnDown)
         })
     },[props, history, getParams.viewIndex])
 
@@ -173,14 +212,19 @@ const DesignPage = (props: any) => {
     //Setting right sectionIcon Target on sectionManager
     useEffect(() => {
         var getParam = parseInt(getParams.viewIndex, 10)
-        //removing all styles from icons to then give the right target the right styles
-        for(var i = 0; i < sectionManagerIcons.length; i++){
-            var getAllIcons = document.getElementById(`designSectionIcon${i}`) as HTMLDivElement
-            getAllIcons.classList.remove("designSectionIconTarget")
-        }
-        var getTargetIcon = document.getElementById(`designSectionIcon${getParam - 1}`) as HTMLDivElement
+        if(getParam <= previews && getParam > 0){
+            //removing all styles from icons to then give the right target the right styles
+            for(var i = 0; i < sectionManagerIcons.length; i++){
+                var getAllIcons = document.getElementById(`designSectionIcon${i}`) as HTMLDivElement
+                getAllIcons.classList.remove("designSectionIconTarget")
+            }
+            var getTargetIcon = document.getElementById(`designSectionIcon${getParam - 1}`) as HTMLDivElement
 
-        getTargetIcon.classList.add("designSectionIconTarget")
+            getTargetIcon.classList.add("designSectionIconTarget")
+        }
+        else{
+            //console.log("We do not have that preview")
+        }
         
     }, [getParams.viewIndex]);
     return (
@@ -207,7 +251,17 @@ const DesignPage = (props: any) => {
 
             <motion.div animate={{opacity: 1, transition: {delay: 1}}} initial={{opacity: 0}} className="designManagerContainer" id="designManagerContainer">
                 <div className="sectionBackground">
-                    {sectionManagerIcons}
+                    <div className="sectionBtnUpContainer">
+                        <SectionManagerIcon className="sectionBtnUp" id="sectionBtnUp"/>
+                    </div>
+
+                    <div className="sectionManagerContainer">
+                        {sectionManagerIcons}
+                    </div>
+
+                    <div className="sectionBtnDownContainer">
+                        <SectionManagerIcon className="sectionBtnDown" id="sectionBtnDown"/>
+                    </div>
                 </div>
             </motion.div>
 
