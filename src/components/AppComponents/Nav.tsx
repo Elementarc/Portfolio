@@ -194,7 +194,9 @@ const Nav = (props: any) => {
     useEffect(() => {
         var getIcon = document.getElementById("appNavMenu") as HTMLDivElement
         if(location.pathname === "/design/2"){
-            getIcon.style.fill = "#000000"
+            if(window.innerWidth > 900){
+                getIcon.style.fill = "#000000"
+            }
         }
         else {
             getIcon.style.fill = "#ffffff"

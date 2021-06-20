@@ -42,12 +42,12 @@
             justify-content: center;
             align-items: center;
             z-index: -1;
-            height: 260px;
+            height: 262px;
             width: 60px;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            opacity: 0.5;
+            opacity: 1;
             background-image: url("../../assets/svgs/designSectionBackground.svg");
             overflow: hidden;
             .iconContainer{
@@ -76,10 +76,10 @@
                     width: 30px;
                     transition: 0.2s ease-in-out;
                     .innerIcon{
-                        fill: #FFDB7A;
+                        fill: #56FFDC;
                     }
                     .outerIcon{
-                        stroke: #FFDB7A;
+                        stroke: #56FFDC;
                     }
                 }
             }
@@ -126,7 +126,7 @@
             .sectionBackground{
                 position: absolute;
                 z-index: -1;
-                height: 300px;
+                height: 270px;
                 width: 60px;
                 transform: rotate(90deg);
                 background-repeat: no-repeat;

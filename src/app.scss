@@ -14,7 +14,8 @@ html{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     max-width: 2400px;
-    
+    background: rgb(0, 23, 46);
+        background: linear-gradient(180deg, rgb(2, 6, 12) -100%, rgb(0, 23, 46) 100%, );
     margin: 0 auto;
 }
 @media (max-width: 900px){

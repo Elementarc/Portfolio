@@ -15,6 +15,8 @@ var changeDesignTimer: any
 
 //Array of jsx secitonIcons
 var sectionManagerIcons: any[] = []
+//Currently available previews
+var previews = 2
 const DesignPage = (props: any) => {
     const history = useHistory()
     const getParams: any = useParams()
@@ -152,8 +154,7 @@ const DesignPage = (props: any) => {
     //Creating sectionIcons for each preview we have
     function createSectionIcons(){
         sectionManagerIcons = []
-        //Currently available previews
-        var previews = 2
+        
 
         for(var i = 0; i < previews; i++){
             sectionManagerIcons.push(
@@ -171,11 +172,14 @@ const DesignPage = (props: any) => {
 
     //Setting right sectionIcon Target on sectionManager
     useEffect(() => {
-        var getTargetIcon = document.getElementById(`designSectionIcon${parseInt(getParams.viewIndex, 10) - 1}`) as HTMLDivElement
+        var getParam = parseInt(getParams.viewIndex, 10)
+        //removing all styles from icons to then give the right target the right styles
         for(var i = 0; i < sectionManagerIcons.length; i++){
             var getAllIcons = document.getElementById(`designSectionIcon${i}`) as HTMLDivElement
             getAllIcons.classList.remove("designSectionIconTarget")
         }
+        var getTargetIcon = document.getElementById(`designSectionIcon${getParam - 1}`) as HTMLDivElement
+
         getTargetIcon.classList.add("designSectionIconTarget")
         
     }, [getParams.viewIndex]);

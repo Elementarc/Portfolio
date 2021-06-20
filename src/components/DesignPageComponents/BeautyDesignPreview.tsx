@@ -644,6 +644,19 @@ const BeautyDesignPreview = (props: any) => {
         };
     }, []);
         
+    function triggerComingSoon(toggleState: boolean){
+        var getComingSoonContainer = document.getElementById("comingSoonContainer") as HTMLDivElement
+
+        if(toggleState === true){
+            getComingSoonContainer.style.opacity = "1"
+            getComingSoonContainer.style.pointerEvents ="visible"
+        }
+        else{
+            getComingSoonContainer.style.opacity = "0"
+            getComingSoonContainer.style.pointerEvents ="none"
+        }
+    }
+
     //Return JSX Desktop
     return (
         <motion.div animate={{opacity: 1}} initial={{opacity: 0}} exit={{opacity: 0, transition: {delay: 0.5}}} id="DesignPreview2Container" className="DesignPreview2Container" >
@@ -674,12 +687,20 @@ const BeautyDesignPreview = (props: any) => {
                     <p>A world fulfilled with desires and colors needs atleast a design nothing less than that.</p>
                 </motion.div>
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPreviewButtonContainer">
-                    <button className="designButton" id="designButton">VIEW DESIGN</button>
+                    <button onClick={() => triggerComingSoon(true)} className="designButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
                 <motion.img initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
                 
+                <div className="comingSoonContainer" id="comingSoonContainer">
+                    <div className="comingSoonBox">
+                        <h1>COMING SOON</h1>
+                        <p>This design will be available soon! </p>
+                        <button onClick={() => triggerComingSoon(false)}>OK</button>
+                    </div>
+                </div>
+
                 <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designPreviewBottomIllustrationContainer'>
                     <div className="designPreviewBottomIllustration" id="designPreviewBottomIllustration"></div>
                 </motion.div>
