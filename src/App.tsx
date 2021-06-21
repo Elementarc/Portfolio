@@ -77,9 +77,7 @@ function App() {
             <Redirect to="/home"/>
           </Route>
 
-          <Route exact path = "/design">
-            <Redirect to="/design/1"/>
-          </Route>
+          
 
           <Route exact path = "/contact">
             <Redirect to="/home/connect"/>

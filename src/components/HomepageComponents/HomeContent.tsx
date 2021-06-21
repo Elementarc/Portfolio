@@ -1,7 +1,7 @@
 //components
 import React from 'react';
 import {motion, useMotionValue} from "framer-motion"
-import {Link} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 
 import {ReactComponent as ContactBox} from "../../assets/svgs/contactBox.svg"
 import owl from "../../assets/images/Owl.jpg"
@@ -57,6 +57,7 @@ var mobileAnimationProps = {
 
 const HomeContent = (props: any) => {
     window.onload = () => {window.scrollTo(0, 1)}
+    const history = useHistory()
     const path = useLocation().pathname.toLowerCase()
     //Tracking X value for mobile drag animation
     var x = useMotionValue(0)
@@ -169,6 +170,37 @@ const HomeContent = (props: any) => {
             </motion.div>
         );
     }
+    else if(path === "/home/news"){
+        return (
+            <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeNews">
+                <motion.div className="content">
+                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
+                        <h1>{"21 June, 2021"}</h1>
+                        {window.innerWidth > 900 &&
+                            <br />
+                        }
+                        <h2>NEW HYTALE DESIGN</h2>
+                        <motion.span initial={{opacity: 0}} animate={{opacity: 1,transition: {duration: 1, delay:0.8}}}>
+                            <motion.span initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1}}} className="underlineIcon"></motion.span>
+                        </motion.span>
+                    </motion.div>
+                    <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
+                        <p>We made a new fan-design for an up coming game called Hytale. You might like it.</p>
+                    </motion.div>
+                    <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
+                        <button onMouseEnter={hoverButton} onClick={() => {history.push("/design/1")}} onMouseLeave={hoverButton} id="getStartedButton"> 
+                            <div>CHECK IT OUT</div>
+                            <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                        </button>
+                    </motion.div>
+                </motion.div>
+
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.6,delay: 2}}} exit={{y: 150, transition: {duration: 1}}} className="backgroundImageContainer">
+                    <div className="backgroundImage"></div>
+                </motion.div>
+            </motion.div>
+        );
+    }
     else if(path === "/home/connect"){
         return(
             <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeConnect">
@@ -179,7 +211,7 @@ const HomeContent = (props: any) => {
                         <h2>THE STEP TO GET STARTED</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>I'm a 22 years old Web-developer {"&"} designer who likes to create astonishing Websites! Got interested? Lets have a chat.</p>
+                        <p>Let's be honest, you probably need a website that will work. I'm gonna help you with that. Ready to start something big together?</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         
@@ -190,7 +222,7 @@ const HomeContent = (props: any) => {
                         
                     </motion.div>
 
-                    <motion.p animate={{opacity: 1, transition: {delay: 1.8}}} initial={{opacity: 0}} className="or">OR</motion.p>
+                    <motion.p animate={{opacity: 1, transition: {duration: 0.5, delay: 1.8}}} initial={{opacity: 0}} className="or">OR</motion.p>
 
                     <div className="contactContainer">
 
@@ -215,7 +247,6 @@ const HomeContent = (props: any) => {
                             </motion.div>
                         </a>
                     </div>
-                    <motion.div animate={{width: 4000, transition: {duration: 1.5, delay: 1}}} initial={{width: 0}} exit={{width: 0, opacity: 0, transition: {duration: 0.3}}} className="degRect"></motion.div>
                 </motion.div>
             </motion.div>
         )

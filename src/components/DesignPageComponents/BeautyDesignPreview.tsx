@@ -84,6 +84,7 @@ var preview3Styles = {
         transition: {duration: 0.5, delay: 0, type: 'spring'}
     },
 }
+
 var previewState = 1
 var transitionTimer: any
 var previewAnimationTimer: any
@@ -684,7 +685,7 @@ const BeautyDesignPreview = (props: any) => {
                 </div>
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPreviewContent">
-                    <p>A world fulfilled with desires and colors needs atleast a design nothing less than that.</p>
+                    <p>Colorful things will always get attention. The first impression always starts with your style!</p>
                 </motion.div>
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPreviewButtonContainer">
                     <button onClick={() => triggerComingSoon(true)} className="designButton" id="designButton">VIEW DESIGN</button>
@@ -696,7 +697,7 @@ const BeautyDesignPreview = (props: any) => {
                 <div className="comingSoonContainer" id="comingSoonContainer">
                     <div className="comingSoonBox">
                         <h1>COMING SOON</h1>
-                        <p>This design will be available soon! </p>
+                        <p>Design will be available soon! </p>
                         <button onClick={() => triggerComingSoon(false)}>OK</button>
                     </div>
                 </div>
@@ -704,7 +705,7 @@ const BeautyDesignPreview = (props: any) => {
                 <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designPreviewBottomIllustrationContainer'>
                     <div className="designPreviewBottomIllustration" id="designPreviewBottomIllustration"></div>
                 </motion.div>
-                <motion.div initial={{opacity: 0}} animate={{opacity: 0.6, transition: {delay: 1}}} className="designPreviewBackgroundIllustration"/>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 0.6, transition: {delay: 1}}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className="designPreviewBackgroundIllustration"/>
                 <div className="designPreviewBottomGradient"></div>
             </div>
             

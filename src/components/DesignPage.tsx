@@ -15,9 +15,10 @@ var changeDesignTimer: any
 
 
 
+
 //Array of jsx secitonIcons
 var sectionManagerIcons: any[] = []
-//Currently available previews
+//Currently available previews!!!
 var previews = 2
 const DesignPage = (props: any) => {
     const history = useHistory()
@@ -104,7 +105,7 @@ const DesignPage = (props: any) => {
             if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                 if(parseInt(getParams.viewIndex, 10) > 1){
                     previewSwitchAnimations("upwards")
-                    history.replace(`/design/${parseInt(getParams.viewIndex, 10) -1}`)
+                    history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}`)
                     viewIndexCockblock = true
                     changeDesignTimer = setTimeout(() => {
                         viewIndexCockblock = false
@@ -117,7 +118,7 @@ const DesignPage = (props: any) => {
             if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                 if(parseInt(getParams.viewIndex, 10) < previews){
                     previewSwitchAnimations("backwards")
-                    history.replace(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
+                    history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
                     viewIndexCockblock = true
                     changeDesignTimer = setTimeout(() => {
                         viewIndexCockblock = false
@@ -138,7 +139,7 @@ const DesignPage = (props: any) => {
                     if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                         if(parseInt(getParams.viewIndex, 10) > 1){
                             previewSwitchAnimations("upwards")
-                            history.replace(`/design/${parseInt(getParams.viewIndex, 10) -1}`)
+                            history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}`)
                             viewIndexCockblock = true
                             changeDesignTimer = setTimeout(() => {
                                 viewIndexCockblock = false
@@ -151,7 +152,7 @@ const DesignPage = (props: any) => {
                     if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                         if(parseInt(getParams.viewIndex, 10) < previews){
                             previewSwitchAnimations("backwards")
-                            history.replace(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
+                            history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
                             viewIndexCockblock = true
                             changeDesignTimer = setTimeout(() => {
                                 viewIndexCockblock = false
@@ -197,7 +198,7 @@ const DesignPage = (props: any) => {
 
         for(var i = 0; i < previews; i++){
             sectionManagerIcons.push(
-                <div key={`iconContainer${i}`} className="iconContainer">
+                <div key={`iconContainer${i}`} className="iconContainer" id={`iconContainer${i}`}>
                     <DesignSectionIcon key={i} className="designSectionIcon" id={`designSectionIcon${i}`} ></DesignSectionIcon>
                     {i < previews - 1 &&
                         <span key={`span${i}`} />
@@ -225,8 +226,9 @@ const DesignPage = (props: any) => {
         else{
             //console.log("We do not have that preview")
         }
-        
     }, [getParams.viewIndex]);
+
+
     return (
         <motion.div animate={{opacity: 1, transition: {delay: 0.1, duration: 0.5}}} initial={{opacity: 0}} exit={{opacity: 0, transition: {duration: 0.5}}} id="DesignPageContainer" className="DesignPageContainer">
             <div id="transitionBackground" className="transitionBackground"></div>
@@ -256,7 +258,9 @@ const DesignPage = (props: any) => {
                     </div>
 
                     <div className="sectionManagerContainer">
-                        {sectionManagerIcons}
+                        <div className="sectionScroll" id="sectionScroll">
+                            {sectionManagerIcons}
+                        </div>
                     </div>
 
                     <div className="sectionBtnDownContainer">

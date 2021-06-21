@@ -219,7 +219,7 @@ const Nav = (props: any) => {
 
             <motion.div animate={NavState ? "enter" : "exit"} variants={navAnimation} id="navigation" className="navigation">
                 <motion.ul initial="init" animate={NavState ? "enter" : "exit"} variants={navItemAnimation}>
-                    <div onClick={() => {setNavState(!NavState); if(location.pathname.toLowerCase().includes("/home")){/*console.log("already at home")*/}else{history.replace("/home")}}} className="navHome" id="navHome">
+                    <div onClick={() => {setNavState(!NavState); if(location.pathname.toLowerCase().includes("/home")){/*console.log("already at home")*/}else{history.push("/home")}}} className="navHome" id="navHome">
                             <div className="navbarListIconContainer">
                                 <HomeIcon/>
                             </div>

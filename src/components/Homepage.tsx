@@ -35,16 +35,16 @@ const HomepageContainer = (props: any) => {
     //Changes url based on Location index. Allows us to cycle through urls when adding or subtracting 1 from LocationIndex
     useEffect(() => {
         if(LocationIndex === 0){
-            history.replace("/home")
+            history.push("/home")
         }
         else if(LocationIndex === 1){
-            history.replace("/home/passion")
+            history.push("/home/passion")
         }
         else if(LocationIndex === 2){
-            history.replace("/home/news")
+            history.push("/home/news")
         }
         else if(LocationIndex === 3){
-            history.replace("/home/connect")
+            history.push("/home/connect")
         }
     }, [LocationIndex, history]);
     //Animation for scrolling between routes for mobile & desktop
@@ -104,7 +104,9 @@ const HomepageContainer = (props: any) => {
                 //Not done yet
             }
             else if(LocationIndex === 2){
-                //Not done yet
+                setTimeout(() => {
+                    getHomepage.style.height = "600px"
+                }, 500);
             }
             else if(LocationIndex === 3){
                 setTimeout(() => {
