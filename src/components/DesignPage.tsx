@@ -26,11 +26,11 @@ const DesignPage = (props: any) => {
     const location = useLocation()
     
     
-    //Sets viewIndex and viewState on load of designPage to then render right designPreview Component
+    //Sets viewState on load of designPage
     useEffect(() =>{
         if(props.designQuery.get("viewState") === null){
             props.designQuery.set("viewState", "false")
-            history.push(window.location.pathname + "?" + props.designQuery.toString())
+            history.replace(window.location.pathname + "?" + props.designQuery.toString())
         }
     },[history, props.designQuery])
 
@@ -105,7 +105,7 @@ const DesignPage = (props: any) => {
             if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                 if(parseInt(getParams.viewIndex, 10) > 1){
                     previewSwitchAnimations("upwards")
-                    history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}`)
+                    history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
                     viewIndexCockblock = true
                     changeDesignTimer = setTimeout(() => {
                         viewIndexCockblock = false
@@ -118,7 +118,7 @@ const DesignPage = (props: any) => {
             if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                 if(parseInt(getParams.viewIndex, 10) < previews){
                     previewSwitchAnimations("backwards")
-                    history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
+                    history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
                     viewIndexCockblock = true
                     changeDesignTimer = setTimeout(() => {
                         viewIndexCockblock = false
@@ -139,7 +139,7 @@ const DesignPage = (props: any) => {
                     if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                         if(parseInt(getParams.viewIndex, 10) > 1){
                             previewSwitchAnimations("upwards")
-                            history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}`)
+                            history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
                             viewIndexCockblock = true
                             changeDesignTimer = setTimeout(() => {
                                 viewIndexCockblock = false
@@ -152,7 +152,7 @@ const DesignPage = (props: any) => {
                     if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                         if(parseInt(getParams.viewIndex, 10) < previews){
                             previewSwitchAnimations("backwards")
-                            history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}`)
+                            history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
                             viewIndexCockblock = true
                             changeDesignTimer = setTimeout(() => {
                                 viewIndexCockblock = false
@@ -188,8 +188,6 @@ const DesignPage = (props: any) => {
             getDownBtn.removeEventListener("mousedown", changeDesignPreviewBtnDown)
         })
     },[props, history, getParams.viewIndex])
-
-    
     
     //Creating sectionIcons for each preview we have
     function createSectionIcons(){

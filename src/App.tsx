@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-import {Redirect, Route, Switch, useLocation} from "react-router-dom"
+import {Redirect, Route, Switch, useHistory, useLocation} from "react-router-dom"
 import {AnimatePresence ,motion} from "framer-motion"
 import "./app.scss"
 //import Page components
@@ -26,10 +26,14 @@ var interfaceAnimation = {
 var timer: any
 function App() {  
   const location = useLocation()
+  const history = useHistory()
   //Using url string query to set/get viewState for designPages to toggle design based on value. viewState = false /close design viewState = true /openDesign
   var designQuery =  new URLSearchParams(window.location.search)
 
 
+  useEffect(() => {
+    console.log(history)
+  }, [history.location.pathname]);
   
   //Function is used to change the Switch components key to always rerender if pathname does not include the Pages name for proper exit / in animations
   function keyTest(): string{
@@ -77,7 +81,9 @@ function App() {
             <Redirect to="/home"/>
           </Route>
 
-          
+          <Route exact path = "/design">
+            <Redirect to="/design/1"/>
+          </Route>
 
           <Route exact path = "/contact">
             <Redirect to="/home/connect"/>

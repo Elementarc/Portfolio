@@ -14,13 +14,32 @@
     height: 100%;
     max-height: 1325px;
     z-index: 10;
-    a{  
+    
+    .sectionManagerLink{  
         position: relative;
         display: flex;
         align-items: center;
         height: 35px;
         margin: 0;
         padding: 0;
+        .sectionNameTarget{
+            color: #56FFDC;
+        }
+        .sectionNameHover{
+            color: #56FFDC;
+        }
+        //Style when Hoverd. Class is getting added via js
+        .svgIconHover{
+            .innerIcon{
+                fill: #56FFDC;
+                transition: 0.1s ease-in-out;
+            }
+            .outerIcon{
+                stroke: #56FFDC;
+                transition: 0.1s ease-in-out;
+            }
+        }
+        
         p{
             position: absolute;
             padding: 1rem;
@@ -29,11 +48,11 @@
             margin-left: 2rem;
             transition: 0.1s ease-in-out;
         }
-        .sectionNameTarget{
-            color: #56FFDC;
+        &:hover{
+            cursor: pointer;
         }
-        
     }
+    
     span{
         width: 1px;
         margin: 0.3rem 0 0.5rem 0;
@@ -62,20 +81,8 @@
         }
     }
     
-    //Style when Hoverd. Class is getting added via js
-    .svgIconHover{
-        .innerIcon{
-            fill: #56FFDC;
-            transition: 0.1s ease-in-out;
-        }
-        .outerIcon{
-            stroke: #56FFDC;
-            transition: 0.1s ease-in-out;
-        }
-    }
-    .sectionNameHover{
-        color: #56FFDC;
-    }
+    
+    
     
 }
 

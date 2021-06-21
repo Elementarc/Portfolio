@@ -8,6 +8,7 @@ import SectionManager from "./HomePageComponents/SectionManager"
 import HomeContent from "./HomePageComponents/HomeContent"
 //CSS
 import "./styleSheets/homepage.scss"
+import { useCallback } from "react"
 
 //Variable to make wheel eventlistener not change on every wheel scroll. 1 second delay before switching url again.
 var animationStop = false
@@ -16,7 +17,7 @@ const HomepageContainer = (props: any) => {
     const location = useLocation()
     const path = useLocation().pathname.toLowerCase()
     const history = useHistory()
-
+    
     //Sets initial State based on url
     const [LocationIndex, setLocationIndex] = useState(() =>{
         if(path === "/home"){
@@ -32,21 +33,26 @@ const HomepageContainer = (props: any) => {
             return 3
         }
     })
+    
     //Changes url based on Location index. Allows us to cycle through urls when adding or subtracting 1 from LocationIndex
-    useEffect(() => {
-        if(LocationIndex === 0){
-            history.push("/home")
+    const setUrlBasedOnLocationIndex = useCallback((locationIndex: number) =>{
+        function setUrlBasedOnLocationIndex(locationIndex: number){
+            if(locationIndex === 0){
+                history.replace("/home")
+            }
+            else if(locationIndex === 1){
+                history.replace("/home/passion")
+            }
+            else if(locationIndex === 2){
+                history.replace("/home/news")
+            }
+            else if(locationIndex === 3){
+                history.replace("/home/connect")
+            }
         }
-        else if(LocationIndex === 1){
-            history.push("/home/passion")
-        }
-        else if(LocationIndex === 2){
-            history.push("/home/news")
-        }
-        else if(LocationIndex === 3){
-            history.push("/home/connect")
-        }
-    }, [LocationIndex, history]);
+        setUrlBasedOnLocationIndex(locationIndex)
+    },[history])
+
     //Animation for scrolling between routes for mobile & desktop
     useEffect(() =>{
         function homepageContentAnimation() {
@@ -127,6 +133,7 @@ const HomepageContainer = (props: any) => {
                             //Setting the locationIndex so Partent component can switch to the right URL
                             if(LocationIndex! > 0){
                                 setLocationIndex(LocationIndex! - 1)
+                                setUrlBasedOnLocationIndex(LocationIndex! - 1)
                                 animationStop = true
                                 timer = setTimeout(() => {
                                     animationStop = false
@@ -137,6 +144,7 @@ const HomepageContainer = (props: any) => {
                         else{
                             if(LocationIndex! < 3){
                                 setLocationIndex(LocationIndex! + 1)
+                                setUrlBasedOnLocationIndex(LocationIndex! + 1)
                                 animationStop = true
                                 timer = setTimeout(() => {
                                     animationStop = false
@@ -170,7 +178,7 @@ const HomepageContainer = (props: any) => {
             window.removeEventListener("keydown", keydownListener)
             window.removeEventListener("keyup", keyupListener)
         })
-    }, [LocationIndex, history.location.pathname])
+    }, [LocationIndex, history.location.pathname, setUrlBasedOnLocationIndex])
     //clearing timer animationStop Timer
     useEffect(() => {
         return () => {
@@ -198,9 +206,9 @@ const HomepageContainer = (props: any) => {
                     </Switch>
                 </AnimatePresence>
             </motion.div>
-            
+
             <Stars locationIndex={LocationIndex}/>
-            <SectionManager interfaceAnimation={props.interfaceAnimation} locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
+            <SectionManager interfaceAnimation={props.interfaceAnimation} locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex}/>
             <Moon locationIndex={LocationIndex}/>
         </motion.div>
     );

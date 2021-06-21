@@ -188,7 +188,7 @@ const HomeContent = (props: any) => {
                         <p>We made a new fan-design for an up coming game called Hytale. You might like it.</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={hoverButton} onClick={() => {history.push("/design/1")}} onMouseLeave={hoverButton} id="getStartedButton"> 
+                        <button onMouseEnter={hoverButton} onClick={() => {history.push("/design/1?viewState=false")}} onMouseLeave={hoverButton} id="getStartedButton"> 
                             <div>CHECK IT OUT</div>
                             <div id="buttonStyleBox" className="buttonStyleBox"></div>
                         </button>

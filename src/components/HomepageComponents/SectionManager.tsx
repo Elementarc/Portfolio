@@ -121,31 +121,32 @@ const SectionManager = (props: any) => {
     }, [props.locationIndex]);
     return (
         <motion.div  animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} className="SectionContainer">
-            <Link onMouseEnter={() => hoverEffects(true, 0)} onMouseLeave={() => hoverEffects(false, 0)} onClick={() => props.setLocationIndex(0)} to="/home">
+            <div className="sectionManagerLink" onMouseEnter={() => hoverEffects(true, 0)} onMouseLeave={() => hoverEffects(false, 0)} onClick={() => {props.setLocationIndex(0); props.setUrlBasedOnLocationIndex(0)}}>
                 <div className="iconShadow" />
-                <p  className="sectionName" id="sectionName0">Homepage</p>
+                <p className="sectionName" id="sectionName0">Homepage</p>
 
                 <HomePagination className="icon" id="icon0" />
-            </Link>
+            </div>
+
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 1)} onMouseLeave={() => hoverEffects(false, 1)} onClick={() => props.setLocationIndex(1)}  to="/home/passion">
+            <div className="sectionManagerLink" onMouseEnter={() => hoverEffects(true, 1)} onMouseLeave={() => hoverEffects(false, 1)} onClick={() => {props.setLocationIndex(1); props.setUrlBasedOnLocationIndex(1)}} >
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName1">Passion</p>
                 <HomePagination  className="icon" id="icon1"/>
-            </Link>
+            </div>
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 2)} onMouseLeave={() => hoverEffects(false, 2)} onClick={() => props.setLocationIndex(2)} to="/home/news">
+            <div className="sectionManagerLink" onMouseEnter={() => hoverEffects(true, 2)} onMouseLeave={() => hoverEffects(false, 2)} onClick={() => {props.setLocationIndex(2); props.setUrlBasedOnLocationIndex(2)}}>
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName2">News</p>
                 <HomePagination className="icon" id="icon2"/>
-            </Link>
+            </div>
             <span />
-            <Link onMouseEnter={() => hoverEffects(true, 3)} onMouseLeave={() => hoverEffects(false, 3)} onClick={() => props.setLocationIndex(3)} to="/home/contact">
+            <div className="sectionManagerLink" onMouseEnter={() => hoverEffects(true, 3)} onMouseLeave={() => hoverEffects(false, 3)} onClick={() => {props.setLocationIndex(3); props.setUrlBasedOnLocationIndex(3)}}>
                 <div className="iconShadow" />
                 <p className="sectionName" id="sectionName3">Connect</p>
                 <HomePagination className="icon" id="icon3"/>
                 
-            </Link>
+            </div>
             <div className="sectionBackground"></div>
             <div className="sectionBottomGradiant"></div>
         </motion.div>
