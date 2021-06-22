@@ -35,7 +35,7 @@ const HomepageContainer = (props: any) => {
     })
     
     //Changes url based on Location index. Allows us to cycle through urls when adding or subtracting 1 from LocationIndex
-    const setUrlBasedOnLocationIndex = useCallback((locationIndex: number) =>{
+    var setUrlBasedOnLocationIndex = useCallback((locationIndex: number) =>{
         function setUrlBasedOnLocationIndex(locationIndex: number){
             if(locationIndex === 0){
                 history.replace("/home")
@@ -192,7 +192,7 @@ const HomepageContainer = (props: any) => {
                 <AnimatePresence>
                     <Switch location={location} key={path}>
                         <Route strict path="/home">
-                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex}/>
                         </Route>
                         <Route strict path="/home/passion">
                             
@@ -201,7 +201,7 @@ const HomepageContainer = (props: any) => {
                             
                         </Route>
                         <Route strict path="/home/contact">
-                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex}/>
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex}/>
                         </Route>
                     </Switch>
                 </AnimatePresence>

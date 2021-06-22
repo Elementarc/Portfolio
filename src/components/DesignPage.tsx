@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {motion, AnimatePresence} from "framer-motion"
+import {motion, AnimatePresence, useMotionValue} from "framer-motion"
 import { useHistory, useParams , Route, Switch, useLocation} from 'react-router-dom';
 import { useState } from 'react';
 import "./styleSheets/designPage.scss"
@@ -226,12 +226,11 @@ const DesignPage = (props: any) => {
         }
     }, [getParams.viewIndex]);
 
-
     return (
         <motion.div animate={{opacity: 1, transition: {delay: 0.1, duration: 0.5}}} initial={{opacity: 0}} exit={{opacity: 0, transition: {duration: 0.5}}} id="DesignPageContainer" className="DesignPageContainer">
             <div id="transitionBackground" className="transitionBackground"></div>
                 
-            <div className="designsPreviewGridContainer">
+            <motion.div  className="designsPreviewGridContainer">
                 <AnimatePresence>
                     <Switch location={location} key={getParams.viewIndex}>
                         <Route strict path="/design/1">
@@ -247,7 +246,7 @@ const DesignPage = (props: any) => {
                         </Route>
                     </Switch>
                 </AnimatePresence>  
-            </div>
+            </motion.div>
 
             <motion.div animate={{opacity: 1, transition: {delay: 1}}} initial={{opacity: 0}} className="designManagerContainer" id="designManagerContainer">
                 <div className="sectionBackground">

@@ -197,6 +197,11 @@ const Nav = (props: any) => {
                 getIcon.style.fill = "#000000"
             }
         }
+        else if(location.pathname === "/projects"){
+            if(window.innerWidth > 900){
+                getIcon.style.fill = "#000000"
+            }
+        }
         else {
             getIcon.style.fill = "#ffffff"
         }

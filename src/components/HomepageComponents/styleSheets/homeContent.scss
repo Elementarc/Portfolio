@@ -365,6 +365,7 @@
     max-height: 1350px;
     height: 100vh;
     overflow-y: hidden;
+    overflow: hidden;
     pointer-events: visible;
     z-index: 2;
     
@@ -372,6 +373,7 @@
         position: absolute;
         height: 100%;
         padding-top: 16rem;
+        
         width: 100%;
         padding-left: 17%;
         z-index: 0;
@@ -856,7 +858,7 @@
         top: 0;
         left: 0;
         color: white;
-        width: 100%;
+        width: 100vw;
         height: 100%;
         pointer-events: visible;
         max-height: unset;
@@ -1031,7 +1033,7 @@
         top: 0;
         left: 200vw;
         color: white;
-        width: 100%;
+        width: 100vw;
         height: 100%;
         pointer-events: visible;
         max-height: unset;
@@ -1144,7 +1146,7 @@
         top: 0;
         left: 300vw;
         color: white;
-        width: 100%;
+        width: 100vw;
         height: 100%;
         pointer-events: visible;
         max-height: unset;

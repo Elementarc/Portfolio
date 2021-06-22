@@ -5,10 +5,12 @@ import "./app.scss"
 //import Page components
 import Homepage from "./components/Homepage"
 import DesignPage from "./components/DesignPage"
+import ProjectPage from "./components/ProjectsPage"
 //Import components
 import Nav from "./components/AppComponents/Nav"
 import Blackbar from "./components/AppComponents/Blackbar"
 import Logo from "./components/AppComponents/LogoName"
+
 
 var interfaceAnimation = {
   initial: {
@@ -75,6 +77,10 @@ function App() {
 
           <Route strict path={`/design/:viewIndex`} >
             <DesignPage interfaceAnimation={interfaceAnimation} designQuery={designQuery}/>
+          </Route>
+
+          <Route strict path={`/projects`} >
+            <ProjectPage/>
           </Route>
 
           <Route exact path = "/">

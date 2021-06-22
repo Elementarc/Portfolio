@@ -11,8 +11,7 @@ import forest from "../../assets/images/forest.jpg"
 import "./styleSheets/homeContent.scss"
 import { useLocation } from 'react-router';
 //Toggles Animation for hovering over GetStarted button.
-var buttonState = true
-function hoverButton(){
+function hoverButton(buttonState: boolean){
     var getButtonStyle = document.getElementById("buttonStyleBox") as HTMLButtonElement
     if(buttonState === true){
         getButtonStyle.style.width ="100%"
@@ -86,19 +85,21 @@ const HomeContent = (props: any) => {
             opacity.set(1)
             
             //Checks if gesture is to the left or right
-            if(info.velocity.x < -80){
+            if(info.velocity.x < -150){
                 //Forward
                 //Changes locationIndex to the right Index
                 if(props.locationIndex < 3){
                     props.setLocationIndex(props.locationIndex + 1)
+                    props.setUrlBasedOnLocationIndex(props.locationIndex + 1)
                     opacity.set(0)
                 }
             }
-            else if(info.velocity.x > 80){
+            else if(info.velocity.x > 150){
                 //Backwards
                 //Changes locationIndex to the right Index
                 if(props.locationIndex > 0){
                     props.setLocationIndex(props.locationIndex - 1)
+                    props.setUrlBasedOnLocationIndex(props.locationIndex - 1)
                     opacity.set(0)
                 }
             }
@@ -122,7 +123,7 @@ const HomeContent = (props: any) => {
                         <p>There are different ways to talk to a customer and design is an important one. Let's create something unique. </p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={hoverButton} onClick={() => {props.setLocationIndex(3)}} onMouseLeave={hoverButton} id="getStartedButton"> 
+                        <button onMouseEnter={() => hoverButton(true)} onClick={() => {props.setLocationIndex(3)}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
                             <div>GET STARTED</div>
                             <div id="buttonStyleBox" className="buttonStyleBox"></div>
                         </button>
@@ -188,7 +189,7 @@ const HomeContent = (props: any) => {
                         <p>We made a new fan-design for an up coming game called Hytale. You might like it.</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={hoverButton} onClick={() => {history.push("/design/1?viewState=false")}} onMouseLeave={hoverButton} id="getStartedButton"> 
+                        <button onMouseEnter={() => hoverButton(true)} onClick={() => {history.push("/design/1?viewState=false")}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
                             <div>CHECK IT OUT</div>
                             <div id="buttonStyleBox" className="buttonStyleBox"></div>
                         </button>
@@ -215,7 +216,7 @@ const HomeContent = (props: any) => {
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         
-                        <button onMouseEnter={hoverButton} onMouseLeave={hoverButton} id="getStartedButton"> 
+                        <button onMouseEnter={() => hoverButton(true)} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
                             <div>CONTACT</div>
                             <div id="buttonStyleBox" className="buttonStyleBox"></div>
                         </button>
