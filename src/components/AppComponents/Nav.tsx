@@ -233,10 +233,10 @@ const Nav = (props: any) => {
                             <div className="navbarListIconContainer">
                                 <WorkIcon/>
                             </div>
-                            WORKSPACE
+                            PIXEL ART
                     </Link>
 
-                    <Link onClick={() => setNavState(!NavState)} className="linkContact" id="navContact" to="/contact">
+                    <Link onClick={() => setNavState(!NavState)} className="linkContact" id="navContact" to="/contact/form">
                             <div className="navbarListIconContainer">
                                 <ContactIcon/>
                             </div>

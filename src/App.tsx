@@ -6,6 +6,8 @@ import "./app.scss"
 import Homepage from "./components/Homepage"
 import DesignPage from "./components/DesignPage"
 import ProjectPage from "./components/ProjectsPage"
+
+import PageNotFound from "./components/PageNotFound"
 //Import components
 import Nav from "./components/AppComponents/Nav"
 import Blackbar from "./components/AppComponents/Blackbar"
@@ -79,7 +81,7 @@ function App() {
             <DesignPage interfaceAnimation={interfaceAnimation} designQuery={designQuery}/>
           </Route>
 
-          <Route strict path={`/projects`} >
+          <Route exact path={`/projects`} >
             <ProjectPage/>
           </Route>
 
@@ -94,6 +96,9 @@ function App() {
           <Route exact path = "/contact">
             <Redirect to="/home/connect"/>
           </Route>
+
+          <Route component={PageNotFound}></Route>
+
         </Switch>
       </AnimatePresence>
       

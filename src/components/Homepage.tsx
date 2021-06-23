@@ -6,6 +6,7 @@ import Stars from "./HomePageComponents/Stars"
 import Moon from "./HomePageComponents/Moon"
 import SectionManager from "./HomePageComponents/SectionManager"
 import HomeContent from "./HomePageComponents/HomeContent"
+import PageNotFound from "./PageNotFound"
 //CSS
 import "./styleSheets/homepage.scss"
 import { useCallback } from "react"
@@ -200,17 +201,24 @@ const HomepageContainer = (props: any) => {
             <motion.div className="contentContainer" id="contentContainer">
                 <AnimatePresence>
                     <Switch location={location} key={path}>
-                        <Route strict path="/home">
+                        <Route exact path="/home">
                             <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex}/>
                         </Route>
+
                         <Route strict path="/home/passion">
                             
                         </Route>
-                        <Route strict path="/home/news">
-                            
-                        </Route>
-                        <Route strict path="/home/contact">
+                        
+                        <Route exact path="/home/news">
                             <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex}/>
+                        </Route>
+
+                        <Route exact path="/home/connect">
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex}/>
+                        </Route>
+                        
+                        <Route >
+                            <PageNotFound/>
                         </Route>
                     </Switch>
                 </AnimatePresence>

@@ -9,6 +9,7 @@ import {ReactComponent as SectionManagerIcon} from "../assets/svgs/sectionManage
 //components
 import HytaleDesignPreview from "./DesignPageComponents/HytaleDesignPreview"
 import BeautyDesignPreview from "./DesignPageComponents/BeautyDesignPreview"
+import PageNotFound from './PageNotFound';
 //prevents triggering changeDesignPreview unless false
 var viewIndexCockblock = false
 var changeDesignTimer: any
@@ -233,16 +234,20 @@ const DesignPage = (props: any) => {
             <motion.div  className="designsPreviewGridContainer">
                 <AnimatePresence>
                     <Switch location={location} key={getParams.viewIndex}>
-                        <Route strict path="/design/1">
+                        <Route exact path="/design/1">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
                                 <HytaleDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
 
-                        <Route strict path="/design/2">
+                        <Route exact path="/design/2">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
                                 <BeautyDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
+                        </Route>
+
+                        <Route>
+                            <PageNotFound/>
                         </Route>
                     </Switch>
                 </AnimatePresence>  

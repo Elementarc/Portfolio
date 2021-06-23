@@ -1,0 +1,163 @@
+.pageNotFoundContainer{
+    position: fixed;
+    background: rgb(0, 23, 46);
+    background: linear-gradient(180deg, rgb(2, 6, 12) -100%, rgb(0, 23, 46) 100%, );
+    z-index: 12;
+    top: 0;
+    height: 100vh;
+    max-width: 2400px;
+    max-height: 1350px;
+
+    width: 100%;
+    
+    .contentNotFound{
+        position: fixed;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        max-width: 2400px;
+        height: 100vh;
+        overflow-y: scroll;
+        width: 100%;
+        max-height: 1350px;
+
+        pointer-events: all;
+        padding-bottom: 20rem;
+        h1{
+            margin-top: 20rem;
+            display: block;
+            font-family: "PT Serif";
+            font-size: 20px;
+            pointer-events: visible;
+            text-align: center;
+            color: white;
+        }
+        h2{
+            display: inline-block;
+            text-align: center;
+            font-family: "PT Serif";
+            font-size: 39px;
+            margin: -1.5rem 0 0rem 0;
+            pointer-events: visible;
+            color: white;
+        }
+        
+        p{
+            display: inline-block;
+            margin: 1rem 0 0rem 0;
+            font-size: 18px;
+            line-height: 2rem;
+            font-family: "Noto Sans";
+            pointer-events: visible;
+            color: white;
+            width: 100%;
+            padding: 0rem 20%;
+            text-align: center;
+        }
+        a{
+            display: inline-block;
+            pointer-events: visible;
+            position: relative;
+            padding: 0.9rem 2.8rem;
+            background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+            border-radius: 5px;
+            border-style: none;
+            color: white;
+            font-size: 16px;
+            font-family: "PT Serif";
+            letter-spacing: 1px;
+            font-weight: 700;
+            outline: none;
+            margin: 2rem 0 0rem 0rem;
+    
+            .buttonStyleBox {
+                position: absolute;
+                opacity: 0.1;
+                background-color: white;
+                border-radius: 5px;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 0%;
+                outline: none;
+                transition: 0.25s ease-in-out;
+                pointer-events: none;
+            }
+        }
+        a:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+@media (max-width: 900px){
+    .pageNotFoundContainer{
+        .contentNotFound{
+            padding-bottom: 7rem;
+            h1{
+                margin-top: 7rem;
+                font-size: 20px;
+                pointer-events: visible;
+                color: white;
+            }
+            h2{
+                font-family: "PT Serif";
+                font-size: 30px;
+                padding: 0 1rem;
+                line-height: 2.2rem;
+                margin: -1.2rem 0 0rem 0;
+                pointer-events: visible;
+                color: white;
+            }
+            
+            p{
+                margin: 1rem 0 0rem 0;
+                font-size: 15px;
+                line-height: 2rem;
+                font-family: "Noto Sans";
+                pointer-events: visible;
+                color: white;
+                width: 100%;
+                padding: 0rem 1rem;
+            }
+            a{
+                display: inline-block;
+                pointer-events: visible;
+                position: relative;
+                padding: 0.9rem 2.8rem;
+                background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 14px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                margin: 2rem 0 0rem 0rem;
+        
+                .buttonStyleBox {
+                    position: absolute;
+                    opacity: 0.1;
+                    background-color: white;
+                    border-radius: 5px;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 0%;
+                    outline: none;
+                    transition: 0.25s ease-in-out;
+                    pointer-events: none;
+                }
+            }
+            a:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
