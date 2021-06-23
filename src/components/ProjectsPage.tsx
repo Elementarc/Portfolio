@@ -15,6 +15,21 @@ function scrollToTop(){
         window.scrollTo(0, 0)
     }
 }
+function ComingSoon(state: boolean){
+    var getComingSoonContainer = document.getElementById("comingSoonContainer") as HTMLDivElement
+
+    if(state === true){
+        getComingSoonContainer.style.opacity = "1"
+        getComingSoonContainer.style.pointerEvents = "all"
+        document.body.style.overflow = "hidden"
+    }
+    else{
+        getComingSoonContainer.style.opacity = "0"
+        getComingSoonContainer.style.pointerEvents = "none"
+        document.body.style.overflow = "unset"
+    }
+
+}
 const ProjectsPage = () => {
     //Changes navColor based on ContentScrollscrollY
     useEffect(() =>{
@@ -56,6 +71,15 @@ const ProjectsPage = () => {
     return (
         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5}}} exit={{opacity: 0, transition: {duration: 0.5}}} className="ProjectContainer" id="ProjectContainer">
             
+            <div className="comingSoonContainer" id="comingSoonContainer">
+                <div className="comingSoonBackground"></div>
+                <div className="comingSoon">
+                    <h1>ON IT'S WAY</h1>
+                    <p>We're currently working on this feature.</p>
+                    <button onClick={() => ComingSoon(false)}>OK</button>
+                </div>
+            </div>
+
             <div className="allContentContainer" id="allContentContainer">
                 <motion.div className="content">
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
@@ -67,10 +91,10 @@ const ProjectsPage = () => {
                         </motion.span>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>We're a huge fan of 2D games and one of our dreams would be to release our own pixel art game, but that can wait for the time being. Meanwhile, how about some 2D Assets?</p>
+                        <p>We're a huge fan of 2D and one of our dreams would be to release our own pixel art game, but that can wait for the time being. Meanwhile, how about some 2D Assets?</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button> 
+                        <button onClick={() => {ComingSoon(true)}}> 
                             <div>PIXEL ART</div>
                             <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.5}}} initial={{opacity: 0}} className="slime"></motion.div>
                         </button>

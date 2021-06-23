@@ -795,8 +795,8 @@ const HytaleDesignPreview = (props: any) => {
                     <button onClick={() => {props.designQuery.set("viewState", "true"); history.push(window.location.pathname.toLowerCase() + "?" + props.designQuery.toString()) }} className="designButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
-                <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.3}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.27}}} className="designPreviewDarkerBackground"></motion.div>
+                <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
                 
                 <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designPreviewBottomIllustrationContainer'>
                     <div className="designPreviewBottomIllustration" id="designPreviewBottomIllustration"></div>
