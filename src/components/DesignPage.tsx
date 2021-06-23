@@ -103,7 +103,7 @@ const DesignPage = (props: any) => {
         }
         //Changes previewDesign when btnUp pressed
         function changeDesignPreviewBtnUp(){
-            if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
+            if(viewIndexCockblock === false && props.designQuery.get("viewState" && history.location.pathname.toLowerCase().includes("/design/") === true) === "false"){
                 if(parseInt(getParams.viewIndex, 10) > 1){
                     previewSwitchAnimations("upwards")
                     history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
@@ -116,7 +116,7 @@ const DesignPage = (props: any) => {
         }
         //Changes previewDesign when btndown pressed
         function changeDesignPreviewBtnDown(){
-            if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
+            if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
                 if(parseInt(getParams.viewIndex, 10) < previews){
                     previewSwitchAnimations("backwards")
                     history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
@@ -137,7 +137,7 @@ const DesignPage = (props: any) => {
             //wheelUp
             if(window.innerWidth > 1300 && window.innerHeight >= 950){
                 if(e.deltaY < 0){
-                    if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
+                    if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
                         if(parseInt(getParams.viewIndex, 10) > 1){
                             previewSwitchAnimations("upwards")
                             history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)

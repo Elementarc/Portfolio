@@ -15,6 +15,7 @@ function scrollToTop(){
         window.scrollTo(0, 0)
     }
 }
+//toggles comingSoon popUp
 function ComingSoon(state: boolean){
     var getComingSoonContainer = document.getElementById("comingSoonContainer") as HTMLDivElement
 
@@ -30,6 +31,7 @@ function ComingSoon(state: boolean){
     }
 
 }
+
 const ProjectsPage = () => {
     //Changes navColor based on ContentScrollscrollY
     useEffect(() =>{
@@ -112,7 +114,7 @@ const ProjectsPage = () => {
                             <p>At the moment we are working on designing and deploying Websites! Checkout some of our Designs!</p>
                         </motion.div>
                         <motion.div className="buttonContainer" animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                            <Link className="linkDesign" to="/design" id="getStartedButton"> 
+                            <Link className="linkDesign" to={`/design/${Math.floor(Math.random() * 2 + 1)}`} id="getStartedButton"> 
                                 DESIGN
                             </Link>
                         </motion.div>
