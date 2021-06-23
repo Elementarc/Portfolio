@@ -227,9 +227,9 @@ const HomeContent = (props: any) => {
 
                     <div className="contactContainer">
 
-                        <Link to = "/design" className="firstLink">
+                        <Link to = "/projects" className="firstLink">
                             <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box1">
-                                <div className="work">DESIGN</div>
+                                <div className="work">PROEJCTS</div>
                                 <ContactBox id="contactBoxSVG" className="contactBoxSVG"/>
                             </motion.div>
                         </Link>

@@ -4,6 +4,17 @@ import {Link} from "react-router-dom"
 //css
 import "./styleSheets/projectPage.scss"
 
+function scrollToTop(){
+    var getAllContainer = document.getElementById("allContentContainer") as HTMLDivElement
+
+    if(window.innerWidth > 900){
+        getAllContainer.scrollTo(0, 0)
+
+    }
+    else{
+        window.scrollTo(0, 0)
+    }
+}
 const ProjectsPage = () => {
     //Changes navColor based on ContentScrollscrollY
     useEffect(() =>{
@@ -42,22 +53,6 @@ const ProjectsPage = () => {
         }
     }, []);
 
-    //Parallax effect for pixelart boss
-    useEffect(() =>{
-        var getAllContainer = document.getElementById("allContentContainer") as HTMLDivElement
-        function bossMoveOnScroll(e: any){
-            var getBoss = document.getElementById("pixelArtBoss") as HTMLDivElement
-
-            
-            getBoss.style.transform = `translateY(${-getAllContainer.scrollTop * 0.2}px)`
-        }
-
-        getAllContainer.addEventListener("scroll", bossMoveOnScroll)
-
-        return(() =>{
-            getAllContainer.removeEventListener("scroll", bossMoveOnScroll)
-        })
-    },[])
     return (
         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5}}} exit={{opacity: 0, transition: {duration: 0.5}}} className="ProjectContainer" id="ProjectContainer">
             
@@ -80,10 +75,6 @@ const ProjectsPage = () => {
                             <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.5}}} initial={{opacity: 0}} className="slime"></motion.div>
                         </button>
                     </motion.div>
-                    
-                    <div className="pixelArtBossContainer">
-                        <motion.div animate={{opacity: 1, transition: {duration: 1, delay: 2}}} initial={{opacity: 0}} className="pixelArtBoss" id="pixelArtBoss"></motion.div>
-                    </div>
                 </motion.div>
             
                 
@@ -112,7 +103,26 @@ const ProjectsPage = () => {
 
                 
             <div className="bottomContent">
+                    <div  className="bottomContentContainer">
 
+                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
+                            <h1>{"STARTING TOGETHER"}</h1>
+                            <h2 >LET'S CREATE A PROJECT</h2>
+                        </motion.div>
+                        <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
+                            <p>You got a something in mind but need a little help? How about we start it together.</p>
+                        </motion.div>
+                        <motion.div className="buttonContainer" animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
+                            <Link className="linkDesign" to="/home/connect" id="getStartedButton"> 
+                                CONNECT
+                            </Link>
+                        </motion.div>
+                        
+                        <div className="scrollUpContainer">
+                            <div onClick={scrollToTop} className="scrollUpIcon"></div>
+                            <h1 onClick={scrollToTop}>SCROLL UP</h1>
+                        </div>
+                    </div>
             </div>
         </div>
         </motion.div>

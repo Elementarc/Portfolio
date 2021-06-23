@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 .ProjectContainer{
     position: relative;
     grid-column: 1;
@@ -6,9 +8,12 @@
     width: 100%;
     max-width: 2400px;
     background-color: white;
+    max-height: 1350px;
+    overflow: hidden;
     
     .allContentContainer{
         position: absolute;
+        scroll-behavior: smooth;
         width: 100%;
         height: 100vh;
         overflow-y: scroll;
@@ -101,27 +106,6 @@
             button:hover{
                 cursor: pointer;
                 background: #2edbb9;
-            }
-            
-            .pixelArtBossContainer{
-                position: absolute;
-                z-index: 0;
-                top: 23rem;
-                left: 0;
-                height: 338px;
-                width: 100%;
-                animation: bossAnimation 1s infinite;
-                animation-direction: alternate;
-                .pixelArtBoss{
-                    position: absolute;
-                    background-image: url("../../assets/images/boss.png");
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position: center;
-                    right: 20%;
-                    height: 100%;
-                    width: 400px;
-                }
             }
         }
     
@@ -222,8 +206,97 @@
     
         .bottomContent{
             width: 100%;
-            height: 950px;
+            height: 550px;
             background-color: white;
+
+            .bottomContentContainer{
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin-top: 15rem;
+                height: 100%;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                h1{
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    margin: 0rem 0 0rem 0rem;
+                    pointer-events: visible;
+                    color: #090909;
+                }
+                h2{
+                    font-family: "PT Serif";
+                    font-size: 39px;
+                    text-align: center;
+                    padding: unset;
+                    margin: -0.5rem 0 0rem 0;
+                    pointer-events: visible;
+                    color: #090909;
+                }
+                
+                p{
+                    display: inline-block;
+                    margin: 1rem 0 0rem 0;
+                    font-size: 18px;
+                    line-height: 2rem;
+                    font-family: "Noto Sans";
+                    color: #090909;
+                    width: 37rem;
+                    pointer-events: visible;
+                    text-align: center;
+                }
+                a{
+                    display: block;
+                    pointer-events: visible;
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    z-index: 1;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin: 2rem 0 0rem 0rem;
+                    transition: 0.2s ease-in-out;
+                    
+                    &:hover{
+                        cursor: pointer;
+                        background: #2edbb9;
+                    }
+                }
+                
+                .scrollUpContainer{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    margin-top: 12rem;
+                    .scrollUpIcon{
+                        align-self: center;
+                        height: 20px;
+                        width: 20px;
+                        background-image: url("../../assets/icons/upwards.svg");
+                        background-size: contain;
+                        animation: scrollUpAnimation 0.5s infinite alternate;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                    h1{
+                        margin-top: 1rem;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -295,31 +368,6 @@
                 .lineBreak{
                     display: none;
                 }
-
-
-                .pixelArtBossContainer{
-                    position: relative;
-                    z-index: 0;
-                    margin-top: 20rem;
-                    display: flex;
-                    justify-content: center;
-                    top: unset;
-                    left: 0;
-                    height: 338px;
-                    width: 100%;
-                    animation: bossAnimation 1s infinite;
-                    animation-direction: alternate;
-                    .pixelArtBoss{
-                        position: absolute;
-                        background-image: url("../../assets/images/boss.png");
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                        background-position: center;
-                        right: unset;
-                        height: 338px;
-                        width: 400px;
-                    }
-                }
             }
     
             .middleContent{
@@ -375,6 +423,8 @@
                     }
                 }
             }
+
+            
         }
         
     }
@@ -383,6 +433,8 @@
 @media (max-width: 900px){
     .ProjectContainer{
         height: unset;
+        max-height: unset;
+        overflow: unset;
         .allContentContainer{
             position: unset;
             width: unset;
@@ -451,15 +503,6 @@
                         margin-top: -4.6rem;
                     }
                     
-                }
-                
-                
-                .pixelArtBossContainer{
-                    margin-top: 9rem;
-                    .pixelArtBoss{
-                        background-size: contain;
-                        height: 200px;
-                    }
                 }
             }
             
@@ -538,6 +581,103 @@
                     }
                 }
             }
+
+            .bottomContent{
+                width: 100%;
+                height: 550px;
+    
+                .bottomContentContainer{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    margin-top: 15rem;
+                    height: 100%;
+                    width: 100%;
+                    flex-direction: column;
+                    align-items: center;
+                    h1{
+                        text-align: center;
+                        font-family: "PT Serif";
+                        font-size: 16px;
+                        padding: 0 1rem;
+                        margin: 0rem 0 0rem 0rem;
+                        pointer-events: visible;
+                        color: #090909;
+                    }
+                    h2{
+                        font-family: "PT Serif";
+                        font-size: 30px;
+                        text-align: center;
+                        padding: 0 1rem;
+                        line-height: 2.2rem;
+                        margin: unset;
+                        pointer-events: visible;
+                        color: #090909;
+                    }
+                    
+                    p{
+                        display: inline-block;
+                        margin: 1rem 0 0rem 0;
+                        font-size: 15px;
+                        line-height: 2rem;
+                        font-family: "Noto Sans";
+                        color: #090909;
+                        padding: 0 1rem;
+                        width: 100%;
+                        pointer-events: visible;
+                        text-align: center;
+                    }
+                    a{
+                        display: block;
+                        pointer-events: visible;
+                        position: relative;
+                        padding: 0.9rem 2.8rem;
+                        z-index: 1;
+                        background: #189F83;
+                        box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                        border-radius: 5px;
+                        border-style: none;
+                        color: white;
+                        font-size: 16px;
+                        font-family: "PT Serif";
+                        letter-spacing: 1px;
+                        font-weight: 700;
+                        outline: none;
+                        margin: 2rem 0 0rem 0rem;
+                        transition: 0.2s ease-in-out;
+                        
+                        &:hover{
+                            cursor: pointer;
+                            background: #2edbb9;
+                        }
+                    }
+                    
+                    .scrollUpContainer{
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        margin-top: 12rem;
+                        .scrollUpIcon{
+                            align-self: center;
+                            height: 20px;
+                            width: 20px;
+                            background-image: url("../../assets/icons/upwards.svg");
+                            background-size: contain;
+                            animation: scrollUpAnimation 0.5s infinite alternate;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                        h1{
+                            margin-top: 1rem;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -548,5 +688,14 @@
     }
     100%{
         transform: translateY(20px)
+    }
+}
+
+@keyframes scrollUpAnimation{
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(10px);
     }
 }
