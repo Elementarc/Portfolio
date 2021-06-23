@@ -642,7 +642,16 @@ const HytaleDesignPreview = (props: any) => {
         };
     }, []);
     
+    //Changin NavIcon Color for better ui/ux
+    useEffect(() => {
+        var getNavIcon = document.getElementById("appNavMenu") as HTMLDivElement
         
+        if(window.innerWidth > 900){
+            getNavIcon.style.fill = "#ffffff"
+        }
+        
+    }, []);
+    
     
     //false = unMounts designComponent, true = mounts DesignComponent
     const [DesignState, setDesignState] = useState(false);
@@ -787,7 +796,7 @@ const HytaleDesignPreview = (props: any) => {
                 </motion.div>
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
-                <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
+                <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.2}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
                 
                 <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designPreviewBottomIllustrationContainer'>
                     <div className="designPreviewBottomIllustration" id="designPreviewBottomIllustration"></div>

@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import "./styleSheets/sectionManager.scss"
-import {Link} from "react-router-dom"
 import {ReactComponent as HomePagination} from "../../assets/svgs/homeSectionIcon.svg"
 import {motion} from "framer-motion"
 

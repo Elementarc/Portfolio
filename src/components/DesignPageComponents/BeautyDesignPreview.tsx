@@ -3,7 +3,6 @@ import {motion} from "framer-motion"
 import "./styleSheets/beautyDesignPreview.scss"
 import { useHistory } from 'react-router';
 import { useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
 
 //Using this state number to cycle through 3 animation phases
 //AnimationProps for PreviewImages
@@ -94,8 +93,6 @@ var previewAnimationTimer: any
 const BeautyDesignPreview = (props: any) => {
     const history = useHistory()
     const [State, setState] = useState(false);
-    const location = useLocation()
-
 
     //Animates Images
     useEffect(() => {
@@ -661,21 +658,15 @@ const BeautyDesignPreview = (props: any) => {
         }
     }
 
-    //Changes menuNavIcon color when on a specific page for better ux
+    //Changin NavIcon Color for better ui/ux
     useEffect(() => {
         var getNavIcon = document.getElementById("appNavMenu") as HTMLDivElement
 
-        if(location.pathname.toLowerCase() === "/design/2"){
-            if(window.innerWidth > 900){
-                getNavIcon.style.fill = "#000000"
-            }
+        if(window.innerWidth > 900){
+            getNavIcon.style.fill = "#000000"
         }
         
-        return(() =>{
-            getNavIcon.style.fill = "#ffffff"
-        })
-
-    }, [location.pathname]);
+    }, []);
     //Return JSX Desktop
     return (
         <motion.div animate={{opacity: 1}} initial={{opacity: 0}} exit={{opacity: 0, transition: {delay: 0.5}}} id="DesignPreview2Container" className="DesignPreview2Container" >

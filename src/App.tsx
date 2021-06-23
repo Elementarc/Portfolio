@@ -35,7 +35,7 @@ function App() {
 
   useEffect(() => {
     console.log(history)
-  }, [history.location.pathname]);
+  }, [history]);
   
   //Function is used to change the Switch components key to always rerender if pathname does not include the Pages name for proper exit / in animations
   function keyTest(): string{

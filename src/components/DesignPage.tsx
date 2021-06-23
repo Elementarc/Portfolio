@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {motion, AnimatePresence, useMotionValue} from "framer-motion"
+import {motion, AnimatePresence} from "framer-motion"
 import { useHistory, useParams , Route, Switch, useLocation} from 'react-router-dom';
 import { useState } from 'react';
 import "./styleSheets/designPage.scss"
