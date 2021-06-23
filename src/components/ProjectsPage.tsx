@@ -1,12 +1,47 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {motion} from "framer-motion"
-import {Link} from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 //css
 import "./styleSheets/projectPage.scss"
 
 const ProjectsPage = () => {
-    
+    const location = useLocation()
+    //Changes navColor based on scrollY
+    useEffect(() =>{
+        var getNavIcon = document.getElementById("appNavMenu") as HTMLDivElement
 
+        function changeNavWhenScroll(){
+            if(window.innerWidth > 900){
+                if(window.scrollY > 0){
+                    getNavIcon.style.fill = `#000000`
+                    
+                    if(window.scrollY >= 800){
+                        getNavIcon.style.fill = `#ffffff`
+                    }
+                    if(window.scrollY >= 1550){
+                        getNavIcon.style.fill = `#000000`
+                    }
+                }
+            }
+
+        }
+        window.addEventListener("scroll", changeNavWhenScroll)
+    },[])
+    //Changes menuNavIcon color when on a specific page for better ux
+    useEffect(() => {
+        var getNavIcon = document.getElementById("appNavMenu") as HTMLDivElement
+
+        if(location.pathname.toLowerCase() === "/projects"){
+            if(window.innerWidth > 900){
+                getNavIcon.style.fill = "#000000"
+            }
+        }
+        
+        return(() =>{
+            getNavIcon.style.fill = "#ffffff"
+        })
+
+    }, [location.pathname]);
     return (
         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5}}} exit={{opacity: 0, transition: {duration: 0.5}}} className="ProjectContainer">
             
@@ -25,12 +60,15 @@ const ProjectsPage = () => {
                 <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                     <button> 
                         <div>PIXEL ART</div>
+                        <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.5}}} initial={{opacity: 0}} className="slime"></motion.div>
                     </button>
                 </motion.div>
+                
             </motion.div>
         
-            <motion.div initial={{opacity: 0, y: -100}} animate={{opacity: 1,y: 0, transition:{duration: 1, delay: 2}}} className="middleContent">
             
+            <motion.div initial={{opacity: 0, y: -100}} animate={{opacity: 1,y: 0, transition:{duration: 1, delay: 2}}} className="middleContent">
+                
                 <div  className="middleContentContainer">
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"DESIGN & DEPLOY"}</h1>
@@ -43,7 +81,9 @@ const ProjectsPage = () => {
                         <button id="getStartedButton"> 
                             <Link to="/design">DESIGN</Link>
                         </button>
+                        
                     </motion.div>
+                    
                 </div>
                 
                 <div className="topIllustration"></div>
@@ -51,6 +91,7 @@ const ProjectsPage = () => {
 
             </motion.div>
 
+            
         <div className="bottomContent">
 
         </div>

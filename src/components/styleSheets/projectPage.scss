@@ -16,6 +16,7 @@
         padding-left: 17%;
         z-index: 0;
         pointer-events: none;
+        color: #090909;
         h1{
             display: inline-block;
             font-family: "PT Serif";
@@ -76,11 +77,22 @@
             outline: none;
             margin: 2rem 0 0rem 0rem;
             transition: 0.2s ease-in-out;
+            .slime{
+                position: absolute;
+                margin-top: -4.9rem;
+                margin-left: 5.5rem;
+                height: 50px;
+                width: 50px;
+                background-image: url("../../assets/gifs/slime.gif");
+                background-position: center;
+                background-size: contain;
+            }
         }
         button:hover{
             cursor: pointer;
             background: #2edbb9;
         }
+        
     }
 
     .middleContent{
@@ -169,11 +181,13 @@
                     color: black;
                     outline: none;
                 }
+                
             }
             button:hover{
                 cursor: pointer;
                 transform: scale(1.1);
             }
+            
         }
        
     }
@@ -239,7 +253,9 @@
                 font-weight: 700;
                 outline: none;
                 margin: 2rem 0 0rem 0rem;
-        
+                .slime{
+                    margin-top: -4.8rem;
+                }
                 
             }
             button:hover{
@@ -248,6 +264,7 @@
             .lineBreak{
                 display: none;
             }
+            
         }
 
         .middleContent{
@@ -344,18 +361,8 @@
                 outline: none;
                 margin: 3rem 0 0rem 0rem;
         
-                .buttonStyleBox {
-                    position: absolute;
-                    opacity: 0.1;
-                    background-color: white;
-                    border-radius: 5px;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 0%;
-                    outline: none;
-                    transition: 0.25s ease-in-out;
-                    pointer-events: none;
+                .slime{
+                    margin-left: 4.3rem;
                 }
             }
             button:hover{
