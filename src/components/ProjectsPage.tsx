@@ -91,7 +91,7 @@ const ProjectsPage = () => {
                         </motion.span>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>We're a huge fan of 2D and one of our dreams would be to release our own pixel art game, but that can wait for the time being. Meanwhile, how about some 2D Assets?</p>
+                        <p>We're a huge fan of 2D and one of our future-dreams would be to release our own pixel art game, but that can wait for the time being. Meanwhile, how about some 2D assets?</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         <button onClick={() => {ComingSoon(true)}}> 

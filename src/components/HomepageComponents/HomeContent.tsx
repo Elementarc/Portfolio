@@ -212,7 +212,7 @@ const HomeContent = (props: any) => {
                         <h2>THE STEP TO GET STARTED</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>Let's be honest, you probably need a website that will work. I'm gonna help you with that. Ready to start something big together?</p>
+                        <p>Less and less people dare to take steps that are needed to become successful. Be different and leave them behind! Ready to start something big?</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         
@@ -229,7 +229,7 @@ const HomeContent = (props: any) => {
 
                         <Link to = "/projects" className="firstLink">
                             <motion.div animate={{scale: 1,opacity: 1, transition: {delay: 2, duration: 0.7, type: "spring"}}} initial={{scale: 0.2, opacity: 0}} className="box box1">
-                                <div className="work">PROEJCTS</div>
+                                <div className="work">PROJECTS</div>
                                 <ContactBox id="contactBoxSVG" className="contactBoxSVG"/>
                             </motion.div>
                         </Link>
