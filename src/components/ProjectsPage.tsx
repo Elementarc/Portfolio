@@ -144,7 +144,7 @@ const ProjectsPage = () => {
                         
                         <div className="scrollUpContainer">
                             <div onClick={scrollToTop} className="scrollUpIcon"></div>
-                            <h1 onClick={scrollToTop}>SCROLL UP</h1>
+                            <button onClick={scrollToTop}>SCROLL UP</button>
                         </div>
                     </div>
             </div>
