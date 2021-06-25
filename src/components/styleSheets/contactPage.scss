@@ -164,7 +164,7 @@
                         border: 1px solid #ffcf76;
                     }
                 }
-                .nameInfo{
+                .emailInfo{
                     position: absolute;
                     right: 0;
                     height: 20px;
@@ -258,7 +258,7 @@
                         border: 1px solid #ffcf76;
                     }
                 }
-                .nameInfo{
+                .descriptionInfo{
                     position: absolute;
                     right: 0;
                     height: 20px;
@@ -329,7 +329,7 @@
                     font-size: 16px;
                     font-weight: 500;
                 }
-                input{
+                .budgedInput{
                     height: 50px;
                     border-radius: 5px;
                     width: 100%;
@@ -337,11 +337,17 @@
                     font-family: "NOTO SANS";
                     appearance: none;
                     text-align: center;
-                    padding: 0rem 1rem;
+                    padding: 0rem 3rem;
                     color: white;
                     background-color: rgba(0, 0, 0, 0.4);
                     border: 1px solid white;
                     transition: 0.2s ease-in-out;
+                    &::-webkit-outer-spin-button{
+                        appearance: none;
+                    }
+                    &::-webkit-inner-spin-button{
+                        appearance: none;
+                    }
                     &::placeholder{
                         color: rgba(255, 255, 255, 0.705);
                         transition: 0.2s ease-in-out;
@@ -351,26 +357,12 @@
                         border: 1px solid #ffcf76;
                     }
                 }
-                .currency{
+                .budgedInfo{
                     position: absolute;
-                    display: flex;
-                    outline: none;
-                    background-color: rgba(0, 0, 0, 0);
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    font-family: "PT Serif";
-                    font-size: 16px;
-                    width: 50px;
-                    height: 100%;
-                    right: 0.5rem;
-
-                    option{
-                        color: black;
-                        width: 100px;
-                        padding: 0.5rem 1rem;
-                    }
-                    
+                    right: 0;
+                    height: 20px;
+                    margin-right: 1rem;
+                    width: 20px;
                 }
             }
     

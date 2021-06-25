@@ -39,11 +39,28 @@ var userData: userDataInterface = {
 var inputCheckTimer: any
 var changeStepAnimationTimer: any
 function ContactPage(props: any) {
-    
     //Using this to setRightTarget for stepName and stepIcon
     const [StepIndex, setStepIndex] = useState(0);
 
-    
+    function setInputFocus() {
+        var getInputName = document.getElementById("inputName") as HTMLInputElement
+        var getInputEmail = document.getElementById("inputEmail") as HTMLInputElement
+        var getInputDescription = document.getElementById("inputDescription") as HTMLInputElement
+        var getInputBudged = document.getElementById("inputBudged") as HTMLInputElement
+
+        if(StepIndex === 0){
+            getInputName.focus()
+        }
+        else if(StepIndex === 1){
+            getInputEmail.focus()
+        }
+        else if(StepIndex === 2){
+            getInputDescription.focus()
+        }
+        else if(StepIndex === 3){
+            getInputBudged.focus()
+        }
+    }
     function sendProject(){
         if(step0Done === true && step1Done === true && step2Done === true && step3Done === true){
             console.log(userData)
@@ -111,7 +128,7 @@ function ContactPage(props: any) {
     useEffect(() =>{
         //setsTarget for icons and names
         setTarget()
-
+        setInputFocus()
         //Animation for in & out
         var getNameContainer = document.getElementById("contactContentName") as HTMLDivElement
         var getEmailContainer = document.getElementById("contactContentEmail") as HTMLDivElement
@@ -259,7 +276,7 @@ function ContactPage(props: any) {
         function verifyInputValue1(){
             
             var getInput = document.getElementById("inputName") as HTMLInputElement
-            var getInputInfoIcon = document.getElementById("inputInfoSVG") as HTMLDivElement
+            var getInputInfoIcon = document.getElementById("inputNameInfoSVG") as HTMLDivElement
 
             const passedCheck1 = function checkStep1(){
                 return new Promise((resolve) =>{
@@ -324,7 +341,7 @@ function ContactPage(props: any) {
         //Verifys step1Input value.
         function verifyInputValue2(){
             var getInput = document.getElementById("inputEmail") as HTMLInputElement
-            var getInputInfoIcon = document.getElementById("inputInfoSVG") as HTMLDivElement
+            var getInputInfoIcon = document.getElementById("inputEmailInfoSVG") as HTMLDivElement
             const passedCheck2 = function checkStep2(){
                 return new Promise((resolve) =>{
                     clearTimeout(inputCheckTimer)
@@ -378,7 +395,7 @@ function ContactPage(props: any) {
         //Verifys step1Input value.
         function verifyInputValue3(){
             var getInput = document.getElementById("inputDescription") as HTMLTextAreaElement
-            var getInputInfoIcon = document.getElementById("inputInfoSVG") as HTMLDivElement
+            var getInputInfoIcon = document.getElementById("inputDescriptionInfoSVG") as HTMLDivElement
             const passedCheck3 = function checkStep3(){
                 return new Promise((resolve) =>{
                     clearTimeout(inputCheckTimer)
@@ -429,7 +446,7 @@ function ContactPage(props: any) {
         //Verifys step1Input value.
         function verifyInputValue3(){
             var getInput = document.getElementById("inputBudged") as HTMLInputElement
-            var getInputInfoIcon = document.getElementById("inputInfoSVG") as HTMLDivElement
+            var getInputInfoIcon = document.getElementById("inputBudgedInfoSVG") as HTMLDivElement
             const passedCheck3 = function checkStep3(){
                 return new Promise((resolve) =>{
                     clearTimeout(inputCheckTimer)
@@ -477,6 +494,7 @@ function ContactPage(props: any) {
         
     },[setTarget])
 
+    
     //Checks and validates everything to then get to the next step
     function nextStep(currentStep: number){
         
@@ -486,7 +504,7 @@ function ContactPage(props: any) {
             //verifyInputValue1 checks if its done then changes it to true. default false
             if(step0Done === true){
                 setStepIndex(1)
-
+                
             }
             else{
                 verifyInputValue0()
@@ -495,6 +513,8 @@ function ContactPage(props: any) {
         else if(currentStep === 1){
             if(step1Done === true){
                 setStepIndex(2)
+                
+
             }
             else{
                 verifyInputValue1()
@@ -503,6 +523,7 @@ function ContactPage(props: any) {
         else if(currentStep === 2){
             if(step2Done === true){
                 setStepIndex(3)
+                
             }
             else{
                 verifyInputValue3()
@@ -545,11 +566,6 @@ function ContactPage(props: any) {
             getInputBudged.removeEventListener("keyup", verifyInputValue3)
         })
     }, [verifyInputValue0, verifyInputValue1, verifyInputValue2, verifyInputValue3]);
-
-
-    
-
-
 
 
     //An array where JSX will be filled in to be displayed on screen RAIN DROPS
@@ -621,7 +637,7 @@ function ContactPage(props: any) {
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                             <input className="nameInput" id="inputName" type="text" onBlur={verifyInputValue0} placeholder="Full Name" defaultValue={userData.userName === null ? "" :`${userData.userName}`} />
-                            <InputInfo className="nameInfo" id="inputInfoSVG"></InputInfo>
+                            <InputInfo className="nameInfo" id="inputNameInfoSVG"></InputInfo>
                         </motion.div>
                         <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
                     </motion.div>
@@ -635,7 +651,7 @@ function ContactPage(props: any) {
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                             <input className="emailInput" id="inputEmail" type="text" onBlur={verifyInputValue1} placeholder="E-mail" defaultValue={userData.email === null ? "" :`${userData.email}`} />
-                            <InputInfo className="nameInfo" id="inputInfoSVG"></InputInfo>
+                            <InputInfo className="emailInfo" id="inputEmailInfoSVG"></InputInfo>
                         </motion.div>
                         <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
                     </motion.div>
@@ -649,7 +665,7 @@ function ContactPage(props: any) {
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                             <textarea className="descriptionInput" id="inputDescription" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
-                            <InputInfo className="nameInfo" id="inputInfoSVG"></InputInfo>
+                            <InputInfo className="descriptionInfo" id="inputDescriptionInfoSVG"></InputInfo>
                         </motion.div>
                         <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
                     </motion.div>
@@ -663,11 +679,8 @@ function ContactPage(props: any) {
                         <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>HOW IMPORTANT IS THAT PROJECT TO YOU?</motion.h2>
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
-                            <input className="budgedInput" inputMode="numeric" id="inputBudged" type="numeric" onBlur={verifyInputValue3} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
-                            <div className="currency">
-                                <div>€</div>
-                                <div>$</div>
-                            </div>
+                            <input className="budgedInput" id="inputBudged" type="number" onBlur={verifyInputValue3} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
+                            <InputInfo className="budgedInfo" id="inputBudgedInfoSVG"></InputInfo>
                             
                         </motion.div>
                         <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={sendProject}>SEND</motion.button>
