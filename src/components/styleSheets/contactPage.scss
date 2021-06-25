@@ -10,7 +10,8 @@
     max-height: 1350px;
     z-index: 0;
     overflow: hidden;
-
+    background: rgb(0, 23, 46);
+    background: linear-gradient(0deg, rgb(46, 104, 131) -50%, rgb(0, 23, 46) 100%, );
     .contactContentContainer{
         position: relative;
         margin-top: 18rem;
@@ -49,13 +50,7 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                h1{
-                    position: absolute;
-                    font-family: "PT Serif";
-                    color: white;
-                    font-size: 16px;
-                    font-weight: 500;
-                }
+                
                 input{
                     height: 50px;
                     border-radius: 5px;
@@ -240,14 +235,16 @@
                     font-size: 16px;
                     font-weight: 500;
                 }
-                input{
-                    height: 50px;
+                textarea{
+                    display: flex;
+                    resize: none;
+                    justify-content: flex-start;
+                    height: 100px;
                     border-radius: 5px;
                     width: 100%;
                     font-size: 18px;
                     font-family: "NOTO SANS";
-                    text-align: center;
-                    padding: 0rem 4rem;
+                    padding: 0.7rem 4rem 0.5rem 1rem;
                     color: white;
                     background-color: rgba(0, 0, 0, 0.4);
                     border: 1px solid white;
@@ -338,6 +335,7 @@
                     width: 100%;
                     font-size: 18px;
                     font-family: "NOTO SANS";
+                    appearance: none;
                     text-align: center;
                     padding: 0rem 1rem;
                     color: white;
@@ -353,12 +351,26 @@
                         border: 1px solid #ffcf76;
                     }
                 }
-                .nameInfo{
+                .currency{
                     position: absolute;
-                    right: 0;
-                    height: 20px;
-                    margin-right: 1rem;
-                    width: 20px;
+                    display: flex;
+                    outline: none;
+                    background-color: rgba(0, 0, 0, 0);
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    font-family: "PT Serif";
+                    font-size: 16px;
+                    width: 50px;
+                    height: 100%;
+                    right: 0.5rem;
+
+                    option{
+                        color: black;
+                        width: 100px;
+                        padding: 0.5rem 1rem;
+                    }
+                    
                 }
             }
     
@@ -512,91 +524,171 @@
     }
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1300px){
     .contactPageContainer{
         
         height: auto;
         max-height: unset;
-        .contactContent{
-            padding-left: 16rem;
-        }
-        .whiteBar{
-            margin-top: 6rem;
-        }
-        .contactWays{
-            flex-direction: column;
-            
-            span{
-                width: 1px;
-                height: 3rem;
-            }
-            .contact{
-                margin: 3rem 0rem;
+
+        .contactContentContainer{
+            .contactContentName{
+                .inputContainer{
+                    width: 50%;
+                }
             }
         }
-        .designRef{
-            margin-top: 2rem;
-        }
-        .footer{
-            position: relative;
-            margin-top: 6rem;
-            
-        }
+
+       
+
     }
 }
 @media (max-width: 900px){
     .contactPageContainer{
-        .contactContent{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: unset;
+        height: 100%;
+        min-height: 100vh;
+        .contactContentContainer{
             margin-top: 7rem;
-            div{
-                display: none;
+            .contactContentName{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1{
+                    padding: 0 1rem;
+                    font-size: 16px;
+                    text-align: center;
+                }
+                h2{
+                    font-size: 30px;
+                    padding: 0 1rem;
+                    margin-top: 0.05rem;
+                    line-height: 2.2rem;
+                    text-align: center;
+                }
+                .inputContainer{
+                    width: 90%;
+                    input{
+                        font-size: 15px;
+                    }
+                    .nameInfo{
+                        height: 17px;
+                        width: 17px;
+                    }
+                    
+                }
+                button{
+                    font-size: 14px;
+                }
             }
-            h1{
-                font-size: 16px;
-                margin: unset;
-                text-align: center;
+            
+            .contactContentEmail{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1{
+                    padding: 0 1rem;
+                    font-size: 16px;
+                    text-align: center;
+                }
+                h2{
+                    font-size: 30px;
+                    padding: 0 1rem;
+                    margin-top: 0.05rem;
+                    line-height: 2.2rem;
+                    text-align: center;
+                }
+                .inputContainer{
+                    width: 90%;
+                    input{
+                        font-size: 15px;
+                    }
+                    .nameInfo{
+                        height: 17px;
+                        width: 17px;
+                    }
+                    
+                }
+                button{
+                    font-size: 14px;
+                }
             }
-            h2{
-                text-align: center;
-                font-size: 30px;
+
+            .contactContentDescription{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1{
+                    padding: 0 1rem;
+                    font-size: 16px;
+                    text-align: center;
+                }
+                h2{
+                    font-size: 30px;
+                    padding: 0 1rem;
+                    margin-top: 0.05rem;
+                    line-height: 2.2rem;
+                    text-align: center;
+                }
+                .inputContainer{
+                    width: 90%;
+                    
+                    textarea{
+                        font-size: 15px;
+                    }
+                    .nameInfo{
+                        height: 17px;
+                        width: 17px;
+                    }
+                    
+                }
+                button{
+                    font-size: 14px;
+                }
             }
-            p{
-                width: 100%;
-                font-size: 14px;
-                padding: 0rem 1rem;
-                text-align: center;
+
+            .contactContentBudged{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1{
+                    padding: 0 1rem;
+                    font-size: 16px;
+                    text-align: center;
+                }
+                h2{
+                    font-size: 30px;
+                    padding: 0 1rem;
+                    margin-top: 0.05rem;
+                    line-height: 2.2rem;
+                    text-align: center;
+                }
+                .inputContainer{
+                    width: 90%;
+                    input{
+                        font-size: 15px;
+                    }
+                    .nameInfo{
+                        height: 17px;
+                        width: 17px;
+                    }
+                    
+                }
+                button{
+                    font-size: 14px;
+                }
             }
         }
-        .contactWays{
-            margin: 2rem 0;
-            span{
-                display: none;
-                margin: unset;
-            }
-            .contact{
-                height: 110px;
-                margin: 1rem 0rem;
-            }
-        }
-        .whiteBar{
-            display: none;
+        .stepsContainer{
+            transform: scale(0.9);
         }
         .designRef{
-            margin-top: 1rem;
-            font-size: 16px;
-            padding: 0 1rem;
             text-align: center;
-        }
-        .footer{
-            margin-top: 6.5rem;
-            font-size: 12px;
-            span{
-                height: 12px;
-            }
+            font-size: 15px;
+            padding: 0 1rem;
+            padding-bottom: 2rem;
         }
     }
 }

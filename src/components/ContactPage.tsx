@@ -7,7 +7,7 @@ import {motion, useAnimation} from "framer-motion"
 import "./styleSheets/contactPage.scss"
 import { useCallback } from "react"
 var rThunderNum = 5
-var timer: any
+var thunderTimer: any
 
 
 var step0Done: boolean = false
@@ -15,9 +15,9 @@ var step1Done: boolean = false
 var step2Done: boolean = false
 var step3Done: boolean = false
 
-var fullNameRegEx = new RegExp(/^[a-zA-Z0-9]{2,15} ?(?=[a-zA-Z0-9])[a-zA-Z0-9]{0,15}$/)
+var fullNameRegEx = new RegExp(/^[a-zA-Z0-9äöü]{2,15} ?(?=[a-zA-Z0-9äöü])[a-zA-Z0-9äöü]{0,15}$/)
 var emailRegEx = new RegExp(/^[a-zA-Z0-9-_.äöü]{3,25}@[a-zA-Z0-9-_.äöü]{2,20}\.[a-zA-Z0-9]{2,6}$/)
-var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;äüö+ ]{25,200}$/)
+var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;äüö+ !?&]{25,200}$/)
 
 
 interface userDataInterface{
@@ -43,22 +43,26 @@ function ContactPage(props: any) {
     //Using this to setRightTarget for stepName and stepIcon
     const [StepIndex, setStepIndex] = useState(0);
 
-    //Container animations
-    const nameAnimation = useAnimation()
-    const emailAnimation = useAnimation()
-    const descriptionAnimation = useAnimation()
-    const budgedAnimation = useAnimation()
-    //Sets targetColor for right Step also animates step Contents in & out
+    
+    function sendProject(){
+        if(step0Done === true && step1Done === true && step2Done === true && step3Done === true){
+            console.log(userData)
+        }
+    }
+    //Sets setsTargetFor StepManager based on StepIndex. This only is animation/style
     const setTarget = useCallback(() =>{
         function setTarget(){
             var getStepsIcon = document.getElementsByClassName("stepIcon") as HTMLCollectionOf<HTMLElement>
             var getStepsName = document.getElementsByClassName("stepName") as HTMLCollectionOf<HTMLElement>
 
+            //Removes all styles 
             for(var i = 0; i < getStepsIcon.length; i++){
+                //Checks if step0 > then current i to style prev icons for better ui
                 if(StepIndex > i){
                     getStepsIcon[i].classList.add("stepIconDone")
                     getStepsName[i].classList.add("stepNameDone")
                 }
+                //resets all left styles
                 else{
                     getStepsIcon[i].classList.remove("stepIconTarget")
                     getStepsName[i].classList.remove("stepNameTarget")
@@ -69,6 +73,7 @@ function ContactPage(props: any) {
                 
             }
             
+            //Checks if step0 is done so it will colorup the next Icon for better ui
             if(step0Done === true){
                 if(StepIndex < 1){
                     getStepsIcon[1].classList.add("stepIconDone")
@@ -88,20 +93,24 @@ function ContactPage(props: any) {
                 } 
             }
             
+            //Sets the currentTarget of the StepIcon based on StepIndex
             getStepsIcon[StepIndex].classList.add("stepIconTarget")
             getStepsName[StepIndex].classList.add("stepNameTarget")
-            
             
         }
         setTarget()
     },[StepIndex])
 
+    //Container animations
+    const nameAnimation = useAnimation()
+    const emailAnimation = useAnimation()
+    const descriptionAnimation = useAnimation()
+    const budgedAnimation = useAnimation()
     //animates  switch between containers
+    
     useEffect(() =>{
         //setsTarget for icons and names
         setTarget()
-
-        
 
         //Animation for in & out
         var getNameContainer = document.getElementById("contactContentName") as HTMLDivElement
@@ -244,7 +253,7 @@ function ContactPage(props: any) {
 
     },[StepIndex,setTarget, nameAnimation, emailAnimation, descriptionAnimation, budgedAnimation])
 
-    //Username
+    //Verify Username Input
     const verifyInputValue0  = useCallback(() =>{
         //Verifys step1Input value.
         function verifyInputValue1(){
@@ -264,6 +273,8 @@ function ContactPage(props: any) {
                             step0Done = true
 
                             userData.userName = getInput.value
+                            
+                            
                             resolve(true)
 
                         }
@@ -277,7 +288,7 @@ function ContactPage(props: any) {
 
                         }
                         
-                    }, 200);
+                    }, 100);
 
                     
                     
@@ -308,7 +319,7 @@ function ContactPage(props: any) {
         
     },[setTarget])
     
-    //email
+    //Verify email Input
     const verifyInputValue1  = useCallback(() =>{
         //Verifys step1Input value.
         function verifyInputValue2(){
@@ -335,7 +346,7 @@ function ContactPage(props: any) {
                             resolve(false)
 
                         }
-                    }, 200);
+                    }, 100);
 
                 })
             }
@@ -362,11 +373,11 @@ function ContactPage(props: any) {
         verifyInputValue2()
     },[setTarget])
 
-    //Description
+    //Verify Description Input
     const verifyInputValue2  = useCallback(() =>{
         //Verifys step1Input value.
         function verifyInputValue3(){
-            var getInput = document.getElementById("inputDescription") as HTMLInputElement
+            var getInput = document.getElementById("inputDescription") as HTMLTextAreaElement
             var getInputInfoIcon = document.getElementById("inputInfoSVG") as HTMLDivElement
             const passedCheck3 = function checkStep3(){
                 return new Promise((resolve) =>{
@@ -386,7 +397,7 @@ function ContactPage(props: any) {
                             userData.description = null
                             resolve(false)
                         }
-                    }, 200);
+                    }, 100);
 
                 })
             }
@@ -413,7 +424,7 @@ function ContactPage(props: any) {
         verifyInputValue3()
     },[setTarget])
 
-    //Description
+    //Verify Budged Input
     const verifyInputValue3  = useCallback(() =>{
         //Verifys step1Input value.
         function verifyInputValue3(){
@@ -437,7 +448,7 @@ function ContactPage(props: any) {
                             userData.budged = null
                             resolve(false)
                         }
-                    }, 200);
+                    }, 100);
 
                 })
             }
@@ -501,7 +512,7 @@ function ContactPage(props: any) {
     //Function to be able to go back to done steps. Getting used by clicking on icon
     function getToSpecifcStep(step: number){
         clearTimeout(inputCheckTimer)
-        console.log(StepIndex)
+        
         if(step === 0){
             setStepIndex(0)
         }
@@ -569,8 +580,7 @@ function ContactPage(props: any) {
         }
         
     }
-    //Using state variable to rerender component on every Thunder() call
-    const [State, setState] = useState(false);
+    
     //Calling thunder function everytime the thunder() is getting called with an random number. Starts with number 5 * 1000 = 1s
     useEffect(() => {
         //Thunder Function to randomize the number of times the opacity of background goes up to imitate a thunder 
@@ -580,28 +590,29 @@ function ContactPage(props: any) {
             rThunderNum = Math.floor(Math.random() * 30 + 1)
             
             getBackground.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.5})`
-            timer = setTimeout(() => {
+            thunderTimer = setTimeout(() => {
                 getBackground.style.backgroundColor = `rgba(255, 255, 255, 0)`
             }, 100);
-            setState(!State)
+            
+            thunderTimer = setTimeout(() => {
+                console.log("test")
+                thunder()
+            }, rThunderNum * 1000);
         }
-        
-        timer = setTimeout(() => {
-            thunder()
-        }, rThunderNum * 1000);
-    }, [State]);
+        thunder()
+    }, []);
     //Using to clean up timers
     useEffect(() => {
         return () => {
             
-            clearTimeout(timer)
+            clearTimeout(thunderTimer)
             clearTimeout(changeStepAnimationTimer)
         };
     }, []);
     rain()
 
     return (
-        <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1}} initial={{opacity: 0}} className="contactPageContainer">
+        <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1, transition: {duration: 1}}} initial={{opacity: 0}} className="contactPageContainer">
 
                 <div className="contactContentContainer">
                     <motion.div animate={nameAnimation} className="contactContentName" id="contactContentName">
@@ -637,7 +648,7 @@ function ContactPage(props: any) {
                         <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>TELL ME ABOUT YOUR PROJECT</motion.h2>
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
-                            <input className="descriptionInput" id="inputDescription" type="text" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
+                            <textarea className="descriptionInput" id="inputDescription" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
                             <InputInfo className="nameInfo" id="inputInfoSVG"></InputInfo>
                         </motion.div>
                         <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
@@ -652,14 +663,18 @@ function ContactPage(props: any) {
                         <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>HOW IMPORTANT IS THAT PROJECT TO YOU?</motion.h2>
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
-                            <input className="budgedInput" id="inputBudged" type="text" onBlur={verifyInputValue3} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
-                            <InputInfo className="nameInfo" id="inputInfoSVG"></InputInfo>
+                            <input className="budgedInput" inputMode="numeric" id="inputBudged" type="numeric" onBlur={verifyInputValue3} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
+                            <div className="currency">
+                                <div>€</div>
+                                <div>$</div>
+                            </div>
+                            
                         </motion.div>
-                        <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={() => console.log(userData)}>NEXT STEP</motion.button>
+                        <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={sendProject}>SEND</motion.button>
                     </motion.div>
                 </div>
 
-            <div className="stepsContainer">
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition:{delay: 1, duration: 1}}} className="stepsContainer">
                 <div className="stepsInnerContainer">
 
                     <div onClick={() => getToSpecifcStep(0)} className="step step1">
@@ -688,11 +703,11 @@ function ContactPage(props: any) {
                         <p className="stepName">Step 4</p>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
 
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1.5, duration: 1}}} className="designRef">
-                <p>Not convinced yet? Checkout my work <Link to="/design">here</Link></p>
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1, duration: 1}}} className="designRef">
+                <p>Not sure yet? You checkout my work <Link to="/design">here</Link></p>
             </motion.div>
 
             <motion.div animate={{opacity: 1, height: "100%", transition: {delay: 1}}} initial={{opacity: 0, height: 0}} id="rainContainer" className="rainContainer">
