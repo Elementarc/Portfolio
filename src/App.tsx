@@ -6,7 +6,7 @@ import "./app.scss"
 import Homepage from "./components/Homepage"
 import DesignPage from "./components/DesignPage"
 import ProjectPage from "./components/ProjectsPage"
-
+import ContactPage from "./components/ContactPage"
 import PageNotFound from "./components/PageNotFound"
 //Import components
 import Nav from "./components/AppComponents/Nav"
@@ -83,6 +83,10 @@ function App() {
 
           <Route exact path={`/projects`} >
             <ProjectPage/>
+          </Route>
+
+          <Route exact path={`/contact/form`} >
+            <ContactPage/>
           </Route>
 
           <Route exact path = "/">

@@ -11,97 +11,468 @@
     z-index: 0;
     overflow: hidden;
 
-    .contactContent{
+    .contactContentContainer{
         position: relative;
-        color: white;
-        font-family: "PT Serif";
-        font-weight: 700;
-        margin-top: 16rem;
-        padding-left: 18rem;
-        div{
+        margin-top: 18rem;
+        height: 300px;
+        .contactContentName{
             position: absolute;
-            width: 1px;
-            height: 120%;
-            transform: translate3d(-40px, -17px, 0);
-            border-radius: 50%;
-            background-color: whitesmoke;
-        }
-        h1{
-            display: block;
+            width: 100%;
+            color: white;
             font-family: "PT Serif";
-            font-size: 20px;
-            margin: 0rem 0 0rem 0rem;
+            font-weight: 700;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            h1{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 20px;
+                margin: 0rem 0 0rem 0rem;
+            }
+            h2{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 39px;
+                margin: -0.4rem 0 0rem 0;
+            }
+            
+            .inputContainer{
+                position: relative;
+                margin-top: 2.5rem;
+                outline: none;
+                width: 30%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                h1{
+                    position: absolute;
+                    font-family: "PT Serif";
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                input{
+                    height: 50px;
+                    border-radius: 5px;
+                    width: 100%;
+                    font-size: 18px;
+                    font-family: "NOTO SANS";
+                    text-align: center;
+                    padding: 0rem 1rem;
+                    color: white;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    border: 1px solid white;
+                    transition: 0.2s ease-in-out;
+                    &::placeholder{
+                        color: rgba(255, 255, 255, 0.705);
+                        transition: 0.2s ease-in-out;
+                    }
+                    &:focus{
+                        outline: none;
+                        border: 1px solid #ffcf76;
+                    }
+                }
+                .nameInfo{
+                    position: absolute;
+                    right: 0;
+                    height: 20px;
+                    margin-right: 1rem;
+                    width: 20px;
+                }
+            }
+    
+            button{
+                position: relative;
+                padding: 0.9rem 2.8rem;
+                background: #189F83;
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 16px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                margin-top: 3rem;
+                &:hover{
+                    cursor: pointer;
+                    background: #2edbb9;
+                }
+            }
         }
-        h2{
-            display: block;
+
+        .contactContentEmail{
+            position: absolute;
+            width: 100%;
+            color: white;
             font-family: "PT Serif";
-            font-size: 39px;
-            margin: -0.4rem 0 0rem 0;
+            font-weight: 700;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            h1{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 20px;
+                margin: 0rem 0 0rem 0rem;
+            }
+            h2{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 39px;
+                margin: -0.4rem 0 0rem 0;
+            }
+            
+            .inputContainer{
+                position: relative;
+                margin-top: 2.5rem;
+                outline: none;
+                width: 30%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                h1{
+                    position: absolute;
+                    font-family: "PT Serif";
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                input{
+                    height: 50px;
+                    border-radius: 5px;
+                    width: 100%;
+                    font-size: 18px;
+                    font-family: "NOTO SANS";
+                    text-align: center;
+                    padding: 0rem 1rem;
+                    color: white;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    border: 1px solid white;
+                    transition: 0.2s ease-in-out;
+                    &::placeholder{
+                        color: rgba(255, 255, 255, 0.705);
+                        transition: 0.2s ease-in-out;
+                    }
+                    &:focus{
+                        outline: none;
+                        border: 1px solid #ffcf76;
+                    }
+                }
+                .nameInfo{
+                    position: absolute;
+                    right: 0;
+                    height: 20px;
+                    margin-right: 1rem;
+                    width: 20px;
+                }
+            }
+    
+            button{
+                position: relative;
+                padding: 0.9rem 2.8rem;
+                background: #189F83;
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 16px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                margin-top: 3rem;
+                &:hover{
+                    cursor: pointer;
+                    background: #2edbb9;
+                }
+            }
         }
-        p{
-            display: block;
-            margin: 1rem 0 0rem 0;
-            font-weight: 100;
-            font-size: 18px;
-            line-height: 2rem;
-            font-family: "Noto Sans";
-            width: 37rem;
+
+        .contactContentDescription{
+            position: absolute;
+            width: 100%;
+            color: white;
+            font-family: "PT Serif";
+            font-weight: 700;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            h1{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 20px;
+                margin: 0rem 0 0rem 0rem;
+            }
+            h2{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 39px;
+                margin: -0.4rem 0 0rem 0;
+            }
+            
+            .inputContainer{
+                position: relative;
+                margin-top: 2.5rem;
+                outline: none;
+                width: 30%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                h1{
+                    position: absolute;
+                    font-family: "PT Serif";
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                input{
+                    height: 50px;
+                    border-radius: 5px;
+                    width: 100%;
+                    font-size: 18px;
+                    font-family: "NOTO SANS";
+                    text-align: center;
+                    padding: 0rem 4rem;
+                    color: white;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    border: 1px solid white;
+                    transition: 0.2s ease-in-out;
+                    &::placeholder{
+                        color: rgba(255, 255, 255, 0.705);
+                        transition: 0.2s ease-in-out;
+                    }
+                    &:focus{
+                        outline: none;
+                        border: 1px solid #ffcf76;
+                    }
+                }
+                .nameInfo{
+                    position: absolute;
+                    right: 0;
+                    height: 20px;
+                    margin-right: 1rem;
+                    width: 20px;
+                }
+            }
+    
+            button{
+                position: relative;
+                padding: 0.9rem 2.8rem;
+                background: #189F83;
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 16px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                margin-top: 3rem;
+                &:hover{
+                    cursor: pointer;
+                    background: #2edbb9;
+                }
+            }
+        }
+
+        .contactContentBudged{
+            position: absolute;
+            width: 100%;
+            color: white;
+            font-family: "PT Serif";
+            font-weight: 700;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            h1{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 20px;
+                margin: 0rem 0 0rem 0rem;
+            }
+            h2{
+                display: block;
+                font-family: "PT Serif";
+                font-size: 39px;
+                margin: -0.4rem 0 0rem 0;
+            }
+            
+            .inputContainer{
+                position: relative;
+                margin-top: 2.5rem;
+                outline: none;
+                width: 30%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                h1{
+                    position: absolute;
+                    font-family: "PT Serif";
+                    color: white;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                input{
+                    height: 50px;
+                    border-radius: 5px;
+                    width: 100%;
+                    font-size: 18px;
+                    font-family: "NOTO SANS";
+                    text-align: center;
+                    padding: 0rem 1rem;
+                    color: white;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    border: 1px solid white;
+                    transition: 0.2s ease-in-out;
+                    &::placeholder{
+                        color: rgba(255, 255, 255, 0.705);
+                        transition: 0.2s ease-in-out;
+                    }
+                    &:focus{
+                        outline: none;
+                        border: 1px solid #ffcf76;
+                    }
+                }
+                .nameInfo{
+                    position: absolute;
+                    right: 0;
+                    height: 20px;
+                    margin-right: 1rem;
+                    width: 20px;
+                }
+            }
+    
+            button{
+                position: relative;
+                padding: 0.9rem 2.8rem;
+                background: #189F83;
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 16px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                margin-top: 3rem;
+                &:hover{
+                    cursor: pointer;
+                    background: #2edbb9;
+                }
+            }
         }
     }
     
-    .contactWays{
+    
+    .stepsContainer{
+        margin-top: 8rem;
+        width: 100%;
+        height: 50px;
         display: flex;
         justify-content: center;
-        align-items: center;
-        margin-top: 8rem;
-        span{
-            margin: 0 0rem;
-            width: 3rem;
-            height: 1px;
-            align-self: center;
-            background-color: white;
-        }
-        .contact{
+        .stepsInnerContainer{
+            width: 400px;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 150px;
-            width: 370px;
-            max-width: 90%;
-            margin: 0 2.6rem;
-            border-radius: 5px;
-            background-color: white;
-            
-            .emailLogo{
-                height: 60%;
-                width: 100%;
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center;
+            .step{
+                display: flex;
+                justify-content: center;
+                width: 25px;
+                height: 25px;
+                
+                .stepName{  
+                    font-family: "Noto Sans";
+                    font-size: 12px;
+                    position: absolute;
+                    margin-top: -1.8rem;
+                    color: rgba(255, 255, 255, 0.4);
+                    pointer-events: none;
+                    transition: 0.1s ease-in-out;
+                }
+
+                .stepNameTarget{
+                    color: #56FFDC;
+                    transition: 0.1s ease-in-out;
+                }
+
+                .stepNameDone{
+                    color: #278f7a;
+                }
+                
+                .stepIcon{
+                    
+                    .innerIcon{
+                        fill: rgba(255, 255, 255, 0.4);
+                        transition: 0.1s ease-in-out;
+                    }
+                    .outerIcon{
+                        stroke: rgba(255, 255, 255, 0.4);
+                        transition: 0.1s ease-in-out;
+                    }
+                    &:hover{
+                        cursor: not-allowed;
+                    }
+                }
+                .stepIconTarget{
+                    .innerIcon{
+                        fill: #56FFDC;
+                    }
+                    .outerIcon{
+                        stroke: #56FFDC;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+
+                .stepIconDone{
+                    .innerIcon{
+                        fill: #278f7a;
+                        transition: 0.1s ease-in-out;
+                    }
+                    .outerIcon{
+                        stroke: #278f7a;
+                        transition: 0.1s ease-in-out;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+
+                
             }
-            
-            .discordLogo{
-                height: 70%;
-                width: 100%;
-                margin-top: 0.4rem;
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center;
+            span{
+                margin: 0 0.9rem;
+                width: 10px;
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.4);
             }
-            
-            .githubLogo{
-                height: 50%;
-                width: 100%;
-                margin-top: 0.4rem;
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-        }
-        .contact:hover{
-            cursor: pointer;
         }
     }
+
     .designRef{
         display: flex;
         margin-top: 4rem;
@@ -111,38 +482,19 @@
         color: white;
         a{
             
-            color: rgb(90, 164, 233);
+            color: #2edbb9;
+            text-decoration: underline;
             
         }
         a:hover{
-            color: rgb(139, 188, 235);
+            color: #189F83;
         }
     }
-    .footer{
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        bottom: 1rem;
-        span{
-            margin: 0 1rem;
-            align-self: center;
-            background-color: white;
-            height: 20px;
-            width: 1px;
-        }
-        a{
-            color: white;
-        }
-        a:hover{
-            color: rgb(182, 182, 182);
-        }
-    }
+    
     .rainContainer{
         position: absolute;
         pointer-events: none;
-        z-index: 2;
+        z-index: -1;
         top: 0;
         background-color: rgba(255, 255, 255, 0);
         transition: 0.3s ease-in-out;

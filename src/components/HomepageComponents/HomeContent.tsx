@@ -123,7 +123,7 @@ const HomeContent = (props: any) => {
                         <p>There are different ways to talk to a customer and design is an important one. Let's create something unique. </p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={() => hoverButton(true)} onClick={() => {props.setLocationIndex(3)}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
+                        <button onMouseEnter={() => hoverButton(true)} onClick={() => {props.setLocationIndex(3); history.replace("/home/connect")}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
                             <div>GET STARTED</div>
                             <div id="buttonStyleBox" className="buttonStyleBox"></div>
                         </button>
@@ -216,7 +216,7 @@ const HomeContent = (props: any) => {
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         
-                        <button onMouseEnter={() => hoverButton(true)} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
+                        <button onClick={() => history.push("/contact/form")} onMouseEnter={() => hoverButton(true)} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
                             <div>CONTACT</div>
                             <div id="buttonStyleBox" className="buttonStyleBox"></div>
                         </button>
