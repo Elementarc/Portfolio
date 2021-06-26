@@ -206,13 +206,9 @@ function ContactPage(props: any) {
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
-                    getButton.addEventListener("mouseenter", () => {
-                        getButton.style.backgroundColor = "#2edbb9"
-                        getButton.style.cursor = "pointer"
-                    })
-                    getButton.addEventListener("mouseleave", () => {
-                        getButton.style.backgroundColor = ""
-                    })
+                    
+                    getButton.classList.remove("offButton")
+                    getButton.classList.add("onButton")
                 }
                 else{
                     if(userData.userName === ""){
@@ -229,10 +225,8 @@ function ContactPage(props: any) {
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "red"
                     }
-                    getButton.style.opacity = "0.7"
-                    getButton.addEventListener("mouseenter", () => {
-                        getButton.style.cursor = "not-allowed"
-                    })
+                    getButton.classList.add("offButton")
+                    getButton.classList.remove("onButton")
                 }
                 setTarget()
 
@@ -281,14 +275,9 @@ function ContactPage(props: any) {
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
-                    getButton.style.opacity = "1"
-                    getButton.addEventListener("mouseenter", () => {
-                        getButton.style.backgroundColor = "#2edbb9"
-                        getButton.style.cursor = "pointer"
-                    })
-                    getButton.addEventListener("mouseleave", () => {
-                        getButton.style.backgroundColor = ""
-                    })
+                    
+                    getButton.classList.remove("offButton")
+                    getButton.classList.add("onButton")
                 }
                 else{
                     if(userData.email === ""){
@@ -304,10 +293,8 @@ function ContactPage(props: any) {
                         getInputInfoIcon.style.fill = "red"
 
                     }
-                    getButton.style.opacity = "0.7"
-                    getButton.addEventListener("mouseenter", () => {
-                        getButton.style.cursor = "not-allowed"
-                    })
+                    getButton.classList.add("offButton")
+                    getButton.classList.remove("onButton")
                 }
                 setTarget()
             })
@@ -352,15 +339,8 @@ function ContactPage(props: any) {
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
 
-                    getButton.style.opacity = "1"
-                    
-                    getButton.addEventListener("mouseenter", () => {
-                        getButton.style.backgroundColor = "#2edbb9"
-                        getButton.style.cursor = "pointer"
-                    })
-                    getButton.addEventListener("mouseleave", () => {
-                        getButton.style.backgroundColor = ""
-                    })
+                    getButton.classList.remove("offButton")
+                    getButton.classList.add("onButton")
                 }
                 else{
                     if(userData.description === ""){
@@ -375,10 +355,8 @@ function ContactPage(props: any) {
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "red"
                     }
-                    getButton.style.opacity = "0.7"
-                    getButton.addEventListener("mouseenter", () => {
-                        getButton.style.cursor = "not-allowed"
-                    })
+                    getButton.classList.add("offButton")
+                    getButton.classList.remove("onButton")
                 }
                 setTarget()
             })
@@ -422,14 +400,8 @@ function ContactPage(props: any) {
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
 
-                    getButton.style.opacity = "1"
-                    getButton.addEventListener("mouseenter", () => {
-                        getButton.style.backgroundColor = "#2edbb9"
-                        getButton.style.cursor = "pointer"
-                    })
-                    getButton.addEventListener("mouseleave", () => {
-                        getButton.style.backgroundColor = ""
-                    })
+                    getButton.classList.remove("offButton")
+                    getButton.classList.add("onButton")
                 }
                 else{
                     if(getInput.value.length === 0){
@@ -444,10 +416,8 @@ function ContactPage(props: any) {
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "red"
                     }
-                    getButton.style.opacity = "0.7"
-                    getButton.addEventListener("mouseenter", () => {
-                        getButton.style.cursor = "not-allowed"
-                    })
+                    getButton.classList.add("offButton")
+                    getButton.classList.remove("onButton")
                 }
                 setTarget()
             })
@@ -781,7 +751,7 @@ function ContactPage(props: any) {
         thunder()
     }, [history]);
 
-    
+
     //Using to clean up timers
     useEffect(() => {
         return () => {
@@ -815,19 +785,19 @@ function ContactPage(props: any) {
                             <div className="nameInfo">
                                 <InputInfo id="inputNameInfoSVG"></InputInfo>
                                 <div className="tooltipContainer">
-                                    <h1><b>Whats allowed:</b></h1>
+                                    <p><b>Whats allowed:</b></p>
                                     <p><b>Characters:</b> a-z, A-Z.</p>
-                                    <p><b>Numbers: </b> any number.</p>
+                                    <p><b>Numbers: </b> any numbers.</p>
                                     <p>Your name has to be atleast 3 characters long.</p>
                                     <p>Your full name can exactly contain 30 characters, 15 for each part of your name.</p>
                                     <p>Your name can contain exactly 1 space. That space can not be at the beginning or the end of your name.</p>
-                                    <p>You also can just use your first name.</p>
+                                    <p className="lastToolItem">You also can just use your first name.</p>
                                 </div>
                             </div>
                         </motion.div>
 
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
-                            <motion.button id="nameNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
+                            <motion.button className="offButton" id="nameNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
                         </motion.div>
                     </motion.div>
 
@@ -840,10 +810,21 @@ function ContactPage(props: any) {
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                             <input className="emailInput" id="inputEmail" type="text" onBlur={verifyInputValue1} placeholder="E-mail" defaultValue={userData.email === null ? "" :`${userData.email}`} />
-                            <InputInfo className="emailInfo" id="inputEmailInfoSVG"></InputInfo>
+                            
+                            <div className="emailInfo">
+                                <InputInfo id="inputEmailInfoSVG"></InputInfo>
+                                <div className="tooltipEmailContainer">
+                                    <p><b>Please enter your E-mail address</b></p>
+                                    <p>We will use your E-mail to contact you and talk about everything for further informations.</p>
+                                    <p><b>WHAT WE WONT DO!</b></p>
+                                    <p className="lastToolItem">There will not be any spam E-mails from us. We only will contact you to exchange informations if needed.</p>
+                                </div>
+
+                            </div>
                         </motion.div>
+
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
-                            <motion.button id="emailNextStepButton" animate={{ y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{ y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
+                            <motion.button className="offButton" id="emailNextStepButton" animate={{ y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{ y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
                         </motion.div>
                     </motion.div>
                     
@@ -859,7 +840,7 @@ function ContactPage(props: any) {
                             <InputInfo className="descriptionInfo" id="inputDescriptionInfoSVG"></InputInfo>
                         </motion.div>
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
-                            <motion.button id="descriptionNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
+                            <motion.button className="offButton" id="descriptionNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
                         </motion.div>
                     </motion.div>
 
@@ -877,7 +858,7 @@ function ContactPage(props: any) {
                             
                         </motion.div>
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
-                            <motion.button id="budgedNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={sendProject}>SEND</motion.button>
+                            <motion.button className="offButton" id="budgedNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={sendProject}>SEND</motion.button>
                         </motion.div>
                     </motion.div>
                 </div>
