@@ -15,9 +15,9 @@ var step1Done: boolean = false
 var step2Done: boolean = false
 var step3Done: boolean = false
 
-var fullNameRegEx = new RegExp(/^[a-zA-Z0-9äöü]{2,15} ?(?=[a-zA-Z0-9äöü])[a-zA-Z0-9äöü]{0,15}$/)
-var emailRegEx = new RegExp(/^[a-zA-Z0-9-_.äöü]{3,25}@[a-zA-Z0-9-_.äöü]{2,20}\.[a-zA-Z0-9]{2,6}$/)
-var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;äüö+ !?&\s]{25,200}$/)
+var fullNameRegEx = new RegExp(/^[a-zA-Z0-9]{2,15} ?(?=[a-zA-Z0-])[a-zA-Z0-9]{0,15}$/)
+var emailRegEx = new RegExp(/^[a-zA-Z0-9-_.]{3,25}@[a-zA-Z0-9-_.]{2,20}\.[a-zA-Z0-9]{2,6}$/)
+var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;+ !?&\s]{25,200}$/)
 
 
 interface userDataInterface{
@@ -39,9 +39,39 @@ var userData: userDataInterface = {
 var inputCheckTimer: any
 var changeStepAnimationTimer: any
 function ContactPage(props: any) {
+    //Resseting contact page on mounting
+    useEffect(() => {
+        function resetContact() {
+            userData.userName = null
+            userData.email = null
+            userData.description = null
+            userData.budged = null
+            
+            var getInputName = document.getElementById("inputName") as HTMLInputElement
+            var getInputEmail = document.getElementById("inputEmail") as HTMLInputElement
+            var getInputDescription = document.getElementById("inputDescription") as HTMLInputElement
+            var getInputBudged = document.getElementById("inputBudged") as HTMLInputElement
+    
+            getInputName.value = ""
+            getInputEmail.value =  ""
+            getInputDescription.value =  ""
+            getInputBudged.value = ""
+
+    
+            step0Done = false
+            step1Done = false
+            step2Done = false
+            step3Done = false
+            
+            console.log(getInputName.defaultValue)
+        }
+        resetContact()
+    }, []);
+
     //Using this to setRightTarget for stepName and stepIcon
     const [StepIndex, setStepIndex] = useState(0);
 
+    //Sets focus when stepIndex changes to the right input
     const setInputFocus = useCallback(() =>{
         function setInputFocus() {
             var getInputName = document.getElementById("inputName") as HTMLInputElement
@@ -49,22 +79,26 @@ function ContactPage(props: any) {
             var getInputDescription = document.getElementById("inputDescription") as HTMLInputElement
             var getInputBudged = document.getElementById("inputBudged") as HTMLInputElement
     
-            if(StepIndex === 0){
-                getInputName.focus()
+            if(window.innerWidth > 900){
+                if(StepIndex === 0){
+                    getInputName.focus()
+                }
+                else if(StepIndex === 1){
+                    getInputEmail.focus()
+                }
+                else if(StepIndex === 2){
+                    getInputDescription.focus()
+                }
+                else if(StepIndex === 3){
+                    getInputBudged.focus()
+                }
             }
-            else if(StepIndex === 1){
-                getInputEmail.focus()
-            }
-            else if(StepIndex === 2){
-                getInputDescription.focus()
-            }
-            else if(StepIndex === 3){
-                getInputBudged.focus()
-            }
+
         }
         setInputFocus()
     },[StepIndex])
     
+    //Function that gets triggert when user is finished with filling out form
     function sendProject(){
         if(step0Done === true && step1Done === true && step2Done === true && step3Done === true){
             console.log(userData)
@@ -747,10 +781,18 @@ function ContactPage(props: any) {
         thunder()
     }, [history]);
     //Using to clean up timers
+
+    
+   
     useEffect(() => {
+        
+
+        
         return () => {
+            console.log("resettet")
             
             clearTimeout(thunderTimer)
+
             clearTimeout(changeStepAnimationTimer)
         };
     }, []);
@@ -766,9 +808,24 @@ function ContactPage(props: any) {
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                             <input className="nameInput" id="inputName" type="text" onBlur={verifyInputValue0} placeholder="Full Name" defaultValue={userData.userName === null ? "" :`${userData.userName}`} />
-                            <InputInfo className="nameInfo" id="inputNameInfoSVG"></InputInfo>
+                            
+                            <div className="nameInfo">
+                                <InputInfo id="inputNameInfoSVG"></InputInfo>
+                                <div className="tooltipContainer">
+                                    <h1><b>Whats allowed:</b></h1>
+                                    <p><b>Characters:</b> a-z, A-Z.</p>
+                                    <p><b>Numbers: </b> any number.</p>
+                                    <p>Your name has to be atleast 3 characters long.</p>
+                                    <p>Your full name can exactly contain 30 characters, 15 for each part of your name.</p>
+                                    <p>Your name can contain exactly 1 space. That space can not be at the beginning or the end of your name.</p>
+                                    <p>You also can just use your first name.</p>
+                                </div>
+                            </div>
                         </motion.div>
-                        <motion.button id="nameNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
+
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
+                            <motion.button id="nameNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
+                        </motion.div>
                     </motion.div>
 
 
@@ -782,7 +839,9 @@ function ContactPage(props: any) {
                             <input className="emailInput" id="inputEmail" type="text" onBlur={verifyInputValue1} placeholder="E-mail" defaultValue={userData.email === null ? "" :`${userData.email}`} />
                             <InputInfo className="emailInfo" id="inputEmailInfoSVG"></InputInfo>
                         </motion.div>
-                        <motion.button id="emailNextStepButton" animate={{ y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{ y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
+                            <motion.button id="emailNextStepButton" animate={{ y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{ y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
+                        </motion.div>
                     </motion.div>
                     
 
@@ -796,7 +855,9 @@ function ContactPage(props: any) {
                             <textarea className="descriptionInput" id="inputDescription" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
                             <InputInfo className="descriptionInfo" id="inputDescriptionInfoSVG"></InputInfo>
                         </motion.div>
-                        <motion.button id="descriptionNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
+                            <motion.button id="descriptionNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
+                        </motion.div>
                     </motion.div>
 
 
@@ -812,7 +873,9 @@ function ContactPage(props: any) {
                             <InputInfo className="budgedInfo" id="inputBudgedInfoSVG"></InputInfo>
                             
                         </motion.div>
-                        <motion.button id="budgedNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={sendProject}>SEND</motion.button>
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
+                            <motion.button id="budgedNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={sendProject}>SEND</motion.button>
+                        </motion.div>
                     </motion.div>
                 </div>
 
