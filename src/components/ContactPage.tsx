@@ -17,7 +17,7 @@ var step3Done: boolean = false
 
 var fullNameRegEx = new RegExp(/^[a-zA-Z0-9]{2,15} ?(?=[a-zA-Z0-])[a-zA-Z0-9]{0,15}$/)
 var emailRegEx = new RegExp(/^[a-zA-Z0-9-_.]{3,25}@[a-zA-Z0-9-_.]{2,20}\.[a-zA-Z0-9]{2,6}$/)
-var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;+ !?&\s]{25,200}$/)
+var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;+ !?&\s]{25,500}$/)
 
 
 interface userDataInterface{
@@ -38,6 +38,8 @@ var userData: userDataInterface = {
 
 var inputCheckTimer: any
 var changeStepAnimationTimer: any
+
+
 function ContactPage(props: any) {
     //Resseting contact page on mounting
     useEffect(() => {
@@ -669,21 +671,32 @@ function ContactPage(props: any) {
         }
         enterFuncTriggerNextStep(e)
     },[StepIndex])
+
+    
     //Adds eventlisteners
     useEffect(() => {
+        //Inputs
         var getInputName = document.getElementById("inputName") as HTMLInputElement
         var getInputEmail = document.getElementById("inputEmail") as HTMLInputElement
         var getInputDescription = document.getElementById("inputDescription") as HTMLInputElement
         var getInputBudged = document.getElementById("inputBudged") as HTMLInputElement
-
-        
-
+        //Inputs Eventlisteners
         getInputName.addEventListener("keydown", verifyInputValue0)
         getInputEmail.addEventListener("keydown", verifyInputValue1)
         getInputDescription.addEventListener("keydown", verifyInputValue2)
         getInputBudged.addEventListener("keydown", verifyInputValue3)
 
+        //Enter eventlistener. Triggers next Steck when conditions are right and pressing enter
         window.addEventListener("keydown", enterFuncTriggerNextStep)
+
+        //Function to show of DescriptionInput length for better ux
+        var getTextArea = document.getElementById("inputDescription") as HTMLTextAreaElement
+        function getTextLength() {
+            var getOutPutLength = document.getElementById("textLengthCounter") as HTMLDivElement
+
+            getOutPutLength.innerHTML = `${getTextArea.textLength} / 500`
+        }
+        getTextArea.addEventListener("keyup", getTextLength)
 
         return(() =>{
             getInputName.removeEventListener("keydown", verifyInputValue0)
@@ -692,8 +705,13 @@ function ContactPage(props: any) {
             getInputBudged.removeEventListener("keydown", verifyInputValue3)
 
             window.removeEventListener("keydown", enterFuncTriggerNextStep)
+            getTextArea.removeEventListener("keyup", getTextLength)
         })
     }, [verifyInputValue0, verifyInputValue1, verifyInputValue2, verifyInputValue3, enterFuncTriggerNextStep]);
+
+
+
+
 
 
 
@@ -769,6 +787,7 @@ function ContactPage(props: any) {
         }
         
     }, []);
+
     return (
         <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1, transition: {duration: 1}}} initial={{opacity: 0}} className="contactPageContainer">
 
@@ -813,11 +832,10 @@ function ContactPage(props: any) {
                                 <InputInfo id="inputEmailInfoSVG"></InputInfo>
                                 <div className="tooltipEmailContainer">
                                     <p><b>Please enter your E-mail address</b></p>
-                                    <p>We will use your E-mail to contact you and talk about everything for further informations.</p>
+                                    <p style={{marginTop: "-0.7rem"}}>We only will use your E-mail to contact you and exchange informations between you and us.</p>
                                     <p><b>WHAT WE WONT DO!</b></p>
-                                    <p className="lastToolItem">There will not be any spam E-mails from us. We only will contact you to exchange informations if needed.</p>
+                                    <p style={{marginTop: "-0.7rem"}} className="lastToolItem">There will not be any spam E-mails from us. </p>
                                 </div>
-
                             </div>
                         </motion.div>
 
@@ -835,8 +853,22 @@ function ContactPage(props: any) {
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                             <textarea className="descriptionInput" id="inputDescription" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
-                            <InputInfo className="descriptionInfo" id="inputDescriptionInfoSVG"></InputInfo>
+                            <div className="textLengthCounter" id="textLengthCounter">{"0 / 500"}</div>
+                                
+                           
+                            
+                            <div className="descriptionInfo">
+                                <InputInfo className="descriptionInfo" id="inputDescriptionInfoSVG"></InputInfo>
+                                <div className="tooltipDescriptionContainer">
+                                    <p><b>Please give us some informations about your project and what you need.</b></p>
+                                    <p><b>Atleast</b> 25 characters</p>
+                                    <p><b>Max</b> 500 characters</p>
+                                    <p><b>Special characters that can be used:</b> {"- _ . , : ; + ! ? &"} </p>
+                                    <p className="lastToolItem">Keep in mind that we are designing and developing Websites. We can not help you to build a house, or can we? :)</p>
+                                </div>
+                            </div>
                         </motion.div>
+                        
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
                             <motion.button className="offButton" id="descriptionNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
                         </motion.div>
@@ -852,8 +884,17 @@ function ContactPage(props: any) {
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                             <input className="budgedInput" id="inputBudged" type="number" onBlur={verifyInputValue3} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
-                            <InputInfo className="budgedInfo" id="inputBudgedInfoSVG"></InputInfo>
-                            
+                            <div className="budgedInfo">
+                                <InputInfo className="budgedInfo" id="inputBudgedInfoSVG"></InputInfo>
+                                <div className="tooltipBudgedContainer">
+                                    <p><b>We want people who care!</b></p>
+                                    <p style={{marginTop: "-0.7rem"}}>If you dont take your project seriously, please make sure to not contact us.</p>
+                                    <p><b>BUT IF YOU DO CARE</b></p>
+                                    <p style={{marginTop: "-0.7rem"}}>Not everybody can efford us but that doesnt mean you should hesitate to enter your budged.</p>
+                                    <p>If you are not in range of our price pool, we will still look at your project to see if it's promising enough. If it is, we will contact you!</p>
+                                    <p className="lastToolItem"><b>Make sure to be</b> as honest a possible about your budged, we dont want to waste your time and hopefully you think the same way.</p>
+                                </div>
+                            </div>
                         </motion.div>
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
                             <motion.button className="offButton" id="budgedNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={sendProject}>SEND</motion.button>
