@@ -22,7 +22,7 @@ function hytaleHomeIconHover(state: boolean){
 }
 
 const hytaleDesign = (props: any) => {
-
+    
     return (
         <motion.div initial={{opacity: 0, scale: 3}} animate={{opacity: 1, scale: 1, transition: {duration: 0.2, delay: 0.2}}} exit={{opacity: 0, transition: {duration: 0.2}}} className="hytaleDesignContainer" id="hytale">
 

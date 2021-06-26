@@ -780,24 +780,27 @@ function ContactPage(props: any) {
         }
         thunder()
     }, [history]);
-    //Using to clean up timers
 
     
-   
+    //Using to clean up timers
     useEffect(() => {
-        
-
-        
         return () => {
-            console.log("resettet")
             
             clearTimeout(thunderTimer)
-
             clearTimeout(changeStepAnimationTimer)
         };
     }, []);
     rain()
 
+    //Changin NavIcon Color for better ui/ux
+    useEffect(() => {
+        var getNavIcon = document.getElementById("appNavMenu") as HTMLDivElement
+
+        if(window.innerWidth > 900){
+            getNavIcon.style.fill = "#ffffff"
+        }
+        
+    }, []);
     return (
         <motion.div exit={{opacity: 0, transition: {duration: 0.2}}} animate={{opacity: 1, transition: {duration: 1}}} initial={{opacity: 0}} className="contactPageContainer">
 

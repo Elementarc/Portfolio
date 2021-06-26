@@ -642,15 +642,7 @@ const HytaleDesignPreview = (props: any) => {
         };
     }, []);
     
-    //Changin NavIcon Color for better ui/ux
-    useEffect(() => {
-        var getNavIcon = document.getElementById("appNavMenu") as HTMLDivElement
-        
-        if(window.innerWidth > 900){
-            getNavIcon.style.fill = "#ffffff"
-        }
-        
-    }, []);
+    
     
     
     //false = unMounts designComponent, true = mounts DesignComponent
@@ -763,6 +755,14 @@ const HytaleDesignPreview = (props: any) => {
         
     }, [DesignState, parallax, props.designQuery]);
 
+    //Changin NavIcon Color for better ui/ux
+    useEffect(() => {
+        var getNavIcon = document.getElementById("appNavMenu") as HTMLDivElement
+        
+        if(window.innerWidth > 900){
+            getNavIcon.style.fill = "#ffffff"
+        }
+    }, []);
     //Return JSX Desktop
     return (
         <motion.div animate={{opacity: 1}} initial={{opacity: 0}} exit={{opacity: 0, transition: {delay: 0.5}}} id="DesignPreviewContainer" className="DesignPreviewContainer" >
