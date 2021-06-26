@@ -97,7 +97,6 @@
                 margin-top: 3rem;
                 &:hover{
                     cursor: pointer;
-                    background: #2edbb9;
                 }
             }
         }
@@ -187,10 +186,6 @@
                 font-weight: 700;
                 outline: none;
                 margin-top: 3rem;
-                &:hover{
-                    cursor: pointer;
-                    background: #2edbb9;
-                }
             }
         }
 
@@ -519,7 +514,7 @@
 @media (max-width: 1300px){
     .contactPageContainer{
         
-        height: auto;
+        height: 100vh;
         max-height: unset;
 
         .contactContentContainer{

@@ -17,7 +17,7 @@ var step3Done: boolean = false
 
 var fullNameRegEx = new RegExp(/^[a-zA-Z0-9äöü]{2,15} ?(?=[a-zA-Z0-9äöü])[a-zA-Z0-9äöü]{0,15}$/)
 var emailRegEx = new RegExp(/^[a-zA-Z0-9-_.äöü]{3,25}@[a-zA-Z0-9-_.äöü]{2,20}\.[a-zA-Z0-9]{2,6}$/)
-var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;äüö+ !?&]{25,200}$/)
+var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;äüö+ !?&\s]{25,200}$/)
 
 
 interface userDataInterface{
@@ -165,12 +165,20 @@ function ContactPage(props: any) {
             }
 
             passedCheck0().then((passedCheck) =>{
+                var getButton = document.getElementById("nameNextStepButton") as HTMLDivElement
                 
                 if(passedCheck === true){
+                    getButton.style.opacity = "1"
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
-                    
+                    getButton.addEventListener("mouseenter", () => {
+                        getButton.style.backgroundColor = "#2edbb9"
+                        getButton.style.cursor = "pointer"
+                    })
+                    getButton.addEventListener("mouseleave", () => {
+                        getButton.style.backgroundColor = ""
+                    })
                 }
                 else{
                     if(userData.userName === ""){
@@ -178,6 +186,8 @@ function ContactPage(props: any) {
 
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "#ffcf76"
+                        
+
                     }
                     else{
                         getInput.style.borderColor = "red"
@@ -185,7 +195,10 @@ function ContactPage(props: any) {
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "red"
                     }
-                   
+                    getButton.style.opacity = "0.7"
+                    getButton.addEventListener("mouseenter", () => {
+                        getButton.style.cursor = "not-allowed"
+                    })
                 }
                 setTarget()
 
@@ -229,27 +242,38 @@ function ContactPage(props: any) {
             }
 
             passedCheck1().then((passedCheck) =>{
-                
+                var getButton = document.getElementById("emailNextStepButton") as HTMLDivElement
                 if(passedCheck === true){
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
-                    
+                    getButton.style.opacity = "1"
+                    getButton.addEventListener("mouseenter", () => {
+                        getButton.style.backgroundColor = "#2edbb9"
+                        getButton.style.cursor = "pointer"
+                    })
+                    getButton.addEventListener("mouseleave", () => {
+                        getButton.style.backgroundColor = ""
+                    })
                 }
                 else{
                     if(userData.email === ""){
                         getInput.style.borderColor = "#ffcf76"
-
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "#ffcf76"
+
                     }
                     else{
                         getInput.style.borderColor = "red"
 
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "red"
-                    }
 
+                    }
+                    getButton.style.opacity = "0.7"
+                    getButton.addEventListener("mouseenter", () => {
+                        getButton.style.cursor = "not-allowed"
+                    })
                 }
                 setTarget()
             })
@@ -288,12 +312,21 @@ function ContactPage(props: any) {
             }
 
             passedCheck2().then((passedCheck) =>{
-                
+                var getButton = document.getElementById("descriptionNextStepButton") as HTMLDivElement
                 if(passedCheck === true){
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
+
+                    getButton.style.opacity = "1"
                     
+                    getButton.addEventListener("mouseenter", () => {
+                        getButton.style.backgroundColor = "#2edbb9"
+                        getButton.style.cursor = "pointer"
+                    })
+                    getButton.addEventListener("mouseleave", () => {
+                        getButton.style.backgroundColor = ""
+                    })
                 }
                 else{
                     if(userData.description === ""){
@@ -308,7 +341,10 @@ function ContactPage(props: any) {
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "red"
                     }
-
+                    getButton.style.opacity = "0.7"
+                    getButton.addEventListener("mouseenter", () => {
+                        getButton.style.cursor = "not-allowed"
+                    })
                 }
                 setTarget()
             })
@@ -346,12 +382,20 @@ function ContactPage(props: any) {
             }
 
             passedCheck3().then((passedCheck) =>{
-                
+                var getButton = document.getElementById("budgedNextStepButton") as HTMLDivElement
                 if(passedCheck === true){
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
-                    
+
+                    getButton.style.opacity = "1"
+                    getButton.addEventListener("mouseenter", () => {
+                        getButton.style.backgroundColor = "#2edbb9"
+                        getButton.style.cursor = "pointer"
+                    })
+                    getButton.addEventListener("mouseleave", () => {
+                        getButton.style.backgroundColor = ""
+                    })
                 }
                 else{
                     if(getInput.value.length === 0){
@@ -366,6 +410,10 @@ function ContactPage(props: any) {
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "red"
                     }
+                    getButton.style.opacity = "0.7"
+                    getButton.addEventListener("mouseenter", () => {
+                        getButton.style.cursor = "not-allowed"
+                    })
                 }
                 setTarget()
             })
@@ -375,7 +423,6 @@ function ContactPage(props: any) {
 
         
     },[setTarget])
-
 
     //Container animations
     const nameAnimation = useAnimation()
@@ -531,7 +578,7 @@ function ContactPage(props: any) {
             
         }
 
-    },[StepIndex,setTarget, setInputFocus, nameAnimation, emailAnimation, descriptionAnimation, budgedAnimation])
+    },[StepIndex,setTarget, setInputFocus, nameAnimation, emailAnimation, descriptionAnimation, budgedAnimation, verifyInputValue3, verifyInputValue2, verifyInputValue1,verifyInputValue0])
 
     
 
@@ -595,6 +642,30 @@ function ContactPage(props: any) {
         }
     }
 
+    const enterFuncTriggerNextStep = useCallback((e: any) =>{
+        function enterFuncTriggerNextStep(e: any) {
+            if(e.keyCode === 13){
+
+                if(StepIndex === 0){
+                    var getNameNextStep = document.getElementById("nameNextStepButton") as HTMLDivElement
+                    getNameNextStep.click()
+                }
+                else if(StepIndex === 1){
+                    var getNameNextStep = document.getElementById("emailNextStepButton") as HTMLDivElement
+                    getNameNextStep.click()
+                }
+                else if(StepIndex === 2){
+                    //Not triggering for description buttonCLick because TextAre can go to next row with pressing enter
+                    
+                }
+                else if(StepIndex === 3){
+                    var getNameNextStep = document.getElementById("budgedNextStepButton") as HTMLDivElement
+                    getNameNextStep.click()
+                }
+            }
+        }
+        enterFuncTriggerNextStep(e)
+    },[StepIndex])
     //Adds eventlisteners
     useEffect(() => {
         var getInputName = document.getElementById("inputName") as HTMLInputElement
@@ -602,18 +673,22 @@ function ContactPage(props: any) {
         var getInputDescription = document.getElementById("inputDescription") as HTMLInputElement
         var getInputBudged = document.getElementById("inputBudged") as HTMLInputElement
 
-
         
 
         getInputName.addEventListener("keydown", verifyInputValue0)
         getInputEmail.addEventListener("keydown", verifyInputValue1)
         getInputDescription.addEventListener("keydown", verifyInputValue2)
         getInputBudged.addEventListener("keydown", verifyInputValue3)
+
+        window.addEventListener("keydown", enterFuncTriggerNextStep)
+
         return(() =>{
             getInputName.removeEventListener("keydown", verifyInputValue0)
             getInputEmail.removeEventListener("keydown", verifyInputValue1)
             getInputDescription.removeEventListener("keydown", verifyInputValue2)
             getInputBudged.removeEventListener("keydown", verifyInputValue3)
+
+            window.removeEventListener("keydown", enterFuncTriggerNextStep)
         })
     }, [verifyInputValue0, verifyInputValue1, verifyInputValue2, verifyInputValue3]);
 
@@ -668,10 +743,9 @@ function ContactPage(props: any) {
                     thunder()
                 }, rThunderNum * 1000);
             }
-
         }
         thunder()
-    }, []);
+    }, [history]);
     //Using to clean up timers
     useEffect(() => {
         return () => {
@@ -694,7 +768,7 @@ function ContactPage(props: any) {
                             <input className="nameInput" id="inputName" type="text" onBlur={verifyInputValue0} placeholder="Full Name" defaultValue={userData.userName === null ? "" :`${userData.userName}`} />
                             <InputInfo className="nameInfo" id="inputNameInfoSVG"></InputInfo>
                         </motion.div>
-                        <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
+                        <motion.button id="nameNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
                     </motion.div>
 
 
@@ -708,7 +782,7 @@ function ContactPage(props: any) {
                             <input className="emailInput" id="inputEmail" type="text" onBlur={verifyInputValue1} placeholder="E-mail" defaultValue={userData.email === null ? "" :`${userData.email}`} />
                             <InputInfo className="emailInfo" id="inputEmailInfoSVG"></InputInfo>
                         </motion.div>
-                        <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
+                        <motion.button id="emailNextStepButton" animate={{ y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{ y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
                     </motion.div>
                     
 
@@ -722,7 +796,7 @@ function ContactPage(props: any) {
                             <textarea className="descriptionInput" id="inputDescription" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
                             <InputInfo className="descriptionInfo" id="inputDescriptionInfoSVG"></InputInfo>
                         </motion.div>
-                        <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
+                        <motion.button id="descriptionNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
                     </motion.div>
 
 
@@ -738,7 +812,7 @@ function ContactPage(props: any) {
                             <InputInfo className="budgedInfo" id="inputBudgedInfoSVG"></InputInfo>
                             
                         </motion.div>
-                        <motion.button animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{opacity: 0, y: -20}}  onClick={sendProject}>SEND</motion.button>
+                        <motion.button id="budgedNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={sendProject}>SEND</motion.button>
                     </motion.div>
                 </div>
 
