@@ -62,8 +62,6 @@ function ContactPage(props: any) {
             step1Done = false
             step2Done = false
             step3Done = false
-            
-            console.log(getInputName.defaultValue)
         }
         resetContact()
     }, []);
@@ -646,6 +644,7 @@ function ContactPage(props: any) {
         }
     }
 
+    //Checks if enter is pressed to then click NextStep button
     const enterFuncTriggerNextStep = useCallback((e: any) =>{
         function enterFuncTriggerNextStep(e: any) {
             if(e.keyCode === 13){
@@ -655,16 +654,16 @@ function ContactPage(props: any) {
                     getNameNextStep.click()
                 }
                 else if(StepIndex === 1){
-                    var getNameNextStep = document.getElementById("emailNextStepButton") as HTMLDivElement
-                    getNameNextStep.click()
+                    var getEmailNextStep = document.getElementById("emailNextStepButton") as HTMLDivElement
+                    getEmailNextStep.click()
                 }
                 else if(StepIndex === 2){
                     //Not triggering for description buttonCLick because TextAre can go to next row with pressing enter
                     
                 }
                 else if(StepIndex === 3){
-                    var getNameNextStep = document.getElementById("budgedNextStepButton") as HTMLDivElement
-                    getNameNextStep.click()
+                    var getBudgedNextStep = document.getElementById("budgedNextStepButton") as HTMLDivElement
+                    getBudgedNextStep.click()
                 }
             }
         }
@@ -694,7 +693,7 @@ function ContactPage(props: any) {
 
             window.removeEventListener("keydown", enterFuncTriggerNextStep)
         })
-    }, [verifyInputValue0, verifyInputValue1, verifyInputValue2, verifyInputValue3]);
+    }, [verifyInputValue0, verifyInputValue1, verifyInputValue2, verifyInputValue3, enterFuncTriggerNextStep]);
 
 
 
@@ -743,7 +742,6 @@ function ContactPage(props: any) {
                 }, 100);
                 
                 thunderTimer = setTimeout(() => {
-                    console.log("test")
                     thunder()
                 }, rThunderNum * 1000);
             }
