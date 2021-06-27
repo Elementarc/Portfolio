@@ -5,8 +5,8 @@
     grid-column: 1;
     grid-row: 1;
     width: 100%;
-    height: auto;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 950px;
     max-height: 1350px;
     z-index: 0;
     overflow: hidden;
@@ -352,7 +352,7 @@
                     width: 100%;
                     font-size: 18px;
                     font-family: "NOTO SANS";
-                    padding: 0.7rem 4rem 0.5rem 1rem;
+                    padding: 0.7rem 6rem 0.5rem 1rem;
                     color: white;
                     background-color: rgba(0, 0, 0, 0.4);
                     border: 1px solid white;
@@ -415,6 +415,7 @@
                 }
                 .textLengthCounter{
                     position: absolute;
+                    user-select: none;
                     font-family: "Noto Sans";
                     height: 20px;
                     bottom: 0;
@@ -696,12 +697,13 @@
         z-index: 100;
         display: flex;
         justify-content: center;
+        align-items: center;
         pointer-events: none;
         opacity: 0;
         transition: 0.2s ease-in-out;
         .userDataContainer{
             position: absolute;
-            margin-top: 15rem;
+            margin-top: 1rem;
             width: 700px;
             border-radius: 5px;
             background-color: white;
@@ -1128,6 +1130,9 @@
                     width: 90%;
                     input{
                         font-size: 15px;
+                        &::placeholder{
+                            font-size: 15px;
+                        }
                     }
                     .budgedInfo{
                         z-index: 5;

@@ -91,7 +91,7 @@ function ContactPage(props: any) {
     }
     
     //Using this to setRightTarget for stepName and stepIcon
-    const [StepIndex, setStepIndex] = useState(3);
+    const [StepIndex, setStepIndex] = useState(0);
 
     //Sets focus when stepIndex changes to the right input
     const setInputFocus = useCallback(() =>{
