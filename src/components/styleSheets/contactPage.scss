@@ -786,6 +786,110 @@
         }
     }
     
+    .messageContainer{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.2s ease-in-out;
+        .messageBox{
+            position: absolute;
+            height: auto;
+            width: 500px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 5px;
+            align-items: center;
+            padding-bottom: 2rem;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+            .successHeader{
+                font-family: "PT Serif";
+                font-size: 28px;
+                font-weight: 700;
+                text-align: center;
+                padding: 0 1rem;
+                margin-top: unset;
+                padding-top: 1rem;
+                color: #189F83;
+                padding-top: 1.1rem;
+            }
+            .errorHeader{
+                font-family: "PT Serif";
+                font-size: 28px;
+                font-weight: 700;
+                text-align: center;
+                padding: 0 1rem;
+                padding-top: 1.1rem;
+
+                margin-top: unset;
+                color: rgb(250, 44, 44);
+            }
+
+            p{
+                margin-top: 1.5rem;
+                padding: 0 2rem;
+                text-align: center;
+                font-family: "Noto Sans";
+                font-size: 16px;
+            }
+
+            .successButton{
+                margin-top: 2.5rem;
+                position: relative;
+                padding: 0.9rem 2.8rem;
+                z-index: 1;
+                background: #189F83;
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 15px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                transition: 0.2s ease-in-out;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                &:hover{
+                    cursor: pointer;
+                    background: #2edbb9;
+                    color: #090909;
+                }
+            }
+            .errorButton{
+                margin-top: 2.5rem;
+                position: relative;
+                padding: 0.9rem 2.8rem;
+                z-index: 1;
+                background: rgb(255, 96, 96);
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                border-radius: 5px;
+                border-style: none;
+                color: white;
+                font-size: 15px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                transition: 0.2s ease-in-out;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                &:hover{
+                    cursor: pointer;
+                    background: rgb(253, 70, 70);
+                    color: #090909;
+                }
+            }
+            
+        }
+    }
     .stepsContainer{
         margin-top: 8rem;
         width: 100%;
@@ -1244,6 +1348,102 @@
                         }
                     }
                 }
+            }
+        }
+        .messageContainer{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            min-height: unset;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.2s ease-in-out;
+            .messageBox{
+                position: absolute;
+                height: auto;
+                width: 95vw;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border-radius: 5px;
+                align-items: center;
+                padding: 2rem 0;
+    
+                .successHeader{
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    text-align: center;
+                    padding: 0 1rem;
+                    color: #189F83;
+                }
+                .errorHeader{
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    text-align: center;
+                    padding: 0 1rem;
+                    color: rgb(250, 44, 44);
+                }
+    
+                p{
+                    margin-top: 1rem;
+                    text-align: center;
+                    font-family: "Noto Sans";
+                    font-size: 14px;
+                }
+    
+                .successButton{
+                    margin-top: 2.5rem;
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    z-index: 1;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 14px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    transition: 0.2s ease-in-out;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                    &:hover{
+                        cursor: pointer;
+                        background: #2edbb9;
+                        color: #090909;
+                    }
+                }
+                .errorButton{
+                    margin-top: 2.5rem;
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    z-index: 1;
+                    background: rgb(255, 96, 96);
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 14px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    transition: 0.2s ease-in-out;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                    &:hover{
+                        cursor: pointer;
+                        background: rgb(253, 70, 70);
+                        color: #090909;
+                    }
+                }
+                
             }
         }
     }

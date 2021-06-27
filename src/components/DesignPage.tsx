@@ -103,7 +103,8 @@ const DesignPage = (props: any) => {
         }
         //Changes previewDesign when btnUp pressed
         function changeDesignPreviewBtnUp(){
-            if(viewIndexCockblock === false && props.designQuery.get("viewState" && history.location.pathname.toLowerCase().includes("/design/") === true) === "false"){
+            if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
+                console.log("testUp")
                 if(parseInt(getParams.viewIndex, 10) > 1){
                     previewSwitchAnimations("upwards")
                     history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)

@@ -44,9 +44,13 @@ var toggleCurrencyBox: boolean = true
 
 
 
+var xhr = new XMLHttpRequest()
+
 function ContactPage(props: any) {
+    const history = useHistory()
+
     //Resseting contact page on mounting
-    useEffect(() => {
+    const resetContact = useCallback(() =>{
         function resetContact() {
             userData.userName = null
             userData.email = null
@@ -62,7 +66,7 @@ function ContactPage(props: any) {
             getInputEmail.value =  ""
             getInputDescription.value =  ""
             getInputBudged.value = ""
-
+    
     
             step0Done = false
             step1Done = false
@@ -70,7 +74,11 @@ function ContactPage(props: any) {
             step3Done = false
         }
         resetContact()
-    }, []);
+    },[])
+    useEffect(() => {
+        
+        resetContact()
+    }, [resetContact]);
 
     function toggleCurrency() {
         var getOptionContainer = document.getElementById("optionContainer") as HTMLDivElement
@@ -624,7 +632,7 @@ function ContactPage(props: any) {
 
     
 
-    
+    //Function that adds +1 to stepindex. Checks if steps before were done. To then being able to get to the nextStep
     const nextStep = useCallback((currentStep)=> {
         //Checks and validates everything to then get to the next step
         function nextStep(currentStep: number){
@@ -770,10 +778,87 @@ function ContactPage(props: any) {
         
     }
 
+    //ResponseBox for postrequest Takes State: ServerAnswer(error?success?Limit), headerText and responseText
+    function showResponseBox(state: string,  responseHeader: string, responseContent: string) {
+        var getMessageContainer = document.getElementById("messageContainer") as HTMLDivElement
+
+        var getMessageHeader = document.getElementById("messageHeader") as HTMLDivElement
+        var getMessageText = document.getElementById("messageText") as HTMLDivElement
+        var getMessageButton = document.getElementById("messageButton") as HTMLDivElement
+
+        if(state === "successful"){
+            getMessageHeader.classList.add("successHeader")
+            getMessageHeader.innerHTML = `${responseHeader}`
+            getMessageText.innerHTML = `${responseContent}`
+
+            getMessageButton.innerHTML = "GREAT"
+            getMessageButton.classList.add("successButton")
+
+            getMessageHeader.classList.remove("errorHeader")
+            getMessageButton.classList.remove("errorButton")
+        }
+        else{
+            getMessageHeader.classList.add("errorHeader")
+            getMessageHeader.innerHTML = `${responseHeader}`
+            getMessageText.innerHTML = `${responseContent}`
+            getMessageButton.classList.add("errorButton")
+            getMessageButton.innerHTML = "TRY AGAIN"
+
+            getMessageHeader.classList.remove("successHeader")
+            getMessageButton.classList.remove("successButton")
+        }
+
+        getMessageContainer.style.opacity = "1"
+        getMessageContainer.style.pointerEvents = "all"
+    }
+
+    //Button for Message when Post Request were done CHecks Innerhtml to find out if error or succes to then procced
+    function successErrorButton() {
+        var getMessageButton = document.getElementById("messageButton") as HTMLDivElement
+        var getMessageContainer = document.getElementById("messageContainer") as HTMLDivElement
+
+        if(getMessageButton.innerHTML === "GREAT"){
+            history.push("/home")
+        }
+        else{
+            resetContact()
+            setStepIndex(0)
+        }
+        getMessageContainer.style.opacity = "0"
+        getMessageContainer.style.pointerEvents = "none"
+
+        var getReviewContainer = document.getElementById("userDataConfirmationContainer") as HTMLDivElement
+        getReviewContainer.style.pointerEvents = "none"
+        getReviewContainer.style.opacity ="0"
+
+    }
+    
     //Function that gets triggert when user is finished with filling out form
     function sendProject(){
         if(step0Done === true && step1Done === true && step2Done === true && step3Done === true){
 
+            
+            xhr.open("post", "/newProjectEntry", true)
+            xhr.setRequestHeader("Content-Type", "application/json")
+            
+            xhr.onreadystatechange = function () {
+                if(xhr.status >= 400){
+                    showResponseBox("error", "ERROR", "Something went wrong! We are sorry that you have to experience this.")
+                }
+            }
+
+            xhr.onload = function () {
+                if(xhr.responseText === "successful"){
+                    showResponseBox("successful", "SUCCESS!" ,"We will get back to you as soon as possible. Thank you for choosing us!")
+                }
+                else if(xhr.responseText === "error"){
+                    showResponseBox("error", "ERROR", "Something went wrong! We are sorry that you have to experience this.")
+                }
+                else if(xhr.responseText === "cooldown"){
+                    showResponseBox("error", "LIMIT REACHED", "You only can apply once a day.")
+                }
+            };
+            xhr.send(JSON.stringify(userData))
         }
     }
 
@@ -806,7 +891,6 @@ function ContactPage(props: any) {
         
     }
     
-    const history = useHistory()
     //Calling thunder function everytime the thunder() is getting called with an random number. Starts with number 5 * 1000 = 1s
     useEffect(() => {
         //Thunder Function to randomize the number of times the opacity of background goes up to imitate a thunder 
@@ -882,8 +966,16 @@ function ContactPage(props: any) {
 
                     <div className="userDataButtonContainer">
                         <button className="reviewButton reviewButton1" onClick={() => reviewInformations(false)}>No, change informations</button>
-                        <button className="reviewButton reviewButton2">Yes {"&"} Send</button>
+                        <button className="reviewButton reviewButton2" onClick={sendProject}>Yes {"&"} Send</button>
                     </div>
+                </div>
+            </div>
+
+            <div className="messageContainer" id="messageContainer">
+                <div className="messageBox">
+                    <p className="successHeader" id="messageHeader"></p>
+                    <p id="messageText"></p>
+                    <button className="successButton" id="messageButton" onClick={successErrorButton}></button>
                 </div>
             </div>
 
