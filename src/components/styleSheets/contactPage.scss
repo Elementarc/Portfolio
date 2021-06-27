@@ -5,8 +5,8 @@
     grid-column: 1;
     grid-row: 1;
     width: 100%;
-    height: 100vh;
-    min-height: 950px;
+    height: auto;
+    min-height: 100vh;
     max-height: 1350px;
     z-index: 0;
     overflow: hidden;
@@ -498,7 +498,7 @@
                 width: 30%;
                 height: 100%;
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
                 justify-content: center;
                 h1{
@@ -511,12 +511,13 @@
                 .budgedInput{
                     height: 50px;
                     border-radius: 5px;
-                    width: 100%;
+                    width: 90%;
                     font-size: 18px;
                     font-family: "NOTO SANS";
                     appearance: none;
                     text-align: center;
                     padding: 0rem 3rem;
+                    margin-right: 0.5rem;
                     color: white;
                     background-color: rgba(0, 0, 0, 0.4);
                     border: 1px solid white;
@@ -536,12 +537,13 @@
                         border: 1px solid #ffcf76;
                     }
                 }
+                
                 .budgedInfo{
                     position: absolute;
                     right: 0;
                     height: 20px;
                     width: 20px;
-                    margin-right: 1rem;
+                    margin-right: 5rem;
 
                     .tooltipBudgedContainer{
                         position: absolute;
@@ -570,6 +572,75 @@
                         .tooltipBudgedContainer{
                             visibility: visible;
                             opacity: 1;
+                        }
+                    }
+                }
+                .currencyContainer{
+                    position: relative;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    border-radius: 5px;
+                    min-width: 50px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    font-family: "NOTO SANS";
+                    appearance: none;
+                    padding: 0rem 1rem;
+                    color: white;
+                    transition: 0.1s ease-in-out;
+                    pointer-events: default;
+                    outline: none;
+                    .optionContainer{
+                        position: absolute;
+                        height: 50px;
+                        width: 100%;
+                        transition: 0.1s ease-in-out;
+                        border: 1px solid #56FFDC;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        
+                        .optionFlexContainer{
+                            pointer-events: none;
+                            width: 100%;
+                            height: 100px;
+                            display: flex;
+                            flex-direction: column;
+                            .option1{
+                                width: 100%;
+                                order: 1;
+                                height: 50px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                background-color: rgba(0, 0, 0, 0.4);
+                                cursor: pointer;
+                                user-select: none;
+                                &:hover{
+                                    background-color: rgba(0, 0, 0, 0.6);
+                                }
+                            }
+                            .option2{
+                                width: 100%;
+                                order: 2;
+                                height: 50px;
+                                display: flex;
+                                justify-content: center;
+                                user-select: none;
+                                align-items: center;
+                                background-color: rgba(0, 0, 0, 0.4);
+                                cursor: pointer;
+                                &:hover{
+                                    background-color: rgba(0, 0, 0, 0.6);
+                                }
+                            }
+                            
+                        }
+                        &:hover{
+                            cursor: pointer;
                         }
                     }
                 }
@@ -616,6 +687,102 @@
         }
     }
     
+    .userDataConfirmationContainer{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+        .userDataContainer{
+            position: absolute;
+            margin-top: 15rem;
+            width: 700px;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+            max-height: 700px;
+            overflow-y: scroll;
+            h1{
+                font-size: 30px;
+                font-family: "PT Serif";
+                color: #189F83;
+                margin-top: 3rem;
+                text-align: center;
+            }
+            .userDataContent{
+                position: relative;
+                width: 100%;
+                margin-top: 3rem;
+                overflow: hidden;
+                .titleContainer{
+                    width: 100%;
+                    margin-top: 1.5rem;
+                    display: flex;
+                    .title{
+                        width: 10%;
+                        margin-left: 4rem;
+                        font-family: "PT Serif";
+                        font-size: 16px;
+                    }
+                    .input{
+                        font-family: "Noto Sans";
+                        font-size: 16px;
+                        margin-left: 2.5rem;
+                        max-width: 500px;
+                    }
+                }
+            }
+            h2{
+                font-size: 18px;
+                font-family: "PT Serif";
+                color: #090909;
+                margin-top: 3rem;
+                text-align: center;
+            }
+            
+            .userDataButtonContainer{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                .reviewButton{
+                    margin: 3rem 1rem;
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    z-index: 1;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    transition: 0.2s ease-in-out;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                    &:hover{
+                        cursor: pointer;
+                        background: #2edbb9;
+                    }
+                }
+                .reviewButton1{
+                    background: rgb(255, 96, 96);
+                    color: black;
+                    &:hover{
+                        cursor: pointer;
+                        background: rgb(253, 70, 70);
+                    }
+                }
+            }
+        }
+    }
     
     .stepsContainer{
         margin-top: 8rem;
@@ -795,14 +962,11 @@
                 }
             }
         }
-
-       
-
     }
 }
 @media (max-width: 900px){
     .contactPageContainer{
-        height: 100%;
+        height: auto;
         min-height: 100vh;
         .contactContentContainer{
             margin-top: 7rem;
@@ -829,7 +993,7 @@
                         font-size: 15px;
                     }
                     .nameInfo{
-                        z-index: 10;
+                        z-index: 5;
                         height: 17px;
                         width: 17px;
                         direction: rtl;
@@ -874,7 +1038,7 @@
                         font-size: 15px;
                     }
                     .emailInfo{
-                        z-index: 10;
+                        z-index: 5;
                         height: 17px;
                         width: 17px;
                         direction: rtl;
@@ -921,7 +1085,7 @@
                         font-size: 15px;
                     }
                     .descriptionInfo{
-                        z-index: 10;
+                        z-index: 5;
                         height: 17px;
                         width: 17px;
                         direction: rtl;
@@ -932,7 +1096,7 @@
                             min-width: 90vw;
                             direction: ltr;
                             margin-top: 4rem;
-                            margin-right: -1rem;
+                            margin-right: -2rem;
                             background-color: rgba(255, 255, 255, 0.8);
                         }
                     }
@@ -966,7 +1130,7 @@
                         font-size: 15px;
                     }
                     .budgedInfo{
-                        z-index: 10;
+                        z-index: 5;
                         height: 17px;
                         width: 17px;
                         direction: rtl;
@@ -997,6 +1161,85 @@
             font-size: 15px;
             padding: 0 1rem;
             padding-bottom: 2rem;
+        }
+        .userDataConfirmationContainer{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            .userDataContainer{
+                position: absolute;
+                margin-top: unset;
+                top: 4rem;
+                width: 95vw;
+                height: auto;
+                max-height: 500px;
+                overflow-y: scroll;
+                h1{
+                    font-size: 20px;
+                    font-family: "PT Serif";
+                    color: #189F83;
+                    margin-top: 2rem;
+                    margin-left: 2rem;
+                    text-align: start;
+                }
+                .userDataContent{
+                    position: relative;
+                    width: 100%;
+                    margin-top: 1rem;
+                    overflow: hidden;
+                    .titleContainer{
+                        width: 100%;
+                        margin-top: 1.5rem;
+                        display: flex;
+                        .title{
+                            width: 20%;
+                            margin-left: 2rem;
+                            font-family: "PT Serif";
+                            font-size: 14px;
+                        }
+                        .input{
+                            font-family: "Noto Sans";
+                            font-size: 14px;
+                            margin-left: 2.5rem;
+                            padding-right: 1rem;
+                            max-width: 500px;
+                        }
+                    }
+                }
+                h2{
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    color: #090909;
+                    margin-top: 3rem;
+                    text-align: center;
+                }
+                
+                .userDataButtonContainer{
+                    display: flex;
+                    flex-direction: column;
+                    padding-bottom: 2rem;
+                    height: unset;
+                    margin: unset;
+                    .reviewButton2{
+                        order: 2;
+                        margin: 1rem 1rem 0 1rem;
+                        font-size: 14px;
+                    }
+                    .reviewButton1{
+                        order: 2;
+                        margin: 0rem 1rem;
+                        margin-top: 2rem;
+                        background: rgb(255, 96, 96);
+                        font-size: 14px;
+                        color: black;
+                        &:hover{
+                            cursor: pointer;
+                            background: rgb(253, 70, 70);
+                        }
+                    }
+                }
+            }
         }
     }
 }
