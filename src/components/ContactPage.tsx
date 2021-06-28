@@ -782,7 +782,6 @@ function ContactPage(props: any) {
         
     }
 
-    const startBoxAnimation = useAnimation()
     //ResponseBox for postrequest Takes State: ServerAnswer(error?success?Limit), headerText and responseText
     function showResponseBox(state: string,  responseHeader: string, responseContent: string) {
         var getMessageContainer = document.getElementById("messageContainer") as HTMLDivElement
@@ -817,11 +816,6 @@ function ContactPage(props: any) {
             getMessageButton.classList.remove("successButton")
         }
 
-        startBoxAnimation.start({
-            opacity: 1,
-            transition: {duration: 0.2,delay: 0.3},
-            scale: 1,
-        })
         getMessageContainer.style.pointerEvents = "all"
         getMessageContainer.style.opacity = "1"
     }
