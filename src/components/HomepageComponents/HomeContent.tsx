@@ -212,7 +212,7 @@ const HomeContent = (props: any) => {
                         <h2>THE STEP TO GET STARTED</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>Less and less people dare to take steps that are needed to become successful. Be different and leave them behind! Ready to start something big?</p>
+                        <p>Less and less people dare to take steps that are needed to become successful. Be different! Ready to start something big?</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         

@@ -764,7 +764,7 @@
                     border-radius: 5px;
                     border-style: none;
                     color: white;
-                    font-size: 16px;
+                    font-size: 15px;
                     font-family: "PT Serif";
                     letter-spacing: 1px;
                     font-weight: 700;
@@ -816,7 +816,7 @@
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
             .successHeader{
                 font-family: "PT Serif";
-                font-size: 28px;
+                font-size: 30px;
                 font-weight: 700;
                 text-align: center;
                 padding: 0 1rem;
@@ -827,7 +827,7 @@
             }
             .errorHeader{
                 font-family: "PT Serif";
-                font-size: 28px;
+                font-size: 30px;
                 font-weight: 700;
                 text-align: center;
                 padding: 0 1rem;
@@ -1110,7 +1110,7 @@
                         .tooltipContainer{
                             position: absolute;
                             overflow-y: scroll;
-                            max-height: 250px;
+                            max-height: 260px;
                             min-width: 90vw;
                             direction: ltr;
                             margin-top: 2.5rem;
@@ -1155,7 +1155,7 @@
                         .tooltipEmailContainer{
                             position: absolute;
                             overflow-y: scroll;
-                            max-height: 250px;
+                            max-height: 260px;
                             min-width: 90vw;
                             direction: ltr;
                             margin-top: 2.5rem;
@@ -1201,7 +1201,7 @@
                         direction: rtl;
                         .tooltipDescriptionContainer{
                             overflow-y: scroll;
-                            max-height: 250px;
+                            max-height: 260px;
                             position: absolute;
                             min-width: 90vw;
                             direction: ltr;
@@ -1252,9 +1252,9 @@
                             position: absolute;
                             min-width: 90vw;
                             direction: ltr;
-                            max-height: 250px;
+                            max-height: 260px;
                             margin-top: 2.5rem;
-                            margin-right: -1rem;
+                            margin-right: -6rem;
                             background-color: rgba(255, 255, 255, 0.8);
                             overflow-y: scroll;
                         }
