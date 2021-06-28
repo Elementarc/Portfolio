@@ -39,12 +39,13 @@ var userData: userDataInterface = {
 
 var inputCheckTimer: any
 var changeStepAnimationTimer: any
-
+var currencyTimer: any
 var toggleCurrencyBox: boolean = true
 
 
 
 var xhr = new XMLHttpRequest()
+
 
 function ContactPage(props: any) {
     const history = useHistory()
@@ -134,16 +135,19 @@ function ContactPage(props: any) {
     function reviewInformations(toggle: boolean){
         var getReviewContainer = document.getElementById("userDataConfirmationContainer") as HTMLDivElement
         
+
+        var getReviewBox = document.getElementById("userDataContainer") as HTMLDivElement
         setRerenderUserData(!rerenderUserData)
         if(toggle === true){
             if(step0Done === true && step1Done === true && step2Done === true && step3Done === true){
                 getReviewContainer.style.pointerEvents = "unset"
                 getReviewContainer.style.opacity ="1"
-
+                getReviewBox.style.transform = "scale(1)"
                 
             }
         }
         else{
+            getReviewBox.style.transform = "scale(0.7)"
             getReviewContainer.style.pointerEvents = "none"
             getReviewContainer.style.opacity ="0"
 
@@ -248,7 +252,7 @@ function ContactPage(props: any) {
                 var getButton = document.getElementById("nameNextStepButton") as HTMLDivElement
                 
                 if(passedCheck === true){
-                    getButton.style.opacity = "1"
+                   
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
@@ -717,7 +721,7 @@ function ContactPage(props: any) {
     },[StepIndex])
 
     
-    //Adds eventlisteners
+    //Adding and removing eventlisteners
     useEffect(() => {
         //Inputs
         var getInputName = document.getElementById("inputName") as HTMLInputElement
@@ -778,15 +782,19 @@ function ContactPage(props: any) {
         
     }
 
+    const startBoxAnimation = useAnimation()
     //ResponseBox for postrequest Takes State: ServerAnswer(error?success?Limit), headerText and responseText
     function showResponseBox(state: string,  responseHeader: string, responseContent: string) {
         var getMessageContainer = document.getElementById("messageContainer") as HTMLDivElement
+
+        var getMessageBox = document.getElementById("messageBox") as HTMLDivElement
 
         var getMessageHeader = document.getElementById("messageHeader") as HTMLDivElement
         var getMessageText = document.getElementById("messageText") as HTMLDivElement
         var getMessageButton = document.getElementById("messageButton") as HTMLDivElement
 
         if(state === "successful"){
+            getMessageBox.style.transform ="scale(1)"
             getMessageHeader.classList.add("successHeader")
             getMessageHeader.innerHTML = `${responseHeader}`
             getMessageText.innerHTML = `${responseContent}`
@@ -798,6 +806,7 @@ function ContactPage(props: any) {
             getMessageButton.classList.remove("errorButton")
         }
         else{
+            getMessageBox.style.transform ="scale(1)"
             getMessageHeader.classList.add("errorHeader")
             getMessageHeader.innerHTML = `${responseHeader}`
             getMessageText.innerHTML = `${responseContent}`
@@ -808,35 +817,45 @@ function ContactPage(props: any) {
             getMessageButton.classList.remove("successButton")
         }
 
-        getMessageContainer.style.opacity = "1"
+        startBoxAnimation.start({
+            opacity: 1,
+            transition: {duration: 0.2,delay: 0.3},
+            scale: 1,
+        })
         getMessageContainer.style.pointerEvents = "all"
+        getMessageContainer.style.opacity = "1"
     }
 
+    
     //Button for Message when Post Request were done CHecks Innerhtml to find out if error or succes to then procced
     function successErrorButton() {
         var getMessageButton = document.getElementById("messageButton") as HTMLDivElement
         var getMessageContainer = document.getElementById("messageContainer") as HTMLDivElement
 
+        var getMessageBox = document.getElementById("messageBox") as HTMLDivElement
         if(getMessageButton.innerHTML === "GREAT"){
             history.push("/home")
+            getMessageBox.style.transform ="scale(0.7)"
         }
         else{
+            getMessageBox.style.transform ="scale(0.7)"
             resetContact()
             setStepIndex(0)
         }
         getMessageContainer.style.opacity = "0"
         getMessageContainer.style.pointerEvents = "none"
 
-        var getReviewContainer = document.getElementById("userDataConfirmationContainer") as HTMLDivElement
-        getReviewContainer.style.pointerEvents = "none"
-        getReviewContainer.style.opacity ="0"
-
     }
     
     //Function that gets triggert when user is finished with filling out form
     function sendProject(){
+        
         if(step0Done === true && step1Done === true && step2Done === true && step3Done === true){
-
+            var getReviewContainer = document.getElementById("userDataConfirmationContainer") as HTMLDivElement
+            var getReviewBox = document.getElementById("userDataContainer") as HTMLDivElement
+            getReviewBox.style.transform = "scale(0.7)"
+            getReviewContainer.style.pointerEvents = "none"
+            getReviewContainer.style.opacity ="0"
             
             xhr.open("post", "/newProjectEntry", true)
             xhr.setRequestHeader("Content-Type", "application/json")
@@ -917,7 +936,7 @@ function ContactPage(props: any) {
     //Using to clean up timers
     useEffect(() => {
         return () => {
-            
+            clearTimeout(currencyTimer)
             clearTimeout(thunderTimer)
             clearTimeout(changeStepAnimationTimer)
         };
@@ -971,13 +990,14 @@ function ContactPage(props: any) {
                 </div>
             </div>
 
-            <div className="messageContainer" id="messageContainer">
-                <div className="messageBox">
+            <div  className="messageContainer" id="messageContainer">
+                <div className="messageBox" id="messageBox">
                     <p className="successHeader" id="messageHeader"></p>
                     <p id="messageText"></p>
                     <button className="successButton" id="messageButton" onClick={successErrorButton}></button>
                 </div>
             </div>
+            
 
             <div className="contactContentContainer">
                 <motion.div animate={nameAnimation} className="contactContentName" id="contactContentName">
@@ -1074,7 +1094,9 @@ function ContactPage(props: any) {
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                         <input className="budgedInput" id="inputBudged" type="number" onBlur={() => {verifyInputValue3()}} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
                         <div className="currencyContainer">
-                            <motion.div onClick={toggleCurrency} onMouseLeave={() => {toggleCurrencyBox = false; toggleCurrency()}} className="optionContainer" id="optionContainer">
+                            <motion.div onClick={toggleCurrency} onMouseEnter={() => clearTimeout(currencyTimer)} onMouseLeave={() => {toggleCurrencyBox = false; currencyTimer = setTimeout(() => {
+                                toggleCurrency()
+                            }, 500);}} className="optionContainer" id="optionContainer">
                                 <div className="optionFlexContainer" id="optionFlexContainer">
                                     <div className="option1" id="option1" onClick={() => changeCurrency("option1")}>{"€"}</div>
                                     <div className="option2" id="option2" onClick={() => changeCurrency("option2")}>{"$"}</div>
