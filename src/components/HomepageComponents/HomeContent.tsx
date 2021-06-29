@@ -130,8 +130,8 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
                 <motion.div  className="homepageMenuContainer">
-                    <motion.div exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
-                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2, type: 'spring'}}} className="item item1">
+                    <motion.div initial={{opacity: 0, y: -100}} animate={{opacity: 1, y: 0, transition:{duration: 0.9, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
+                        <div className="item item1">
                             <span className="bottomBorder"/>
                             <img loading="eager" alt="owl" src={owl} className="item1Background"></img>
 
@@ -140,19 +140,19 @@ const HomeContent = (props: any) => {
                                 <p> Experience a world full of different designs! Maybe  there even is more</p>
                                 <Link to={`/design`}>SEE DESIGNS</Link>
                             </div>
-                        </motion.div>
-                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.1, type: 'spring'}}} className="item item2">
+                        </div>
+                        <div className="item item2">
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
                             <img src={art} alt="blood" loading="eager" className="item2Background"></img>
                             <div className="item2Content">
-                                <h1>Art</h1>
-                                <p>?Interested in artwork</p>
+                                <h1>Pixel-Art</h1>
+                                <p>!We now do Pixel art</p>
                                 <Link to="/design">SEE ART-WORK</Link>
                             </div>
-                        </motion.div>
-                        <motion.div initial={{opacity: 0, scale: 0.3}} animate={{opacity: 1, scale: 1, transition:{duration: 1.2, delay: 2.1, type: 'spring'}}} className="item item3">
+                        </div>
+                        <div className="item item3">
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
@@ -163,7 +163,7 @@ const HomeContent = (props: any) => {
                                 <p>Here you can see the projects we are currently working on</p>
                                 <Link to="/projects">SEE PROJECTS</Link>
                             </div>
-                        </motion.div>
+                        </div>
                     </motion.div>
                 </motion.div>
                 

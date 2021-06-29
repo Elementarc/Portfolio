@@ -18,7 +18,6 @@ var step3Done: boolean = false
 var fullNameRegEx = new RegExp(/^[a-zA-Z0-9]{2,15} ?(?=[a-zA-Z0-])[a-zA-Z0-9]{0,15}$/)
 var emailRegEx = new RegExp(/^[a-zA-Z0-9-_.]{3,25}@[a-zA-Z0-9-_.]{2,20}\.[a-zA-Z0-9]{2,6}$/)
 var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;+ !?&\s]{25,500}$/)
-
 var currencyCheckNumLengthRegEx = new RegExp(/^[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{2})?|(?:,[0-9]{3})*(?:\.[0-9]{2})?|(?:\.[0-9]{3})*(?:,[0-9]{2})?)$/)
 
 interface userDataInterface{
@@ -804,6 +803,17 @@ function ContactPage(props: any) {
             getMessageHeader.classList.remove("errorHeader")
             getMessageButton.classList.remove("errorButton")
         }
+        else if(state === "cooldown"){
+            getMessageBox.style.transform ="scale(1)"
+            getMessageHeader.classList.add("errorHeader")
+            getMessageHeader.innerHTML = `${responseHeader}`
+            getMessageText.innerHTML = `${responseContent}`
+            getMessageButton.classList.add("errorButton")
+            getMessageButton.innerHTML = "OK"
+
+            getMessageHeader.classList.remove("successHeader")
+            getMessageButton.classList.remove("successButton")
+        }
         else{
             getMessageBox.style.transform ="scale(1)"
             getMessageHeader.classList.add("errorHeader")
@@ -861,7 +871,11 @@ function ContactPage(props: any) {
             }
 
             xhr.onload = function () {
+                console.log(xhr.responseText)
+                console.log(typeof xhr.responseText)
+                console.log(xhr.responseText === "successful")
                 if(xhr.responseText === "successful"){
+                    
                     showResponseBox("successful", "SUCCESS!" ,"We will get back to you as soon as possible. Thank you for choosing us!")
                 }
                 else if(xhr.responseText === "error"){
@@ -874,7 +888,7 @@ function ContactPage(props: any) {
             xhr.send(JSON.stringify(userData))
         }
     }
-
+    
     //An array where JSX will be filled in to be displayed on screen RAIN DROPS
     var rainDrops: any = []
     //Creates 100divs to display rain drops pushes JSX INTO RainDrops array that will be randomized
@@ -995,8 +1009,15 @@ function ContactPage(props: any) {
 
             <div className="contactContentContainer">
                 <motion.div animate={nameAnimation} className="contactContentName" id="contactContentName">
-                    <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
-                    <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHAT'S YOUR NAME?</motion.h2>
+                    <div className="headerContent">
+                        <div className="lineContainer">
+                            <div className="line1"></div>
+                            <div className="line2"></div>
+                        </div>
+                        
+                        <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
+                        <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHAT'S YOUR NAME?</motion.h2>
+                    </div>
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                         <input className="nameInput" id="inputName" type="text" onBlur={verifyInputValue0} placeholder="Full Name" defaultValue={userData.userName === null ? "" :`${userData.userName}`} />
@@ -1024,8 +1045,15 @@ function ContactPage(props: any) {
 
 
                 <motion.div animate={emailAnimation} className="contactContentEmail" id="contactContentEmail">
-                    <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
-                    <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHERE CAN WE CONTACT YOU?</motion.h2>
+                    <div className="headerContent">
+                        <div className="lineContainer">
+                            <div className="line1"></div>
+                            <div className="line2"></div>
+                        </div>
+                        <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
+                        <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHERE CAN WE CONTACT YOU?</motion.h2>
+                    </div>
+                    
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                         <input className="emailInput" id="inputEmail" type="text" onBlur={verifyInputValue1} placeholder="E-mail" defaultValue={userData.email === null ? "" :`${userData.email}`} />
@@ -1050,8 +1078,15 @@ function ContactPage(props: any) {
 
 
                 <motion.div animate={descriptionAnimation} className="contactContentDescription" id="contactContentDescription">
-                    <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
-                    <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>TELL ME ABOUT YOUR PROJECT</motion.h2>
+                        <div className="headerContent">
+                            <div className="lineContainer">
+                                <div className="line1"></div>
+                                <div className="line2"></div>
+                            </div>
+                            <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
+                            <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>TELL ME ABOUT YOUR PROJECT</motion.h2>
+                        </div>
+                    
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                         <textarea className="descriptionInput" id="inputDescription" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
@@ -1082,8 +1117,15 @@ function ContactPage(props: any) {
 
 
                 <motion.div animate={budgedAnimation} className="contactContentBudged" id="contactContentBudged">
-                    <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
-                    <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>HOW IMPORTANT IS THAT PROJECT TO YOU?</motion.h2>
+                    <div className="headerContent">
+                        <div className="lineContainer">
+                            <div className="line1"></div>
+                            <div className="line2"></div>
+                        </div>
+                        <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
+                        <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>HOW IMPORTANT IS THAT PROJECT TO YOU?</motion.h2>
+                    </div>
+                   
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                         <input className="budgedInput" id="inputBudged" type="number" onBlur={() => {verifyInputValue3()}} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />

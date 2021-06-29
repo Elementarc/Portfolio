@@ -27,18 +27,50 @@
             flex-direction: column;
             align-items: center;
             pointer-events: none;
-            h1{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 20px;
-                margin: 0rem 0 0rem 0rem;
+            .headerContent{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                .lineContainer{
+                    pointer-events: none;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    .line1{
+                        position: relative;
+                        margin: 3rem 0;
+                        margin-right: 16rem;
+                        width: 23%;
+                        height: 1px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                    }
+                    .line2{
+                        position: relative;
+                        margin: 3rem 0;
+                        margin-left: 16rem;
+                        width: 23%;
+                        height: 1px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                    }
+                }
+
+                h1{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    margin: 0rem 0 0rem 0rem;
+                }
+                h2{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 39px;
+                    margin: -0.4rem 0 0rem 0;
+                }
             }
-            h2{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 39px;
-                margin: -0.4rem 0 0rem 0;
-            }
+            
             
             .inputContainer{
                 position: relative;
@@ -162,18 +194,50 @@
             flex-direction: column;
             align-items: center;
             pointer-events: none;
-            h1{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 20px;
-                margin: 0rem 0 0rem 0rem;
+            .headerContent{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                .lineContainer{
+                    pointer-events: none;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    .line1{
+                        position: relative;
+                        margin: 3rem 0;
+                        margin-right: 22rem;
+                        width: 22%;
+                        height: 1px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                    }
+                    .line2{
+                        position: relative;
+                        margin: 3rem 0;
+                        margin-left: 22rem;
+                        width: 22%;
+                        height: 1px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                    }
+                }
+
+                h1{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    margin: 0rem 0 0rem 0rem;
+                }
+                h2{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 39px;
+                    margin: -0.4rem 0 0rem 0;
+                }
             }
-            h2{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 39px;
-                margin: -0.4rem 0 0rem 0;
-            }
+            
             
             .inputContainer{
                 position: relative;
@@ -313,17 +377,48 @@
             flex-direction: column;
             align-items: center;
             pointer-events: none;
-            h1{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 20px;
-                margin: 0rem 0 0rem 0rem;
-            }
-            h2{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 39px;
-                margin: -0.4rem 0 0rem 0;
+            .headerContent{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                .lineContainer{
+                    pointer-events: none;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    .line1{
+                        position: relative;
+                        margin: 3rem 0;
+                        margin-right: 22rem;
+                        width: 22%;
+                        height: 1px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                    }
+                    .line2{
+                        position: relative;
+                        margin: 3rem 0;
+                        margin-left: 22rem;
+                        width: 22%;
+                        height: 1px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                    }
+                }
+
+                h1{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    margin: 0rem 0 0rem 0rem;
+                }
+                h2{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 39px;
+                    margin: -0.4rem 0 0rem 0;
+                }
             }
             
             .inputContainer{
@@ -479,17 +574,48 @@
             flex-direction: column;
             align-items: center;
             pointer-events: none;
-            h1{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 20px;
-                margin: 0rem 0 0rem 0rem;
-            }
-            h2{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 39px;
-                margin: -0.4rem 0 0rem 0;
+            .headerContent{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                .lineContainer{
+                    pointer-events: none;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    .line1{
+                        position: relative;
+                        margin: 3rem 0;
+                        margin-right: 30rem;
+                        width: 15%;
+                        height: 1px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                    }
+                    .line2{
+                        position: relative;
+                        margin: 3rem 0;
+                        margin-left: 30rem;
+                        width: 15%;
+                        height: 1px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                    }
+                }
+
+                h1{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    margin: 0rem 0 0rem 0rem;
+                }
+                h2{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 39px;
+                    margin: -0.4rem 0 0rem 0;
+                }
             }
             
             .inputContainer{
@@ -1029,6 +1155,21 @@
         .contactContentContainer{
 
             .contactContentName{
+                .headerContent{
+                    .lineContainer{
+                        
+                        .line1{
+                            
+                            margin-right: 16rem;
+                            width: 20%;
+                        }
+                        .line2{
+                            margin: 2.9rem 0;
+                            margin-left: 16rem;
+                            width: 20%;
+                        }
+                    }
+                }
                 .inputContainer{
                     width: 50%;
                     .nameInfo{
@@ -1040,6 +1181,20 @@
             }
 
             .contactContentEmail{
+                .headerContent{
+                    .lineContainer{
+                        .line1{
+                            
+                            margin-right: 22rem;
+                            width: 13%;
+                        }
+                        .line2{
+                            margin: 2.9rem 0;
+                            margin-left: 22rem;
+                            width: 13%;
+                        }
+                    }
+                }
                 .inputContainer{
                     width: 50%;
                     .emailInfo{
@@ -1051,6 +1206,21 @@
             }
 
             .contactContentDescription{
+                .headerContent{
+                    .lineContainer{
+                        
+                        .line1{
+                            
+                            margin-right: 22rem;
+                            width: 13%;
+                        }
+                        .line2{
+                            margin: 2.9rem 0;
+                            margin-left: 22rem;
+                            width: 13%;
+                        }
+                    }
+                }
                 .inputContainer{
                     width: 50%;
                     .descriptionInfo{
@@ -1062,6 +1232,21 @@
             }
 
             .contactContentBudged{
+                .headerContent{
+                    .lineContainer{
+                        
+                        .line1{
+                            
+                            margin-right: 30rem;
+                            width: 6%;
+                        }
+                        .line2{
+                            margin: 2.9rem 0;
+                            margin-left: 30rem;
+                            width: 6%;
+                        }
+                    }
+                }
                 .inputContainer{
                     width: 50%;
                     .budgedInfo{
@@ -1084,19 +1269,34 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                h1{
-                    padding: 0 1rem;
-                    font-size: 16px;
-                    text-align: center;
+                .headerContent{
+                    h1{
+                        padding: 0 1rem;
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                    h2{
+                        font-size: 30px;
+                        padding: 0 1rem;
+                        margin-top: 0.05rem;
+                        line-height: 2.2rem;
+                        text-align: center;
+                    }
+                    .lineContainer{
+                        
+                        .line1{
+                            margin-top: 2.5rem;
+                            margin-right: 12rem;
+                            width: 20%;
+                        }
+                        .line2{
+                            margin-top: 2.5rem;
+                            margin-left: 12rem;
+                            width: 20%;
+                        }
+                    }
                 }
-                h2{
-                    font-size: 30px;
-                    padding: 0 1rem;
-                    margin-top: 0.05rem;
-                    line-height: 2.2rem;
-                    text-align: center;
-                }
+                
                 .inputContainer{
                     width: 90%;
                     input{
@@ -1129,19 +1329,34 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                h1{
-                    padding: 0 1rem;
-                    font-size: 16px;
-                    text-align: center;
+                .headerContent{
+                    h1{
+                        padding: 0 1rem;
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                    h2{
+                        font-size: 30px;
+                        padding: 0 1rem;
+                        margin-top: 0.05rem;
+                        line-height: 2.2rem;
+                        text-align: center;
+                    }
+                    .lineContainer{
+                        
+                        .line1{
+                            margin-top: 2.5rem;
+                            margin-right: 17rem;
+                            width: 13%;
+                        }
+                        .line2{
+                            margin-top: 2.5rem;
+                            margin-left: 17rem;
+                            width: 13%;
+                        }
+                    }
                 }
-                h2{
-                    font-size: 30px;
-                    padding: 0 1rem;
-                    margin-top: 0.05rem;
-                    line-height: 2.2rem;
-                    text-align: center;
-                }
+                
                 .inputContainer{
                     width: 90%;
                     input{
@@ -1174,18 +1389,32 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                h1{
-                    padding: 0 1rem;
-                    font-size: 16px;
-                    text-align: center;
-                }
-                h2{
-                    font-size: 30px;
-                    padding: 0 1rem;
-                    margin-top: 0.05rem;
-                    line-height: 2.2rem;
-                    text-align: center;
+                .headerContent{
+                    h1{
+                        padding: 0 1rem;
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                    h2{
+                        font-size: 30px;
+                        padding: 0 1rem;
+                        margin-top: 0.05rem;
+                        line-height: 2.2rem;
+                        text-align: center;
+                    }
+                    .lineContainer{
+                        
+                        .line1{
+                            margin-top: 2.5rem;
+                            margin-right: 17rem;
+                            width: 13%;
+                        }
+                        .line2{
+                            margin-top: 2.5rem;
+                            margin-left: 17rem;
+                            width: 13%;
+                        }
+                    }
                 }
                 
                 .inputContainer{
@@ -1222,17 +1451,32 @@
                 justify-content: center;
                 align-items: center;
 
-                h1{
-                    padding: 0 1rem;
-                    font-size: 16px;
-                    text-align: center;
-                }
-                h2{
-                    font-size: 30px;
-                    padding: 0 1rem;
-                    margin-top: 0.05rem;
-                    line-height: 2.2rem;
-                    text-align: center;
+                .headerContent{
+                    h1{
+                        padding: 0 1rem;
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                    h2{
+                        font-size: 30px;
+                        padding: 0 1rem;
+                        margin-top: 0.05rem;
+                        line-height: 2.2rem;
+                        text-align: center;
+                    }
+                    .lineContainer{
+                        
+                        .line1{
+                            margin-top: 2.5rem;
+                            margin-right: 30rem;
+                            width: 13%;
+                        }
+                        .line2{
+                            margin-top: 2.5rem;
+                            margin-left: 30rem;
+                            width: 13%;
+                        }
+                    }
                 }
                 .inputContainer{
                     width: 90%;
