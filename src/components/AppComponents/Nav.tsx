@@ -6,11 +6,12 @@ import {AnimatePresence} from "framer-motion"
 //icons
 import {ReactComponent as HomeIcon} from "../../assets/icons/HomeIcon.svg"
 import {ReactComponent as DesignIcon} from "../../assets/icons/DesignIcon.svg"
-import {ReactComponent as WorkIcon} from "../../assets/icons/WorkIcon.svg"
+import {ReactComponent as PixelArtIcon} from "../../assets/icons/PixelArtIcon.svg"
 import {ReactComponent as ContactIcon} from "../../assets/icons/ContactIcon.svg"
 import {ReactComponent as ProjectsIcon} from "../../assets/icons/ProjectIcon.svg"
 import {ReactComponent as MenuIcon} from "../../assets/icons/MenuIcon.svg"
 //Import components
+
 import {motion} from "framer-motion"
 //CSS
 import "./styleSheets/nav.scss"
@@ -26,8 +27,8 @@ function giveNavStyleTarget(url: string) {
     var getNavItemProjects = document.getElementById("navProjects") as HTMLDivElement
     var getNavItemProjectsIcon = document.getElementById("ProjectsIcon") as HTMLDivElement
 
-    var getNavItemWorkspace = document.getElementById("navWorkspace") as HTMLDivElement
-    var getNavItemWorkspaceIcon = document.getElementById("WorkIcon") as HTMLDivElement
+    var getNavItemPixelart = document.getElementById("navPixelArt") as HTMLDivElement
+    var getNavItemPixelArtIcon = document.getElementById("PixelArtIcon") as HTMLDivElement
 
     var getNavItemContact = document.getElementById("navContact") as HTMLDivElement
     var getNavItemContactIcon = document.getElementById("ContactIcon") as HTMLDivElement
@@ -41,8 +42,8 @@ function giveNavStyleTarget(url: string) {
         getNavItemDesignIcon.classList.remove("targetNavIcon")
         getNavItemProjects.classList.remove("targetNavItem")
         getNavItemProjectsIcon.classList.remove("targetNavIcon")
-        getNavItemWorkspace.classList.remove("targetNavItem")
-        getNavItemWorkspaceIcon.classList.remove("targetNavIcon")
+        getNavItemPixelart.classList.remove("targetNavItem")
+        getNavItemPixelArtIcon.classList.remove("targetNavIcon")
         getNavItemContact.classList.remove("targetNavItem")
         getNavItemContactIcon.classList.remove("targetNavIcon")
     }
@@ -55,8 +56,8 @@ function giveNavStyleTarget(url: string) {
         getNavItemHomeIcon.classList.remove("targetNavIcon")
         getNavItemProjects.classList.remove("targetNavItem")
         getNavItemProjectsIcon.classList.remove("targetNavIcon")
-        getNavItemWorkspace.classList.remove("targetNavItem")
-        getNavItemWorkspaceIcon.classList.remove("targetNavIcon")
+        getNavItemPixelart.classList.remove("targetNavItem")
+        getNavItemPixelArtIcon.classList.remove("targetNavIcon")
         getNavItemContact.classList.remove("targetNavItem")
         getNavItemContactIcon.classList.remove("targetNavIcon")
     }
@@ -69,15 +70,15 @@ function giveNavStyleTarget(url: string) {
         getNavItemHomeIcon.classList.remove("targetNavIcon")
         getNavItemDesign.classList.remove("targetNavItem")
         getNavItemDesignIcon.classList.remove("targetNavIcon")
-        getNavItemWorkspace.classList.remove("targetNavItem")
-        getNavItemWorkspaceIcon.classList.remove("targetNavIcon")
+        getNavItemPixelart.classList.remove("targetNavItem")
+        getNavItemPixelArtIcon.classList.remove("targetNavIcon")
         getNavItemContact.classList.remove("targetNavItem")
         getNavItemContactIcon.classList.remove("targetNavIcon")
     }
-    else if(url.includes("/workspace") === true){
+    else if(url.includes("/pixelart") === true){
         //adding style to targeted nav depending on url
-        getNavItemWorkspace.classList.add("targetNavItem")
-        getNavItemWorkspaceIcon.classList.add("targetNavIcon")
+        getNavItemPixelart.classList.add("targetNavItem")
+        getNavItemPixelArtIcon.classList.add("targetNavIcon")
         //removing style from all others
         getNavItemHome.classList.remove("targetNavItem")
         getNavItemHomeIcon.classList.remove("targetNavIcon")
@@ -97,8 +98,8 @@ function giveNavStyleTarget(url: string) {
         getNavItemDesignIcon.classList.remove("targetNavIcon")
         getNavItemProjects.classList.remove("targetNavItem")
         getNavItemProjectsIcon.classList.remove("targetNavIcon")
-        getNavItemWorkspace.classList.remove("targetNavItem")
-        getNavItemWorkspaceIcon.classList.remove("targetNavIcon")
+        getNavItemPixelart.classList.remove("targetNavItem")
+        getNavItemPixelArtIcon.classList.remove("targetNavIcon")
         getNavItemHome.classList.remove("targetNavItem")
         getNavItemHomeIcon.classList.remove("targetNavIcon")
     }
@@ -229,10 +230,11 @@ const Nav = (props: any) => {
                             PROJECTS
                     </Link>
 
-                    <Link onClick={() => setNavState(!NavState)} className="linkWorkspace" id="navWorkspace" to="/workspace">
+                    <Link onClick={() => setNavState(!NavState)} className="linkWorkspace" id="navPixelArt" to="/pixelart">
                             <div className="navbarListIconContainer">
-                                <WorkIcon/>
+                                <PixelArtIcon/>
                             </div>
+                            <div className="comingSoon"> COMING SOON</div>
                             PIXEL ART
                     </Link>
 

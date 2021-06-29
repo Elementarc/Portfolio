@@ -1,0 +1,9 @@
+<svg  className="iconSVG" width="100%" height="100%" version="1.1" viewBox="0 0 2.901 3.113" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(-6.4836 -12.358)">
+  <g id="PixelArtIcon" fill="#fff" stroke-opacity="0">
+   <path d="m6.6146 13.229 1.3229 0.79375 1.3188-0.79375-1.3188-0.79375z"/>
+   <path d="m7.8745 14.135-9.09e-5 1.2234-1.3245-0.74828 0.0068-1.2689z"/>
+   <path d="m9.3142 14.542 4.433e-4 -1.2021-1.3129 0.78593 0.00225 1.2255z"/>
+  </g>
+ </g>
+</svg>

@@ -121,8 +121,8 @@ const ProjectsPage = () => {
                         
                     </div>
                     
-                    <div className="topIllustration"></div>
-                    <div className="bottomIllustration"></div>
+                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="topIllustration"></motion.div>
+                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="bottomIllustration"></motion.div>
 
                 </motion.div>
 
@@ -135,7 +135,7 @@ const ProjectsPage = () => {
                             <h2 >LET'S CREATE A PROJECT</h2>
                         </motion.div>
                         <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                            <p>You got a something in mind but need a little help? How about we start it together.</p>
+                            <p>You got a something in mind but need a little help? How about we help you out?</p>
                         </motion.div>
                         <motion.div className="buttonContainer" animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                             <Link className="linkDesign" to="/home/connect" id="getStartedButton"> 
