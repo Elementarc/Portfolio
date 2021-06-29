@@ -882,7 +882,7 @@ function ContactPage(props: any) {
                     showResponseBox("error", "ERROR", "Something went wrong! We are sorry that you have to experience this.")
                 }
                 else if(xhr.responseText === "cooldown"){
-                    showResponseBox("error", "LIMIT REACHED", "You only can apply once a day.")
+                    showResponseBox("cooldown", "LIMIT REACHED", "You only can apply once a day.")
                 }
             };
             xhr.send(JSON.stringify(userData))

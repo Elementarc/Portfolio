@@ -130,7 +130,7 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
                 <motion.div  className="homepageMenuContainer">
-                    <motion.div initial={{opacity: 0, y: -100}} animate={{opacity: 1, y: 0, transition:{duration: 0.9, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
+                    <motion.div initial={{opacity: 0, y: -100}} animate={{opacity: 1, y: 0, transition:{duration: 1, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
                         <div className="item item1">
                             <span className="bottomBorder"/>
                             <img loading="eager" alt="owl" src={owl} className="item1Background"></img>
