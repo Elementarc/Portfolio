@@ -34,10 +34,10 @@ const hytaleDesign = (props: any) => {
                 <motion.h1 initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}}>COMING SOON</motion.h1>
                 <motion.h2 initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}}>A NEW DAWN HAS ARRIVED</motion.h2>
                 <div className="buttonContainer">
-                    <div className="linesContainer">
+                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1.5}}} className="linesContainer">
                         <span className="lineR"/>
                         <span className="lineL"/>
-                    </div>
+                    </motion.div>
                     <motion.button initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.9}}} className="SignUpBtn">SIGN-UP</motion.button>
                 </div>
 
@@ -116,13 +116,6 @@ const hytaleDesign = (props: any) => {
                 <div className="blackBar"></div>
             </div>
 
-            <div className="whiteContentContainer">
-                
-            </div>
-
-            <div className="footer">
-
-            </div>
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.7, delay: 1}}} className="hytaleNavContainer">
                 <ul>
                     <div className="homeIcon" onMouseEnter={() =>hytaleHomeIconHover(true)} onMouseLeave={() =>hytaleHomeIconHover(false)}>

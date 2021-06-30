@@ -9,6 +9,7 @@ import {ReactComponent as SectionManagerIcon} from "../assets/svgs/sectionManage
 //components
 import HytaleDesignPreview from "./DesignPageComponents/HytaleDesignPreview"
 import BeautyDesignPreview from "./DesignPageComponents/BeautyDesignPreview"
+import CookDesignPreview from "./DesignPageComponents/CookDesignPreview"
 import PageNotFound from './PageNotFound';
 //prevents triggering changeDesignPreview unless false
 var viewIndexCockblock = false
@@ -20,7 +21,7 @@ var changeDesignTimer: any
 //Array of jsx secitonIcons
 var sectionManagerIcons: any[] = []
 //Currently available previews!!!
-var previews = 2
+var previews = 3
 const DesignPage = (props: any) => {
     const history = useHistory()
     const getParams: any = useParams()
@@ -244,6 +245,12 @@ const DesignPage = (props: any) => {
                         <Route exact path="/design/2">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
                                 <BeautyDesignPreview designQuery={props.designQuery}/>
+                            </motion.div>
+                        </Route>
+
+                        <Route exact path="/design/3">
+                            <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
+                                <CookDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
 

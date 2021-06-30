@@ -1010,10 +1010,10 @@ function ContactPage(props: any) {
             <div className="contactContentContainer">
                 <motion.div animate={nameAnimation} className="contactContentName" id="contactContentName">
                     <div className="headerContent">
-                        <div className="lineContainer">
+                        <motion.div initial={{width: 0}} animate={{width: "100%", transition: {duration: 1}}} className="lineContainer">
                             <div className="line1"></div>
                             <div className="line2"></div>
-                        </div>
+                        </motion.div>
                         
                         <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
                         <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHAT'S YOUR NAME?</motion.h2>

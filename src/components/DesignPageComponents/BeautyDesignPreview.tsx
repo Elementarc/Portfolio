@@ -1,101 +1,26 @@
-import React, {useState, useEffect} from 'react';
-import {motion} from "framer-motion"
+import React, {useEffect} from 'react';
+import {motion, useAnimation} from "framer-motion"
 import "./styleSheets/beautyDesignPreview.scss"
 import { useHistory } from 'react-router';
 import { useCallback } from 'react';
 
 //Using this state number to cycle through 3 animation phases
-//AnimationProps for PreviewImages
-var preview1Styles = {
-    init: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0,
-        transition: {duration: 1, delay: 0, type: 'spring'}
-    },
-    in: {
-        zIndex: 3,
-        x: 0,
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-    },
-    out: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0.4,
-        transition: {duration: 0.5, delay: 0, type: 'spring'}
-    },
-}
-var preview2Styles = {
-    init: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0,
-        transition: {duration: 1, delay: 0, type: 'spring'}
-    },
-    in: {
-        zIndex: 2,
-        x: -250,
-        y: 0,
-        opacity: 0.5,
-        scale: 0.7,
-        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-    },
-    out: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0.4,
-        transition: {duration: 0.5, delay: 0, type: 'spring'}
-    },
-}
-var preview3Styles = {
-    init: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0,
-        transition: {duration: 1, delay: 0, type: 'spring'}
-    },
-    in: {
-        zIndex: 2,
-        x: 250,
-        y: 0,
-        opacity: 0.5,
-        scale: 0.7,
-        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-    },
-    out: {
-        zIndex: 0,
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0.4,
-        transition: {duration: 0.5, delay: 0, type: 'spring'}
-    },
-}
-
 var previewState = 1
+
+//Timers that might need cleanup on componentUnmount
 var transitionTimer: any
 var previewAnimationTimer: any
 
 
 const BeautyDesignPreview = (props: any) => {
     const history = useHistory()
-    const [State, setState] = useState(false);
 
+    const firstPreviewImage = useAnimation()
+    const secondPreviewImage = useAnimation()
+    const thirdPreviewImage = useAnimation()
     //Animates Images
     useEffect(() => {
+        
         //Animation for Images changes State at the end of the function to rerender the component
         function changeStyle() {
             if(window.innerWidth > 900){
@@ -105,245 +30,92 @@ const BeautyDesignPreview = (props: any) => {
                 }
 
                 if(previewState === 1){
-                    //First Box Preview1
-                    preview1Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 3,
-                            x: 0,
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview2Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: -250,
-                            y: 0,
-                            opacity: 0.5,
-                            scale: 0.7,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview3Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: 250,
-                            y: 0,
-                            opacity: 0.5,
-                            scale: 0.7,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
+                    firstPreviewImage.start({
+                        zIndex: 3,
+                        x: 0,
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+
+                    secondPreviewImage.start({
+                        zIndex: 1,
+                        x: -250,
+                        y: 0,
+                        opacity: 0.5,
+                        scale: 0.7,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+
+                    thirdPreviewImage.start({
+                        zIndex: 2,
+                        x: 250,
+                        y: 0,
+                        opacity: 0.5,
+                        scale: 0.7,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+
+                    previewState = 2
                 }
                 else if(previewState === 2){
-                    preview2Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 3,
-                            x: 0,
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview3Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: -250,
-                            y: 0,
-                            opacity: 0.5,
-                            scale: 0.7,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview1Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 3,
-                            x: 250,
-                            y: 0,
-                            opacity: 0.5,
-                            scale: 0.7,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
+                    thirdPreviewImage.start({
+                        zIndex: 3,
+                        x: 0,
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+
+                    firstPreviewImage.start({
+                        zIndex: 1,
+                        x: -250,
+                        y: 0,
+                        opacity: 0.5,
+                        scale: 0.7,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+
+                    secondPreviewImage.start({
+                        zIndex: 2,
+                        x: 250,
+                        y: 0,
+                        opacity: 0.5,
+                        scale: 0.7,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+                    previewState = 3
                 }
                 else if(previewState === 3){
-                    preview3Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 3,
-                            x: 0,
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview1Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: -250,
-                            y: 0,
-                            opacity: 0.5,
-                            scale: 0.7,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview2Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: 250,
-                            y: 0,
-                            opacity: 0.5,
-                            scale: 0.7,
-                            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
+                    secondPreviewImage.start({
+                        zIndex: 3,
+                        x: 0,
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+
+                    thirdPreviewImage.start({
+                        zIndex: 1,
+                        x: -250,
+                        y: 0,
+                        opacity: 0.5,
+                        scale: 0.7,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+
+                    firstPreviewImage.start({
+                        zIndex: 2,
+                        x: 250,
+                        y: 0,
+                        opacity: 0.5,
+                        scale: 0.7,
+                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+                    })
+                    previewState = 1
                 }
             }
             else{
@@ -352,258 +124,106 @@ const BeautyDesignPreview = (props: any) => {
                     previewState = 1
                 }
                 if(previewState === 1){
-                    //First Box Preview1
-                    preview1Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 3,
-                            x: 0,
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview2Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: -130,
-                            y: 0,
-                            opacity: 0.6,
-                            scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview3Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: 130,
-                            y: 0,
-                            opacity: 0.6,
-                            scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
+                    firstPreviewImage.start({
+                        zIndex: 3,
+                        x: 0,
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+
+                    secondPreviewImage.start({
+                        zIndex: 1,
+                        x: -130,
+                        y: 0,
+                        opacity: 0.6,
+                        scale: 0.7,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+
+                    thirdPreviewImage.start({
+                        zIndex: 2,
+                        x: 130,
+                        y: 0,
+                        opacity: 0.6,
+                        scale: 0.7,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+                    previewState = 2
                 }
                 else if(previewState === 2){
-                    preview2Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 3,
-                            x: 0,
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview3Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: -130,
-                            y: 0,
-                            opacity: 0.6,
-                            scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview1Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 3,
-                            x: 130,
-                            y: 0,
-                            opacity: 0.6,
-                            scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
+                    thirdPreviewImage.start({
+                        zIndex: 3,
+                        x: 0,
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+
+                    firstPreviewImage.start({
+                        zIndex: 1,
+                        x: -130,
+                        y: 0,
+                        opacity: 0.6,
+                        scale: 0.7,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+
+                    secondPreviewImage.start({
+                        zIndex: 2,
+                        x: 130,
+                        y: 0,
+                        opacity: 0.6,
+                        scale: 0.7,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+
+                    previewState = 3
                 }
                 else if(previewState === 3){
-                    preview3Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 3,
-                            x: 0,
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview1Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: -130,
-                            y: 0,
-                            opacity: 0.6,
-                            scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
-                    preview2Styles = {
-                        init: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0,
-                            transition: {duration: 1, delay: 0, type: 'spring'}
-                        },
-                        in: {
-                            zIndex: 2,
-                            x: 130,
-                            y: 0,
-                            opacity: 0.6,
-                            scale: 0.7,
-                            transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                        },
-                        out: {
-                            zIndex: 0,
-                            x: 0,
-                            y: 0,
-                            opacity: 0,
-                            scale: 0.4,
-                            transition: {duration: 0.5, delay: 0, type: 'spring'}
-                        },
-                    }
+                    secondPreviewImage.start({
+                        zIndex: 3,
+                        x: 0,
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+
+                    thirdPreviewImage.start({
+                        zIndex: 1,
+                        x: -130,
+                        y: 0,
+                        opacity: 0.6,
+                        scale: 0.7,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+
+                    firstPreviewImage.start({
+                        zIndex: 2,
+                        x: 130,
+                        y: 0,
+                        opacity: 0.6,
+                        scale: 0.7,
+                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
+                    })
+                    previewState = 1
                 }
             }
-        }
-        //Function gets called every 3.5seconds 
-        previewAnimationTimer = setTimeout(() => {
-            changeStyle()
-            setState(!State)
-        }, 3500);
 
+            setTimeout(() => {
+                changeStyle()
+            }, 2500);
+        }
+
+        
+        changeStyle()
         return(() =>{
             clearTimeout(previewAnimationTimer)
         })
-    }, [State, props.designQuery]);
+    }, [props.designQuery, firstPreviewImage, secondPreviewImage, thirdPreviewImage]);
     //Mouseeffect when moving
     var parallax = useCallback((e: any) =>{
         function parallax() {
@@ -679,15 +299,15 @@ const BeautyDesignPreview = (props: any) => {
                 
                 <div className="previewImagesContainer" id="previewImagesContainer">
 
-                    <motion.div animate="in" exit="out" initial="init" variants={preview1Styles} id="preview1" className="previews preview1">
+                    <motion.div animate={firstPreviewImage} id="preview1" className="previews preview1">
                         <div className="preview1Background" id="preview1Background"/>
                     </motion.div>
                     
-                    <motion.div animate="in" exit="out" initial="init" variants={preview2Styles} id="preview2" className="previews preview2">
+                    <motion.div animate={secondPreviewImage} id="preview2" className="previews preview2">
                         <div className="preview2Background"/>
                     </motion.div>
 
-                    <motion.div animate="in" exit="out" initial="init" variants={preview3Styles} id="preview3" className="previews preview3">
+                    <motion.div animate={thirdPreviewImage} id="preview3" className="previews preview3">
                         <div className="preview3Background"/>
                     </motion.div>                
 

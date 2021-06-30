@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
-.DesignPreview2Container{
+.DesignPreview3Container{
     position: relative;
     grid-column: 1;
     grid-row: 1;
@@ -28,7 +28,7 @@
             padding-top: unset;
             display: block;
             text-align: center;
-            color: #F8008B;
+            color: #ffe292;
             
             font-family: "PT Serif";
             font-weight: 700;
@@ -52,14 +52,14 @@
             height: 100%;
             max-height: 360px;
             width: 100%;
-            z-index: 1;
+            z-index: 0;
             pointer-events: none;
             .previews{
                 position: absolute;
                 pointer-events: visible;
                 height: 360px;
                 width: 650px;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.3);
                 overflow: hidden;
                 border-radius: 3px;
             }
@@ -67,20 +67,20 @@
             .preview1Background{
                 height: 100%;
                 width: 100%;
-                background-image: url("../../../assets/images/pinkDress.jpg");
+                background-image: url("../../../assets/images/oat.jpg");
                 background-position: center;
-                background-position-y: -15rem;
                 background-repeat: no-repeat;
                 transition: 0.5s ease-in-out;
+                z-index: 5;
                 background-size: cover;
                 transform: scale(1);
             }
             .preview2Background{
                 height: 100%;
                 width: 100%;
-                background-image: url("../../../assets/images/beautyProduct.jpg");
+                background-image: url("../../../assets/images/crab.jpg");
                 background-position: center;
-                background-position-y: -7rem;
+               
                 background-repeat: no-repeat;
                 transition: 0.5s ease-in-out;
                 background-size: cover;
@@ -89,7 +89,7 @@
             .preview3Background{
                 height: 100%;
                 width: 100%;
-                background-image: url("../../../assets/images/PinkBeauty.jpg");
+                background-image: url("../../../assets/images/toast.jpg");
                 background-position: center;
                 background-repeat: no-repeat;
                 transition: 0.5s ease-in-out;
@@ -100,7 +100,7 @@
         .designPreviewContent{
             display: flex;
             justify-content: center;
-            color: black;
+            color: white;
             p{
                 text-align: center;
                 font-size: 18px;
@@ -127,35 +127,26 @@
                 box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                 border-radius: 5px;
                 border-style: none;
-                color: white;
+                color: #090909;
                 font-size: 16px;
                 font-family: "PT Serif";
                 letter-spacing: 1px;
                 font-weight: 700;
                 outline: none;
-                background: #FF008F;
+                background: #FFDB7A;
                 
             }
             .designButton:hover{
-                background: #ff46af;
+                background: #FFDB7A;
                 
                 cursor: pointer;
             }
         }
 
-        .designPreviewDarkerBackground{
-            display: none;
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            height: 100%;
-            transform: scale(1.1);
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            pointer-events: none;
-        }
+        
         .designPreviewBackgroundImage{
-            background-color: white;
+            background-color: #111111;
+            background-image: url("../../../assets/textures/texture5.png");
             position: absolute;
             pointer-events: none;
             z-index: -2;
@@ -164,10 +155,8 @@
             width: 100%;
             transform: scale(1.1);
             object-fit: cover;
-            
         }
         
-    
         .comingSoonContainer{
             position: absolute;
             opacity: 0;
@@ -183,7 +172,8 @@
             .comingSoonBox{
                 height: 230px;
                 width: 500px;
-                background-color: white;
+                background-color: #111111;
+                background-image: url("../../../assets/textures/texture5.png");
                 box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.383);
                 display: flex;
                 justify-content: center;
@@ -193,9 +183,10 @@
                     font-family: "PT Serif";
                     font-size: 22px;
                     text-align: center;
-                    color: #ff0090;
+                    color: #FFDB7A;
                 }
                 p{
+                    color: white;
                     width: 90%;
                     font-family: "PT Serif";
                     margin-top: 1rem;
@@ -209,44 +200,22 @@
                     padding: 0.7rem 3rem;
                     margin-top: 2rem;
                     border-style: none;
-                    color: white;
+                    color: #090909;
                     outline: none;
-                    background-color: #ff0090;
+                    background-color: #FFDB7A;
                     &:hover{
                         cursor: pointer;
-                        background-color: #ff41ad;
+                        background-color: #fdce4b;
                     }
                 }
             }
-        }
-
-        .designPreviewBackgroundIllustration{
-            position: absolute;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.6;
-            bottom: -0.5rem;
-            width: 100%;
-            height: 300px;
-            background-image: url("../../../assets/illustrations/PinkBackground.png");
-            background-position: center;
-            background-size: cover;
-        }
-        .designPreviewBottomGradient{
-            position: absolute;
-            pointer-events: none;
-            width: 100%;
-            height: 50px;
-            bottom: 0;
-            background: rgb(0,0,0);
-            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
         }
     }
 }
 
 
 @media (max-width: 1300px){
-    .DesignPreview2Container{
+    .DesignPreview3Container{
         .previewContentContainer{
             .designPreviewBackgroundCornerIllustration{
                 position: absolute;
@@ -267,7 +236,7 @@
     }
 }
 @media (max-width: 900px){
-    .DesignPreview2Container{
+    .DesignPreview3Container{
         display: block;
         flex-direction: unset;
         justify-content: unset;
