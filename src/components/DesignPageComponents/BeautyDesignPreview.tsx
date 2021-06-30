@@ -213,9 +213,9 @@ const BeautyDesignPreview = (props: any) => {
                 }
             }
 
-            setTimeout(() => {
+            previewAnimationTimer = setTimeout(() => {
                 changeStyle()
-            }, 2500);
+            }, 3000);
         }
 
         
@@ -299,15 +299,15 @@ const BeautyDesignPreview = (props: any) => {
                 
                 <div className="previewImagesContainer" id="previewImagesContainer">
 
-                    <motion.div animate={firstPreviewImage} id="preview1" className="previews preview1">
+                    <motion.div initial={{opacity: 0, x: 0, y:0, scale: 0}} animate={firstPreviewImage} exit={{opacity: 0, scale: 0.4,zIndex: 0, transition: {duration: 0.5, delay: 0, type: 'spring'}}} id="preview1" className="previews preview1">
                         <div className="preview1Background" id="preview1Background"/>
                     </motion.div>
                     
-                    <motion.div animate={secondPreviewImage} id="preview2" className="previews preview2">
+                    <motion.div initial={{opacity: 0, x: 0, y:0, scale: 0}} animate={secondPreviewImage} exit={{opacity: 0, scale: 0.4,zIndex: 0, transition: {duration: 0.5, delay: 0, type: 'spring'}}} id="preview2" className="previews preview2">
                         <div className="preview2Background"/>
                     </motion.div>
 
-                    <motion.div animate={thirdPreviewImage} id="preview3" className="previews preview3">
+                    <motion.div initial={{opacity: 0, x: 0, y:0, scale: 0}} animate={thirdPreviewImage} exit={{opacity: 0, scale: 0.4,zIndex: 0, transition: {duration: 0.5, delay: 0, type: 'spring'}}} id="preview3" className="previews preview3">
                         <div className="preview3Background"/>
                     </motion.div>                
 

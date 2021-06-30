@@ -17,17 +17,15 @@ const HytaleDesignPreview = (props: any) => {
     const firstPreviewImage = useAnimation()
     const secondPreviewImage = useAnimation()
     const thirdPreviewImage = useAnimation()
-    //Animates Images
-    useEffect(() => {
-        
-        //Animation for Images changes State at the end of the function to rerender the component
+    //Animation for Images changes State at the end of the function to rerender the component
+    const changeStyle = useCallback(() =>{
         function changeStyle() {
             if(window.innerWidth > 900){
                 previewState++
                 if(previewState > 3){
                     previewState = 1
                 }
-
+    
                 if(previewState === 1){
                     firstPreviewImage.start({
                         zIndex: 3,
@@ -37,7 +35,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 1,
                         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                     })
-
+    
                     secondPreviewImage.start({
                         zIndex: 1,
                         x: -250,
@@ -46,7 +44,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 0.7,
                         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                     })
-
+    
                     thirdPreviewImage.start({
                         zIndex: 2,
                         x: 250,
@@ -55,7 +53,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 0.7,
                         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                     })
-
+    
                     previewState = 2
                 }
                 else if(previewState === 2){
@@ -67,7 +65,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 1,
                         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                     })
-
+    
                     firstPreviewImage.start({
                         zIndex: 1,
                         x: -250,
@@ -76,7 +74,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 0.7,
                         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                     })
-
+    
                     secondPreviewImage.start({
                         zIndex: 2,
                         x: 250,
@@ -96,7 +94,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 1,
                         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                     })
-
+    
                     thirdPreviewImage.start({
                         zIndex: 1,
                         x: -250,
@@ -105,7 +103,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 0.7,
                         transition: {duration: 1.5, delay: 0.8, type: 'spring'}
                     })
-
+    
                     firstPreviewImage.start({
                         zIndex: 2,
                         x: 250,
@@ -131,7 +129,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 1,
                         transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                     })
-
+    
                     secondPreviewImage.start({
                         zIndex: 1,
                         x: -130,
@@ -140,7 +138,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 0.7,
                         transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                     })
-
+    
                     thirdPreviewImage.start({
                         zIndex: 2,
                         x: 130,
@@ -160,7 +158,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 1,
                         transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                     })
-
+    
                     firstPreviewImage.start({
                         zIndex: 1,
                         x: -130,
@@ -169,7 +167,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 0.7,
                         transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                     })
-
+    
                     secondPreviewImage.start({
                         zIndex: 2,
                         x: 130,
@@ -178,7 +176,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 0.7,
                         transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                     })
-
+    
                     previewState = 3
                 }
                 else if(previewState === 3){
@@ -190,7 +188,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 1,
                         transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                     })
-
+    
                     thirdPreviewImage.start({
                         zIndex: 1,
                         x: -130,
@@ -199,7 +197,7 @@ const HytaleDesignPreview = (props: any) => {
                         scale: 0.7,
                         transition: {duration: 1.2, delay: 0.5, type: 'spring'}
                     })
-
+    
                     firstPreviewImage.start({
                         zIndex: 2,
                         x: 130,
@@ -211,18 +209,22 @@ const HytaleDesignPreview = (props: any) => {
                     previewState = 1
                 }
             }
-
-            setTimeout(() => {
+    
+            previewAnimationTimer = setTimeout(() => {
                 changeStyle()
-            }, 2500);
+            }, 3000);
         }
+        changeStyle()
+    },[firstPreviewImage, secondPreviewImage, thirdPreviewImage])
 
+    //Animates Images
+    useEffect(() => {
         
         changeStyle()
         return(() =>{
             clearTimeout(previewAnimationTimer)
         })
-    }, [props.designQuery, firstPreviewImage, secondPreviewImage, thirdPreviewImage]);
+    }, [props.designQuery, firstPreviewImage, secondPreviewImage, thirdPreviewImage, changeStyle]);
     //Mouseeffect when moving
     var parallax = useCallback((e: any) =>{
         function parallax() {
@@ -363,15 +365,20 @@ const HytaleDesignPreview = (props: any) => {
                 //Renders HytaleDesign
                 setDesignState(false)
                 toggleHytaleDesign(false)
+                clearTimeout(previewAnimationTimer)
+                previewAnimationTimer = setTimeout(() => {
+                    changeStyle()
+                }, 3000);
             }
         }
         else if(props.designQuery.get("viewState") === 'true'){
             toggleHytaleDesign(true)
             setDesignState(true)
+            clearTimeout(previewAnimationTimer)
         }
 
         
-    }, [DesignState, parallax, props.designQuery]);
+    }, [DesignState, parallax, props.designQuery, changeStyle]);
 
     //Changin NavIcon Color for better ui/ux
     useEffect(() => {
@@ -393,15 +400,15 @@ const HytaleDesignPreview = (props: any) => {
                 </motion.div>
                 
                 <div className="previewImagesContainer" id="previewImagesContainer">
-                    <motion.div animate={firstPreviewImage} id="preview1" className="previews preview1">
+                    <motion.div initial={{opacity: 0, x: 0, y:0, scale: 0}} animate={firstPreviewImage} exit={{opacity: 0, scale: 0.4,zIndex: 0, transition: {duration: 0.5, delay: 0, type: 'spring'}}} id="preview1" className="previews preview1">
                         <div className="preview1Background"/>
                     </motion.div>
 
-                    <motion.div animate={secondPreviewImage} id="preview2" className="previews preview2">
+                    <motion.div initial={{opacity: 0, x: 0, y:0, scale: 0}} animate={secondPreviewImage} exit={{opacity: 0, scale: 0.4,zIndex: 0, transition: {duration: 0.5, delay: 0, type: 'spring'}}} id="preview2" className="previews preview2">
                         <div className="preview2Background"/>
                     </motion.div>
 
-                    <motion.div animate={thirdPreviewImage} id="preview3" className="previews preview3">
+                    <motion.div initial={{opacity: 0, x: 0, y:0, scale: 0}} animate={thirdPreviewImage} exit={{opacity: 0, scale: 0.4,zIndex: 0, transition: {duration: 0.5, delay: 0, type: 'spring'}}} id="preview3" className="previews preview3">
                         <div className="preview3Background"/>
                     </motion.div>
                 </div>
