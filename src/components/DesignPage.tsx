@@ -12,8 +12,9 @@ import BeautyDesignPreview from "./DesignPageComponents/BeautyDesignPreview"
 import CookDesignPreview from "./DesignPageComponents/CookDesignPreview"
 import PageNotFound from './PageNotFound';
 //prevents triggering changeDesignPreview unless false
-var viewIndexCockblock = false
 var changeDesignTimer: any
+var viewIndexCockblock = false
+
 
 
 
@@ -22,17 +23,18 @@ var changeDesignTimer: any
 var sectionManagerIcons: any[] = []
 //Currently available previews!!!
 var previews = 3
+
+
 const DesignPage = (props: any) => {
     const history = useHistory()
     const getParams: any = useParams()
     const location = useLocation()
     
-    
     //Sets viewState on load of designPage
     useEffect(() =>{
         if(props.designQuery.get("viewState") === null){
             props.designQuery.set("viewState", "false")
-            history.replace(window.location.pathname + "?" + props.designQuery.toString())
+            history.replace(`${history.location.pathname.toLowerCase()}?${props.designQuery.toString()}`)
         }
     },[history, props.designQuery])
 
@@ -65,7 +67,6 @@ const DesignPage = (props: any) => {
         //function that animates switching between routes
         function previewSwitchAnimations(direction: string){
             if(window.innerWidth > 900){
-
                 if(direction === "upwards"){
                     setAnimation({
                         in: {
@@ -100,68 +101,63 @@ const DesignPage = (props: any) => {
                     
                 }
             }
+        }
+         //Function to change PreviewDesign Upwards or downwards
+         function changePreviewDesign(direction: string) {
+            if(direction === "up"){
+                if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
+                    if(parseInt(getParams.viewIndex, 10) > 1){
+                        viewIndexCockblock = true
+    
+                        previewSwitchAnimations("upwards")
+                        history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
+                        
+                        changeDesignTimer = setTimeout(() => {
+                            viewIndexCockblock = false
+                        }, 1800);
+                    }
+                }
+            }
+            else{
+                if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
+                    if(parseInt(getParams.viewIndex, 10) < previews){
+                        viewIndexCockblock = true
+
+                        previewSwitchAnimations("backwards")
+                        history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
+
+                        changeDesignTimer = setTimeout(() => {
+                            viewIndexCockblock = false
+                        }, 1800);
+                    }
+                }
+            }
             
         }
         //Changes previewDesign when btnUp pressed
         function changeDesignPreviewBtnUp(){
-            if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
-                console.log("testUp")
-                if(parseInt(getParams.viewIndex, 10) > 1){
-                    previewSwitchAnimations("upwards")
-                    history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
-                    viewIndexCockblock = true
-                    changeDesignTimer = setTimeout(() => {
-                        viewIndexCockblock = false
-                    }, 1800);
-                }
-            }
+            changePreviewDesign("up")
         }
         //Changes previewDesign when btndown pressed
         function changeDesignPreviewBtnDown(){
-            if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
-                if(parseInt(getParams.viewIndex, 10) < previews){
-                    previewSwitchAnimations("backwards")
-                    history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
-                    viewIndexCockblock = true
-                    changeDesignTimer = setTimeout(() => {
-                        viewIndexCockblock = false
-                    }, 1800);
-                }
-            }
+            changePreviewDesign("down")
         }
         var getUpBtn = document.getElementById("sectionBtnUp") as HTMLDivElement
         var getDownBtn = document.getElementById("sectionBtnDown") as HTMLDivElement
         getUpBtn.addEventListener("mousedown", changeDesignPreviewBtnUp)
         getDownBtn.addEventListener("mousedown", changeDesignPreviewBtnDown)
 
+       
         //Changes previewDesign when wheel is used pressed
         function changeDesignPreviewWheel(e: any){
             //wheelUp
             if(window.innerWidth > 1300 && window.innerHeight >= 950){
                 if(e.deltaY < 0){
-                    if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
-                        if(parseInt(getParams.viewIndex, 10) > 1){
-                            previewSwitchAnimations("upwards")
-                            history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
-                            viewIndexCockblock = true
-                            changeDesignTimer = setTimeout(() => {
-                                viewIndexCockblock = false
-                            }, 1800);
-                        }
-                    }
+                    changePreviewDesign("up")
                 }
                 //wheelDown
                 else{
-                    if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
-                        if(parseInt(getParams.viewIndex, 10) < previews){
-                            previewSwitchAnimations("backwards")
-                            history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
-                            viewIndexCockblock = true
-                            changeDesignTimer = setTimeout(() => {
-                                viewIndexCockblock = false
-                            }, 1800);
-                        }
-                    }
+                    changePreviewDesign("down")
                 }
             }
         }
@@ -250,7 +246,7 @@ const DesignPage = (props: any) => {
 
                         <Route exact path="/design/3">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
-                                <CookDesignPreview designQuery={props.designQuery}/>
+                                
                             </motion.div>
                         </Route>
 

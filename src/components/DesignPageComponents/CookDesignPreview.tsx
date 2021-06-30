@@ -289,7 +289,7 @@ const CookDesignPreview = (props: any) => {
             
             <div className="previewContentContainer" id="previewContentContainer">
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="headerContent">
-                    <h1>FOOD {"&"} RECEIPTS </h1>
+                    <h1>FOOD {"&"} RECIPES </h1>
                     <h2>COOKING AND EATING, BUT HEALTHY</h2>
                 </motion.div>
                 

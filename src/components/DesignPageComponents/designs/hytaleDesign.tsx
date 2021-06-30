@@ -21,11 +21,10 @@ function hytaleHomeIconHover(state: boolean){
     }
 }
 
-const hytaleDesign = (props: any) => {
+const HytaleDesign = (props: any) => {
     
     return (
-        <motion.div initial={{opacity: 0, scale: 3}} animate={{opacity: 1, scale: 1, transition: {duration: 0.2, delay: 0.2}}} exit={{opacity: 0, transition: {duration: 0.2}}} className="hytaleDesignContainer" id="hytale">
-
+        <motion.div initial={{opacity: 0, scale: 3}} animate={{opacity: 1, scale: 1, transition: {duration: 0.2, delay: 0.3}}} exit={{opacity: 0, transition: {duration: 0.1}}} className="hytaleDesignContainer" id="hytale">
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="designBackgroundImage">
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}  className="backgroundBlur"></motion.div>
             </motion.div>
@@ -160,4 +159,4 @@ const hytaleDesign = (props: any) => {
     );
 }
 
-export default hytaleDesign;
+export default HytaleDesign;

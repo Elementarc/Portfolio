@@ -15,7 +15,6 @@
     max-height: 1350px;
     width: 100%;
     box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
-
     .previewContentContainer{
         display: flex;
         flex-direction: column;
@@ -57,6 +56,7 @@
            
         }
         .previewImagesContainer{
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -129,9 +129,10 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            .designButton{
+            .enabledDesignButton{
                 position: relative;
                 pointer-events: visible;
+                opacity: 1;
                 padding: 0.8rem 2.8rem;
                 box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                 border-radius: 5px;
@@ -144,11 +145,11 @@
                 outline: none;
                 background: rgb(255,213,99);
                 background: linear-gradient(180deg, rgba(255,213,99,1) 0%, rgba(255,194,28,1) 100%);
-            }
-            .designButton:hover{
-                background: rgb(255,213,99);
-                background: linear-gradient(180deg, rgb(255, 217, 114) 0%, rgb(255, 200, 50) 100%);
-                cursor: pointer;
+                &:hover{
+                    background: rgb(255,213,99);
+                    background: linear-gradient(180deg, rgb(255, 217, 114) 0%, rgb(255, 200, 50) 100%);
+                    cursor: pointer;
+                }
             }
         }
 
@@ -203,6 +204,18 @@
             background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
         }
     }
+    .backgroundBlack{
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        opacity: 0;
+        background-color: black;
+        height: 100vh;
+        max-width: 2400px;
+        max-height: 1350px;
+        width: 100vw;
+        z-index: 4;
+    }
 }
 
 
@@ -220,14 +233,14 @@
         display: block;
         flex-direction: unset;
         justify-content: unset;
-        z-index: 0;
         height: 100%;
         min-height: 100vh;
         .previewContentContainer{
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0);
             display: unset ;
             .headerContent{
-                z-index: 2;
+                
+                z-index: 0;
                 padding-top: 7rem;
                 div{
                     background: unset;
@@ -247,6 +260,7 @@
                 margin-top: 2rem;
                 height: 200px;
                 overflow: hidden;
+                z-index: 20;
                 display: flex;
                 justify-content: center;
                 align-items: center;

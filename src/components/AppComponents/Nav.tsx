@@ -1,6 +1,6 @@
 
 import React, {useEffect, useState} from "react"
-import {Link, useHistory, useLocation} from "react-router-dom"
+import {Link, useHistory, useLocation, useParams} from "react-router-dom"
 import {AnimatePresence} from "framer-motion"
 
 //icons
@@ -201,7 +201,7 @@ const Nav = (props: any) => {
             <motion.div onClick={() => setNavState(!NavState)} animate={NavState ? "enter" : "exit"} variants={navBlurAnimation} id="navigationBlur" className="navigationBlur"></motion.div>
             <AnimatePresence>
                 {props.designQuery.get("viewState") === 'true' &&
-                    <div onClick={() =>{props.designQuery.set("viewState", "false"); history.push(window.location.pathname.toLowerCase() + "?" + props.designQuery.toString())}} className="closeDesignContainer">
+                    <div onClick={() =>{history.push(`${history.location.pathname.toLowerCase()}?viewState=false`)}} className="closeDesignContainer">
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.2, duration: 0.5}}} exit={{opacity: 0, transition: {duration: 0.5}}} className="closeDesignIcon"></motion.div>
                     </div>
                 }

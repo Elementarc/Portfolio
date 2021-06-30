@@ -214,7 +214,7 @@ const HomeContent = (props: any) => {
                         </motion.span>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>We made a new fan-design for an up coming game called Hytale. You might like it.</p>
+                        <p>We've made a new fan-design for an up coming game called Hytale. You might like it.</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         <button onMouseEnter={() => hoverButton(true)} onClick={() => {history.push("/design/1?viewState=false")}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
