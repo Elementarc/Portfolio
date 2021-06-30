@@ -80,8 +80,8 @@
                 width: 100%;
                 background-image: url("../../../assets/images/crab.jpg");
                 background-position: center;
-                background-position-y: -18rem;
                 background-repeat: no-repeat;
+                background-position-y: -10rem;
                 transition: 0.5s ease-in-out;
                 background-size: cover;
                 transform: scale(1);
@@ -146,6 +146,7 @@
 
         
         .designPreviewBackgroundImage{
+            pointer-events: none;
             background-color: #111111;
             background-image: url("../../../assets/textures/texture5.png");
             position: absolute;
@@ -259,6 +260,7 @@
                    text-shadow: unset;
                 }
                 h2{
+                   padding: 0 1rem;
                    margin-top: -0.3rem;
                    text-shadow: unset;
                    font-size: 30px;
@@ -280,7 +282,10 @@
                     max-width: 350px;
                 }
                 .preview2Background{
-                    background-position-y: unset;
+                    background-position-y: -8rem;
+                }
+                .preview3Background{
+                    background-position-y: -3rem;
                 }
             }
             .designPreviewContent{
@@ -305,7 +310,8 @@
                     padding: 0.85rem 2.6rem;
                     color: white;
                     font-size: 14px;
-                    background: #FF008F;
+                    color: #090909;
+                    background: #FFDB7A;
                     letter-spacing: 1px;
                     outline: none;
                 }
@@ -322,7 +328,7 @@
     
 
             .comingSoonContainer{
-                position: absolute;
+                position: fixed;
                 top: 0;
                 opacity: 0;
                 pointer-events: none;
@@ -337,7 +343,6 @@
                 .comingSoonBox{
                     height: 230px;
                     width: 500px;
-                    background-color: white;
                     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.383);
                     display: flex;
                     justify-content: center;
@@ -347,7 +352,7 @@
                         font-family: "PT Serif";
                         font-size: 22px;
                         text-align: center;
-                        color: #ff0090;
+                        color: #FFDB7A;
                     }
                     p{
                         width: 90%;
@@ -364,32 +369,15 @@
                         padding: 0.7rem 3rem;
                         margin-top: 2rem;
                         border-style: none;
-                        color: white;
+                        color: #090909;
                         outline: none;
-                        background-color: #ff0090;
+                        background-color: #FFDB7A;
                         &:hover{
                             cursor: pointer;
-                            background-color: #ff41ad;
+                            background-color: #fdce4b;
                         }
                     }
                 }
-            }
-
-            .designPreviewBackgroundIllustration{
-                position: absolute;
-                z-index: -1;
-                bottom: -4.3rem;
-                width: 100%;
-                height: 320px;
-                background-image: url("../../../assets/illustrations/PinkBackground.png");
-                background-position: center;
-                background-size: cover;
-            }
-            .designPreviewBackgroundCornerIllustration{
-                display: none;
-            }
-            .designPreviewBottomGradient{
-                position: fixed;
             }
         }
     }

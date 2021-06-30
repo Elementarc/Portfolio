@@ -262,7 +262,7 @@ const CookDesignPreview = (props: any) => {
     }, []);
         
     function triggerComingSoon(toggleState: boolean){
-        var getComingSoonContainer = document.getElementById("comingSoonContainer") as HTMLDivElement
+        var getComingSoonContainer = document.getElementById("comingSoonCookContainer") as HTMLDivElement
 
         if(toggleState === true){
             getComingSoonContainer.style.opacity = "1"
@@ -319,19 +319,13 @@ const CookDesignPreview = (props: any) => {
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
                 <motion.img initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
                 
-                <div className="comingSoonContainer" id="comingSoonContainer">
+                <div className="comingSoonContainer" id="comingSoonCookContainer">
                     <div className="comingSoonBox">
                         <h1>COMING SOON</h1>
                         <p>Design will be available soon! </p>
                         <button onClick={() => triggerComingSoon(false)}>OK</button>
                     </div>
                 </div>
-
-                <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designPreviewBottomIllustrationContainer'>
-                    <div className="designPreviewBottomIllustration" id="designPreviewBottomIllustration"></div>
-                </motion.div>
-                <motion.div initial={{opacity: 0}} animate={{opacity: 0.6, transition: {delay: 1}}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className="designPreviewBackgroundIllustration"/>
-                <div className="designPreviewBottomGradient"></div>
             </div>
             
         </motion.div>

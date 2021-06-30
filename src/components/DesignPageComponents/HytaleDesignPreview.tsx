@@ -362,19 +362,19 @@ const HytaleDesignPreview = (props: any) => {
         //checks url query if view should be shown or not viewState = false = hidden
         if(props.designQuery.get("viewState") === 'false'){
             if(DesignState === true){
+                clearTimeout(previewAnimationTimer)
                 //Renders HytaleDesign
                 setDesignState(false)
                 toggleHytaleDesign(false)
-                clearTimeout(previewAnimationTimer)
                 previewAnimationTimer = setTimeout(() => {
                     changeStyle()
                 }, 3000);
             }
         }
         else if(props.designQuery.get("viewState") === 'true'){
+            clearTimeout(previewAnimationTimer)
             toggleHytaleDesign(true)
             setDesignState(true)
-            clearTimeout(previewAnimationTimer)
         }
 
         
