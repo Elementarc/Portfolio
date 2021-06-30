@@ -33,13 +33,19 @@ const hytaleDesign = (props: any) => {
             <div className="designContent">
                 <motion.h1 initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}}>COMING SOON</motion.h1>
                 <motion.h2 initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}}>A NEW DAWN HAS ARRIVED</motion.h2>
-                <motion.button initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.9}}} className="SignUpBtn">SIGN-UP</motion.button>
+                <div className="buttonContainer">
+                    <div className="linesContainer">
+                        <span className="lineR"/>
+                        <span className="lineL"/>
+                    </div>
+                    <motion.button initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.9}}} className="SignUpBtn">SIGN-UP</motion.button>
+                </div>
 
 
                 <motion.div initial={{opacity: 0, y:-50}} animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 1.3}}} className="informationContainer">
                     <div className="infoContent">
                         <h2>NEW ADVENTURE</h2>
-                        <p>The master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how. But I must explain to you how all.</p>
+                        <p>The master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure. New demons were born.</p>
                         <h3>LEARN MORE</h3>
                     </div>
 
@@ -54,6 +60,7 @@ const hytaleDesign = (props: any) => {
             
             <div className="greyBar"></div>
 
+            
             <div className="panelsContainer">
 
                 <div className="panel panel1">
@@ -61,8 +68,8 @@ const hytaleDesign = (props: any) => {
                     <div className="panelBackground panel1Background"></div>
                     <div className="panel1Content">
                         <h1>NEW ENEMIES</h1>
-                        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account</p>
-                        <div>EXPLORE</div>
+                        <p>Fight new and stronger enemies with special loot and more! Are you ready for a new challange? </p>
+                        <button>EXPLORE</button>
                     </div>
                 </div>
 
@@ -108,7 +115,14 @@ const hytaleDesign = (props: any) => {
                 <button>BROWSE MORE</button>
                 <div className="blackBar"></div>
             </div>
-            
+
+            <div className="whiteContentContainer">
+                
+            </div>
+
+            <div className="footer">
+
+            </div>
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.7, delay: 1}}} className="hytaleNavContainer">
                 <ul>
                     <div className="homeIcon" onMouseEnter={() =>hytaleHomeIconHover(true)} onMouseLeave={() =>hytaleHomeIconHover(false)}>

@@ -5,6 +5,7 @@ import {motion, useMotionValue} from "framer-motion"
 import "./styleSheets/moon.scss"
 import {useLocation } from 'react-router';
 
+var moonTimer: any
 const Moon = (props: any) => {
     const location = useLocation()
     //Values to be changed after url changes
@@ -81,12 +82,33 @@ const Moon = (props: any) => {
         }
     },[location.pathname, x, y, opacity, changeStyle]);
     
+    useEffect(() => {
+        function moonOpacity() {
+            var getMoon = document.getElementById("moonContainer") as HTMLDivElement
+            if(location.pathname.toLowerCase() === "/home/news"){
+                moonTimer = setTimeout(() => {
+                    getMoon.style.opacity = "0"
+                }, 2000);
+            }
+            else{
+                getMoon.style.opacity = "1"
+            }
+        }
+        moonOpacity()
+        
+        return(() =>{
+            clearTimeout(moonTimer)
+        })
+    }, [location.pathname]);
     //JSX
     return (
-        <motion.div style={{x: x, y: y, opacity: opacity}} exit={{opacity: 0, y: -500}} id="moon"  className="moonContainer">
-            <div className="moonLight"></div>
-            <div className="moonLightV2"></div>
-        </motion.div>        
+        <div id ="moonContainer" style={{transition: "0.3s ease-in-out"}}>
+            <motion.div style={{x: x, y: y, opacity: opacity}} exit={{opacity: 0, y: -500}} id="moon"  className="moonContainer">
+                <div className="moonLight"></div>
+                <div className="moonLightV2"></div>
+            </motion.div>   
+        </div>
+
     );
 }
 

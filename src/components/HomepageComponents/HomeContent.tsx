@@ -7,6 +7,9 @@ import {ReactComponent as ContactBox} from "../../assets/svgs/contactBox.svg"
 import owl from "../../assets/images/Owl.jpg"
 import art from "../../assets/images/blood.jpg"
 import forest from "../../assets/images/forest.jpg"
+import HytaleAdd from "../../assets/videos/hytaleNewsVideo.mp4"
+
+
 //css
 import "./styleSheets/homeContent.scss"
 import { useLocation } from 'react-router';
@@ -130,7 +133,7 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
                 <motion.div  className="homepageMenuContainer">
-                    <motion.div initial={{opacity: 0, y: -100}} animate={{opacity: 1, y: 0, transition:{duration: 1, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
+                    <motion.div initial={{opacity: 0, y: -50}} animate={{opacity: 1, y: 0, transition:{duration: 1, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
                         <div className="item item1">
                             <span className="bottomBorder"/>
                             <img loading="eager" alt="owl" src={owl} className="item1Background"></img>
@@ -171,12 +174,37 @@ const HomeContent = (props: any) => {
             </motion.div>
         );
     }
+    else if(path === "/home/passion"){
+        return(
+            <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homePassion">
+                <motion.div className="content">
+                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
+                        <h1>{"PASSION & PLANS"}</h1>
+                        <br className="lineBreak" />
+                        <h2>WHAT IS PLANNED</h2>
+                    </motion.div>
+                    <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
+                        <p>We do have interesting ideas for the future and if you're curiose, you are just one click away.</p>
+                    </motion.div>
+                    <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
+                        <button onMouseEnter={() => hoverButton(true)} onMouseLeave={() => hoverButton(false)} onClick={() => history.push("/projects")} id="getStartedButton"> 
+                            <div>PROJECTS</div>
+                            <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                        </button>
+                    </motion.div>
+                </motion.div>
+
+
+                
+            </motion.div>
+        )
+    }
     else if(path === "/home/news"){
         return (
             <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeNews">
                 <motion.div className="content">
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
-                        <h1>{"21 June, 2021"}</h1>
+                        <h1>{"30 June, 2021"}</h1>
                         {window.innerWidth > 900 &&
                             <br />
                         }
@@ -196,8 +224,9 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
 
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.6,delay: 2}}} exit={{y: 150, transition: {duration: 1}}} className="backgroundImageContainer">
-                    <div className="backgroundImage"></div>
+                <motion.div initial={{opacity: 0, scale: 1.15}} animate={{opacity: 1, scale: 1, transition: {delay: 2, duration: 0.5}}} exit={{opacity: 0, scale: 1.5, transition: {duration: 0.5}}} className="videoContainer">
+                    <div className="backgroundImagePassionBlur"></div>
+                    <video src={HytaleAdd} muted loop autoPlay height="100%" width="100%"></video>
                 </motion.div>
             </motion.div>
         );
@@ -209,10 +238,10 @@ const HomeContent = (props: any) => {
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"CONNECT & WORK"}</h1>
-                        <h2>THE STEP TO GET STARTED</h2>
+                        <h2>THE RIGHT WAY TO GET STARTED</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>Less and less people dare to take steps that are needed to become successful. Be different! Ready to start something big?</p>
+                        <p>Less and less people dare to take steps that are needed to become successful. Ready to start something big?</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         

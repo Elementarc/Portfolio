@@ -206,7 +206,7 @@ const HomepageContainer = (props: any) => {
                         </Route>
 
                         <Route strict path="/home/passion">
-                            
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex}/>
                         </Route>
                         
                         <Route exact path="/home/news">

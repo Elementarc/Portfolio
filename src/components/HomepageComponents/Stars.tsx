@@ -58,7 +58,7 @@ const Stars = (props: any) => {
             <Particles className="Stars" id="Stars" options={{
                     particles: {
                       number: {
-                        value: 5,
+                        value: 3,
                         density: {
                           enable: true,
                           value_area: 236.7442924896818
@@ -173,7 +173,7 @@ const Stars = (props: any) => {
             <Particles className="StarsMobile" id="Stars" options={{
                     particles: {
                       number: {
-                        value: 8,
+                        value: 5,
                         density: {
                           enable: true,
                           value_area: 236.7442924896818
