@@ -227,7 +227,7 @@ const HytaleDesignPreview = (props: any) => {
         return(() =>{
             clearTimeout(previewAnimationTimer)
         })
-    }, [props.designQuery, changeStyle]);
+    }, [changeStyle]);
     //Mouseeffect when moving
     var parallax = useCallback((e: any) =>{
         function parallax() {
@@ -269,6 +269,113 @@ const HytaleDesignPreview = (props: any) => {
     const backgroundContainer = useAnimation()
     
     
+
+    useEffect(() => {
+        function startAnimation() {
+            window.scrollTo(0, 0)
+            window.removeEventListener("mousemove", parallax)
+            animationStartTimer = setTimeout(() => {
+    
+                previewContainer.start({
+                    scale: [1, 0.8, 6],
+                    transition: {duration: 0.5},
+                    zIndex: 10,
+                })
+    
+                backgroundContainer.start({
+                    opacity: 1,
+                    transition: {duration: 0.3, delay: 0.2},
+                    zIndex: 11,
+                    
+                })
+    
+                animationStartTimer = setTimeout(() => {
+                    previewContainer.start({
+                        zIndex: 2,
+                    })
+                    
+                    animationStartTimer = setTimeout(() => {
+                        backgroundContainer.start({
+                            opacity: 0,
+                            transition: {duration: 0.3},
+                            zIndex: 11,
+                        })
+                        var getDesignPreview = document.getElementById("DesignPreviewContainer") as HTMLDivElement
+                        var getDesignContentPreview = document.getElementById("previewContentContainer") as HTMLDivElement
+                        var getHytale = document.getElementById("hytale") as HTMLDivElement
+                        if(window.innerWidth > 900){
+                            getDesignPreview.style.minHeight ="unset"
+                        }
+                        else{
+                            getDesignContentPreview.style.position ="absolute"
+                            getDesignContentPreview.style.maxHeight ="unset"
+                            getDesignPreview.style.maxHeight="unset"
+                            getHytale.style.position = "relative"
+                            getHytale.style.maxHeight ="unset"
+                        }
+                        
+                    }, 200);
+                }, 500);
+            }, 0);
+            
+        }
+        function exitAnimation() {
+            console.log(props.designQuery.get("viewState"))
+            
+            animationExitTimer = setTimeout(() => {
+                animationExitTimer = setTimeout(() => {
+                    previewContainer.start({
+                        zIndex: 11,
+                        scale: [6, 1],
+                        opacity: [1, 1, 1],
+                        transition: {duration: 0.5, type:"spring"},
+                    })
+
+                    
+                    var getDesignPreview = document.getElementById("DesignPreviewContainer") as HTMLDivElement
+                    if(window.innerWidth > 900){
+                        getDesignPreview.style.minHeight =""
+                    }
+                    else{
+                        var getDesignPreview2 = document.getElementById("DesignPreviewContainer") as HTMLDivElement
+                        var getDesignContentPreview2 = document.getElementById("previewContentContainer") as HTMLDivElement
+
+                        getDesignContentPreview2.style.position =""
+                        getDesignContentPreview2.style.maxHeight =""
+                        getDesignPreview2.style.maxHeight=""
+                    }
+
+                    animationExitTimer = setTimeout(() => {
+                        window.addEventListener("mousemove", parallax)
+                    }, 500);
+                }, 200);
+            }, 0);
+        }
+
+        function toggleAnimations() {
+           
+            //Start
+            if(props.designQuery.get("viewState") === "true"){
+                if(DesignState === false){
+                    setDesignState(true)
+                    startAnimation()
+                    
+                    
+                }
+            }
+            //Exit
+            else if(props.designQuery.get("viewState") === "false"){
+                if(DesignState === true){
+                    setDesignState(false)
+                    exitAnimation()
+                    var getDesignPreview = document.getElementById("DesignPreviewContainer") as HTMLDivElement
+                    getDesignPreview.style.minHeight =""
+                }
+            }
+        }
+        
+        toggleAnimations()
+    }, [props.designQuery, DesignState, parallax, backgroundContainer, previewContainer]);
 
 
     //Changin NavIcon Color for better ui/ux

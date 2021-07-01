@@ -51,7 +51,7 @@ const DesignPage = (props: any) => {
         in: {
             y: [0, 0, 0],
             scale: [1, 1, 1],
-            transition: {duration: 1, delay: 0},
+            transition: {duration: 1, delay: 0.2},
             opacity: 1,
         },
         out: {
@@ -104,31 +104,39 @@ const DesignPage = (props: any) => {
         }
          //Function to change PreviewDesign Upwards or downwards
          function changePreviewDesign(direction: string) {
+            var getButton = document.getElementById("designButton") as HTMLDivElement
             if(direction === "up"){
                 if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
                     if(parseInt(getParams.viewIndex, 10) > 1){
-                        viewIndexCockblock = true
-    
-                        previewSwitchAnimations("upwards")
-                        history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
                         
+                        getButton.style.pointerEvents = "none"
+
+                        previewSwitchAnimations("upwards")
+                        setTimeout(() => {
+                            history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
+                        }, 0);
+                        
+                        viewIndexCockblock = true
                         changeDesignTimer = setTimeout(() => {
                             viewIndexCockblock = false
-                        }, 1800);
+                        }, 1450);
                     }
                 }
             }
             else{
                 if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false"){
                     if(parseInt(getParams.viewIndex, 10) < previews){
-                        viewIndexCockblock = true
+                        getButton.style.pointerEvents = "none"
 
                         previewSwitchAnimations("backwards")
-                        history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
+                        setTimeout(() => {
+                            history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
+                        }, 0);
 
+                        viewIndexCockblock = true
                         changeDesignTimer = setTimeout(() => {
                             viewIndexCockblock = false
-                        }, 1800);
+                        }, 1450);
                     }
                 }
             }
@@ -231,7 +239,7 @@ const DesignPage = (props: any) => {
                 
             <motion.div  className="designsPreviewGridContainer">
                 <AnimatePresence>
-                    <Switch location={location} key={getParams.viewIndex}>
+                    <Switch location={location} key={history.location.pathname.toLowerCase()}>
                         <Route exact path="/design/1">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
                                 <HytaleDesignPreview designQuery={props.designQuery}/>
@@ -243,14 +251,14 @@ const DesignPage = (props: any) => {
                                 <BeautyDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
-
+                        
                         <Route exact path="/design/3">
                             <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
-                                
+                                <CookDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
 
-                        <Route>
+                        <Route path="/*">
                             <PageNotFound/>
                         </Route>
                     </Switch>

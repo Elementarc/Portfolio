@@ -1,6 +1,6 @@
 
 import React, {useEffect, useState} from "react"
-import {Link, useHistory, useLocation, useParams} from "react-router-dom"
+import {Link, useHistory, useLocation} from "react-router-dom"
 import {AnimatePresence} from "framer-motion"
 
 //icons
