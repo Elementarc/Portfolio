@@ -1,6 +1,6 @@
 import React, {useEffect} from "react"
 import {Redirect, Route, Switch, useHistory, useLocation} from "react-router-dom"
-import {AnimatePresence ,motion} from "framer-motion"
+import {AnimatePresence ,motion, useAnimation} from "framer-motion"
 import "./app.scss"
 //import Page components
 import Homepage from "./components/Homepage"
@@ -33,6 +33,50 @@ function App() {
   const history = useHistory()
   //Using url string query to set/get viewState for designPages to toggle design based on value. viewState = false /close design viewState = true /openDesign
   var designQuery =  new URLSearchParams(window.location.search)
+
+  const appInfo = useAnimation()
+  const appInfoBox = useAnimation()
+  //appMessage(true, "This is a test Header", "New content available now!", "Try now!")
+  function appMessage(toggle: boolean, header?: string, content?: string, buttonContent?: string) {
+    var getAppInfoHeader = document.getElementById("appInfoHeader") as HTMLDivElement
+    var getAppInfoContent = document.getElementById("appInfoContent") as HTMLDivElement
+    var getAppInfoButton = document.getElementById("appInfoButton") as HTMLDivElement
+
+    if(toggle === true){
+      
+      appInfo.start({
+        opacity: 1,
+        pointerEvents: 'all',
+        transition: {duration: 0.3}
+      })
+
+      appInfoBox.start({
+        opacity: 1,
+        scale: [0.8, 1],
+        pointerEvents: 'all',
+        transition: {duration: 0.3}
+      })
+
+      header ? getAppInfoHeader.innerHTML = `${header}` : getAppInfoHeader.innerHTML = `No header`
+      content ? getAppInfoContent.innerHTML = `${content}` : getAppInfoContent.innerHTML = `No content`
+      buttonContent ? getAppInfoButton.innerHTML = `${buttonContent}` : getAppInfoButton.innerHTML = `No ButtonText`
+    }
+
+    else{
+      appInfo.start({
+        opacity: 0,
+        pointerEvents: 'none',
+        transition: {duration: 0.3}
+      })
+
+      appInfoBox.start({
+        opacity: 0,
+        scale: 0.8,
+        pointerEvents: 'none',
+        transition: {duration: 0.3}
+      })
+    }
+  }
 
 
   useEffect(() => {
@@ -69,12 +113,13 @@ function App() {
 
   
   return (
-    <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
+  
+  <motion.div animate={{opacity: 1}} initial={{opacity: 0}} transition={{duration: 0.4}} className="App" id="App">
       <AnimatePresence>
         <Switch location={location} key={keyTest()}>
 
           <Route strict path="/home">
-            <Homepage interfaceAnimation={interfaceAnimation}/>
+            <Homepage interfaceAnimation={interfaceAnimation} appMessage={appMessage}/>
           </Route>
 
           <Route strict path={`/design/:viewIndex`} >
@@ -82,7 +127,7 @@ function App() {
           </Route>
 
           <Route exact path={`/projects`} >
-            <ProjectPage/>
+            <ProjectPage appMessage={appMessage}/>
           </Route>
 
           <Route exact path={`/contact/form`} >
@@ -100,12 +145,19 @@ function App() {
           <Route exact path = "/contact">
             <Redirect to="/home/connect"/>
           </Route>
-
+          
           <Route component={PageNotFound}></Route>
 
         </Switch>
       </AnimatePresence>
-      
+
+      <motion.div animate={appInfo} className="appInfoContainer" id="appInfoContainer">
+          <motion.div animate={appInfoBox} className="appInfoBox">
+            <h1 id="appInfoHeader">Header</h1>
+            <p id="appInfoContent">Content</p>
+            <div onClick={() => appMessage(false)}  id="appInfoButton">START</div>
+          </motion.div>
+      </motion.div>
 
       <Nav interfaceAnimation={interfaceAnimation} designQuery={designQuery}/>
       <Blackbar interfaceAnimation={interfaceAnimation}/>

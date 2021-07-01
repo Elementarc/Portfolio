@@ -230,7 +230,7 @@ const Nav = (props: any) => {
                             PROJECTS
                     </Link>
 
-                    <Link onClick={() => setNavState(!NavState)} className="linkWorkspace" id="navPixelArt" to="/pixelart">
+                    <Link style={{pointerEvents: "none"}} onClick={() => setNavState(!NavState)} className="linkWorkspace" id="navPixelArt" to="/pixelart">
                             <div className="navbarListIconContainer">
                                 <PixelArtIcon/>
                             </div>

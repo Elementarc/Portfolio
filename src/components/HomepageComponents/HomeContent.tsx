@@ -112,8 +112,10 @@ const HomeContent = (props: any) => {
     //ROUTES
     if(path === "/home"){
         return (
-            <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeContent">
+            <motion.div  style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeContent">
+                
                 <motion.div className="content">
+                    
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"SIMPLE & CLEAN"}</h1>
                         <br className="lineBreak" />
@@ -133,10 +135,10 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
                 <motion.div  className="homepageMenuContainer">
-                    <motion.div initial={{opacity: 0, y: -50}} animate={{opacity: 1, y: 0, transition:{duration: 1, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
+                    <motion.div initial={{opacity: 0, y: -80}} animate={{opacity: 1, y: 0, transition:{duration: 1, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
                         <div className="item item1">
                             <span className="bottomBorder"/>
-                            <img loading="eager" alt="owl" src={owl} className="item1Background"></img>
+                            <img loading="eager" alt="" src={owl} className="item1Background"></img>
 
                             <div className="item1Content">
                                 <h1>Design</h1>
@@ -148,11 +150,11 @@ const HomeContent = (props: any) => {
                             <div className="imageBlur"/>
                             <span className="bottomBorder"/>
                             
-                            <img src={art} alt="blood" loading="eager" className="item2Background"></img>
+                            <img src={art} alt="" loading="eager" className="item2Background"></img>
                             <div className="item2Content">
-                                <h1>Pixel-Art</h1>
+                                <h1>Art</h1>
                                 <p>!We now do Pixel art</p>
-                                <Link to="/design">SEE ART-WORK</Link>
+                                <div className="link" onClick={() => props.appMessage(true, "COMING SOON", "We are working on this feature.", "OK")} >SEE ART-WORK</div>
                             </div>
                         </div>
                         <div className="item item3">
@@ -181,7 +183,7 @@ const HomeContent = (props: any) => {
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"PASSION & PLANS"}</h1>
                         <br className="lineBreak" />
-                        <h2>WHAT IS PLANNED</h2>
+                        <h2>WHAT IS PLANED FOR THE FUTURE</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
                         <p>We do have interesting ideas for the future and if you're curiose, you are just one click away.</p>
@@ -194,7 +196,14 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
 
-
+                <motion.div  className="homepageMenuContainer">
+                    <motion.div initial={{opacity: 0, y: -80}} animate={{opacity: 1, y: 0, transition:{duration: 1, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
+                        <div className="item item1">
+                            <div className="backgroundBlur"></div>
+                            <img loading="eager" alt="" className="item1Background"></img>
+                        </div>
+                    </motion.div>
+                </motion.div>
                 
             </motion.div>
         )

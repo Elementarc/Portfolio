@@ -202,7 +202,7 @@ const HomepageContainer = (props: any) => {
                 <AnimatePresence>
                     <Switch location={location} key={path}>
                         <Route exact path="/home">
-                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex}/>
+                            <HomeContent locationIndex={LocationIndex} setLocationIndex={setLocationIndex} setUrlBasedOnLocationIndex={setUrlBasedOnLocationIndex} appMessage={props.appMessage}/>
                         </Route>
 
                         <Route strict path="/home/passion">
