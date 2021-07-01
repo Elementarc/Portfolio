@@ -209,7 +209,7 @@ const Nav = (props: any) => {
 
             <motion.div animate={NavState ? "enter" : "exit"} variants={navAnimation} id="navigation" className="navigation">
                 <motion.ul initial="init" animate={NavState ? "enter" : "exit"} variants={navItemAnimation}>
-                    <div onClick={() => {setNavState(!NavState); if(location.pathname.toLowerCase().includes("/home")){/*console.log("already at home")*/}else{history.push("/home")}}} className="navHome" id="navHome">
+                    <div onClick={() => {setNavState(!NavState); if(location.pathname.toLowerCase().includes("/home")){/*console.log("already at home")*/}else{history.push("/home")}}} className="linkHome" id="navHome">
                             <div className="navbarListIconContainer">
                                 <HomeIcon/>
                             </div>
@@ -230,13 +230,13 @@ const Nav = (props: any) => {
                             PROJECTS
                     </Link>
 
-                    <Link style={{pointerEvents: "none"}} onClick={() => setNavState(!NavState)} className="linkWorkspace" id="navPixelArt" to="/pixelart">
+                    <div onClick={() => {props.appMessage(true, "PIXEL ART", "We are working on this feature.", "COOL")}} className="linkPixelArt" id="navPixelArt">
                             <div className="navbarListIconContainer">
                                 <PixelArtIcon/>
                             </div>
                             <div className="comingSoon"> COMING SOON</div>
                             PIXEL ART
-                    </Link>
+                    </div>
 
                     <Link onClick={() => setNavState(!NavState)} className="linkContact" id="navContact" to="/contact/form">
                             <div className="navbarListIconContainer">

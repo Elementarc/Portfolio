@@ -47,14 +47,14 @@ function App() {
       appInfo.start({
         opacity: 1,
         pointerEvents: 'all',
-        transition: {duration: 0.3}
+        transition: {duration: 0.2}
       })
 
       appInfoBox.start({
         opacity: 1,
         scale: [0.8, 1],
         pointerEvents: 'all',
-        transition: {duration: 0.3}
+        transition: {duration: 0.2}
       })
 
       header ? getAppInfoHeader.innerHTML = `${header}` : getAppInfoHeader.innerHTML = `No header`
@@ -66,14 +66,14 @@ function App() {
       appInfo.start({
         opacity: 0,
         pointerEvents: 'none',
-        transition: {duration: 0.3}
+        transition: {duration: 0.2}
       })
 
       appInfoBox.start({
         opacity: 0,
         scale: 0.8,
         pointerEvents: 'none',
-        transition: {duration: 0.3}
+        transition: {duration: 0.2}
       })
     }
   }
@@ -159,7 +159,7 @@ function App() {
           </motion.div>
       </motion.div>
 
-      <Nav interfaceAnimation={interfaceAnimation} designQuery={designQuery}/>
+      <Nav interfaceAnimation={interfaceAnimation} designQuery={designQuery} appMessage={appMessage}/>
       <Blackbar interfaceAnimation={interfaceAnimation}/>
       <Logo interfaceAnimation={interfaceAnimation}/>
     </motion.div>

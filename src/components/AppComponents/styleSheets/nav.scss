@@ -55,31 +55,6 @@
         ul{
             margin-top: 3rem;
             list-style: none;
-            
-            .navHome{
-                text-decoration: none;
-                display: block;
-                padding: 1.8rem 0 1.8rem 6.3rem;
-                color: white;
-                text-decoration: none;
-                font-size: 18px;
-                font-family: "PT Serif";
-                font-weight: 600;
-                .navbarListIconContainer {
-                    position: relative;
-                    overflow: hidden;
-                    transform: scale(1.5);
-                    display: inline-block;
-                    margin-right: 1.4rem;
-                    height: 18px;
-                    width: 18px;
-                }
-                &:hover{
-                    background-color: rgba(255, 255, 255, 0.191);
-                    cursor: pointer; 
-                }
-            }
-            
             a{
                 text-decoration: none;
                 display: block;
@@ -112,6 +87,63 @@
                     cursor: pointer; 
                 }
             }
+
+            .linkHome{
+                text-decoration: none;
+                display: block;
+                padding: 1.8rem 0 1.8rem 6.3rem;
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                font-family: "PT Serif";
+                font-weight: 600;
+                .navbarListIconContainer {
+                    position: relative;
+                    overflow: hidden;
+                    transform: scale(1.5);
+                    display: inline-block;
+                    margin-right: 1.4rem;
+                    height: 18px;
+                    width: 18px;
+                }
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.191);
+                    cursor: pointer; 
+                }
+            }
+            .linkPixelArt{
+                text-decoration: none;
+                display: block;
+                padding: 1.8rem 0 1.8rem 6.3rem;
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                font-family: "PT Serif";
+                font-weight: 600;
+                .comingSoon{
+                    position: absolute;
+                    margin-top: -2.6rem;
+                    margin-left: 5rem;
+                    font-size: 14px;
+                    color: #FFC21C;
+                }
+                
+                .navbarListIconContainer {
+                    position: relative;
+                    overflow: hidden;
+                    transform: scale(1.5);
+                    display: inline-block;
+                    margin-right: 1.4rem;
+                    height: 18px;
+                    width: 18px;
+                    
+                }
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.191);
+                    cursor: pointer; 
+                }
+            }
+            
            
             .targetNavItem{
                 color: #56FFDC;
@@ -265,6 +297,7 @@
                         width: 14px;
                     }
                 }
+                
                 a{
                     padding: 1.8rem 0 1.8rem 26%;
                     font-size: 14px;
@@ -286,6 +319,8 @@
                         width: 14px;
                     }
                 }
+
+                
             }
         }
         

@@ -71,7 +71,7 @@ const ProjectsPage = (props: any) => {
                         <p>We're a huge fan of 2D and one of our future-dreams would be to release our own pixel art game, but that can wait for the time being. Meanwhile, how about some 2D assets?</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onClick={() => props.appMessage(true, "COMING SOON", "We are working on this feature.", "OK")}> 
+                        <button onClick={() => props.appMessage(true, "PIXEL ART", "We are working on this feature.", "COOL")}> 
                             <div>PIXEL ART</div>
                             <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.5}}} initial={{opacity: 0}} className="slime"></motion.div>
                         </button>

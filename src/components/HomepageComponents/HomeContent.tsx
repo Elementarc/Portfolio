@@ -154,7 +154,7 @@ const HomeContent = (props: any) => {
                             <div className="item2Content">
                                 <h1>Art</h1>
                                 <p>!We now do Pixel art</p>
-                                <div className="link" onClick={() => props.appMessage(true, "COMING SOON", "We are working on this feature.", "OK")} >SEE ART-WORK</div>
+                                <div className="link" onClick={() => props.appMessage(true, "PIXEL ART", "We are working on this feature.", "COOL")} >SEE ART-WORK</div>
                             </div>
                         </div>
                         <div className="item item3">
