@@ -112,14 +112,12 @@ const DesignPage = (props: any) => {
                         getButton.style.pointerEvents = "none"
 
                         previewSwitchAnimations("upwards")
-                        setTimeout(() => {
-                            history.push(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
-                        }, 0);
+                        history.replace(`/design/${parseInt(getParams.viewIndex, 10) -1}?viewState=false`)
                         
                         viewIndexCockblock = true
                         changeDesignTimer = setTimeout(() => {
                             viewIndexCockblock = false
-                        }, 1450);
+                        }, 1500);
                     }
                 }
             }
@@ -129,14 +127,12 @@ const DesignPage = (props: any) => {
                         getButton.style.pointerEvents = "none"
 
                         previewSwitchAnimations("backwards")
-                        setTimeout(() => {
-                            history.push(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
-                        }, 0);
+                        history.replace(`/design/${parseInt(getParams.viewIndex, 10) + 1}?viewState=false`)
 
                         viewIndexCockblock = true
                         changeDesignTimer = setTimeout(() => {
                             viewIndexCockblock = false
-                        }, 1450);
+                        }, 1500);
                     }
                 }
             }
