@@ -5,12 +5,7 @@ import { useHistory } from 'react-router';
 import { useCallback } from 'react';
 
 //Using this state number to cycle through 3 animation phases
-var previewState = 1
-
-//Timers that might need cleanup on componentUnmount
-var transitionTimer: any
-var previewAnimationTimer: any
-
+var previewState = 2
 
 const BeautyDesignPreview = (props: any) => {
     const history = useHistory()
@@ -20,210 +15,237 @@ const BeautyDesignPreview = (props: any) => {
     const thirdPreviewImage = useAnimation()
     //Animates Images
     useEffect(() => {
-        
+        var timer: any
+        firstPreviewImage.start({
+            zIndex: 3,
+            x: 0,
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+        })
+
+        secondPreviewImage.start({
+            zIndex: 1,
+            x: -250,
+            y: 0,
+            opacity: 0.5,
+            scale: 0.7,
+            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+        })
+
+        thirdPreviewImage.start({
+            zIndex: 2,
+            x: 250,
+            y: 0,
+            opacity: 0.5,
+            scale: 0.7,
+            transition: {duration: 1.5, delay: 0.8, type: 'spring'}
+        })
         //Animation for Images changes State at the end of the function to rerender the component
         function changeStyle() {
-            if(window.innerWidth > 900){
-                previewState++
-                if(previewState > 3){
-                    previewState = 1
+            if(history.location.pathname.toLowerCase() === "/design/2"){
+                if(window.innerWidth > 900){
+                    previewState++
+                    if(previewState > 3){
+                        previewState = 1
+                    }
+
+                    if(previewState === 1){
+                        firstPreviewImage.start({
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+
+                        secondPreviewImage.start({
+                            zIndex: 1,
+                            x: -250,
+                            y: 0,
+                            opacity: 0.5,
+                            scale: 0.7,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+
+                        thirdPreviewImage.start({
+                            zIndex: 2,
+                            x: 250,
+                            y: 0,
+                            opacity: 0.5,
+                            scale: 0.7,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+
+                        previewState = 2
+                    }
+                    else if(previewState === 2){
+                        thirdPreviewImage.start({
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+
+                        firstPreviewImage.start({
+                            zIndex: 1,
+                            x: -250,
+                            y: 0,
+                            opacity: 0.5,
+                            scale: 0.7,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+
+                        secondPreviewImage.start({
+                            zIndex: 2,
+                            x: 250,
+                            y: 0,
+                            opacity: 0.5,
+                            scale: 0.7,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+                        previewState = 3
+                    }
+                    else if(previewState === 3){
+                        secondPreviewImage.start({
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+
+                        thirdPreviewImage.start({
+                            zIndex: 1,
+                            x: -250,
+                            y: 0,
+                            opacity: 0.5,
+                            scale: 0.7,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+
+                        firstPreviewImage.start({
+                            zIndex: 2,
+                            x: 250,
+                            y: 0,
+                            opacity: 0.5,
+                            scale: 0.7,
+                            transition: {duration: 1.5, delay: 0, type: 'spring'}
+                        })
+                        previewState = 1
+                    }
                 }
+                else{
+                    previewState++
+                    if(previewState > 3){
+                        previewState = 1
+                    }
+                    if(previewState === 1){
+                        firstPreviewImage.start({
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
 
-                if(previewState === 1){
-                    firstPreviewImage.start({
-                        zIndex: 3,
-                        x: 0,
-                        y: 0,
-                        opacity: 1,
-                        scale: 1,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
+                        secondPreviewImage.start({
+                            zIndex: 1,
+                            x: -130,
+                            y: 0,
+                            opacity: 0.6,
+                            scale: 0.7,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
 
-                    secondPreviewImage.start({
-                        zIndex: 1,
-                        x: -250,
-                        y: 0,
-                        opacity: 0.5,
-                        scale: 0.7,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
+                        thirdPreviewImage.start({
+                            zIndex: 2,
+                            x: 130,
+                            y: 0,
+                            opacity: 0.6,
+                            scale: 0.7,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
+                        previewState = 2
+                    }
+                    else if(previewState === 2){
+                        thirdPreviewImage.start({
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
 
-                    thirdPreviewImage.start({
-                        zIndex: 2,
-                        x: 250,
-                        y: 0,
-                        opacity: 0.5,
-                        scale: 0.7,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
+                        firstPreviewImage.start({
+                            zIndex: 1,
+                            x: -130,
+                            y: 0,
+                            opacity: 0.6,
+                            scale: 0.7,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
 
-                    previewState = 2
-                }
-                else if(previewState === 2){
-                    thirdPreviewImage.start({
-                        zIndex: 3,
-                        x: 0,
-                        y: 0,
-                        opacity: 1,
-                        scale: 1,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
+                        secondPreviewImage.start({
+                            zIndex: 2,
+                            x: 130,
+                            y: 0,
+                            opacity: 0.6,
+                            scale: 0.7,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
 
-                    firstPreviewImage.start({
-                        zIndex: 1,
-                        x: -250,
-                        y: 0,
-                        opacity: 0.5,
-                        scale: 0.7,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
+                        previewState = 3
+                    }
+                    else if(previewState === 3){
+                        secondPreviewImage.start({
+                            zIndex: 3,
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
 
-                    secondPreviewImage.start({
-                        zIndex: 2,
-                        x: 250,
-                        y: 0,
-                        opacity: 0.5,
-                        scale: 0.7,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
-                    previewState = 3
-                }
-                else if(previewState === 3){
-                    secondPreviewImage.start({
-                        zIndex: 3,
-                        x: 0,
-                        y: 0,
-                        opacity: 1,
-                        scale: 1,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
+                        thirdPreviewImage.start({
+                            zIndex: 1,
+                            x: -130,
+                            y: 0,
+                            opacity: 0.6,
+                            scale: 0.7,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
 
-                    thirdPreviewImage.start({
-                        zIndex: 1,
-                        x: -250,
-                        y: 0,
-                        opacity: 0.5,
-                        scale: 0.7,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
-
-                    firstPreviewImage.start({
-                        zIndex: 2,
-                        x: 250,
-                        y: 0,
-                        opacity: 0.5,
-                        scale: 0.7,
-                        transition: {duration: 1.5, delay: 0.8, type: 'spring'}
-                    })
-                    previewState = 1
+                        firstPreviewImage.start({
+                            zIndex: 2,
+                            x: 130,
+                            y: 0,
+                            opacity: 0.6,
+                            scale: 0.7,
+                            transition: {duration: 1.2, delay: 0, type: 'spring'}
+                        })
+                        previewState = 1
+                    }
                 }
             }
-            else{
-                previewState++
-                if(previewState > 3){
-                    previewState = 1
-                }
-                if(previewState === 1){
-                    firstPreviewImage.start({
-                        zIndex: 3,
-                        x: 0,
-                        y: 0,
-                        opacity: 1,
-                        scale: 1,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
 
-                    secondPreviewImage.start({
-                        zIndex: 1,
-                        x: -130,
-                        y: 0,
-                        opacity: 0.6,
-                        scale: 0.7,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
-
-                    thirdPreviewImage.start({
-                        zIndex: 2,
-                        x: 130,
-                        y: 0,
-                        opacity: 0.6,
-                        scale: 0.7,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
-                    previewState = 2
-                }
-                else if(previewState === 2){
-                    thirdPreviewImage.start({
-                        zIndex: 3,
-                        x: 0,
-                        y: 0,
-                        opacity: 1,
-                        scale: 1,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
-
-                    firstPreviewImage.start({
-                        zIndex: 1,
-                        x: -130,
-                        y: 0,
-                        opacity: 0.6,
-                        scale: 0.7,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
-
-                    secondPreviewImage.start({
-                        zIndex: 2,
-                        x: 130,
-                        y: 0,
-                        opacity: 0.6,
-                        scale: 0.7,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
-
-                    previewState = 3
-                }
-                else if(previewState === 3){
-                    secondPreviewImage.start({
-                        zIndex: 3,
-                        x: 0,
-                        y: 0,
-                        opacity: 1,
-                        scale: 1,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
-
-                    thirdPreviewImage.start({
-                        zIndex: 1,
-                        x: -130,
-                        y: 0,
-                        opacity: 0.6,
-                        scale: 0.7,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
-
-                    firstPreviewImage.start({
-                        zIndex: 2,
-                        x: 130,
-                        y: 0,
-                        opacity: 0.6,
-                        scale: 0.7,
-                        transition: {duration: 1.2, delay: 0.5, type: 'spring'}
-                    })
-                    previewState = 1
-                }
-            }
-
-            previewAnimationTimer = setTimeout(() => {
-                changeStyle()
-            }, 3000);
+            
         }
 
-        
-        changeStyle()
+        timer = setInterval(() => {
+            changeStyle()
+        }, 4000);
         return(() =>{
-            clearTimeout(previewAnimationTimer)
+            clearTimeout(timer)
         })
-    }, [props.designQuery, firstPreviewImage, secondPreviewImage, thirdPreviewImage]);
+    }, [history, firstPreviewImage, secondPreviewImage, thirdPreviewImage]);
     //Mouseeffect when moving
     var parallax = useCallback((e: any) =>{
         function parallax() {
@@ -255,16 +277,6 @@ const BeautyDesignPreview = (props: any) => {
         };
     }, [parallax]);
 
-    //CleanUp for timers
-    useEffect(() => {
-        
-        
-        return () => {
-            clearTimeout(previewAnimationTimer)
-            clearTimeout(transitionTimer)
-        };
-    }, []);
-        
     function triggerComingSoon(toggleState: boolean){
         var getComingSoonContainer = document.getElementById("comingSoonContainer") as HTMLDivElement
 

@@ -237,19 +237,19 @@ const DesignPage = (props: any) => {
                 <AnimatePresence>
                     <Switch location={location} key={history.location.pathname.toLowerCase()}>
                         <Route exact path="/design/1">
-                            <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
+                            <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} animate={"in"} variants={Animation}>
                                 <HytaleDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
 
                         <Route exact path="/design/2">
-                            <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
+                            <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} animate={"in"} variants={Animation}>
                                 <BeautyDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
                         
                         <Route exact path="/design/3">
-                            <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} initial={"init"} animate={"in"} variants={Animation}>
+                            <motion.div className="designsAnimationContainer" id="designsAnimationContainer" exit={"out"} animate={"in"} variants={Animation}>
                                 <CookDesignPreview designQuery={props.designQuery}/>
                             </motion.div>
                         </Route>
