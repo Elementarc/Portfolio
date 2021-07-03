@@ -10,6 +10,7 @@
     max-width: 2400px;
     overflow: hidden;
     overflow-y: scroll;
+    scroll-behavior: smooth;
     .allContentContainer{
         position: relative;
         pointer-events: none;
@@ -316,6 +317,7 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
+                pointer-events: visible;
                 flex-direction: column;
                 margin-top: 12rem;
                 padding-bottom: 1.5rem;

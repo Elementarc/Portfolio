@@ -250,7 +250,7 @@ const HomeContent = (props: any) => {
                         <h2>THE RIGHT WAY TO GET STARTED</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>Less and less people dare to take steps that are needed to become successful. Ready to start something big?</p>
+                        <p>Less and less people dare to take steps that are necessary to become successful. You need a unique website? Well, you are at the right place!</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         

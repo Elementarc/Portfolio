@@ -1130,9 +1130,9 @@ function ContactPage(props: any) {
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
                         <input className="budgedInput" id="inputBudged" type="number" onBlur={() => {verifyInputValue3()}} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
                         <div className="currencyContainer">
-                            <motion.div onClick={toggleCurrency} onMouseEnter={() => clearTimeout(currencyTimer)} onMouseLeave={() => {toggleCurrencyBox = false; currencyTimer = setTimeout(() => {
+                            <motion.div onClick={() => {toggleCurrencyBox = true; toggleCurrency()}} onMouseEnter={() => clearTimeout(currencyTimer)} onMouseLeave={() => {toggleCurrencyBox = false; currencyTimer = setTimeout(() => {
                                 toggleCurrency()
-                            }, 500);}} className="optionContainer" id="optionContainer">
+                            }, 300);}} className="optionContainer" id="optionContainer">
                                 <div className="optionFlexContainer" id="optionFlexContainer">
                                     <div className="option1" id="option1" onClick={() => changeCurrency("option1")}>{"€"}</div>
                                     <div className="option2" id="option2" onClick={() => changeCurrency("option2")}>{"$"}</div>
