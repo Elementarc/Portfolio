@@ -1025,7 +1025,7 @@ function ContactPage(props: any) {
                         <div className="nameInfo">
                             <InputInfo id="inputNameInfoSVG"></InputInfo>
                             <div className="tooltipContainer">
-                                <p><b>Whats allowed:</b></p>
+                                <p><b>RULES:</b></p>
                                 <p><b>Characters:</b> a-z, A-Z.</p>
                                 <p><b>Numbers: </b> any numbers.</p>
                                 <p>Your name has to be atleast 3 characters long.</p>
@@ -1147,7 +1147,7 @@ function ContactPage(props: any) {
                                 <p style={{marginTop: "-0.7rem"}}>If you do not take your project seriously, please make sure to not contact us.</p>
                                 <p><b>BUT IF YOU DO CARE</b></p>
                                 <p style={{marginTop: "-0.7rem"}}>Not everybody can efford us but that doesnt mean you should hesitate to enter your budged.</p>
-                                <p>If you are not in range of our price pool, we will still look at your project to see if it's promising enough. If it is, we will contact you!</p>
+                                <p>If your budged is not in range we will try to find you another team that would love to work with you.</p>
                                 <p className="lastToolItem"><b>Make sure to be</b> as honest as possible about your budged, we dont want to waste your time and hopefully you think the same way.</p>
                             </div>
                         </div>
