@@ -332,8 +332,10 @@ const HytaleDesignPreview = (props: any) => {
                             getDesignContentPreview.style.position ="absolute"
                             getDesignContentPreview.style.maxHeight ="unset"
                             getDesignPreview.style.maxHeight="unset"
-                            getHytale.style.position = "relative"
-                            getHytale.style.maxHeight ="unset"
+                            if(DesignState === true){
+                                getHytale.style.position = "relative"
+                                getHytale.style.maxHeight ="unset"
+                            }
                         }
                         
                     }, 200);
