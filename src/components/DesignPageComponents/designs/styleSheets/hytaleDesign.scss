@@ -212,7 +212,7 @@
                 top: 0;
                 height: 100%;
                 width: 100%;
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+                background: linear-gradient(180deg, rgba(0, 0, 0, 1) -50%, rgba(0, 0, 0, 0) 100%);
             }
             .panelBackground{
                 transition: 0.2s ease-in-out;
@@ -229,7 +229,7 @@
             grid-column: 1/3;
             grid-row: 1/3;
             .panelBlur{
-                background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0) 100%);
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 100%);
             }
             .panel1Background{
                 position: absolute;
@@ -335,7 +335,7 @@
                 top: 0;
                 height: 100%;
                 width: 100%;
-                background-image: url("../../../../assets/images/tessa_and_kyros.jpg");
+                background-image: url("../../../../assets/images/classImageHytale.jpg");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
@@ -871,7 +871,7 @@
                     top: 0;
                     height: 100%;
                     width: 100%;
-                    background-image: url("../../../../assets/images/tessa_and_kyros.jpg");
+                    background-image: url("../../../../assets/images/classImageHytale.jpg");
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: cover;
@@ -1325,7 +1325,7 @@
                     top: 0;
                     height: 100%;
                     width: 100%;
-                    background-image: url("../../../../assets/images/tessa_and_kyros.jpg");
+                    background-image: url("../../../../assets/images/classImageHytale.jpg");
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: cover;

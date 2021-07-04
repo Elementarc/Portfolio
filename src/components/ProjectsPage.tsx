@@ -7,11 +7,9 @@ import Wind from "../assets/videos/smoky.mp4"
 function scrollToTop(){
     var getProjectContainer = document.getElementById("ProjectContainer") as HTMLDivElement
     if(window.innerWidth < 900){
-        console.log("test")
         window.scrollTo(0, 0)
     }
     else{
-        console.log("test")
         getProjectContainer.scrollTo(0, 0)
     }
 }
@@ -59,7 +57,7 @@ const ProjectsPage = (props: any) => {
         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5}}} exit={{opacity: 0, transition: {duration: 0.4}}} className="ProjectContainer" id="ProjectContainer">
            
             <div className="allContentContainer" id="allContentContainer">
-                <motion.div initial={{top: "-100vh"}} animate={{top: 0, transition: {duration: 2}}} className="smokeContainer">
+                <motion.div initial={{top: "100vh"}} animate={{ top: 0, transition: {duration: 2}}} className="smokeContainer">
                     <motion.video initial={{opacity: 0}} animate={{opacity: 0.4, transition: {duration: 1, delay: 0.5}}} muted autoPlay loop className="smokeVideo" src={Wind}></motion.video>
                 </motion.div>
                 <motion.div className="content">

@@ -490,10 +490,9 @@ function ContactPage(props: any) {
         var getEmailContainer = document.getElementById("contactContentEmail") as HTMLDivElement
         var getDescriptionContainer = document.getElementById("contactContentDescription") as HTMLDivElement
         var getBudgedContainer = document.getElementById("contactContentBudged") as HTMLDivElement
-
+        clearTimeout(changeStepAnimationTimer)
         if(StepIndex === 0){
             verifyInputValue0()
-
             getEmailContainer.style.pointerEvents = "none"
             getDescriptionContainer.style.pointerEvents = "none"
             getBudgedContainer.style.pointerEvents = "none"
