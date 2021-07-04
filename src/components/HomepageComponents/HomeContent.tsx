@@ -186,7 +186,7 @@ const HomeContent = (props: any) => {
                         <h2>WHAT IS PLANED FOR THE FUTURE</h2>
                     </motion.div>
                     <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>We do have interesting ideas for the future and if you're curiose, you are just one click away.</p>
+                        <p>We do have interesting ideas for the future and if you're curious, you are just one click away.</p>
                     </motion.div>
                     <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
                         <button onMouseEnter={() => hoverButton(true)} onMouseLeave={() => hoverButton(false)} onClick={() => history.push("/projects")} id="getStartedButton"> 
@@ -196,13 +196,15 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
 
-                <motion.div  className="homepageMenuContainer">
-                    <motion.div initial={{opacity: 0, y: -80}} animate={{opacity: 1, y: 0, transition:{duration: 1, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
-                        <div className="item item1">
-                            <div className="backgroundBlur"></div>
-                            <img loading="eager" alt="" className="item1Background"></img>
-                        </div>
-                    </motion.div>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 2}}} exit={{y: 700, opacity: 0, transition: {duration: 1}}} className="passionImagesContainer">
+                    <div className="image1Container">
+                        <div className="imageBlur"></div>
+                        <div className="image1"></div>
+                    </div>
+                    <div className="image2Container">
+                        <div className="imageBlur"></div>
+                        <div className="image2"></div>
+                    </div>
                 </motion.div>
                 
             </motion.div>

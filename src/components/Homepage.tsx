@@ -100,27 +100,33 @@ const HomepageContainer = (props: any) => {
     //Setting Homepagecontainer min-height to adjust height for content. (Needs to be like this long story)
     useEffect(() =>{
         var getHomepage = document.getElementById("home") as HTMLDivElement
-        
+        var homePageHeightTimer: any
         if(window.innerWidth <= 900){
             if(LocationIndex === 0){
-                setTimeout(() => {
+                homePageHeightTimer = setTimeout(() => {
                     getHomepage.style.height = "1405px"
-                }, 500);
+                }, 700);
             }
             else if(LocationIndex === 1){
                 //Not done yet
+                homePageHeightTimer = setTimeout(() => {
+                    getHomepage.style.height = "1000px"
+                }, 700);
             }
             else if(LocationIndex === 2){
-                setTimeout(() => {
+                homePageHeightTimer = setTimeout(() => {
                     getHomepage.style.height = "600px"
-                }, 500);
+                }, 700);
             }
             else if(LocationIndex === 3){
-                setTimeout(() => {
+                homePageHeightTimer = setTimeout(() => {
                     getHomepage.style.height = "1150px"
-                }, 500);
+                }, 700);
             }
         }
+        return(() =>{
+            clearTimeout(homePageHeightTimer)
+        })
     },[LocationIndex])
     //Adds listeners and removes them. So wheel changes url on wheelup / wheeldown
     useEffect(() => {
