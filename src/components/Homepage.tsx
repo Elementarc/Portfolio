@@ -120,7 +120,7 @@ const HomepageContainer = (props: any) => {
             }
             else if(LocationIndex === 3){
                 homePageHeightTimer = setTimeout(() => {
-                    getHomepage.style.height = "1150px"
+                    getHomepage.style.height = "1170px"
                 }, 700);
             }
         }
