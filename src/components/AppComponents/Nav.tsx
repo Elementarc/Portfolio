@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState} from "react"
 import {Link, useHistory, useLocation} from "react-router-dom"
-import {AnimatePresence} from "framer-motion"
+import {AnimatePresence, useAnimation} from "framer-motion"
 
 //icons
 import {ReactComponent as HomeIcon} from "../../assets/icons/HomeIcon.svg"
@@ -190,7 +190,14 @@ const Nav = (props: any) => {
         
     }, [NavState]);
     
-    
+    //Function to close Design aka switching viewstate to false and disabling button
+    const closeDesign = useAnimation()
+    function closeDesignFunc() {
+        history.push(`${history.location.pathname.toLowerCase()}?viewState=false`)
+        closeDesign.start({
+            pointerEvents: 'none'
+        })
+    }
 
     return(
         <motion.div animate="in" exit="out" initial="initial" variants={props.interfaceAnimation} id="NavigationContainer" className="NavigationContainer">
@@ -199,11 +206,12 @@ const Nav = (props: any) => {
             </div>
 
             <motion.div onClick={() => setNavState(!NavState)} animate={NavState ? "enter" : "exit"} variants={navBlurAnimation} id="navigationBlur" className="navigationBlur"></motion.div>
+            
             <AnimatePresence>
                 {props.designQuery.get("viewState") === 'true' &&
-                    <div onClick={() =>{history.push(`${history.location.pathname.toLowerCase()}?viewState=false`)}} className="closeDesignContainer">
+                    <motion.div animate={closeDesign} onClick={() =>{closeDesignFunc()}} className="closeDesignContainer">
                         <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.2, duration: 0.5}}} exit={{opacity: 0, transition: {duration: 0.5}}} className="closeDesignIcon"></motion.div>
-                    </div>
+                    </motion.div>
                 }
             </AnimatePresence>
 

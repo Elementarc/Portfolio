@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {motion, AnimatePresence, useAnimation} from "framer-motion"
+import React, {useEffect} from 'react';
+import {motion, useAnimation} from "framer-motion"
 import "./styleSheets/hytaleDesignPreview.scss"
 import { useHistory } from 'react-router';
 import HytaleBackground from "../../assets/images/Wallpaper.jpg"
@@ -21,7 +21,7 @@ const HytaleDesignPreview = (props: any) => {
     
     //Starting Animation for Images
     useEffect(() => {
-        var timer: any
+        let timer: any
         firstPreviewImage.start({
             zIndex: 3,
             x: 0,
@@ -282,22 +282,21 @@ const HytaleDesignPreview = (props: any) => {
         };
     }, [parallax]);
 
-    
-    //false = unMounts designComponent, true = mounts DesignComponent
-    const [DesignState, setDesignState] = useState(false);
-
     //Animation for PreviewContainer
     const previewContainer = useAnimation()
     //Animation for background Black
     const backgroundContainer = useAnimation()
     useEffect(() => {
         
-        
+        var animationStartTimer: any
+        var animationExitTimer: any
         function startAnimation() {
             window.scrollTo(0, 0)
             window.removeEventListener("mousemove", parallax)
+            
+            clearTimeout(animationExitTimer)
             animationStartTimer = setTimeout(() => {
-    
+                
                 previewContainer.start({
                     scale: [1, 0.8, 6],
                     transition: {duration: 0.5},
@@ -312,32 +311,18 @@ const HytaleDesignPreview = (props: any) => {
                 })
     
                 animationStartTimer = setTimeout(() => {
+                    
                     previewContainer.start({
                         zIndex: 2,
                     })
                     
                     animationStartTimer = setTimeout(() => {
+
                         backgroundContainer.start({
                             opacity: 0,
                             transition: {duration: 0.3},
                             zIndex: 11,
                         })
-                        var getDesignPreview = document.getElementById("DesignPreviewContainer") as HTMLDivElement
-                        var getDesignContentPreview = document.getElementById("previewContentContainer") as HTMLDivElement
-                        var getHytale = document.getElementById("hytale") as HTMLDivElement
-                        if(window.innerWidth > 900){
-                            getDesignPreview.style.minHeight ="unset"
-                        }
-                        else{
-                            getDesignContentPreview.style.position ="absolute"
-                            getDesignContentPreview.style.maxHeight ="unset"
-                            getDesignPreview.style.maxHeight="unset"
-                            if(DesignState === true){
-                                getHytale.style.position = "relative"
-                                getHytale.style.maxHeight ="unset"
-                            }
-                        }
-                        
                     }, 200);
                 }, 500);
             }, 0);
@@ -345,7 +330,10 @@ const HytaleDesignPreview = (props: any) => {
         }
 
         function exitAnimation() {
+            clearTimeout(animationStartTimer)
+            
             animationExitTimer = setTimeout(() => {
+                
                 animationExitTimer = setTimeout(() => {
                     previewContainer.start({
                         zIndex: 11,
@@ -353,20 +341,6 @@ const HytaleDesignPreview = (props: any) => {
                         opacity: [1, 1, 1],
                         transition: {duration: 0.5, type:"spring"},
                     })
-
-                    
-                    var getDesignPreview = document.getElementById("DesignPreviewContainer") as HTMLDivElement
-                    if(window.innerWidth > 900){
-                        getDesignPreview.style.minHeight =""
-                    }
-                    else{
-                        var getDesignPreview2 = document.getElementById("DesignPreviewContainer") as HTMLDivElement
-                        var getDesignContentPreview2 = document.getElementById("previewContentContainer") as HTMLDivElement
-
-                        getDesignContentPreview2.style.position =""
-                        getDesignContentPreview2.style.maxHeight =""
-                        getDesignPreview2.style.maxHeight=""
-                    }
 
                     animationExitTimer = setTimeout(() => {
                         window.addEventListener("mousemove", parallax)
@@ -376,30 +350,37 @@ const HytaleDesignPreview = (props: any) => {
         }
 
         function toggleAnimations() {
-           
+            var getPreviewContainer = document.getElementById("DesignPreviewContainer") as HTMLDivElement
+            var getPreviewContent = document.getElementById("previewContentContainer") as HTMLDivElement
+            
+            var getDesignManager = document.getElementById("designManagerContainer") as HTMLDivElement
+            let timer: any
+
+            clearTimeout(timer)
             //Start
             if(props.designQuery.get("viewState") === "true"){
-                if(DesignState === false){
-                    setDesignState(true)
-                    startAnimation()
-                    
-                    
-                }
+                startAnimation()
+                getDesignManager.style.display = "none"
+                timer = setTimeout(() => {
+                    getPreviewContainer.style.minHeight = "unset"
+                }, 500);
+
             }
             //Exit
             else if(props.designQuery.get("viewState") === "false"){
-                if(DesignState === true){
-                    setDesignState(false)
-                    exitAnimation()
-                    var getDesignPreview = document.getElementById("DesignPreviewContainer") as HTMLDivElement
-                    getDesignPreview.style.minHeight =""
-                }
+                exitAnimation()
+                getPreviewContent.style.display =""
+                timer = setTimeout(() => {
+                    getDesignManager.style.display = ""
+                    getPreviewContainer.style.minHeight = ""
+                }, 500);
+                
             }
         }
         
         toggleAnimations()
         
-    }, [props.designQuery, DesignState, parallax, backgroundContainer, previewContainer]);
+    }, [props.designQuery, parallax, backgroundContainer, previewContainer]);
 
     useEffect(() => {
         
@@ -461,13 +442,7 @@ const HytaleDesignPreview = (props: any) => {
                 <div className="designPreviewBottomGradient"></div>
             </div>
             
-            <AnimatePresence>
-                {DesignState === true &&
-                    <HytaleDesign/>
-                }
-            </AnimatePresence>
-
-            
+            <HytaleDesign designQuery={props.designQuery}/>
         </motion.div>
     )
 }
