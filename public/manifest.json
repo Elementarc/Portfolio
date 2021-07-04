@@ -1,0 +1,10 @@
+{
+    "author": "Elementarc",
+    "homepage_url": "http//:localhost:3000/",
+    "manifest_version": "1",
+    "name": "Elementarc",
+    "icons":{
+        "src": "./Logo.png",
+        "sizes": "256x256"
+    }
+}

@@ -48,10 +48,13 @@ var xhr = new XMLHttpRequest()
 
 function ContactPage(props: any) {
     const history = useHistory()
-
+    //Using this to setRightTarget for stepName and stepIcon
+    const [StepIndex, setStepIndex] = useState(0);
+    
     //Resseting contact page on mounting
     const resetContact = useCallback(() =>{
         function resetContact() {
+            setStepIndex(0)
             userData.userName = null
             userData.email = null
             userData.description = null
@@ -98,8 +101,7 @@ function ContactPage(props: any) {
         }
     }
     
-    //Using this to setRightTarget for stepName and stepIcon
-    const [StepIndex, setStepIndex] = useState(0);
+    
 
     //Sets focus when stepIndex changes to the right input
     const setInputFocus = useCallback(() =>{
