@@ -4,9 +4,16 @@ import "./styleSheets/logo.scss"
 
 
 const LogoName = (props: any) => {
-    const [Logo, setLogo] = useState("Presented by Elementarc");
-
+    const [Logo, setLogo] = useState(() =>{
+        if(window.innerWidth > 900){
+            return "Presented by Elementarc"
+        }
+        else return "ELEMENTARC"
     
+    })
+        
+
+    //Changes logo content when resizing for mobile view or desktop view
     useEffect(() => {
         function resizeLogoRender() {
             if(window.innerWidth <= 900 && Logo === "Presented by Elementarc"){

@@ -126,9 +126,30 @@ const HomepageContainer = (props: any) => {
 
     //Setting Homepagecontainer min-height to adjust height for content. (Needs to be like this long story)
     useEffect(() =>{
-        
         var getHomepage = document.getElementById("home") as HTMLDivElement
         var homePageHeightTimer: any
+        function resizeHomepageHeight() {
+            if(window.innerWidth <= 900){
+                if(LocationIndex === 0){
+                    getHomepage.style.height = "1405px" 
+                }
+                else if(LocationIndex === 1){
+                    //Not done yet
+                    getHomepage.style.height = "1000px"
+                }
+                else if(LocationIndex === 2){
+                    getHomepage.style.height = "600px"
+                }
+                else if(LocationIndex === 3){
+                    getHomepage.style.height = "1170px"
+                }
+            }
+            else{
+                getHomepage.style.height = ""
+            }
+        }
+        window.addEventListener("resize", resizeHomepageHeight)
+
         if(window.innerWidth <= 900){
             if(LocationIndex === 0){
                 homePageHeightTimer = setTimeout(() => {
@@ -152,8 +173,13 @@ const HomepageContainer = (props: any) => {
                 }, 700);
             }
         }
+        else{
+            getHomepage.style.height = ""
+        }
+        
         return(() =>{
             clearTimeout(homePageHeightTimer)
+            window.removeEventListener("resize", resizeHomepageHeight)
         })
     },[LocationIndex])
 

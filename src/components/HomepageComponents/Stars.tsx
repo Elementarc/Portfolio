@@ -25,12 +25,11 @@ var backgroundProps = {
     },
 }
 
+var state = false
 const Stars = (props: any) => {
   const [State, setState] = useState(false);
   //Creating a number for each section to than use it for particlesAnimation
   useEffect(() =>{
-    
-
     function starsAnimation() {
       var getParticles = document.getElementById("Stars") as HTMLDivElement
       if(window.innerWidth > 900){
@@ -53,19 +52,28 @@ const Stars = (props: any) => {
     starsAnimation()
   }, [props.locationIndex])
 
+
   useEffect(() => {
-    if(window.innerWidth <= 900 && State === false){
+    function rerenderStars() {
+      console.log(state)
+      if(window.innerWidth > 900 && state === true){
+        console.log("1")
+        state = false
+        setState(!State)
+      }
+      else if(window.innerWidth <= 900 && state === false){
+        console.log("2")
+        state = true
+        setState(!State)
+      }
+    }
     
-      setState(true)
-    }
-    else if(window.innerWidth > 900 && State === true){
-  
-      setState(false)
-    }
-  }, [State]);
+    window.addEventListener("resize", rerenderStars)
+  }, []);
 
   //DesktopJSX
   if(window.innerWidth > 900){
+    console.log("desktop")
     return (
       <motion.div animate="in" exit="out" initial="initial" variants={backgroundProps}>
           <Particles className="Stars" id="Stars" options={{
@@ -181,6 +189,7 @@ const Stars = (props: any) => {
     );
   }
   else{
+    console.log("mobile")
     return (
       <motion.div animate="in" exit="out" initial="initial" variants={backgroundProps}>
           <Particles className="StarsMobile" id="Stars" options={{
