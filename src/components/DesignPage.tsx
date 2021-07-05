@@ -49,12 +49,14 @@ const DesignPage = (props: any) => {
     //Changing state whenever use Switches between designPreview through function: previewSwitchAnimations(direction: string)
     const [Animation, setAnimation] = useState({
         in: {
+            x: [0, 0, 0],
             y: [0, 0, 0],
             scale: [1, 1, 1],
             transition: {duration: 1, delay: 0.2},
             opacity: 1,
         },
         out: {
+            x: [0, 0, 0],
             y: [0, 0, 0],
             scale: [1, 1, 1],
             transition: {duration: 1},
@@ -62,20 +64,24 @@ const DesignPage = (props: any) => {
         }
     });
 
+
     //Wheel function that changes designPreview
     useEffect(() =>{
         //function that animates switching between routes
         function previewSwitchAnimations(direction: string){
+            //Desktop
             if(window.innerWidth > 900){
                 if(direction === "upwards"){
                     setAnimation({
                         in: {
+                            x: [0,0,0],
                             y: [-1350, 0, 0],
                             scale: [0.8, 0.8, 1],
                             transition: {duration: 0.8, delay: 0.5},
                             opacity: 1,
                         },
                         out: {
+                            x: [0,0,0],
                             y: [0, 0, 1350],
                             scale: [1, 0.8, 0.8],
                             transition: {duration: 1},
@@ -86,13 +92,55 @@ const DesignPage = (props: any) => {
                 else{
                     setAnimation({
                         in: {
+                            x: [0,0,0],
                             y: [1350, 0, 0],
                             scale: [0.8, 0.8, 1],
                             transition: {duration: 1, delay: 0.5},
                             opacity: 1,
                         },
                         out: {
+                            x: [0,0,0],
                             y: [0, 0, -1350],
+                            scale: [1, 0.8, 0.8],
+                            transition: {duration: 1},
+                            opacity: 1,
+                        }
+                    })
+                    
+                }
+            }
+            //Mobile
+            else{
+                if(direction === "upwards"){
+                    setAnimation({
+                        in: {
+                            x: [-1350,0,0],
+                            y: [0, 0, 0],
+                            scale: [0.8, 0.8, 1],
+                            transition: {duration: 0.8, delay: 0.5},
+                            opacity: 1,
+                        },
+                        out: {
+                            x: [0,0,1350],
+                            y: [0, 0, 0],
+                            scale: [1, 0.8, 0.8],
+                            transition: {duration: 1},
+                            opacity: 1,
+                        }
+                    })
+                }
+                else{
+                    setAnimation({
+                        in: {
+                            x: [1350,0,0],
+                            y: [0, 0, 0],
+                            scale: [0.8, 0.8, 1],
+                            transition: {duration: 1, delay: 0.5},
+                            opacity: 1,
+                        },
+                        out: {
+                            x: [0,0,-1350],
+                            y: [0, 0, 0],
                             scale: [1, 0.8, 0.8],
                             transition: {duration: 1},
                             opacity: 1,

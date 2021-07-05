@@ -14,6 +14,8 @@ import { useCallback } from "react"
 //Variable to make wheel eventlistener not change on every wheel scroll. 1 second delay before switching url again.
 var animationStop = false
 var timer: any
+var state = false
+
 const HomepageContainer = (props: any) => {
     const location = useLocation()
     const path = useLocation().pathname.toLowerCase()
@@ -54,11 +56,10 @@ const HomepageContainer = (props: any) => {
         setUrlBasedOnLocationIndex(locationIndex)
     },[history])
 
-    //Animation for scrolling between routes for mobile & desktop
-    useEffect(() =>{
+    const homepageContentAnimation = useCallback(() =>{
         function homepageContentAnimation() {
             var getContent = document.getElementById("contentContainer") as HTMLDivElement
-            if(window.innerWidth > 900){
+            if(window.innerWidth >= 900){
                 if(LocationIndex === 0){
                     getContent.style.top = "0"
                     getContent.style.left = "0"
@@ -96,9 +97,36 @@ const HomepageContainer = (props: any) => {
             }
         }
         homepageContentAnimation()
-    }, [LocationIndex])
+    },[LocationIndex])
+    //Animation for scrolling between routes for mobile & desktop
+    useEffect(() => {
+        function homepageRedesignOnResize() {
+            if(window.innerWidth <= 900 && state === false){
+                homepageContentAnimation()
+                state = true
+            }
+            else if(window.innerWidth > 900 && state === true){
+                homepageContentAnimation()
+                state = false
+            }
+        }
+        window.addEventListener("resize", homepageRedesignOnResize)
+
+        return(() =>{
+            window.removeEventListener("resize", homepageRedesignOnResize)
+        })
+
+    }, [homepageContentAnimation]);
+
+    useEffect(() =>{
+        
+        homepageContentAnimation()
+
+    }, [homepageContentAnimation])
+
     //Setting Homepagecontainer min-height to adjust height for content. (Needs to be like this long story)
     useEffect(() =>{
+        
         var getHomepage = document.getElementById("home") as HTMLDivElement
         var homePageHeightTimer: any
         if(window.innerWidth <= 900){
@@ -128,6 +156,7 @@ const HomepageContainer = (props: any) => {
             clearTimeout(homePageHeightTimer)
         })
     },[LocationIndex])
+
     //Adds listeners and removes them. So wheel changes url on wheelup / wheeldown
     useEffect(() => {
         //Checks if scroll up or down to then add 1 or subtract 1 from locationIndex and replace url with right path

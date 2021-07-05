@@ -66,7 +66,7 @@ const HomeContent = (props: any) => {
     var opacity = useMotionValue(1)
     //Moves Homecontent along the X axis while pan
     function onPan(event: any, info: any) {
-        if(window.innerWidth < 900){
+        if(window.innerWidth <= 900){
             var getItem = document.getElementById("homeContent") as HTMLDivElement
             getItem.style.transition = ""
             //reduces content opacity when moving finger left or right for better ux
@@ -81,7 +81,7 @@ const HomeContent = (props: any) => {
     }
     //If Enough pan velocity is reached it will automaticly change the url to the right index
     function onPanEnd(event: any, info: any) {
-        if(window.innerWidth < 900){
+        if(window.innerWidth <= 900){
             var getItem = document.getElementById("homeContent") as HTMLDivElement
             getItem.style.transition = "0.6s"
             x.set(0)

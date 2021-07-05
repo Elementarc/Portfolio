@@ -6,7 +6,7 @@ import "./styleSheets/projectPage.scss"
 import Wind from "../assets/videos/smoky.mp4"
 function scrollToTop(){
     var getProjectContainer = document.getElementById("ProjectContainer") as HTMLDivElement
-    if(window.innerWidth < 900){
+    if(window.innerWidth <= 900){
         window.scrollTo(0, 0)
     }
     else{
