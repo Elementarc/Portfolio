@@ -872,9 +872,9 @@ function ContactPage(props: any) {
             }
 
             xhr.onload = function () {
-                console.log(xhr.responseText)
-                console.log(typeof xhr.responseText)
-                console.log(xhr.responseText === "successful")
+                //console.log(xhr.responseText)
+                //console.log(typeof xhr.responseText)
+                //console.log(xhr.responseText === "successful")
                 if(xhr.responseText === "successful"){
                     
                     showResponseBox("successful", "SUCCESS!" ,"We will get back to you as soon as possible. Thank you for choosing us!")
