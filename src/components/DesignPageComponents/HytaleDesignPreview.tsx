@@ -400,6 +400,12 @@ const HytaleDesignPreview = (props: any) => {
     }, []);
 
 
+    function viewDesignButton() {
+        if(props.designQuery.get("viewState") === "false"){
+            props.designQuery.set("viewState", "true"); history.push(window.location.pathname.toLowerCase() + "?" + props.designQuery.toString())
+        }
+        
+    }
 
     //Return JSX Desktop
     return (
@@ -430,7 +436,7 @@ const HytaleDesignPreview = (props: any) => {
                     <p>A world fulfilled with desires and colors needs atleast a design nothing less than that.</p>
                 </motion.div>
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1,  transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="designPreviewButtonContainer" id="designPreviewButtonContainer">
-                    <button onClick={() => {props.designQuery.set("viewState", "true"); history.push(window.location.pathname.toLowerCase() + "?" + props.designQuery.toString())}} className="enabledDesignButton" id="designButton">VIEW DESIGN</button>
+                    <button onClick={() => viewDesignButton()} className="enabledDesignButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>

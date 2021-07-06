@@ -111,11 +111,19 @@
                         .designSectionIcon{
                             height: 20px;
                             width: 20px;
+                            background-color: black;
+                            pointer-events: visible;
+                            path{
+                                pointer-events: none;
+                                
+                            }
                             .innerIcon{
                                 fill: rgba(255, 255, 255, 0.8);
+                                pointer-events: none;
                             }
                             .outerIcon{
                                 stroke: rgba(255, 255, 255, 0.8);
+                                pointer-events: none;
                             }
                             transition: 0.2s ease-in-out;
                         }
@@ -125,6 +133,7 @@
                             width: 1px;
                             height: 10px;
                             background-color: rgba(255, 255, 255, 0.459);
+                            pointer-events: none;
                         }
                         .designSectionIconTarget{
                             height: 30px;

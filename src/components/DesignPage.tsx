@@ -19,11 +19,11 @@ var viewIndexCockblock = false
 
 
 
+
 //Array of jsx secitonIcons
 var sectionManagerIcons: any[] = []
 //Currently available previews!!!
 var previews = 3
-
 
 const DesignPage = (props: any) => {
     const history = useHistory()
@@ -46,6 +46,10 @@ const DesignPage = (props: any) => {
         })
     },[])
 
+
+
+
+
     //Changing state whenever use Switches between designPreview through function: previewSwitchAnimations(direction: string)
     const [Animation, setAnimation] = useState({
         in: {
@@ -63,8 +67,109 @@ const DesignPage = (props: any) => {
             opacity: 1,
         }
     });
+    
+    //Function that changes DesignIndex when clicking on icons
+    function clickSectionIcon(e: any) {
+        var targetDesignIndex = parseInt(e.target.id[e.target.id.length - 1], 10) + 1
+        var currentDesignIndex = parseInt(getParams.viewIndex, 10)
 
+        if(viewIndexCockblock === false){
+            if(targetDesignIndex > currentDesignIndex){
+                if(window.innerWidth > 900){
+                    setAnimation({
+                        in: {
+                            x: [0,0,0],
+                            y: [1350, 0, 0],
+                            scale: [0.8, 0.8, 1],
+                            transition: {duration: 1, delay: 0.5},
+                            opacity: 1,
+                        },
+                        out: {
+                            x: [0,0,0],
+                            y: [0, 0, -1350],
+                            scale: [1, 0.8, 0.8],
+                            transition: {duration: 1},
+                            opacity: 1,
+                        }
+                    })
+                }
+                else{
+                    setAnimation({
+                        in: {
+                            x: [1350,0,0],
+                            y: [0, 0, 0],
+                            scale: [0.8, 0.8, 1],
+                            transition: {duration: 1, delay: 0.5},
+                            opacity: 1,
+                        },
+                        out: {
+                            x: [0,0,-1350],
+                            y: [0, 0, 0],
+                            scale: [1, 0.8, 0.8],
+                            transition: {duration: 1},
+                            opacity: 1,
+                        }
+                    })
+                }
+                
+                changeDesignTimer = setTimeout(() => {
+                    history.replace(`/design/${targetDesignIndex}`)
+                }, 0);
+                viewIndexCockblock = true
+                changeDesignTimer = setTimeout(() => {
+                    viewIndexCockblock = false
+                }, 1500);
+            }
+            else{
+                
+                if(window.innerWidth > 900){
+                    setAnimation({
+                        in: {
+                            x: [0,0,0],
+                            y: [-1350, 0, 0],
+                            scale: [0.8, 0.8, 1],
+                            transition: {duration: 0.8, delay: 0.5},
+                            opacity: 1,
+                        },
+                        out: {
+                            x: [0,0,0],
+                            y: [0, 0, 1350],
+                            scale: [1, 0.8, 0.8],
+                            transition: {duration: 1},
+                            opacity: 1,
+                        }
+                    })
+                }
+                else{
+                    setAnimation({
+                        in: {
+                            x: [-1350,0,0],
+                            y: [0, 0, 0],
+                            scale: [0.8, 0.8, 1],
+                            transition: {duration: 0.8, delay: 0.5},
+                            opacity: 1,
+                        },
+                        out: {
+                            x: [0,0,1350],
+                            y: [0, 0, 0],
+                            scale: [1, 0.8, 0.8],
+                            transition: {duration: 1},
+                            opacity: 1,
+                        }
+                    })
+                }
+                
+                changeDesignTimer = setTimeout(() => {
+                    history.replace(`/design/${targetDesignIndex}`)
+                }, 0);
 
+                viewIndexCockblock = true
+                changeDesignTimer = setTimeout(() => {
+                    viewIndexCockblock = false
+                }, 1500);
+            }
+        }
+    }
     //Wheel function that changes designPreview
     useEffect(() =>{
         //function that animates switching between routes
@@ -150,8 +255,8 @@ const DesignPage = (props: any) => {
                 }
             }
         }
-         //Function to change PreviewDesign Upwards or downwards
-         function changePreviewDesign(direction: string) {
+        //Function to change PreviewDesign Upwards or downwards
+        function changePreviewDesign(direction: string) {
             var getButton = document.getElementById("designButton") as HTMLDivElement
             if(direction === "up"){
                 if(viewIndexCockblock === false && props.designQuery.get("viewState") === "false" && history.location.pathname.toLowerCase().includes("/design/") === true){
@@ -199,7 +304,8 @@ const DesignPage = (props: any) => {
         getUpBtn.addEventListener("mousedown", changeDesignPreviewBtnUp)
         getDownBtn.addEventListener("mousedown", changeDesignPreviewBtnDown)
 
-       
+        
+        
         //Changes previewDesign when wheel is used pressed
         function changeDesignPreviewWheel(e: any){
             //wheelUp
@@ -247,7 +353,7 @@ const DesignPage = (props: any) => {
 
         for(var i = 0; i < previews; i++){
             sectionManagerIcons.push(
-                <div key={`iconContainer${i}`} className="iconContainer" id={`iconContainer${i}`}>
+                <div key={`iconContainer${i}`} onClick={clickSectionIcon} className="iconContainer" id={`iconContainer${i}`}>
                     <DesignSectionIcon key={i} className="designSectionIcon" id={`designSectionIcon${i}`} ></DesignSectionIcon>
                     {i < previews - 1 &&
                         <span key={`span${i}`} />

@@ -1194,7 +1194,7 @@ function ContactPage(props: any) {
 
 
             <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1, duration: 1}}} className="designRef">
-                <p>Not sure yet? You checkout my work <Link to="/design">here</Link></p>
+                <p>Not sure yet? You can checkout my work <Link to="/design">here</Link></p>
             </motion.div>
 
             <motion.div animate={{opacity: 1, height: "100%", transition: {delay: 1}}} initial={{opacity: 0, height: 0}} id="rainContainer" className="rainContainer">

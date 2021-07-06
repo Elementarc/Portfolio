@@ -531,7 +531,7 @@
     width: 100%;
     max-height: 1350px;
     height: 100vh;
-    
+    overflow-x: hidden;
     pointer-events: visible;
     z-index: 2;
     
@@ -641,6 +641,7 @@
             z-index: 1;
         }
         video{
+            overflow: hidden;
             min-height: 950px;
             object-fit: cover;
         }
