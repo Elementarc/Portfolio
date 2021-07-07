@@ -4,7 +4,7 @@
 .LogoContainer {
     position: fixed;
     pointer-events: none;
-    margin: 1.8rem 5rem;
+    margin: 1.8rem 0rem;
     bottom: 0rem;
     width: 100%;
     display: flex;
@@ -22,11 +22,20 @@
     }
 }
 
+@media (min-height: 1200px){
+    .LogoContainer{
+        p{
+            margin-left: 5rem;
+            transform: scale(1.15);
+        }
+    }
+}
+
 @media (min-width: 2400px){
     .LogoContainer {
         position: absolute;
         pointer-events: none;
-        margin: 2rem 5rem;
+        margin: 2rem 0;
         top: 78rem;
         width: 100%;
         display: flex;

@@ -86,6 +86,12 @@
     
 }
 
+@media (min-height: 1200px){
+    .SectionContainer{
+        transform: scale(1.15);
+    }
+}
+
 @media (max-width: 1300px){
     .SectionContainer {
         position: fixed;

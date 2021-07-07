@@ -180,6 +180,15 @@
         }
     }
 }
+
+@media (min-height: 1200px){
+    .NavigationContainer{
+        .navOpenIconContainer {
+            transform: scale(1.15);
+            margin: 10rem 10rem 0 0;
+        }
+    }
+}
 /*END--NavBar Styles--END*/
 @media (min-width: 2400px){
     .NavigationContainer{
