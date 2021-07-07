@@ -412,6 +412,7 @@ const HytaleDesignPreview = (props: any) => {
         <motion.div animate={{opacity: 1}} initial={{opacity: 0}} exit={{opacity: 0, transition: {delay: 0.5}}} id="DesignPreviewContainer" className="DesignPreviewContainer" >
             <motion.div animate={backgroundContainer} className="backgroundBlack" ></motion.div>
             <div className="previewContentContainer" id="previewContentContainer">
+
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.8}}} exit={{opacity: 0}} className="headerContent">
                     <div className="decoImage"></div>
                     <h1>GAMING {"&"} DESIGN </h1>
@@ -439,15 +440,16 @@ const HytaleDesignPreview = (props: any) => {
                     <button onClick={() => viewDesignButton()} className="enabledDesignButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
+                
+            </div>
+            
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
                 <motion.img src={HytaleBackground} initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
                 
                 <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designPreviewBottomIllustrationContainer'>
                     <div className="designPreviewBottomIllustration" id="designPreviewBottomIllustration"></div>
                 </motion.div>
                 <div className="designPreviewBottomGradient"></div>
-            </div>
-            
             <HytaleDesign designQuery={props.designQuery}/>
         </motion.div>
     )

@@ -144,29 +144,7 @@
             }
         }
 
-        .designPreviewDarkerBackground{
-            display: none;
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            height: 100%;
-            transform: scale(1.1);
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            pointer-events: none;
-        }
-        .designPreviewBackgroundImage{
-            background-color: white;
-            position: absolute;
-            pointer-events: none;
-            z-index: -2;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            transform: scale(1.1);
-            object-fit: cover;
-            
-        }
+        
         
     
         .comingSoonContainer{
@@ -221,31 +199,62 @@
             }
         }
 
-        .designPreviewBackgroundIllustration{
-            position: absolute;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.6;
-            bottom: -0.5rem;
-            width: 100%;
-            height: 300px;
-            background-image: url("../../../assets/illustrations/PinkBackground.png");
-            background-position: center;
-            background-size: cover;
-        }
-        .designPreviewBottomGradient{
-            position: absolute;
-            pointer-events: none;
-            width: 100%;
-            height: 50px;
-            bottom: 0;
-            background: rgb(0,0,0);
-            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-        }
+        
+    }
+
+    .designPreviewDarkerBackground{
+        display: none;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        height: 100%;
+        transform: scale(1.1);
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+    }
+    .designPreviewBackgroundImage{
+        background-color: white;
+        position: absolute;
+        pointer-events: none;
+        z-index: -2;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        transform: scale(1.1);
+        object-fit: cover;
+        
+    }
+    .designPreviewBackgroundIllustration{
+        position: absolute;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.6;
+        bottom: -0.5rem;
+        width: 100%;
+        height: 300px;
+        background-image: url("../../../assets/illustrations/PinkBackground.png");
+        background-position: center;
+        background-size: cover;
+    }
+    .designPreviewBottomGradient{
+        position: absolute;
+        pointer-events: none;
+        width: 100%;
+        height: 50px;
+        bottom: 0;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
     }
 }
 
-
+@media (min-height: 1200px){
+    .DesignPreview2Container{
+        .previewContentContainer{
+            transform: scale(1.15)
+        }
+    }
+}
 @media (max-width: 1300px){
     .DesignPreview2Container{
         .previewContentContainer{
@@ -345,15 +354,7 @@
                     outline: none;
                 }
             }
-            .designPreviewBackgroundImage{
-                position: absolute;
-                left: -85vw;
-                height: 950px;
-                min-height: 100vh;
-                width: 200vw;
-                pointer-events: none;
-                transform: scale(1);
-            }
+            
     
 
             .comingSoonContainer{
@@ -410,22 +411,31 @@
                 }
             }
 
-            .designPreviewBackgroundIllustration{
-                position: absolute;
-                z-index: -1;
-                bottom: -4.3rem;
-                width: 100%;
-                height: 320px;
-                background-image: url("../../../assets/illustrations/PinkBackground.png");
-                background-position: center;
-                background-size: cover;
-            }
-            .designPreviewBackgroundCornerIllustration{
-                display: none;
-            }
-            .designPreviewBottomGradient{
-                position: fixed;
-            }
+            
+        }
+
+        .designPreviewBackgroundImage{
+            position: absolute;
+            left: -85vw;
+            height: 950px;
+            min-height: 100vh;
+            width: 200vw;
+            pointer-events: none;
+            transform: scale(1);
+        }
+        .designPreviewBackgroundIllustration{
+            position: absolute;
+            z-index: -1;
+            bottom: -4.3rem;
+            width: 100%;
+            height: 320px;
+            background-image: url("../../../assets/illustrations/PinkBackground.png");
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .designPreviewBottomGradient{
+            position: fixed;
         }
     }
 }

@@ -43,18 +43,18 @@
                 pointer-events: none;
             }
             h1{
-               position: relative;
-               font-size: 20px;
-               text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            position: relative;
+            font-size: 20px;
+            text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
             }
             
             h2{
-               margin-top: -0.3rem;
-               text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-               font-size: 39px;
+            margin-top: -0.3rem;
+            text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            font-size: 39px;
                 
             }
-           
+        
         }
         .previewImagesContainer{
 
@@ -154,56 +154,57 @@
             }
         }
 
-        .designPreviewDarkerBackground{
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            height: 100%;
-            transform: scale(1.1);
-            width: 100%;
-            background: linear-gradient(-45deg, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
-            pointer-events: none;
-        }
-        .designPreviewBackgroundImage{
-            position: absolute;
-            pointer-events: none;
-            z-index: -2;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            transform: scale(1.1);
-            object-fit: cover;
-            
-        }
         
+    }
+    .designPreviewDarkerBackground{
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        height: 100%;
+        transform: scale(1.1);
+        width: 100%;
+        background: linear-gradient(-45deg, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+        pointer-events: none;
+    }
+    .designPreviewBackgroundImage{
+        position: absolute;
+        pointer-events: none;
+        z-index: -2;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        transform: scale(1.1);
+        object-fit: cover;
+        
+    }
     
-        .designPreviewBottomIllustrationContainer{
+
+    .designPreviewBottomIllustrationContainer{
+        position: absolute;
+        pointer-events: none;
+        z-index: 0;
+        bottom: -1.5rem;
+        width: 100%;
+        height: 250px;
+        .designPreviewBottomIllustration{
             position: absolute;
-            pointer-events: none;
-            z-index: 0;
-            bottom: -1.5rem;
+            bottom: 1rem;
+            height: 100%;
             width: 100%;
-            height: 250px;
-            .designPreviewBottomIllustration{
-                position: absolute;
-                bottom: 1rem;
-                height: 100%;
-                width: 100%;
-                transform: scale(1.1) translateX(1px);
-                background-image: url("../../../assets/illustrations/DesignBottomDeco.png");
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;  
-            }
+            transform: scale(1.1) translateX(1px);
+            background-image: url("../../../assets/illustrations/DesignBottomDeco.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;  
         }
-        .designPreviewBottomGradient{
-            position: absolute;
-            width: 100%;
-            height: 50px;
-            bottom: 0;
-            background: rgb(0,0,0);
-            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-        }
+    }
+    .designPreviewBottomGradient{
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        bottom: 0;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
     }
     .backgroundBlack{
         pointer-events: none;
@@ -219,7 +220,13 @@
     }
 }
 
-
+@media (min-height: 1200px){
+    .DesignPreviewContainer{
+        .previewContentContainer{
+            transform:scale(1.15)
+        }
+    }
+}
 @media (max-width: 1300px){
     .DesignPreviewContainer{
         .headerContent{
@@ -288,42 +295,44 @@
                     
                 }
             }
-            .designPreviewButtonContainer{
-                margin: 0;
-                padding-top:3rem;
-                padding-bottom: 8rem;
-                .designButton{
-                    padding: 0.85rem 2.6rem;
-                    color: rgb(0, 0, 0);
-                    font-size: 14px;
-                    background: rgb(255,213,99);
-                    background: linear-gradient(180deg, rgb(253, 216, 114) 0%, rgb(197, 150, 20) 100%);
-                    letter-spacing: 1px;
-                    outline: none;
-                }
+
+            
+        }
+        .designPreviewButtonContainer{
+            margin: 0;
+            padding-top:3rem;
+            padding-bottom: 8rem;
+            .designButton{
+                padding: 0.85rem 2.6rem;
+                color: rgb(0, 0, 0);
+                font-size: 14px;
+                background: rgb(255,213,99);
+                background: linear-gradient(180deg, rgb(253, 216, 114) 0%, rgb(197, 150, 20) 100%);
+                letter-spacing: 1px;
+                outline: none;
             }
-            .designPreviewBackgroundImage{
-                position: absolute;
-                left: -85vw;
-                height: 950px;
-                min-height: 100vh;
-                width: 200vw;
-                pointer-events: none;
-                transform: scale(1);
-            }
-    
-            .designPreviewBottomIllustrationContainer{
-                display: none;
-                position: fixed;
-                width: 100%;
-                height: 200px;
-                bottom: 0;
-                pointer-events: none;
-                
-            }
-            .designPreviewBottomGradient{
-                position: fixed;
-            }
+        }
+        .designPreviewBackgroundImage{
+            position: absolute;
+            left: -85vw;
+            height: 950px;
+            min-height: 100vh;
+            width: 200vw;
+            pointer-events: none;
+            transform: scale(1);
+        }
+
+        .designPreviewBottomIllustrationContainer{
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 200px;
+            bottom: 0;
+            pointer-events: none;
+            
+        }
+        .designPreviewBottomGradient{
+            position: fixed;
         }
     }
 }

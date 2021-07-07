@@ -171,6 +171,13 @@
 }
 
 
+@media (min-height: 1200px){
+    .DesignPageContainer{
+        .designManagerContainer{
+            transform: scale(1.15)
+        }
+    }
+}
 @media (max-width: 900px){
     .DesignPageContainer{
         z-index: 2;

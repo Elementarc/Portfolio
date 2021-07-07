@@ -332,8 +332,6 @@ const BeautyDesignPreview = (props: any) => {
                     <button onClick={() => triggerComingSoon(true)} className="designButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
-                <motion.img initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
                 
                 <div className="comingSoonContainer" id="comingSoonContainer">
                     <div className="comingSoonBox">
@@ -346,10 +344,13 @@ const BeautyDesignPreview = (props: any) => {
                 <motion.div animate={{y: 10, opacity: 1, transition: {duration: 3, type: "spring"}}} initial={{y: 100, opacity: 0}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className='designPreviewBottomIllustrationContainer'>
                     <div className="designPreviewBottomIllustration" id="designPreviewBottomIllustration"></div>
                 </motion.div>
-                <motion.div initial={{opacity: 0}} animate={{opacity: 0.6, transition: {delay: 1}}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className="designPreviewBackgroundIllustration"/>
-                <div className="designPreviewBottomGradient"></div>
+                
             </div>
-            
+
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
+            <motion.img initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
+            <motion.div initial={{opacity: 0}} animate={{opacity: 0.6, transition: {delay: 1}}} exit={{y: 300, opacity: 0, transition: {duration: 0.3}}} className="designPreviewBackgroundIllustration"/>
+            <div className="designPreviewBottomGradient"></div>
         </motion.div>
     )
 }

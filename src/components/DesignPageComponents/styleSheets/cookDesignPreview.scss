@@ -146,19 +146,7 @@
         }
 
         
-        .designPreviewBackgroundImage{
-            pointer-events: none;
-            background-color: #111111;
-            background-image: url("../../../assets/textures/texture5.png");
-            position: absolute;
-            pointer-events: none;
-            z-index: -2;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            transform: scale(1.1);
-            object-fit: cover;
-        }
+        
         
         .comingSoonContainer{
             position: absolute;
@@ -214,9 +202,30 @@
             }
         }
     }
+
+    .designPreviewBackgroundImage{
+        pointer-events: none;
+        background-color: #111111;
+        background-image: url("../../../assets/textures/texture5.png");
+        position: absolute;
+        pointer-events: none;
+        z-index: -2;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        transform: scale(1.1);
+        object-fit: cover;
+    }
 }
 
 
+@media (min-height: 1200px){
+    .DesignPreview3Container{
+        .previewContentContainer{
+            transform: scale(1.15)
+        }
+    }
+}
 @media (max-width: 1300px){
     .DesignPreview3Container{
         .previewContentContainer{
@@ -317,15 +326,7 @@
                     outline: none;
                 }
             }
-            .designPreviewBackgroundImage{
-                position: absolute;
-                left: -85vw;
-                height: 950px;
-                min-height: 100vh;
-                width: 200vw;
-                pointer-events: none;
-                transform: scale(1);
-            }
+            
     
 
             .comingSoonContainer{
@@ -380,6 +381,16 @@
                     }
                 }
             }
+        }
+
+        .designPreviewBackgroundImage{
+            position: absolute;
+            left: -85vw;
+            height: 950px;
+            min-height: 100vh;
+            width: 200vw;
+            pointer-events: none;
+            transform: scale(1);
         }
     }
 }

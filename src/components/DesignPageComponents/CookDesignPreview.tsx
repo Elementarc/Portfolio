@@ -330,8 +330,6 @@ const CookDesignPreview = (props: any) => {
                     <button onClick={() => triggerComingSoon(true)} className="designButton" id="designButton">VIEW DESIGN</button>
                 </motion.div>
 
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
-                <motion.img initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
                 
                 <div className="comingSoonContainer" id="comingSoonCookContainer">
                     <div className="comingSoonBox">
@@ -341,7 +339,10 @@ const CookDesignPreview = (props: any) => {
                     </div>
                 </div>
             </div>
-            
+
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="designPreviewDarkerBackground"></motion.div>
+            <motion.img initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0}}} className="designPreviewBackgroundImage" id="designPreviewBackgroundImage"></motion.img>
+                
         </motion.div>
     )
 }
