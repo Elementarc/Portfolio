@@ -12,1560 +12,872 @@
     overflow: hidden;
     background: rgb(0, 23, 46);
     background: linear-gradient(0deg, rgb(34, 96, 124) -50%, rgb(0, 23, 46) 100%, );
-    .contactContentContainer{
-        position: relative;
-        margin-top: 18rem;
-        height: 300px;
-        .contactContentName{
-            position: absolute;
-            width: 100%;
-            color: white;
-            font-family: "PT Serif";
-            font-weight: 700;
-            margin-top: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            pointer-events: none;
-            .headerContent{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .allContent{
+        top: 0;
+        height: 100%;
+        max-height: 1000px;
+        width: 100%;
+        .contactContentContainer{
+            position: relative;
+            margin-top: 16rem;
+            height: 300px;
+            .contactContentName{
+                position: absolute;
                 width: 100%;
-                .lineContainer{
-                    pointer-events: none;
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
-                    height: 100%;
-                    .line1{
-                        position: relative;
-                        margin: 3rem 0;
-                        margin-right: 16rem;
-                        width: 23%;
-                        height: 1px;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-                    .line2{
-                        position: relative;
-                        margin: 3rem 0;
-                        margin-left: 16rem;
-                        width: 23%;
-                        height: 1px;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-                }
-
-                h1{
-                    display: block;
-                    font-family: "PT Serif";
-                    font-size: 20px;
-                    margin: 0rem 0 0rem 0rem;
-                }
-                h2{
-                    display: block;
-                    font-family: "PT Serif";
-                    font-size: 39px;
-                    margin: -0.4rem 0 0rem 0;
-                }
-            }
-            
-            
-            .inputContainer{
-                position: relative;
-                margin-top: 2.5rem;
-                outline: none;
-                width: 30%;
-                height: 100%;
+                color: white;
+                font-family: "PT Serif";
+                font-weight: 700;
+                margin-top: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                
-                input{
-                    height: 50px;
-                    border-radius: 5px;
+                pointer-events: none;
+                .headerContent{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                     width: 100%;
-                    font-size: 18px;
-                    font-family: "NOTO SANS";
-                    text-align: center;
-                    padding: 0rem 1rem;
-                    color: white;
-                    background-color: rgba(0, 0, 0, 0.4);
-                    border: 1px solid white;
-                    transition: 0.2s ease-in-out;
-                    &::placeholder{
-                        color: rgba(255, 255, 255, 0.705);
-                        transition: 0.2s ease-in-out;
-                    }
-                    &:focus{
-                        outline: none;
-                        border: 1px solid #ffcf76;
-                    }
-                }
-                .nameInfo{
-                    position: absolute;
-                    right: 0;
-                    height: 20px;
-                    width: 20px;
-                    margin-right: 1rem;
-
-                    .tooltipContainer{
+                    .lineContainer{
+                        pointer-events: none;
                         position: absolute;
-                        visibility: hidden;
-                        display: inline-block;
-                        margin-top: 1rem;
-                        min-width: 280px;
-                        margin-left: 0.5rem;
-                        background-color: rgba(255, 255, 255, 0.5);
-                        border-radius: 5px;
-                        opacity: 0;
-                        transition: 0.1s ease-in-out;
-                        p{
-                            font-family: "Noto Sans";
-                            padding: 0 1rem;
-                            color: black;
-                            font-size: 14px;
-                            font-weight: 500;
-                            padding-top: 1rem;
-                        }
-                        .lastToolItem{
-                            padding-bottom: 1rem;
-                        }
-                    }
-                    &:hover{
-                        .tooltipContainer{
-                            visibility: visible;
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-    
-            .onButton{
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin-top: 3rem;
-                &:hover{
-                    cursor: pointer;
-                    background: #2edbb9;
-                }
-            }
-            .offButton{
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                opacity: 0.6;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin-top: 3rem;
-                &:hover{
-                    cursor: default;
-                }
-            }
-        }
-
-        .contactContentEmail{
-            position: absolute;
-            width: 100%;
-            color: white;
-            font-family: "PT Serif";
-            font-weight: 700;
-            margin-top: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            pointer-events: none;
-            .headerContent{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                .lineContainer{
-                    pointer-events: none;
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
-                    height: 100%;
-                    .line1{
-                        position: relative;
-                        margin: 3rem 0;
-                        margin-right: 22rem;
-                        width: 22%;
-                        height: 1px;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-                    .line2{
-                        position: relative;
-                        margin: 3rem 0;
-                        margin-left: 22rem;
-                        width: 22%;
-                        height: 1px;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-                }
-
-                h1{
-                    display: block;
-                    font-family: "PT Serif";
-                    font-size: 20px;
-                    margin: 0rem 0 0rem 0rem;
-                }
-                h2{
-                    display: block;
-                    font-family: "PT Serif";
-                    font-size: 39px;
-                    margin: -0.4rem 0 0rem 0;
-                }
-            }
-            
-            
-            .inputContainer{
-                position: relative;
-                margin-top: 2.5rem;
-                outline: none;
-                width: 30%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                h1{
-                    position: absolute;
-                    font-family: "PT Serif";
-                    color: white;
-                    font-size: 16px;
-                    font-weight: 500;
-                }
-                input{
-                    height: 50px;
-                    border-radius: 5px;
-                    width: 100%;
-                    font-size: 18px;
-                    font-family: "NOTO SANS";
-                    text-align: center;
-                    padding: 0rem 1rem;
-                    color: white;
-                    background-color: rgba(0, 0, 0, 0.4);
-                    border: 1px solid white;
-                    transition: 0.2s ease-in-out;
-                    &::placeholder{
-                        color: rgba(255, 255, 255, 0.705);
-                        transition: 0.2s ease-in-out;
-                    }
-                    &:focus{
-                        outline: none;
-                        border: 1px solid #ffcf76;
-                    }
-                }
-                .emailInfo{
-                    position: absolute;
-                    right: 0;
-                    height: 20px;
-                    width: 20px;
-                    margin-right: 1rem;
-
-                    .tooltipEmailContainer{
-                        position: absolute;
-                        visibility: hidden;
-                        display: inline-block;
-                        margin-top: 1rem;
-                        min-width: 280px;
-                        margin-left: 0.5rem;
-                        background-color: rgba(255, 255, 255, 0.5);
-                        border-radius: 5px;
-                        opacity: 0;
-                        transition: 0.1s ease-in-out;
-                        h1{
-                            display: block;
-                            font-family: "Noto Sans";
-                            padding: 1rem;
-                            color: black;
-                            font-size: 14px;
-                            font-weight: 500;
-                        }
-                        p{
-                            display: block;
-                            font-family: "Noto Sans";
-                            padding: 0 1rem;
-                            color: black;
-                            font-size: 14px;
-                            font-weight: 500;
-                            padding-top: 1rem;
-                            
-                        }
-                        .lastToolItem{
-                            padding-bottom: 1rem;
-                        }
-                    }
-                    &:hover{
-                        .tooltipEmailContainer{
-                            visibility: visible;
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-    
-            .onButton{
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin-top: 3rem;
-                &:hover{
-                    cursor: pointer;
-                    background: #2edbb9;
-                }
-            }
-            .offButton{
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                opacity: 0.6;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin-top: 3rem;
-                &:hover{
-                    cursor: default;
-                }
-            }
-        }
-
-        .contactContentDescription{
-            position: absolute;
-            width: 100%;
-            color: white;
-            font-family: "PT Serif";
-            font-weight: 700;
-            margin-top: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            pointer-events: none;
-            .headerContent{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                .lineContainer{
-                    pointer-events: none;
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
-                    height: 100%;
-                    .line1{
-                        position: relative;
-                        margin: 3rem 0;
-                        margin-right: 22rem;
-                        width: 22%;
-                        height: 1px;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-                    .line2{
-                        position: relative;
-                        margin: 3rem 0;
-                        margin-left: 22rem;
-                        width: 22%;
-                        height: 1px;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-                }
-
-                h1{
-                    display: block;
-                    font-family: "PT Serif";
-                    font-size: 20px;
-                    margin: 0rem 0 0rem 0rem;
-                }
-                h2{
-                    display: block;
-                    font-family: "PT Serif";
-                    font-size: 39px;
-                    margin: -0.4rem 0 0rem 0;
-                }
-            }
-            
-            .inputContainer{
-                position: relative;
-                margin-top: 2.5rem;
-                outline: none;
-                width: 30%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                h1{
-                    position: absolute;
-                    font-family: "PT Serif";
-                    color: white;
-                    font-size: 16px;
-                    font-weight: 500;
-                }
-                textarea{
-                    display: flex;
-                    resize: none;
-                    justify-content: flex-start;
-                    height: 100px;
-                    border-radius: 5px;
-                    width: 100%;
-                    font-size: 18px;
-                    font-family: "NOTO SANS";
-                    padding: 0.7rem 6rem 0.5rem 1rem;
-                    color: white;
-                    background-color: rgba(0, 0, 0, 0.4);
-                    border: 1px solid white;
-                    transition: 0.2s ease-in-out;
-                    &::placeholder{
-                        color: rgba(255, 255, 255, 0.705);
-                        transition: 0.2s ease-in-out;
-                    }
-                    &:focus{
-                        outline: none;
-                        border: 1px solid #ffcf76;
-                    }
-                }
-                .descriptionInfo{
-                    position: absolute;
-                    right: 0;
-                    height: 20px;
-                    width: 20px;
-                    margin-right: 1rem;
-
-                    .tooltipDescriptionContainer{
-                        position: absolute;
-                        visibility: hidden;
-                        display: inline-block;
-                        margin-top: 1rem;
-                        min-width: 280px;
-                        margin-left: 0.5rem;
-                        background-color: rgba(255, 255, 255, 0.5);
-                        border-radius: 5px;
-                        opacity: 0;
-                        transition: 0.1s ease-in-out;
-                        h1{
-                            display: block;
-                            font-family: "Noto Sans";
-                            padding: 1rem;
-                            color: black;
-                            font-size: 14px;
-                            font-weight: 500;
-                        }
-                        p{
-                            display: block;
-                            font-family: "Noto Sans";
-                            padding: 0 1rem;
-                            color: black;
-                            font-size: 14px;
-                            font-weight: 500;
-                            padding-top: 1rem;
-                            
-                        }
-                        .lastToolItem{
-                            padding-bottom: 1rem;
-                        }
-                    }
-                    &:hover{
-                        .tooltipDescriptionContainer{
-                            visibility: visible;
-                            opacity: 1;
-                        }
-                    }
-                }
-                .textLengthCounter{
-                    position: absolute;
-                    user-select: none;
-                    font-family: "Noto Sans";
-                    height: 20px;
-                    bottom: 0;
-                    right: 0;
-                    margin-right: 1.2rem;
-                    margin-bottom: 0.4rem;
-                    font-size: 14px;
-                    color: grey;
-                    width: auto;
-                }
-            }
-    
-            .onButton{
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin-top: 3rem;
-                &:hover{
-                    cursor: pointer;
-                    background: #2edbb9;
-                }
-            }
-            .offButton{
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                opacity: 0.6;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin-top: 3rem;
-                &:hover{
-                    cursor: default;
-                }
-            }
-        }
-
-        .contactContentBudged{
-            position: absolute;
-            width: 100%;
-            color: white;
-            font-family: "PT Serif";
-            font-weight: 700;
-            margin-top: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            pointer-events: none;
-            .headerContent{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                .lineContainer{
-                    pointer-events: none;
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
-                    height: 100%;
-                    .line1{
-                        position: relative;
-                        margin: 3rem 0;
-                        margin-right: 30rem;
-                        width: 15%;
-                        height: 1px;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-                    .line2{
-                        position: relative;
-                        margin: 3rem 0;
-                        margin-left: 30rem;
-                        width: 15%;
-                        height: 1px;
-                        background-color: rgba(255, 255, 255, 0.4);
-                    }
-                }
-
-                h1{
-                    display: block;
-                    font-family: "PT Serif";
-                    font-size: 20px;
-                    margin: 0rem 0 0rem 0rem;
-                }
-                h2{
-                    display: block;
-                    font-family: "PT Serif";
-                    font-size: 39px;
-                    margin: -0.4rem 0 0rem 0;
-                }
-            }
-            
-            .inputContainer{
-                position: relative;
-                margin-top: 2.5rem;
-                outline: none;
-                width: 30%;
-                height: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                h1{
-                    position: absolute;
-                    font-family: "PT Serif";
-                    color: white;
-                    font-size: 16px;
-                    font-weight: 500;
-                }
-                .budgedInput{
-                    height: 50px;
-                    border-radius: 5px;
-                    width: 90%;
-                    font-size: 18px;
-                    font-family: "NOTO SANS";
-                    appearance: none;
-                    text-align: center;
-                    padding: 0rem 3rem;
-                    margin-right: 0.5rem;
-                    color: white;
-                    background-color: rgba(0, 0, 0, 0.4);
-                    border: 1px solid white;
-                    transition: 0.2s ease-in-out;
-                    &::-webkit-outer-spin-button{
-                        appearance: none;
-                    }
-                    &::-webkit-inner-spin-button{
-                        appearance: none;
-                    }
-                    &::placeholder{
-                        color: rgba(255, 255, 255, 0.705);
-                        transition: 0.2s ease-in-out;
-                    }
-                    &:focus{
-                        outline: none;
-                        border: 1px solid #ffcf76;
-                    }
-                }
-                
-                .budgedInfo{
-                    position: absolute;
-                    right: 0;
-                    height: 20px;
-                    width: 20px;
-                    margin-right: 5rem;
-
-                    .tooltipBudgedContainer{
-                        position: absolute;
-                        visibility: hidden;
-                        display: inline-block;
-                        margin-top: 1rem;
-                        min-width: 280px;
-                        margin-left: 0.5rem;
-                        background-color: rgba(255, 255, 255, 0.5);
-                        border-radius: 5px;
-                        opacity: 0;
-                        transition: 0.1s ease-in-out;
-                        p{
-                            font-family: "Noto Sans";
-                            padding: 0 1rem;
-                            color: black;
-                            font-size: 14px;
-                            font-weight: 500;
-                            padding-top: 1rem;
-                        }
-                        .lastToolItem{
-                            padding-bottom: 1rem;
-                        }
-                    }
-                    &:hover{
-                        .tooltipBudgedContainer{
-                            visibility: visible;
-                            opacity: 1;
-                        }
-                    }
-                }
-                .currencyContainer{
-                    position: relative;
-                    height: 50px;
-                    display: flex;
-                    justify-content: center;
-                    border-radius: 5px;
-                    min-width: 50px;
-                    font-size: 16px;
-                    font-weight: 500;
-                    font-family: "NOTO SANS";
-                    appearance: none;
-                    padding: 0rem 1rem;
-                    color: white;
-                    transition: 0.1s ease-in-out;
-                    pointer-events: default;
-                    outline: none;
-                    .optionContainer{
-                        position: absolute;
-                        height: 50px;
-                        width: 100%;
-                        transition: 0.1s ease-in-out;
-                        border: 1px solid #56FFDC;
-                        border-radius: 5px;
-                        overflow: hidden;
                         display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-                        
-                        .optionFlexContainer{
-                            pointer-events: none;
-                            width: 100%;
-                            height: 100px;
-                            display: flex;
-                            flex-direction: column;
-                            .option1{
-                                width: 100%;
-                                order: 1;
-                                height: 50px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                background-color: rgba(0, 0, 0, 0.4);
-                                cursor: pointer;
-                                user-select: none;
-                                &:hover{
-                                    background-color: rgba(0, 0, 0, 0.6);
-                                }
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        .line1{
+                            position: relative;
+                            margin: 3rem 0;
+                            margin-right: 16rem;
+                            width: 23%;
+                            height: 1px;
+                            background-color: rgba(255, 255, 255, 0.4);
+                        }
+                        .line2{
+                            position: relative;
+                            margin: 3rem 0;
+                            margin-left: 16rem;
+                            width: 23%;
+                            height: 1px;
+                            background-color: rgba(255, 255, 255, 0.4);
+                        }
+                    }
+    
+                    h1{
+                        display: block;
+                        font-family: "PT Serif";
+                        font-size: 20px;
+                        margin: 0rem 0 0rem 0rem;
+                    }
+                    h2{
+                        display: block;
+                        font-family: "PT Serif";
+                        font-size: 39px;
+                        margin: -0.4rem 0 0rem 0;
+                    }
+                }
+                
+                
+                .inputContainer{
+                    position: relative;
+                    margin-top: 2.5rem;
+                    outline: none;
+                    width: 30%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    input{
+                        height: 50px;
+                        border-radius: 5px;
+                        width: 100%;
+                        font-size: 18px;
+                        font-family: "NOTO SANS";
+                        text-align: center;
+                        padding: 0rem 1rem;
+                        color: white;
+                        background-color: rgba(0, 0, 0, 0.4);
+                        border: 1px solid white;
+                        transition: 0.2s ease-in-out;
+                        &::placeholder{
+                            color: rgba(255, 255, 255, 0.705);
+                            transition: 0.2s ease-in-out;
+                        }
+                        &:focus{
+                            outline: none;
+                            border: 1px solid #ffcf76;
+                        }
+                    }
+                    .nameInfo{
+                        position: absolute;
+                        right: 0;
+                        height: 20px;
+                        width: 20px;
+                        margin-right: 1rem;
+    
+                        .tooltipContainer{
+                            position: absolute;
+                            visibility: hidden;
+                            display: inline-block;
+                            margin-top: 1rem;
+                            min-width: 280px;
+                            margin-left: 0.5rem;
+                            background-color: rgba(255, 255, 255, 0.5);
+                            border-radius: 5px;
+                            opacity: 0;
+                            transition: 0.1s ease-in-out;
+                            p{
+                                font-family: "Noto Sans";
+                                padding: 0 1rem;
+                                color: black;
+                                font-size: 14px;
+                                font-weight: 500;
+                                padding-top: 1rem;
                             }
-                            .option2{
-                                width: 100%;
-                                order: 2;
-                                height: 50px;
-                                display: flex;
-                                justify-content: center;
-                                user-select: none;
-                                align-items: center;
-                                background-color: rgba(0, 0, 0, 0.4);
-                                cursor: pointer;
-                                &:hover{
-                                    background-color: rgba(0, 0, 0, 0.6);
-                                }
+                            .lastToolItem{
+                                padding-bottom: 1rem;
                             }
-                            
                         }
                         &:hover{
-                            cursor: pointer;
+                            .tooltipContainer{
+                                visibility: visible;
+                                opacity: 1;
+                            }
                         }
                     }
                 }
-            }
-    
-            .onButton{
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin-top: 3rem;
-                &:hover{
-                    cursor: pointer;
-                    background: #2edbb9;
-                }
-            }
-            .offButton{
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                opacity: 0.6;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin-top: 3rem;
-                &:hover{
-                    cursor: default;
-                }
-            }
-        }
-    }
-    
-    .userDataConfirmationContainer{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        min-height: 500px;
-        background-color: rgba(0, 0, 0, 0.6);
-        z-index: 100;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        pointer-events: none;
-        opacity: 0;
-        transition: 0.2s ease-in-out;
-        .userDataContainer{
-            position: absolute;
-            margin-top: 1rem;
-            width: 700px;
-            border-radius: 5px;
-            background-color: white;
-            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
-            max-height: 700px;
-            transform: scale(0.7);
-            transition: 0.2s ease-in-out;
-            overflow-y: scroll;
-            h1{
-                font-size: 30px;
-                font-family: "PT Serif";
-                color: #189F83;
-                margin-top: 3rem;
-                text-align: center;
-            }
-            .userDataContent{
-                position: relative;
-                width: 100%;
-                margin-top: 3rem;
-                overflow: hidden;
-                .titleContainer{
-                    width: 100%;
-                    margin-top: 1.5rem;
-                    display: flex;
-                    .title{
-                        width: 10%;
-                        margin-left: 4rem;
-                        font-family: "PT Serif";
-                        font-size: 16px;
-                    }
-                    .input{
-                        font-family: "Noto Sans";
-                        font-size: 16px;
-                        margin-left: 2.5rem;
-                        max-width: 500px;
-                    }
-                }
-            }
-            h2{
-                font-size: 18px;
-                font-family: "PT Serif";
-                color: #090909;
-                margin-top: 3rem;
-                text-align: center;
-            }
-            
-            .userDataButtonContainer{
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                .reviewButton{
-                    margin: 3rem 1rem;
+        
+                .onButton{
                     position: relative;
                     padding: 0.9rem 2.8rem;
-                    z-index: 1;
                     background: #189F83;
                     box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                     border-radius: 5px;
                     border-style: none;
                     color: white;
-                    font-size: 15px;
+                    font-size: 16px;
                     font-family: "PT Serif";
                     letter-spacing: 1px;
                     font-weight: 700;
                     outline: none;
-                    transition: 0.2s ease-in-out;
-                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                    margin-top: 3rem;
                     &:hover{
                         cursor: pointer;
                         background: #2edbb9;
                     }
                 }
-                .reviewButton1{
-                    background: rgb(255, 96, 96);
-                    color: black;
-                    &:hover{
-                        cursor: pointer;
-                        background: rgb(253, 70, 70);
-                    }
-                }
-            }
-        }
-    }
-    
-    .messageContainer{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        z-index: 100;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.2s ease-in-out;
-        .messageBox{
-            position: absolute;
-            transform: scale(0.7);
-            transition: 0.2s ease-in-out;
-            height: auto;
-            width: 500px;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-radius: 5px;
-            align-items: center;
-            padding-bottom: 2rem;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-            .successHeader{
-                font-family: "PT Serif";
-                font-size: 30px;
-                font-weight: 700;
-                text-align: center;
-                padding: 0 1rem;
-                margin-top: unset;
-                padding-top: 1rem;
-                color: #189F83;
-                padding-top: 1.1rem;
-            }
-            .errorHeader{
-                font-family: "PT Serif";
-                font-size: 30px;
-                font-weight: 700;
-                text-align: center;
-                padding: 0 1rem;
-                padding-top: 1.1rem;
-
-                margin-top: unset;
-                color: rgb(250, 44, 44);
-            }
-
-            p{
-                margin-top: 1.5rem;
-                padding: 0 2rem;
-                text-align: center;
-                font-family: "Noto Sans";
-                font-size: 16px;
-            }
-
-            .successButton{
-                margin-top: 2.5rem;
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                z-index: 1;
-                background: #189F83;
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 15px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                transition: 0.2s ease-in-out;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
-                &:hover{
-                    cursor: pointer;
-                    background: #2edbb9;
-                    color: #090909;
-                }
-            }
-            .errorButton{
-                margin-top: 2.5rem;
-                position: relative;
-                padding: 0.9rem 2.8rem;
-                z-index: 1;
-                background: rgb(255, 96, 96);
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 15px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                transition: 0.2s ease-in-out;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
-                &:hover{
-                    cursor: pointer;
-                    background: rgb(253, 70, 70);
-                    color: #090909;
-                }
-            }
-            
-        }
-    }
-    .stepsContainer{
-        margin-top: 8rem;
-        width: 100%;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        .stepsInnerContainer{
-            width: 400px;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .step{
-                display: flex;
-                justify-content: center;
-                width: 25px;
-                height: 25px;
-                
-                .stepName{  
-                    font-family: "Noto Sans";
-                    font-size: 12px;
-                    position: absolute;
-                    margin-top: -1.8rem;
-                    color: rgba(255, 255, 255, 0.4);
-                    pointer-events: none;
-                    transition: 0.1s ease-in-out;
-                }
-
-                .stepNameTarget{
-                    color: #56FFDC;
-                    transition: 0.1s ease-in-out;
-                }
-
-                .stepNameDone{
-                    color: #278f7a;
-                }
-                
-                .stepIcon{
-                    
-                    .innerIcon{
-                        fill: rgba(255, 255, 255, 0.4);
-                        transition: 0.1s ease-in-out;
-                    }
-                    .outerIcon{
-                        stroke: rgba(255, 255, 255, 0.4);
-                        transition: 0.1s ease-in-out;
-                    }
+                .offButton{
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    opacity: 0.6;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin-top: 3rem;
                     &:hover{
                         cursor: default;
                     }
                 }
-                .stepIconTarget{
-                    .innerIcon{
-                        fill: #56FFDC;
-                    }
-                    .outerIcon{
-                        stroke: #56FFDC;
-                    }
-                    &:hover{
-                        cursor: pointer;
-                    }
-                }
-
-                .stepIconDone{
-                    .innerIcon{
-                        fill: #278f7a;
-                        transition: 0.1s ease-in-out;
-                    }
-                    .outerIcon{
-                        stroke: #278f7a;
-                        transition: 0.1s ease-in-out;
-                    }
-                    &:hover{
-                        cursor: pointer;
-                    }
-                }
-
-                
             }
-            span{
-                margin: 0 0.9rem;
-                width: 10px;
-                height: 1px;
-                background-color: rgba(255, 255, 255, 0.4);
-            }
-        }
-    }
-
-    .designRef{
-        display: flex;
-        margin-top: 4rem;
-        justify-content: center;
-        font-family: "PT Serif";
-        font-size: 20px;
-        color: white;
-        a{
-            
-            color: #2edbb9;
-            text-decoration: underline;
-            
-        }
-        a:hover{
-            color: #189F83;
-        }
-    }
     
-    .rainContainer{
-        position: absolute;
-        pointer-events: none;
-        z-index: -1;
-        top: 0;
-        background-color: rgba(255, 255, 255, 0);
-        transition: 0.3s ease-in-out;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        .rain{
-            position: absolute;
-            top: 0;
-            left: 20px;
-            border-radius: 50%;
-            height: 30px;
-            width: 1px;
-        }
-    }
-}
-
-@media (max-width: 1300px){
-    .contactPageContainer{
-        height: 100vh;
-        max-height: unset;
-
-        .contactContentContainer{
-
-            .contactContentName{
-                .headerContent{
-                    .lineContainer{
-                        
-                        .line1{
-                            
-                            margin-right: 16rem;
-                            width: 20%;
-                        }
-                        .line2{
-                            margin: 2.9rem 0;
-                            margin-left: 16rem;
-                            width: 20%;
-                        }
-                    }
-                }
-                .inputContainer{
-                    width: 50%;
-                    .nameInfo{
-                        .tooltipContainer{
-                            min-width: 20vw;
-                        }
-                    }
-                }
-            }
-
             .contactContentEmail{
+                position: absolute;
+                width: 100%;
+                color: white;
+                font-family: "PT Serif";
+                font-weight: 700;
+                margin-top: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                pointer-events: none;
                 .headerContent{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
                     .lineContainer{
+                        pointer-events: none;
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
                         .line1{
-                            
+                            position: relative;
+                            margin: 3rem 0;
                             margin-right: 22rem;
-                            width: 13%;
+                            width: 22%;
+                            height: 1px;
+                            background-color: rgba(255, 255, 255, 0.4);
                         }
                         .line2{
-                            margin: 2.9rem 0;
+                            position: relative;
+                            margin: 3rem 0;
                             margin-left: 22rem;
-                            width: 13%;
+                            width: 22%;
+                            height: 1px;
+                            background-color: rgba(255, 255, 255, 0.4);
                         }
                     }
-                }
-                .inputContainer{
-                    width: 50%;
-                    .emailInfo{
-                        .tooltipEmailContainer{
-                            min-width: 20vw;
-                        }
-                    }
-                }
-            }
-
-            .contactContentDescription{
-                .headerContent{
-                    .lineContainer{
-                        
-                        .line1{
-                            
-                            margin-right: 22rem;
-                            width: 13%;
-                        }
-                        .line2{
-                            margin: 2.9rem 0;
-                            margin-left: 22rem;
-                            width: 13%;
-                        }
-                    }
-                }
-                .inputContainer{
-                    width: 50%;
-                    .descriptionInfo{
-                        .tooltipDescriptionContainer{
-                            min-width: 20vw;
-                        }
-                    }
-                }
-            }
-
-            .contactContentBudged{
-                .headerContent{
-                    .lineContainer{
-                        
-                        .line1{
-                            
-                            margin-right: 30rem;
-                            width: 6%;
-                        }
-                        .line2{
-                            margin: 2.9rem 0;
-                            margin-left: 30rem;
-                            width: 6%;
-                        }
-                    }
-                }
-                .inputContainer{
-                    width: 50%;
-                    .budgedInfo{
-                        .tooltipBudgedContainer{
-                            min-width: 20vw;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@media (max-width: 900px){
-    .contactPageContainer{
-        height: auto;
-        min-height: 100vh;
-        .contactContentContainer{
-            margin-top: 7rem;
-            .contactContentName{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                .headerContent{
+    
                     h1{
-                        padding: 0 1rem;
-                        font-size: 16px;
-                        text-align: center;
+                        display: block;
+                        font-family: "PT Serif";
+                        font-size: 20px;
+                        margin: 0rem 0 0rem 0rem;
                     }
                     h2{
-                        font-size: 30px;
-                        padding: 0 1rem;
-                        margin-top: 0.05rem;
-                        line-height: 2.2rem;
-                        text-align: center;
-                    }
-                    .lineContainer{
-                        
-                        .line1{
-                            margin-top: 2.5rem;
-                            margin-right: 12rem;
-                            width: 20%;
-                        }
-                        .line2{
-                            margin-top: 2.5rem;
-                            margin-left: 12rem;
-                            width: 20%;
-                        }
+                        display: block;
+                        font-family: "PT Serif";
+                        font-size: 39px;
+                        margin: -0.4rem 0 0rem 0;
                     }
                 }
                 
-                .inputContainer{
-                    width: 90%;
-                    input{
-                        font-size: 15px;
-                    }
-                    .nameInfo{
-                        z-index: 5;
-                        height: 17px;
-                        width: 17px;
-                        direction: rtl;
-                        .tooltipContainer{
-                            position: absolute;
-                            overflow-y: scroll;
-                            max-height: 260px;
-                            min-width: 90vw;
-                            direction: ltr;
-                            margin-top: 2.5rem;
-                            margin-right: -2rem;
-                            background-color: rgba(255, 255, 255, 0.8);
-                        }
-                    }
-                    
-                }
-                button{
-                    font-size: 14px;
-                }
-            }
-            
-            .contactContentEmail{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                .headerContent{
-                    h1{
-                        padding: 0 1rem;
-                        font-size: 16px;
-                        text-align: center;
-                    }
-                    h2{
-                        font-size: 30px;
-                        padding: 0 1rem;
-                        margin-top: 0.05rem;
-                        line-height: 2.2rem;
-                        text-align: center;
-                    }
-                    .lineContainer{
-                        
-                        .line1{
-                            margin-top: 2.5rem;
-                            margin-right: 17rem;
-                            width: 13%;
-                        }
-                        .line2{
-                            margin-top: 2.5rem;
-                            margin-left: 17rem;
-                            width: 13%;
-                        }
-                    }
-                }
                 
                 .inputContainer{
-                    width: 90%;
-                    input{
-                        font-size: 15px;
-                    }
-                    .emailInfo{
-                        z-index: 5;
-                        height: 17px;
-                        width: 17px;
-                        direction: rtl;
-                        .tooltipEmailContainer{
-                            position: absolute;
-                            overflow-y: scroll;
-                            max-height: 260px;
-                            min-width: 90vw;
-                            direction: ltr;
-                            margin-top: 2.5rem;
-                            margin-right: -2rem;
-                            background-color: rgba(255, 255, 255, 0.8);
-                        }
-                    }
-                    
-                }
-                button{
-                    font-size: 14px;
-                }
-            }
-
-            .contactContentDescription{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                .headerContent{
+                    position: relative;
+                    margin-top: 2.5rem;
+                    outline: none;
+                    width: 30%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
                     h1{
-                        padding: 0 1rem;
+                        position: absolute;
+                        font-family: "PT Serif";
+                        color: white;
                         font-size: 16px;
-                        text-align: center;
+                        font-weight: 500;
                     }
-                    h2{
-                        font-size: 30px;
-                        padding: 0 1rem;
-                        margin-top: 0.05rem;
-                        line-height: 2.2rem;
-                        text-align: center;
-                    }
-                    .lineContainer{
-                        
-                        .line1{
-                            margin-top: 2.5rem;
-                            margin-right: 17rem;
-                            width: 13%;
-                        }
-                        .line2{
-                            margin-top: 2.5rem;
-                            margin-left: 17rem;
-                            width: 13%;
-                        }
-                    }
-                }
-                
-                .inputContainer{
-                    width: 90%;
-                    
-                    textarea{
-                        font-size: 15px;
-                    }
-                    .descriptionInfo{
-                        z-index: 5;
-                        height: 17px;
-                        width: 17px;
-                        direction: rtl;
-                        .tooltipDescriptionContainer{
-                            overflow-y: scroll;
-                            max-height: 260px;
-                            position: absolute;
-                            min-width: 90vw;
-                            direction: ltr;
-                            margin-top: 4rem;
-                            margin-right: -2rem;
-                            background-color: rgba(255, 255, 255, 0.8);
-                        }
-                    }
-                    
-                }
-                button{
-                    font-size: 14px;
-                }
-            }
-
-            .contactContentBudged{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .headerContent{
-                    h1{
-                        padding: 0 1rem;
-                        font-size: 16px;
-                        text-align: center;
-                    }
-                    h2{
-                        font-size: 30px;
-                        padding: 0 1rem;
-                        margin-top: 0.05rem;
-                        line-height: 2.2rem;
-                        text-align: center;
-                    }
-                    .lineContainer{
-                        
-                        .line1{
-                            margin-top: 2.5rem;
-                            margin-right: 30rem;
-                            width: 13%;
-                        }
-                        .line2{
-                            margin-top: 2.5rem;
-                            margin-left: 30rem;
-                            width: 13%;
-                        }
-                    }
-                }
-                .inputContainer{
-                    width: 90%;
                     input{
-                        font-size: 15px;
+                        height: 50px;
+                        border-radius: 5px;
+                        width: 100%;
+                        font-size: 18px;
+                        font-family: "NOTO SANS";
+                        text-align: center;
+                        padding: 0rem 1rem;
+                        color: white;
+                        background-color: rgba(0, 0, 0, 0.4);
+                        border: 1px solid white;
+                        transition: 0.2s ease-in-out;
                         &::placeholder{
-                            font-size: 15px;
+                            color: rgba(255, 255, 255, 0.705);
+                            transition: 0.2s ease-in-out;
+                        }
+                        &:focus{
+                            outline: none;
+                            border: 1px solid #ffcf76;
                         }
                     }
-                    .budgedInfo{
-                        z-index: 5;
-                        height: 17px;
-                        width: 17px;
-                        direction: rtl;
-                        
-                        .tooltipBudgedContainer{
+                    .emailInfo{
+                        position: absolute;
+                        right: 0;
+                        height: 20px;
+                        width: 20px;
+                        margin-right: 1rem;
+    
+                        .tooltipEmailContainer{
                             position: absolute;
-                            min-width: 90vw;
-                            direction: ltr;
-                            max-height: 260px;
-                            margin-top: 2.5rem;
-                            margin-right: -6rem;
-                            background-color: rgba(255, 255, 255, 0.8);
-                            overflow-y: scroll;
+                            visibility: hidden;
+                            display: inline-block;
+                            margin-top: 1rem;
+                            min-width: 280px;
+                            margin-left: 0.5rem;
+                            background-color: rgba(255, 255, 255, 0.5);
+                            border-radius: 5px;
+                            opacity: 0;
+                            transition: 0.1s ease-in-out;
+                            h1{
+                                display: block;
+                                font-family: "Noto Sans";
+                                padding: 1rem;
+                                color: black;
+                                font-size: 14px;
+                                font-weight: 500;
+                            }
+                            p{
+                                display: block;
+                                font-family: "Noto Sans";
+                                padding: 0 1rem;
+                                color: black;
+                                font-size: 14px;
+                                font-weight: 500;
+                                padding-top: 1rem;
+                                
+                            }
+                            .lastToolItem{
+                                padding-bottom: 1rem;
+                            }
+                        }
+                        &:hover{
+                            .tooltipEmailContainer{
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+        
+                .onButton{
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin-top: 3rem;
+                    &:hover{
+                        cursor: pointer;
+                        background: #2edbb9;
+                    }
+                }
+                .offButton{
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    opacity: 0.6;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin-top: 3rem;
+                    &:hover{
+                        cursor: default;
+                    }
+                }
+            }
+    
+            .contactContentDescription{
+                position: absolute;
+                width: 100%;
+                color: white;
+                font-family: "PT Serif";
+                font-weight: 700;
+                margin-top: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                pointer-events: none;
+                .headerContent{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    .lineContainer{
+                        pointer-events: none;
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        .line1{
+                            position: relative;
+                            margin: 3rem 0;
+                            margin-right: 22rem;
+                            width: 22%;
+                            height: 1px;
+                            background-color: rgba(255, 255, 255, 0.4);
+                        }
+                        .line2{
+                            position: relative;
+                            margin: 3rem 0;
+                            margin-left: 22rem;
+                            width: 22%;
+                            height: 1px;
+                            background-color: rgba(255, 255, 255, 0.4);
+                        }
+                    }
+    
+                    h1{
+                        display: block;
+                        font-family: "PT Serif";
+                        font-size: 20px;
+                        margin: 0rem 0 0rem 0rem;
+                    }
+                    h2{
+                        display: block;
+                        font-family: "PT Serif";
+                        font-size: 39px;
+                        margin: -0.4rem 0 0rem 0;
+                    }
+                }
+                
+                .inputContainer{
+                    position: relative;
+                    margin-top: 2.5rem;
+                    outline: none;
+                    width: 30%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    h1{
+                        position: absolute;
+                        font-family: "PT Serif";
+                        color: white;
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+                    textarea{
+                        display: flex;
+                        resize: none;
+                        justify-content: flex-start;
+                        height: 100px;
+                        border-radius: 5px;
+                        width: 100%;
+                        font-size: 18px;
+                        font-family: "NOTO SANS";
+                        padding: 0.7rem 6rem 0.5rem 1rem;
+                        color: white;
+                        background-color: rgba(0, 0, 0, 0.4);
+                        border: 1px solid white;
+                        transition: 0.2s ease-in-out;
+                        &::placeholder{
+                            color: rgba(255, 255, 255, 0.705);
+                            transition: 0.2s ease-in-out;
+                        }
+                        &:focus{
+                            outline: none;
+                            border: 1px solid #ffcf76;
+                        }
+                    }
+                    .descriptionInfo{
+                        position: absolute;
+                        right: 0;
+                        height: 20px;
+                        width: 20px;
+                        margin-right: 1rem;
+    
+                        .tooltipDescriptionContainer{
+                            position: absolute;
+                            visibility: hidden;
+                            display: inline-block;
+                            margin-top: 1rem;
+                            min-width: 280px;
+                            margin-left: 0.5rem;
+                            background-color: rgba(255, 255, 255, 0.5);
+                            border-radius: 5px;
+                            opacity: 0;
+                            transition: 0.1s ease-in-out;
+                            h1{
+                                display: block;
+                                font-family: "Noto Sans";
+                                padding: 1rem;
+                                color: black;
+                                font-size: 14px;
+                                font-weight: 500;
+                            }
+                            p{
+                                display: block;
+                                font-family: "Noto Sans";
+                                padding: 0 1rem;
+                                color: black;
+                                font-size: 14px;
+                                font-weight: 500;
+                                padding-top: 1rem;
+                                
+                            }
+                            .lastToolItem{
+                                padding-bottom: 1rem;
+                            }
+                        }
+                        &:hover{
+                            .tooltipDescriptionContainer{
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    .textLengthCounter{
+                        position: absolute;
+                        user-select: none;
+                        font-family: "Noto Sans";
+                        height: 20px;
+                        bottom: 0;
+                        right: 0;
+                        margin-right: 1.2rem;
+                        margin-bottom: 0.4rem;
+                        font-size: 14px;
+                        color: grey;
+                        width: auto;
+                    }
+                }
+        
+                .onButton{
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin-top: 3rem;
+                    &:hover{
+                        cursor: pointer;
+                        background: #2edbb9;
+                    }
+                }
+                .offButton{
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    opacity: 0.6;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin-top: 3rem;
+                    &:hover{
+                        cursor: default;
+                    }
+                }
+            }
+    
+            .contactContentBudged{
+                position: absolute;
+                width: 100%;
+                color: white;
+                font-family: "PT Serif";
+                font-weight: 700;
+                margin-top: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                pointer-events: none;
+                .headerContent{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    .lineContainer{
+                        pointer-events: none;
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        .line1{
+                            position: relative;
+                            margin: 3rem 0;
+                            margin-right: 30rem;
+                            width: 15%;
+                            height: 1px;
+                            background-color: rgba(255, 255, 255, 0.4);
+                        }
+                        .line2{
+                            position: relative;
+                            margin: 3rem 0;
+                            margin-left: 30rem;
+                            width: 15%;
+                            height: 1px;
+                            background-color: rgba(255, 255, 255, 0.4);
+                        }
+                    }
+    
+                    h1{
+                        display: block;
+                        font-family: "PT Serif";
+                        font-size: 20px;
+                        margin: 0rem 0 0rem 0rem;
+                    }
+                    h2{
+                        display: block;
+                        font-family: "PT Serif";
+                        font-size: 39px;
+                        margin: -0.4rem 0 0rem 0;
+                    }
+                }
+                
+                .inputContainer{
+                    position: relative;
+                    margin-top: 2.5rem;
+                    outline: none;
+                    width: 30%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    h1{
+                        position: absolute;
+                        font-family: "PT Serif";
+                        color: white;
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+                    .budgedInput{
+                        height: 50px;
+                        border-radius: 5px;
+                        width: 90%;
+                        font-size: 18px;
+                        font-family: "NOTO SANS";
+                        appearance: none;
+                        text-align: center;
+                        padding: 0rem 3rem;
+                        margin-right: 0.5rem;
+                        color: white;
+                        background-color: rgba(0, 0, 0, 0.4);
+                        border: 1px solid white;
+                        transition: 0.2s ease-in-out;
+                        &::-webkit-outer-spin-button{
+                            appearance: none;
+                        }
+                        &::-webkit-inner-spin-button{
+                            appearance: none;
+                        }
+                        &::placeholder{
+                            color: rgba(255, 255, 255, 0.705);
+                            transition: 0.2s ease-in-out;
+                        }
+                        &:focus{
+                            outline: none;
+                            border: 1px solid #ffcf76;
                         }
                     }
                     
+                    .budgedInfo{
+                        position: absolute;
+                        right: 0;
+                        height: 20px;
+                        width: 20px;
+                        margin-right: 5rem;
+    
+                        .tooltipBudgedContainer{
+                            position: absolute;
+                            visibility: hidden;
+                            display: inline-block;
+                            margin-top: 1rem;
+                            min-width: 280px;
+                            margin-left: 0.5rem;
+                            background-color: rgba(255, 255, 255, 0.5);
+                            border-radius: 5px;
+                            opacity: 0;
+                            transition: 0.1s ease-in-out;
+                            p{
+                                font-family: "Noto Sans";
+                                padding: 0 1rem;
+                                color: black;
+                                font-size: 14px;
+                                font-weight: 500;
+                                padding-top: 1rem;
+                            }
+                            .lastToolItem{
+                                padding-bottom: 1rem;
+                            }
+                        }
+                        &:hover{
+                            .tooltipBudgedContainer{
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    .currencyContainer{
+                        position: relative;
+                        height: 50px;
+                        display: flex;
+                        justify-content: center;
+                        border-radius: 5px;
+                        min-width: 50px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        font-family: "NOTO SANS";
+                        appearance: none;
+                        padding: 0rem 1rem;
+                        color: white;
+                        transition: 0.1s ease-in-out;
+                        pointer-events: default;
+                        outline: none;
+                        .optionContainer{
+                            position: absolute;
+                            height: 50px;
+                            width: 100%;
+                            transition: 0.1s ease-in-out;
+                            border: 1px solid #56FFDC;
+                            border-radius: 5px;
+                            overflow: hidden;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            
+                            .optionFlexContainer{
+                                pointer-events: none;
+                                width: 100%;
+                                height: 100px;
+                                display: flex;
+                                flex-direction: column;
+                                .option1{
+                                    width: 100%;
+                                    order: 1;
+                                    height: 50px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    background-color: rgba(0, 0, 0, 0.4);
+                                    cursor: pointer;
+                                    user-select: none;
+                                    &:hover{
+                                        background-color: rgba(0, 0, 0, 0.6);
+                                    }
+                                }
+                                .option2{
+                                    width: 100%;
+                                    order: 2;
+                                    height: 50px;
+                                    display: flex;
+                                    justify-content: center;
+                                    user-select: none;
+                                    align-items: center;
+                                    background-color: rgba(0, 0, 0, 0.4);
+                                    cursor: pointer;
+                                    &:hover{
+                                        background-color: rgba(0, 0, 0, 0.6);
+                                    }
+                                }
+                                
+                            }
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                    }
                 }
-                button{
-                    font-size: 14px;
+        
+                .onButton{
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin-top: 3rem;
+                    &:hover{
+                        cursor: pointer;
+                        background: #2edbb9;
+                    }
+                }
+                .offButton{
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    opacity: 0.6;
+                    background: #189F83;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin-top: 3rem;
+                    &:hover{
+                        cursor: default;
+                    }
                 }
             }
         }
-        .stepsContainer{
-            transform: scale(0.9);
-        }
-        .designRef{
-            text-align: center;
-            font-size: 15px;
-            padding: 0 1rem;
-            padding-bottom: 2rem;
-        }
+        
         .userDataConfirmationContainer{
             position: absolute;
-            top: 0;
             width: 100%;
             height: 100%;
+            min-height: 500px;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: 0.2s ease-in-out;
             .userDataContainer{
                 position: absolute;
-                margin-top: unset;
-                top: 4rem;
-                width: 95vw;
-                height: auto;
-                max-height: 600px;
+                margin-top: 1rem;
+                width: 700px;
+                border-radius: 5px;
+                background-color: white;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                max-height: 700px;
+                transform: scale(0.7);
+                transition: 0.2s ease-in-out;
                 overflow-y: scroll;
                 h1{
-                    font-size: 20px;
+                    font-size: 30px;
                     font-family: "PT Serif";
                     color: #189F83;
-                    margin-top: 2rem;
-                    margin-left: 2rem;
-                    text-align: start;
+                    margin-top: 3rem;
+                    text-align: center;
                 }
                 .userDataContent{
                     position: relative;
                     width: 100%;
-                    margin-top: 1rem;
+                    margin-top: 3rem;
                     overflow: hidden;
                     .titleContainer{
                         width: 100%;
                         margin-top: 1.5rem;
                         display: flex;
                         .title{
-                            width: 20%;
-                            margin-left: 2rem;
+                            width: 10%;
+                            margin-left: 4rem;
                             font-family: "PT Serif";
-                            font-size: 14px;
+                            font-size: 16px;
                         }
                         .input{
                             font-family: "Noto Sans";
-                            font-size: 14px;
+                            font-size: 16px;
                             margin-left: 2.5rem;
-                            padding-right: 1rem;
                             max-width: 500px;
                         }
                     }
                 }
                 h2{
-                    font-size: 16px;
+                    font-size: 18px;
                     font-family: "PT Serif";
                     color: #090909;
                     margin-top: 3rem;
@@ -1573,22 +885,33 @@
                 }
                 
                 .userDataButtonContainer{
+                    width: 100%;
                     display: flex;
-                    flex-direction: column;
-                    padding-bottom: 2rem;
-                    height: unset;
-                    margin: unset;
-                    .reviewButton2{
-                        order: 2;
-                        margin: 1rem 1rem 0 1rem;
-                        font-size: 14px;
+                    justify-content: center;
+                    .reviewButton{
+                        margin: 3rem 1rem;
+                        position: relative;
+                        padding: 0.9rem 2.8rem;
+                        z-index: 1;
+                        background: #189F83;
+                        box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                        border-radius: 5px;
+                        border-style: none;
+                        color: white;
+                        font-size: 15px;
+                        font-family: "PT Serif";
+                        letter-spacing: 1px;
+                        font-weight: 700;
+                        outline: none;
+                        transition: 0.2s ease-in-out;
+                        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                        &:hover{
+                            cursor: pointer;
+                            background: #2edbb9;
+                        }
                     }
                     .reviewButton1{
-                        order: 2;
-                        margin: 0rem 1rem;
-                        margin-top: 2rem;
                         background: rgb(255, 96, 96);
-                        font-size: 14px;
                         color: black;
                         &:hover{
                             cursor: pointer;
@@ -1598,11 +921,11 @@
                 }
             }
         }
+        
         .messageContainer{
             position: absolute;
             width: 100%;
             height: 100%;
-            min-height: unset;
             background-color: rgba(0, 0, 0, 0.6);
             z-index: 100;
             display: flex;
@@ -1613,36 +936,47 @@
             transition: 0.2s ease-in-out;
             .messageBox{
                 position: absolute;
+                transform: scale(0.7);
+                transition: 0.2s ease-in-out;
                 height: auto;
-                width: 95vw;
+                width: 500px;
                 background-color: white;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 border-radius: 5px;
                 align-items: center;
-                padding: 2rem 0;
-    
+                padding-bottom: 2rem;
+                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
                 .successHeader{
                     font-family: "PT Serif";
-                    font-size: 20px;
+                    font-size: 30px;
+                    font-weight: 700;
                     text-align: center;
                     padding: 0 1rem;
+                    margin-top: unset;
+                    padding-top: 1rem;
                     color: #189F83;
+                    padding-top: 1.1rem;
                 }
                 .errorHeader{
                     font-family: "PT Serif";
-                    font-size: 20px;
+                    font-size: 30px;
+                    font-weight: 700;
                     text-align: center;
                     padding: 0 1rem;
+                    padding-top: 1.1rem;
+    
+                    margin-top: unset;
                     color: rgb(250, 44, 44);
                 }
     
                 p{
-                    margin-top: 1rem;
+                    margin-top: 1.5rem;
+                    padding: 0 2rem;
                     text-align: center;
                     font-family: "Noto Sans";
-                    font-size: 14px;
+                    font-size: 16px;
                 }
     
                 .successButton{
@@ -1655,7 +989,7 @@
                     border-radius: 5px;
                     border-style: none;
                     color: white;
-                    font-size: 14px;
+                    font-size: 15px;
                     font-family: "PT Serif";
                     letter-spacing: 1px;
                     font-weight: 700;
@@ -1678,7 +1012,7 @@
                     border-radius: 5px;
                     border-style: none;
                     color: white;
-                    font-size: 14px;
+                    font-size: 15px;
                     font-family: "PT Serif";
                     letter-spacing: 1px;
                     font-weight: 700;
@@ -1694,6 +1028,697 @@
                 
             }
         }
+        .stepsContainer{
+            margin-top: 8rem;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            .stepsInnerContainer{
+                width: 400px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .step{
+                    display: flex;
+                    justify-content: center;
+                    width: 25px;
+                    height: 25px;
+                    
+                    .stepName{  
+                        font-family: "Noto Sans";
+                        font-size: 12px;
+                        position: absolute;
+                        margin-top: -1.8rem;
+                        color: rgba(255, 255, 255, 0.4);
+                        pointer-events: none;
+                        transition: 0.1s ease-in-out;
+                    }
+    
+                    .stepNameTarget{
+                        color: #56FFDC;
+                        transition: 0.1s ease-in-out;
+                    }
+    
+                    .stepNameDone{
+                        color: #278f7a;
+                    }
+                    
+                    .stepIcon{
+                        
+                        .innerIcon{
+                            fill: rgba(255, 255, 255, 0.4);
+                            transition: 0.1s ease-in-out;
+                        }
+                        .outerIcon{
+                            stroke: rgba(255, 255, 255, 0.4);
+                            transition: 0.1s ease-in-out;
+                        }
+                        &:hover{
+                            cursor: default;
+                        }
+                    }
+                    .stepIconTarget{
+                        .innerIcon{
+                            fill: #56FFDC;
+                        }
+                        .outerIcon{
+                            stroke: #56FFDC;
+                        }
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+    
+                    .stepIconDone{
+                        .innerIcon{
+                            fill: #278f7a;
+                            transition: 0.1s ease-in-out;
+                        }
+                        .outerIcon{
+                            stroke: #278f7a;
+                            transition: 0.1s ease-in-out;
+                        }
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+    
+                    
+                }
+                span{
+                    margin: 0 0.9rem;
+                    width: 10px;
+                    height: 1px;
+                    background-color: rgba(255, 255, 255, 0.4);
+                }
+            }
+        }
+    
+        .designRef{
+            display: flex;
+            margin-top: 4rem;
+            justify-content: center;
+            font-family: "PT Serif";
+            font-size: 20px;
+            color: white;
+            a{
+                
+                color: #2edbb9;
+                text-decoration: underline;
+                
+            }
+            a:hover{
+                color: #189F83;
+            }
+        }
+    }
+    
+    
+    .rainContainer{
+        position: absolute;
+        pointer-events: none;
+        z-index: -1;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0);
+        transition: 0.3s ease-in-out;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        .rain{
+            position: absolute;
+            top: 0;
+            left: 20px;
+            border-radius: 50%;
+            height: 30px;
+            width: 1px;
+        }
+    }
+}
+
+@media (min-height: 1200px){
+    .contactPageContainer{
+        .allContent{
+            transform: scale(1.15);
+        }
+    }
+    
+}
+
+@media (max-width: 1300px){
+    .contactPageContainer{
+        height: 100vh;
+        max-height: unset;
+
+        .allContent{
+            .contactContentContainer{
+
+                .contactContentName{
+                    .headerContent{
+                        .lineContainer{
+                            
+                            .line1{
+                                
+                                margin-right: 16rem;
+                                width: 20%;
+                            }
+                            .line2{
+                                margin: 2.9rem 0;
+                                margin-left: 16rem;
+                                width: 20%;
+                            }
+                        }
+                    }
+                    .inputContainer{
+                        width: 50%;
+                        .nameInfo{
+                            .tooltipContainer{
+                                min-width: 20vw;
+                            }
+                        }
+                    }
+                }
+
+                .contactContentEmail{
+                    .headerContent{
+                        .lineContainer{
+                            .line1{
+                                
+                                margin-right: 22rem;
+                                width: 13%;
+                            }
+                            .line2{
+                                margin: 2.9rem 0;
+                                margin-left: 22rem;
+                                width: 13%;
+                            }
+                        }
+                    }
+                    .inputContainer{
+                        width: 50%;
+                        .emailInfo{
+                            .tooltipEmailContainer{
+                                min-width: 20vw;
+                            }
+                        }
+                    }
+                }
+
+                .contactContentDescription{
+                    .headerContent{
+                        .lineContainer{
+                            
+                            .line1{
+                                
+                                margin-right: 22rem;
+                                width: 13%;
+                            }
+                            .line2{
+                                margin: 2.9rem 0;
+                                margin-left: 22rem;
+                                width: 13%;
+                            }
+                        }
+                    }
+                    .inputContainer{
+                        width: 50%;
+                        .descriptionInfo{
+                            .tooltipDescriptionContainer{
+                                min-width: 20vw;
+                            }
+                        }
+                    }
+                }
+
+                .contactContentBudged{
+                    .headerContent{
+                        .lineContainer{
+                            
+                            .line1{
+                                
+                                margin-right: 30rem;
+                                width: 6%;
+                            }
+                            .line2{
+                                margin: 2.9rem 0;
+                                margin-left: 30rem;
+                                width: 6%;
+                            }
+                        }
+                    }
+                    .inputContainer{
+                        width: 50%;
+                        .budgedInfo{
+                            .tooltipBudgedContainer{
+                                min-width: 20vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+@media (max-width: 900px){
+    .contactPageContainer{
+        height: auto;
+        min-height: 100vh;
+        .allContent{
+            .contactContentContainer{
+                margin-top: 7rem;
+                .contactContentName{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .headerContent{
+                        h1{
+                            padding: 0 1rem;
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                        h2{
+                            font-size: 30px;
+                            padding: 0 1rem;
+                            margin-top: 0.05rem;
+                            line-height: 2.2rem;
+                            text-align: center;
+                        }
+                        .lineContainer{
+                            
+                            .line1{
+                                margin-top: 2.5rem;
+                                margin-right: 12rem;
+                                width: 20%;
+                            }
+                            .line2{
+                                margin-top: 2.5rem;
+                                margin-left: 12rem;
+                                width: 20%;
+                            }
+                        }
+                    }
+                    
+                    .inputContainer{
+                        width: 90%;
+                        input{
+                            font-size: 15px;
+                        }
+                        .nameInfo{
+                            z-index: 5;
+                            height: 17px;
+                            width: 17px;
+                            direction: rtl;
+                            .tooltipContainer{
+                                position: absolute;
+                                overflow-y: scroll;
+                                max-height: 260px;
+                                min-width: 90vw;
+                                direction: ltr;
+                                margin-top: 2.5rem;
+                                margin-right: -2rem;
+                                background-color: rgba(255, 255, 255, 0.8);
+                            }
+                        }
+                        
+                    }
+                    button{
+                        font-size: 14px;
+                    }
+                }
+                
+                .contactContentEmail{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .headerContent{
+                        h1{
+                            padding: 0 1rem;
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                        h2{
+                            font-size: 30px;
+                            padding: 0 1rem;
+                            margin-top: 0.05rem;
+                            line-height: 2.2rem;
+                            text-align: center;
+                        }
+                        .lineContainer{
+                            
+                            .line1{
+                                margin-top: 2.5rem;
+                                margin-right: 17rem;
+                                width: 13%;
+                            }
+                            .line2{
+                                margin-top: 2.5rem;
+                                margin-left: 17rem;
+                                width: 13%;
+                            }
+                        }
+                    }
+                    
+                    .inputContainer{
+                        width: 90%;
+                        input{
+                            font-size: 15px;
+                        }
+                        .emailInfo{
+                            z-index: 5;
+                            height: 17px;
+                            width: 17px;
+                            direction: rtl;
+                            .tooltipEmailContainer{
+                                position: absolute;
+                                overflow-y: scroll;
+                                max-height: 260px;
+                                min-width: 90vw;
+                                direction: ltr;
+                                margin-top: 2.5rem;
+                                margin-right: -2rem;
+                                background-color: rgba(255, 255, 255, 0.8);
+                            }
+                        }
+                        
+                    }
+                    button{
+                        font-size: 14px;
+                    }
+                }
+
+                .contactContentDescription{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .headerContent{
+                        h1{
+                            padding: 0 1rem;
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                        h2{
+                            font-size: 30px;
+                            padding: 0 1rem;
+                            margin-top: 0.05rem;
+                            line-height: 2.2rem;
+                            text-align: center;
+                        }
+                        .lineContainer{
+                            
+                            .line1{
+                                margin-top: 2.5rem;
+                                margin-right: 17rem;
+                                width: 13%;
+                            }
+                            .line2{
+                                margin-top: 2.5rem;
+                                margin-left: 17rem;
+                                width: 13%;
+                            }
+                        }
+                    }
+                    
+                    .inputContainer{
+                        width: 90%;
+                        
+                        textarea{
+                            font-size: 15px;
+                        }
+                        .descriptionInfo{
+                            z-index: 5;
+                            height: 17px;
+                            width: 17px;
+                            direction: rtl;
+                            .tooltipDescriptionContainer{
+                                overflow-y: scroll;
+                                max-height: 260px;
+                                position: absolute;
+                                min-width: 90vw;
+                                direction: ltr;
+                                margin-top: 4rem;
+                                margin-right: -2rem;
+                                background-color: rgba(255, 255, 255, 0.8);
+                            }
+                        }
+                        
+                    }
+                    button{
+                        font-size: 14px;
+                    }
+                }
+
+                .contactContentBudged{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .headerContent{
+                        h1{
+                            padding: 0 1rem;
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                        h2{
+                            font-size: 30px;
+                            padding: 0 1rem;
+                            margin-top: 0.05rem;
+                            line-height: 2.2rem;
+                            text-align: center;
+                        }
+                        .lineContainer{
+                            
+                            .line1{
+                                margin-top: 2.5rem;
+                                margin-right: 30rem;
+                                width: 13%;
+                            }
+                            .line2{
+                                margin-top: 2.5rem;
+                                margin-left: 30rem;
+                                width: 13%;
+                            }
+                        }
+                    }
+                    .inputContainer{
+                        width: 90%;
+                        input{
+                            font-size: 15px;
+                            &::placeholder{
+                                font-size: 15px;
+                            }
+                        }
+                        .budgedInfo{
+                            z-index: 5;
+                            height: 17px;
+                            width: 17px;
+                            direction: rtl;
+                            
+                            .tooltipBudgedContainer{
+                                position: absolute;
+                                min-width: 90vw;
+                                direction: ltr;
+                                max-height: 260px;
+                                margin-top: 2.5rem;
+                                margin-right: -6rem;
+                                background-color: rgba(255, 255, 255, 0.8);
+                                overflow-y: scroll;
+                            }
+                        }
+                        
+                    }
+                    button{
+                        font-size: 14px;
+                    }
+                }
+            }
+            .stepsContainer{
+                transform: scale(0.9);
+            }
+            .designRef{
+                text-align: center;
+                font-size: 15px;
+                padding: 0 1rem;
+                padding-bottom: 2rem;
+            }
+            .userDataConfirmationContainer{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                .userDataContainer{
+                    position: absolute;
+                    margin-top: unset;
+                    top: 4rem;
+                    width: 95vw;
+                    height: auto;
+                    max-height: 600px;
+                    overflow-y: scroll;
+                    h1{
+                        font-size: 20px;
+                        font-family: "PT Serif";
+                        color: #189F83;
+                        margin-top: 2rem;
+                        margin-left: 2rem;
+                        text-align: start;
+                    }
+                    .userDataContent{
+                        position: relative;
+                        width: 100%;
+                        margin-top: 1rem;
+                        overflow: hidden;
+                        .titleContainer{
+                            width: 100%;
+                            margin-top: 1.5rem;
+                            display: flex;
+                            .title{
+                                width: 20%;
+                                margin-left: 2rem;
+                                font-family: "PT Serif";
+                                font-size: 14px;
+                            }
+                            .input{
+                                font-family: "Noto Sans";
+                                font-size: 14px;
+                                margin-left: 2.5rem;
+                                padding-right: 1rem;
+                                max-width: 500px;
+                            }
+                        }
+                    }
+                    h2{
+                        font-size: 16px;
+                        font-family: "PT Serif";
+                        color: #090909;
+                        margin-top: 3rem;
+                        text-align: center;
+                    }
+                    
+                    .userDataButtonContainer{
+                        display: flex;
+                        flex-direction: column;
+                        padding-bottom: 2rem;
+                        height: unset;
+                        margin: unset;
+                        .reviewButton2{
+                            order: 2;
+                            margin: 1rem 1rem 0 1rem;
+                            font-size: 14px;
+                        }
+                        .reviewButton1{
+                            order: 2;
+                            margin: 0rem 1rem;
+                            margin-top: 2rem;
+                            background: rgb(255, 96, 96);
+                            font-size: 14px;
+                            color: black;
+                            &:hover{
+                                cursor: pointer;
+                                background: rgb(253, 70, 70);
+                            }
+                        }
+                    }
+                }
+            }
+            .messageContainer{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                min-height: unset;
+                background-color: rgba(0, 0, 0, 0.6);
+                z-index: 100;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                pointer-events: none;
+                transition: 0.2s ease-in-out;
+                .messageBox{
+                    position: absolute;
+                    height: auto;
+                    width: 95vw;
+                    background-color: white;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-radius: 5px;
+                    align-items: center;
+                    padding: 2rem 0;
+        
+                    .successHeader{
+                        font-family: "PT Serif";
+                        font-size: 20px;
+                        text-align: center;
+                        padding: 0 1rem;
+                        color: #189F83;
+                    }
+                    .errorHeader{
+                        font-family: "PT Serif";
+                        font-size: 20px;
+                        text-align: center;
+                        padding: 0 1rem;
+                        color: rgb(250, 44, 44);
+                    }
+        
+                    p{
+                        margin-top: 1rem;
+                        text-align: center;
+                        font-family: "Noto Sans";
+                        font-size: 14px;
+                    }
+        
+                    .successButton{
+                        margin-top: 2.5rem;
+                        position: relative;
+                        padding: 0.9rem 2.8rem;
+                        z-index: 1;
+                        background: #189F83;
+                        box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                        border-radius: 5px;
+                        border-style: none;
+                        color: white;
+                        font-size: 14px;
+                        font-family: "PT Serif";
+                        letter-spacing: 1px;
+                        font-weight: 700;
+                        outline: none;
+                        transition: 0.2s ease-in-out;
+                        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                        &:hover{
+                            cursor: pointer;
+                            background: #2edbb9;
+                            color: #090909;
+                        }
+                    }
+                    .errorButton{
+                        margin-top: 2.5rem;
+                        position: relative;
+                        padding: 0.9rem 2.8rem;
+                        z-index: 1;
+                        background: rgb(255, 96, 96);
+                        box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                        border-radius: 5px;
+                        border-style: none;
+                        color: white;
+                        font-size: 14px;
+                        font-family: "PT Serif";
+                        letter-spacing: 1px;
+                        font-weight: 700;
+                        outline: none;
+                        transition: 0.2s ease-in-out;
+                        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+                        &:hover{
+                            cursor: pointer;
+                            background: rgb(253, 70, 70);
+                            color: #090909;
+                        }
+                    }
+                    
+                }
+            }
+        }
+
     }
 }
 @keyframes drop{

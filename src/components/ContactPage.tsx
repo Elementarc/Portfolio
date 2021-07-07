@@ -966,237 +966,238 @@ function ContactPage(props: any) {
 
     return (
         <motion.div exit={{opacity: 0, transition: {duration: 0.5}}} animate={{opacity: 1, transition: {duration: 1}}} initial={{opacity: 0}} className="contactPageContainer" id="contactPageContainer">
-            <div className="userDataConfirmationContainer" id="userDataConfirmationContainer">
-                <div className="userDataContainer" id="userDataContainer">
-                    <h1>REVIEW INFORMATIONS</h1>
-                    <div className="userDataContent">
-                        <div className="titleContainer"> 
-                            <div className="title"><b>Name:</b></div>
-                            <div className="input">{userData.userName}</div>
-                        </div>
+            <div className="allContent">
+                <div className="userDataConfirmationContainer" id="userDataConfirmationContainer">
+                    <div className="userDataContainer" id="userDataContainer">
+                        <h1>REVIEW INFORMATIONS</h1>
+                        <div className="userDataContent">
+                            <div className="titleContainer"> 
+                                <div className="title"><b>Name:</b></div>
+                                <div className="input">{userData.userName}</div>
+                            </div>
 
-                        <div className="titleContainer titleName"> 
-                            <div className="title"><b>E-mail:</b></div>
-                            <div className="input">{userData.email}</div>
-                        </div>
+                            <div className="titleContainer titleName"> 
+                                <div className="title"><b>E-mail:</b></div>
+                                <div className="input">{userData.email}</div>
+                            </div>
 
-                        <div className="titleContainer titleName"> 
-                            <div className="title"><b>Description:</b></div>
-                            <div className="input">{userData.description}</div>
-                        </div>
+                            <div className="titleContainer titleName"> 
+                                <div className="title"><b>Description:</b></div>
+                                <div className="input">{userData.description}</div>
+                            </div>
 
-                        <div className="titleContainer titleName"> 
-                            <div className="title"><b>Budged:</b></div>
-                            <div className="input">{`${userData.budged} ${userData.currency}`}</div>
-                        </div>
-                    </div>
-                    <h2>Does everything look fine?</h2>
-
-                    <div className="userDataButtonContainer">
-                        <button className="reviewButton reviewButton1" onClick={() => reviewInformations(false)}>No, change informations</button>
-                        <button className="reviewButton reviewButton2" onClick={sendProject}>Yes {"&"} Send</button>
-                    </div>
-                </div>
-            </div>
-
-            <div  className="messageContainer" id="messageContainer">
-                <div className="messageBox" id="messageBox">
-                    <p className="successHeader" id="messageHeader"></p>
-                    <p id="messageText"></p>
-                    <button className="successButton" id="messageButton" onClick={successErrorButton}></button>
-                </div>
-            </div>
-            
-
-            <div className="contactContentContainer">
-                <motion.div animate={nameAnimation} className="contactContentName" id="contactContentName">
-                    <div className="headerContent">
-                        <motion.div initial={{width: 0}} animate={{width: "100%", transition: {duration: 1}}} className="lineContainer">
-                            <div className="line1"></div>
-                            <div className="line2"></div>
-                        </motion.div>
-                        
-                        <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
-                        <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHAT'S YOUR NAME?</motion.h2>
-                    </div>
-                    
-                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
-                        <input className="nameInput" id="inputName" type="text" onBlur={verifyInputValue0} placeholder="Full Name" defaultValue={userData.userName === null ? "" :`${userData.userName}`} />
-                        
-                        <div className="nameInfo">
-                            <InputInfo id="inputNameInfoSVG"></InputInfo>
-                            <div className="tooltipContainer">
-                                <p><b>RULES:</b></p>
-                                <p><b>Characters:</b> a-z, A-Z.</p>
-                                <p><b>Numbers: </b> any numbers.</p>
-                                <p>Your name has to be atleast 3 characters long.</p>
-                                <p>Your full name can exactly contain 30 characters, 15 for each part of your name.</p>
-                                <p>Your name can contain exactly 1 space. That space can not be at the beginning or the end of your name.</p>
-                                <p className="lastToolItem">You also can just use your first name.</p>
+                            <div className="titleContainer titleName"> 
+                                <div className="title"><b>Budged:</b></div>
+                                <div className="input">{`${userData.budged} ${userData.currency}`}</div>
                             </div>
                         </div>
-                    </motion.div>
+                        <h2>Does everything look fine?</h2>
 
-                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
-                        <motion.button className="offButton" id="nameNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
-                    </motion.div>
-                </motion.div>
-
-
-
-
-                <motion.div animate={emailAnimation} className="contactContentEmail" id="contactContentEmail">
-                    <div className="headerContent">
-                        <div className="lineContainer">
-                            <div className="line1"></div>
-                            <div className="line2"></div>
+                        <div className="userDataButtonContainer">
+                            <button className="reviewButton reviewButton1" onClick={() => reviewInformations(false)}>No, change informations</button>
+                            <button className="reviewButton reviewButton2" onClick={sendProject}>Yes {"&"} Send</button>
                         </div>
-                        <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
-                        <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHERE CAN WE CONTACT YOU?</motion.h2>
                     </div>
-                    
-                    
-                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
-                        <input className="emailInput" id="inputEmail" type="text" onBlur={verifyInputValue1} placeholder="E-mail" defaultValue={userData.email === null ? "" :`${userData.email}`} />
-                        
-                        <div className="emailInfo">
-                            <InputInfo id="inputEmailInfoSVG"></InputInfo>
-                            <div className="tooltipEmailContainer">
-                                <p><b>Please enter your E-mail address</b></p>
-                                <p style={{marginTop: "-0.7rem"}}>We only will use your E-mail to exchange informations between us and you.</p>
-                                <p><b>WHAT WE WONT DO!</b></p>
-                                <p style={{marginTop: "-0.7rem"}} className="lastToolItem">There will not be any spam E-mails from us. </p>
-                            </div>
-                        </div>
-                    </motion.div>
+                </div>
 
-                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
-                        <motion.button className="offButton" id="emailNextStepButton" animate={{ y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{ y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
-                    </motion.div>
-                </motion.div>
+                <div  className="messageContainer" id="messageContainer">
+                    <div className="messageBox" id="messageBox">
+                        <p className="successHeader" id="messageHeader"></p>
+                        <p id="messageText"></p>
+                        <button className="successButton" id="messageButton" onClick={successErrorButton}></button>
+                    </div>
+                </div>
                 
 
+                <div className="contactContentContainer">
+                    <motion.div animate={nameAnimation} className="contactContentName" id="contactContentName">
+                        <div className="headerContent">
+                            <motion.div initial={{width: 0}} animate={{width: "100%", transition: {duration: 1}}} className="lineContainer">
+                                <div className="line1"></div>
+                                <div className="line2"></div>
+                            </motion.div>
+                            
+                            <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
+                            <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHAT'S YOUR NAME?</motion.h2>
+                        </div>
+                        
+                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
+                            <input className="nameInput" id="inputName" type="text" onBlur={verifyInputValue0} placeholder="Full Name" defaultValue={userData.userName === null ? "" :`${userData.userName}`} />
+                            
+                            <div className="nameInfo">
+                                <InputInfo id="inputNameInfoSVG"></InputInfo>
+                                <div className="tooltipContainer">
+                                    <p><b>RULES:</b></p>
+                                    <p><b>Characters:</b> a-z, A-Z.</p>
+                                    <p><b>Numbers: </b> any numbers.</p>
+                                    <p>Your name has to be atleast 3 characters long.</p>
+                                    <p>Your full name can exactly contain 30 characters, 15 for each part of your name.</p>
+                                    <p>Your name can contain exactly 1 space. That space can not be at the beginning or the end of your name.</p>
+                                    <p className="lastToolItem">You also can just use your first name.</p>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
+                            <motion.button className="offButton" id="nameNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{y: -20}}  onClick={() => nextStep(0)}>NEXT STEP</motion.button>
+                        </motion.div>
+                    </motion.div>
 
 
-                <motion.div animate={descriptionAnimation} className="contactContentDescription" id="contactContentDescription">
+
+
+                    <motion.div animate={emailAnimation} className="contactContentEmail" id="contactContentEmail">
                         <div className="headerContent">
                             <div className="lineContainer">
                                 <div className="line1"></div>
                                 <div className="line2"></div>
                             </div>
                             <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
-                            <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>TELL ME ABOUT YOUR PROJECT</motion.h2>
+                            <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>WHERE CAN WE CONTACT YOU?</motion.h2>
                         </div>
-                    
-                    
-                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
-                        <textarea className="descriptionInput" id="inputDescription" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
-                        <div className="textLengthCounter" id="textLengthCounter">{"0 / 500"}</div>
+                        
+                        
+                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
+                            <input className="emailInput" id="inputEmail" type="text" onBlur={verifyInputValue1} placeholder="E-mail" defaultValue={userData.email === null ? "" :`${userData.email}`} />
                             
-                        
-                        
-                        <div className="descriptionInfo">
-                            <InputInfo className="descriptionInfoSVG" id="inputDescriptionInfoSVG"></InputInfo>
-                            <div className="tooltipDescriptionContainer">
-                                <p><b>Please give us some informations about your project and what you need.</b></p>
-                                <p><b>Atleast</b> 25 characters</p>
-                                <p><b>Max</b> 500 characters</p>
-                                <p><b>Special characters that can be used:</b> {"- _ . , : ; + ! ? &"} </p>
-                                <p className="lastToolItem">Keep in mind that we are designing and developing Websites. We can not help you to build a house, or can we? :)</p>
+                            <div className="emailInfo">
+                                <InputInfo id="inputEmailInfoSVG"></InputInfo>
+                                <div className="tooltipEmailContainer">
+                                    <p><b>Please enter your E-mail address</b></p>
+                                    <p style={{marginTop: "-0.7rem"}}>We only will use your E-mail to exchange informations between us and you.</p>
+                                    <p><b>WHAT WE WONT DO!</b></p>
+                                    <p style={{marginTop: "-0.7rem"}} className="lastToolItem">There will not be any spam E-mails from us. </p>
+                                </div>
                             </div>
-                        </div>
+                        </motion.div>
+
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
+                            <motion.button className="offButton" id="emailNextStepButton" animate={{ y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{ y: -20}}  onClick={() => nextStep(1)}>NEXT STEP</motion.button>
+                        </motion.div>
                     </motion.div>
                     
-                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
-                        <motion.button className="offButton" id="descriptionNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
+
+
+
+                    <motion.div animate={descriptionAnimation} className="contactContentDescription" id="contactContentDescription">
+                            <div className="headerContent">
+                                <div className="lineContainer">
+                                    <div className="line1"></div>
+                                    <div className="line2"></div>
+                                </div>
+                                <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
+                                <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>TELL ME ABOUT YOUR PROJECT</motion.h2>
+                            </div>
+                        
+                        
+                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
+                            <textarea className="descriptionInput" id="inputDescription" onBlur={verifyInputValue2} placeholder="Description" defaultValue={userData.description === null ? "" :`${userData.description}`} />
+                            <div className="textLengthCounter" id="textLengthCounter">{"0 / 500"}</div>
+                                
+                            
+                            
+                            <div className="descriptionInfo">
+                                <InputInfo className="descriptionInfoSVG" id="inputDescriptionInfoSVG"></InputInfo>
+                                <div className="tooltipDescriptionContainer">
+                                    <p><b>Please give us some informations about your project and what you need.</b></p>
+                                    <p><b>Atleast</b> 25 characters</p>
+                                    <p><b>Max</b> 500 characters</p>
+                                    <p><b>Special characters that can be used:</b> {"- _ . , : ; + ! ? &"} </p>
+                                    <p className="lastToolItem">Keep in mind that we are designing and developing Websites. We can not help you to build a house, or can we? :)</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                        
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
+                            <motion.button className="offButton" id="descriptionNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => nextStep(2)}>NEXT STEP</motion.button>
+                        </motion.div>
                     </motion.div>
+
+
+
+
+
+
+                    <motion.div animate={budgedAnimation} className="contactContentBudged" id="contactContentBudged">
+                        <div className="headerContent">
+                            <div className="lineContainer">
+                                <div className="line1"></div>
+                                <div className="line2"></div>
+                            </div>
+                            <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
+                            <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>HOW IMPORTANT IS THAT PROJECT TO YOU?</motion.h2>
+                        </div>
+                    
+                        
+                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
+                            <input className="budgedInput" id="inputBudged" type="number" onBlur={() => {verifyInputValue3()}} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
+                            <div className="currencyContainer">
+                                <motion.div onClick={() => {toggleCurrencyBox = true; toggleCurrency()}} onMouseEnter={() => clearTimeout(currencyTimer)} onMouseLeave={() => {toggleCurrencyBox = false; currencyTimer = setTimeout(() => {
+                                    toggleCurrency()
+                                }, 300);}} className="optionContainer" id="optionContainer">
+                                    <div className="optionFlexContainer" id="optionFlexContainer">
+                                        <div className="option1" id="option1" onClick={() => changeCurrency("option1")}>{"€"}</div>
+                                        <div className="option2" id="option2" onClick={() => changeCurrency("option2")}>{"$"}</div>
+                                    </div>
+                                </motion.div>
+                            </div>
+                            
+                            <div className="budgedInfo">
+                                <InputInfo className="budgedInfoSvg" id="inputBudgedInfoSVG"></InputInfo>
+                                <div className="tooltipBudgedContainer">
+                                    <p><b>We want people who care!</b></p>
+                                    <p style={{marginTop: "-0.7rem"}}>If you do not take your project seriously, please make sure to not contact us.</p>
+                                    <p><b>BUT IF YOU DO CARE</b></p>
+                                    <p style={{marginTop: "-0.7rem"}}>Not everybody can efford us but that doesnt mean you should hesitate to enter your budged.</p>
+                                    <p>If your budged is not in range we will try to find you another team that would love to work with you.</p>
+                                    <p className="lastToolItem"><b>Make sure to be</b> as honest as possible about your budged, we dont want to waste your time and hopefully you think the same way.</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                        <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
+                            <motion.button className="offButton" id="budgedNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => reviewInformations(true)}>REVIEW {"&"} SEND</motion.button>
+                        </motion.div>
+                    </motion.div>
+                </div>
+
+
+
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition:{delay: 1, duration: 1}}} className="stepsContainer">
+                    <div className="stepsInnerContainer">
+
+                        <div onClick={() => getToSpecifcStep(0)} className="step step1">
+                            <StepIcon className="stepIcon contactStepIcon1"/>
+                            <p className="stepName stepNameTarget">Step 1</p>
+                        </div>
+
+                        <span />
+
+                        <div onClick={() => getToSpecifcStep(1)} className="step step2">
+                            <StepIcon className="stepIcon contactStepIcon2"/>
+                            <p className="stepName">Step 2</p>
+                        </div>
+
+                        <span />
+
+                        <div onClick={() => getToSpecifcStep(2)} className="step step3">
+                            <StepIcon className="stepIcon contactStepIcon3"/>
+                            <p className="stepName">Step 3</p>
+                        </div>
+
+                        <span />
+
+                        <div onClick={() => getToSpecifcStep(3)} className="step step4">
+                            <StepIcon className="stepIcon contactStepIcon4"/>
+                            <p className="stepName">Step 4</p>
+                        </div>
+                    </div>
                 </motion.div>
 
 
-
-
-
-
-                <motion.div animate={budgedAnimation} className="contactContentBudged" id="contactContentBudged">
-                    <div className="headerContent">
-                        <div className="lineContainer">
-                            <div className="line1"></div>
-                            <div className="line2"></div>
-                        </div>
-                        <motion.h1 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>CONTACT</motion.h1>
-                        <motion.h2 animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.3}}} initial={{opacity: 0, y: -20}}>HOW IMPORTANT IS THAT PROJECT TO YOU?</motion.h2>
-                    </div>
-                   
-                    
-                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
-                        <input className="budgedInput" id="inputBudged" type="number" onBlur={() => {verifyInputValue3()}} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
-                        <div className="currencyContainer">
-                            <motion.div onClick={() => {toggleCurrencyBox = true; toggleCurrency()}} onMouseEnter={() => clearTimeout(currencyTimer)} onMouseLeave={() => {toggleCurrencyBox = false; currencyTimer = setTimeout(() => {
-                                toggleCurrency()
-                            }, 300);}} className="optionContainer" id="optionContainer">
-                                <div className="optionFlexContainer" id="optionFlexContainer">
-                                    <div className="option1" id="option1" onClick={() => changeCurrency("option1")}>{"€"}</div>
-                                    <div className="option2" id="option2" onClick={() => changeCurrency("option2")}>{"$"}</div>
-                                </div>
-                            </motion.div>
-                        </div>
-                        
-                        <div className="budgedInfo">
-                            <InputInfo className="budgedInfoSvg" id="inputBudgedInfoSVG"></InputInfo>
-                            <div className="tooltipBudgedContainer">
-                                <p><b>We want people who care!</b></p>
-                                <p style={{marginTop: "-0.7rem"}}>If you do not take your project seriously, please make sure to not contact us.</p>
-                                <p><b>BUT IF YOU DO CARE</b></p>
-                                <p style={{marginTop: "-0.7rem"}}>Not everybody can efford us but that doesnt mean you should hesitate to enter your budged.</p>
-                                <p>If your budged is not in range we will try to find you another team that would love to work with you.</p>
-                                <p className="lastToolItem"><b>Make sure to be</b> as honest as possible about your budged, we dont want to waste your time and hopefully you think the same way.</p>
-                            </div>
-                        </div>
-                    </motion.div>
-                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.5, delay: 0.5}}}>
-                        <motion.button className="offButton" id="budgedNextStepButton" animate={{y: 0, transition: {duration: 0.5, delay: 0.7}}} initial={{y: -20}}  onClick={() => reviewInformations(true)}>REVIEW {"&"} SEND</motion.button>
-                    </motion.div>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1, duration: 1}}} className="designRef">
+                    <p>Not sure yet? You can checkout my work <Link to="/design">here</Link></p>
                 </motion.div>
             </div>
-
-
-
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition:{delay: 1, duration: 1}}} className="stepsContainer">
-                <div className="stepsInnerContainer">
-
-                    <div onClick={() => getToSpecifcStep(0)} className="step step1">
-                        <StepIcon className="stepIcon contactStepIcon1"/>
-                        <p className="stepName stepNameTarget">Step 1</p>
-                    </div>
-
-                    <span />
-
-                    <div onClick={() => getToSpecifcStep(1)} className="step step2">
-                        <StepIcon className="stepIcon contactStepIcon2"/>
-                        <p className="stepName">Step 2</p>
-                    </div>
-
-                    <span />
-
-                    <div onClick={() => getToSpecifcStep(2)} className="step step3">
-                        <StepIcon className="stepIcon contactStepIcon3"/>
-                        <p className="stepName">Step 3</p>
-                    </div>
-
-                    <span />
-
-                    <div onClick={() => getToSpecifcStep(3)} className="step step4">
-                        <StepIcon className="stepIcon contactStepIcon4"/>
-                        <p className="stepName">Step 4</p>
-                    </div>
-                </div>
-            </motion.div>
-
-
-            <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1, duration: 1}}} className="designRef">
-                <p>Not sure yet? You can checkout my work <Link to="/design">here</Link></p>
-            </motion.div>
-
             <motion.div animate={{opacity: 1, height: "100%", transition: {delay: 1}}} initial={{opacity: 0, height: 0}} id="rainContainer" className="rainContainer">
                 {rainDrops}
             </motion.div>
