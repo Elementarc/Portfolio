@@ -80,9 +80,9 @@ const ProjectsPage = (props: any) => {
                     </motion.div>
                 </motion.div>
             
-                <motion.div  className="middleContent">
-                    <div  className="middleContentContainer">
-                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
+                <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.6, delay: 0.5}}} initial={{opacity: 0, y: -20}}  className="middleContent">
+                    <motion.div className="middleContentContainer">
+                        <motion.div >
                             <h1>{"DESIGN & DEPLOY"}</h1>
                             <h2 >WEB-DEVELOPMENT</h2>
                         </motion.div>
@@ -95,7 +95,7 @@ const ProjectsPage = (props: any) => {
                             </Link>
                         </motion.div>
                         
-                    </div>
+                    </motion.div>
                     
                     <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="topIllustration"></motion.div>
                     <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 0.5}}} className="bottomIllustration"></motion.div>
@@ -117,10 +117,11 @@ const ProjectsPage = (props: any) => {
                         </Link>
                     </motion.div>
                     
-                    <div className="scrollUpContainer">
-                        <div onClick={scrollToTop} className="scrollUpIcon"></div>
-                        <button onClick={scrollToTop}>SCROLL UP</button>
-                    </div>
+                    
+                </div>
+                <div className="scrollUpContainer">
+                    <div onClick={scrollToTop} className="scrollUpIcon"></div>
+                    <button onClick={scrollToTop}>SCROLL UP</button>
                 </div>
             </div>
             
