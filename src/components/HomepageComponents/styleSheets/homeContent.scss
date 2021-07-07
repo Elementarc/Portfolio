@@ -4,6 +4,7 @@
 ::-webkit-scrollbar{
     width: 0;
 }
+
 .homeContent {
     position: absolute;
     top: 0;
@@ -14,352 +15,363 @@
     overflow-y: hidden;
     pointer-events: visible;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
-    
-    .content{
-        position: absolute;
-        height: 100%;
-        padding-top: 16rem;
-        width: 100%;
-        padding-left: 17%;
-        z-index: 0;
+    .allContent{
+        position: relative;
         pointer-events: none;
-        
-        h1{
-            display: inline-block;
-            font-family: "PT Serif";
-            font-size: 20px;
-            margin: 0rem 0 0rem 0rem;
-            pointer-events: visible;
-        }
-        h2{
-            display: inline-block;
-            font-family: "PT Serif";
-            font-size: 39px;
-            margin: -0.5rem 0 0rem 0;
-            pointer-events: visible;
-
-        }
-        span{
+        height: 100%;
+        max-height: 1000px;
+        width: 100%;
+        .content{
             position: absolute;
-            display: block;
-            height: 2px;
-            width: 760px;
-            margin-left: -6rem;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 120%);
-            .underlineIcon{
+            height: 100%;
+            padding-top: 16rem;
+            width: 100%;
+            padding-left: 17%;
+            z-index: 0;
+            pointer-events: none;
+            
+            h1{
+                display: inline-block;
+                font-family: "PT Serif";
+                font-size: 20px;
+                margin: 0rem 0 0rem 0rem;
+                pointer-events: visible;
+            }
+            h2{
+                display: inline-block;
+                font-family: "PT Serif";
+                font-size: 39px;
+                margin: -0.5rem 0 0rem 0;
+                pointer-events: visible;
+    
+            }
+            span{
                 position: absolute;
-                right: -0.9rem;
-                background-image: url("../../../assets/svgs/underlineIcon.svg");
-                margin-top: -0.4rem;
-                height: 16px;
-                width: 16px;
+                display: block;
+                height: 2px;
+                width: 760px;
+                margin-left: -6rem;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 120%);
+                .underlineIcon{
+                    position: absolute;
+                    right: -0.9rem;
+                    background-image: url("../../../assets/svgs/underlineIcon.svg");
+                    margin-top: -0.4rem;
+                    height: 16px;
+                    width: 16px;
+                }
+                
             }
             
-        }
-        
-        p{
-            display: inline-block;
-            margin: 1rem 0 0rem 0;
-            font-size: 18px;
-            line-height: 2rem;
-            font-family: "Noto Sans";
-            width: 37rem;
-            pointer-events: visible;
-        }
-        button{
-            pointer-events: visible;
-            position: relative;
-            padding: 0.9rem 2.8rem;
-            background: #27c5a4;
-            background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
-            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-            border-radius: 5px;
-            border-style: none;
-            color: white;
-            font-size: 16px;
-            font-family: "PT Serif";
-            letter-spacing: 1px;
-            font-weight: 700;
-            outline: none;
-            margin: 2rem 0 0rem 0rem;
-    
-            .buttonStyleBox {
-                position: absolute;
-                opacity: 0.1;
-                background-color: white;
+            p{
+                display: inline-block;
+                margin: 1rem 0 0rem 0;
+                font-size: 18px;
+                line-height: 2rem;
+                font-family: "Noto Sans";
+                width: 37rem;
+                pointer-events: visible;
+            }
+            button{
+                pointer-events: visible;
+                position: relative;
+                padding: 0.9rem 2.8rem;
+                background: #27c5a4;
+                background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                 border-radius: 5px;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 0%;
+                border-style: none;
+                color: white;
+                font-size: 16px;
+                font-family: "PT Serif";
+                letter-spacing: 1px;
+                font-weight: 700;
                 outline: none;
-                transition: 0.25s ease-in-out;
-                pointer-events: none;
-            }
-        }
-        button:hover{
-            cursor: pointer;
-        }
-    }
-    .homepageMenuContainer{
-        .homepageMenu{
-            position: absolute;
-            display: flex;
-            flex-wrap: wrap;
-            padding-bottom: 6rem;
-            z-index: -1;
-            top: 12rem;
-            right: 17%;
-            width: 40%;
-            min-width: 550px;
-            max-width: 800px;
-            .item1{
-                position: relative;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.512);
-                width: 100%;
-                height: 400px;
-                margin-bottom: 1rem;
-                overflow: hidden;
-                .item1Background{
+                margin: 2rem 0 0rem 0rem;
+        
+                .buttonStyleBox {
                     position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                    transition: 1s ease-in-out;
-                }
-                .item1Content{
-                    position: absolute;
-                    display: flex;
-                    align-items: flex-end;
-                    flex-direction: column;
-                    bottom: -5.2rem;
-                    height: auto;
-                    width: 100%;
-                    transition: 0.6s ease-in-out;
-                    h1{
-                        margin-right: 1rem;
-                        font-size: 18px;
-                        font-family: "PT Serif";
-                    }
-                    p{
-                        font-family: "Noto Sans";
-                        line-height: 1.5rem;
-                        direction: rtl;
-                        width: 50%;
-                        margin-top: 0.7rem;
-                        margin-right: 1rem;
-                        font-size: 15px;
-                        font-weight: 500;
-                    }
-                    a{
-                        font-family: "PT Serif";
-                        margin-top: 1rem;
-                        font-weight: 700;
-                        text-decoration: none;
-                        font-size: 14px;
-                        color: #56FFDC;
-                        margin-right: 1rem;
-                    }
-                    a:hover{
-                        color: #23ad92;
-                    }
-                }
-                
-                span{
-                    position: absolute;
-                    bottom: 0rem;
-                    z-index: 1;
+                    opacity: 0.1;
+                    background-color: white;
+                    border-radius: 5px;
+                    top: 0;
                     left: 0;
-                    height: 1px;
-                    width: 0;
-                    background-color: #56FFDC;
-                    transition: 0.8s ease-in-out;
-                }
-                &:hover > span{
-                    width: 100%;
-                }
-                &:hover > .item1Content{
-                    bottom: 1rem;
-                    transition: 0.6s ease-in-out;
-                }
-                &:hover > .item1Background{
-                    transform: scale(1.1);
-                    transition: 1s ease-in-out;
+                    height: 100%;
+                    width: 0%;
+                    outline: none;
+                    transition: 0.25s ease-in-out;
+                    pointer-events: none;
                 }
             }
-            .item2{
-                position: relative;
+            button:hover{
+                cursor: pointer;
+            }
+        }
+        .homepageMenuContainer{
+            pointer-events: visible;
+            .homepageMenu{
+                position: absolute;
+                display: flex;
+                flex-wrap: wrap;
+                padding-bottom: 6rem;
+                z-index: -1;
+                top: 12rem;
+                right: 17%;
                 width: 40%;
-                height: 200px;
-                margin-right: 1rem;
-                overflow: hidden;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.512);
-                
-                .imageBlur{
-                    position: absolute;
-                    z-index: 1;
+                min-width: 550px;
+                max-width: 800px;
+                .item1{
+                    position: relative;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.512);
                     width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.5);
-                }
-                .item2Background{
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    object-position: center;
-                    object-fit: cover;
-                    transition: 1s ease-in-out;
-                }
-                .item2Content{
-                    position: absolute;
-                    z-index: 3;
-                    display: flex;
-                    align-items: flex-end;
-                    flex-direction: column;
-                    bottom: -3.8rem;
-                    height: auto;
-                    width: 100%;
-                    transition: 0.6s ease-in-out;
-                    h1{
-                        margin-right: 1rem;
-                        font-size: 18px;
-                        font-family: "PT Serif";
+                    height: 400px;
+                    margin-bottom: 1rem;
+                    overflow: hidden;
+                    .item1Background{
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        transition: 1s ease-in-out;
                     }
-                    p{
-                        font-family: "Noto Sans";
-                        line-height: 1.5rem;
-                        direction: rtl;
-                        width: 70%;
-                        margin-top: 0.7rem;
-                        margin-right: 1rem;
-                        font-size: 15px;
-                        font-weight: 500;
-                    }
-                    .link{
-                        font-family: "PT Serif";
-                        margin-top: 1rem;
-                        font-weight: 700;
-                        text-decoration: none;
-                        font-size: 14px;
-                        color: #56FFDC;
-                        margin-right: 1rem;
-                        &:hover{
-                            cursor: pointer;
+                    .item1Content{
+                        position: absolute;
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        bottom: -5.2rem;
+                        height: auto;
+                        width: 100%;
+                        transition: 0.6s ease-in-out;
+                        h1{
+                            margin-right: 1rem;
+                            font-size: 18px;
+                            font-family: "PT Serif";
+                        }
+                        p{
+                            font-family: "Noto Sans";
+                            line-height: 1.5rem;
+                            direction: rtl;
+                            width: 50%;
+                            margin-top: 0.7rem;
+                            margin-right: 1rem;
+                            font-size: 15px;
+                            font-weight: 500;
+                        }
+                        a{
+                            font-family: "PT Serif";
+                            margin-top: 1rem;
+                            font-weight: 700;
+                            text-decoration: none;
+                            font-size: 14px;
+                            color: #56FFDC;
+                            margin-right: 1rem;
+                        }
+                        a:hover{
                             color: #23ad92;
                         }
                     }
                     
+                    span{
+                        position: absolute;
+                        bottom: 0rem;
+                        z-index: 1;
+                        left: 0;
+                        height: 1px;
+                        width: 0;
+                        background-color: #56FFDC;
+                        transition: 0.8s ease-in-out;
+                    }
+                    &:hover > span{
+                        width: 100%;
+                    }
+                    &:hover > .item1Content{
+                        bottom: 1rem;
+                        transition: 0.6s ease-in-out;
+                    }
+                    &:hover > .item1Background{
+                        transform: scale(1.1);
+                        transition: 1s ease-in-out;
+                    }
                 }
-                
-                span{
-                    position: absolute;
-                    bottom: 0rem;
-                    z-index: 1;
-                    left: 0;
-                    height: 1px;
-                    width: 0;
-                    background-color: #56FFDC;
-                    transition: 0.8s ease-in-out;
+                .item2{
+                    position: relative;
+                    width: 40%;
+                    height: 200px;
+                    margin-right: 1rem;
+                    overflow: hidden;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.512);
+                    
+                    .imageBlur{
+                        position: absolute;
+                        z-index: 1;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+                    .item2Background{
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        object-position: center;
+                        object-fit: cover;
+                        transition: 1s ease-in-out;
+                    }
+                    .item2Content{
+                        position: absolute;
+                        z-index: 3;
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        bottom: -3.8rem;
+                        height: auto;
+                        width: 100%;
+                        transition: 0.6s ease-in-out;
+                        h1{
+                            margin-right: 1rem;
+                            font-size: 18px;
+                            font-family: "PT Serif";
+                        }
+                        p{
+                            font-family: "Noto Sans";
+                            line-height: 1.5rem;
+                            direction: rtl;
+                            width: 70%;
+                            margin-top: 0.7rem;
+                            margin-right: 1rem;
+                            font-size: 15px;
+                            font-weight: 500;
+                        }
+                        .link{
+                            font-family: "PT Serif";
+                            margin-top: 1rem;
+                            font-weight: 700;
+                            text-decoration: none;
+                            font-size: 14px;
+                            color: #56FFDC;
+                            margin-right: 1rem;
+                            &:hover{
+                                cursor: pointer;
+                                color: #23ad92;
+                            }
+                        }
+                        
+                    }
+                    
+                    span{
+                        position: absolute;
+                        bottom: 0rem;
+                        z-index: 1;
+                        left: 0;
+                        height: 1px;
+                        width: 0;
+                        background-color: #56FFDC;
+                        transition: 0.8s ease-in-out;
+                    }
+                    &:hover > span{
+                        width: 100%;
+                    }
+                    &:hover > .item2Content{
+                        bottom: 1rem;
+                        transition: 0.6s ease-in-out;
+                    }
+                    &:hover > .item2Background{
+                        transform: scale(1.1);
+                        transition: 1s ease-in-out;
+                    }
                 }
-                &:hover > span{
-                    width: 100%;
-                }
-                &:hover > .item2Content{
-                    bottom: 1rem;
-                    transition: 0.6s ease-in-out;
-                }
-                &:hover > .item2Background{
-                    transform: scale(1.1);
-                    transition: 1s ease-in-out;
+                .item3{
+                    position: relative;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.512);
+                    
+                    flex-grow: 1;
+                    overflow: hidden;
+                    height: 200px;
+                    .imageBlur{
+                        position: absolute;
+                        z-index: 1;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+                    .item3Background{
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        object-position: center;
+                        object-fit: cover;
+                        transition: 1s ease-in-out;
+                    }
+                    .item3Content{
+                        position: absolute;
+                        z-index: 3;
+                        display: flex;
+                        align-items: flex-end;
+                        flex-direction: column;
+                        bottom: -5.3rem;
+                        height: auto;
+                        width: 100%;
+                        transition: 0.6s ease-in-out;
+                        h1{
+                            margin-right: 1rem;
+                            font-size: 18px;
+                            font-family: "PT Serif";
+                        }
+                        p{
+                            font-family: "Noto Sans";
+                            line-height: 1.5rem;
+                            direction: rtl;
+                            width: 60%;
+                            margin-top: 0.7rem;
+                            margin-right: 1rem;
+                            font-size: 15px;
+                            font-weight: 500;
+                        }
+                        a{
+                            font-family: "PT Serif";
+                            margin-top: 1rem;
+                            font-weight: 700;
+                            text-decoration: none;
+                            font-size: 14px;
+                            color: #56FFDC;
+                            margin-right: 1rem;
+                        }
+                        a:hover{
+                            color: #23ad92;
+                        }
+                    }
+                    
+                    span{
+                        position: absolute;
+                        bottom: 0rem;
+                        z-index: 1;
+                        left: 0;
+                        height: 1px;
+                        width: 0;
+                        background-color: #56FFDC;
+                        transition: 0.8s ease-in-out;
+                    }
+                    &:hover > span{
+                        width: 100%;
+                    }
+                    &:hover > .item3Content{
+                        bottom: 1rem;
+                        transition: 0.6s ease-in-out;
+                    }
+                    &:hover > .item3Background{
+                        transform: scale(1.1);
+                        transition: 1s ease-in-out;
+                    }
                 }
             }
-            .item3{
-                position: relative;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.512);
-                
-                flex-grow: 1;
-                overflow: hidden;
-                height: 200px;
-                .imageBlur{
-                    position: absolute;
-                    z-index: 1;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.5);
-                }
-                .item3Background{
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    object-position: center;
-                    object-fit: cover;
-                    transition: 1s ease-in-out;
-                }
-                .item3Content{
-                    position: absolute;
-                    z-index: 3;
-                    display: flex;
-                    align-items: flex-end;
-                    flex-direction: column;
-                    bottom: -5.3rem;
-                    height: auto;
-                    width: 100%;
-                    transition: 0.6s ease-in-out;
-                    h1{
-                        margin-right: 1rem;
-                        font-size: 18px;
-                        font-family: "PT Serif";
-                    }
-                    p{
-                        font-family: "Noto Sans";
-                        line-height: 1.5rem;
-                        direction: rtl;
-                        width: 60%;
-                        margin-top: 0.7rem;
-                        margin-right: 1rem;
-                        font-size: 15px;
-                        font-weight: 500;
-                    }
-                    a{
-                        font-family: "PT Serif";
-                        margin-top: 1rem;
-                        font-weight: 700;
-                        text-decoration: none;
-                        font-size: 14px;
-                        color: #56FFDC;
-                        margin-right: 1rem;
-                    }
-                    a:hover{
-                        color: #23ad92;
-                    }
-                }
-                
-                span{
-                    position: absolute;
-                    bottom: 0rem;
-                    z-index: 1;
-                    left: 0;
-                    height: 1px;
-                    width: 0;
-                    background-color: #56FFDC;
-                    transition: 0.8s ease-in-out;
-                }
-                &:hover > span{
-                    width: 100%;
-                }
-                &:hover > .item3Content{
-                    bottom: 1rem;
-                    transition: 0.6s ease-in-out;
-                }
-                &:hover > .item3Background{
-                    transform: scale(1.1);
-                    transition: 1s ease-in-out;
-                }
-            }
-        }
+        }   
     }
+    
 }
 
 .homePassion {
@@ -372,579 +384,70 @@
     overflow-y: hidden;
     pointer-events: visible;
     z-index: 2;
-    
-    .content{
-        position: absolute;
-        height: 100%;
-        padding-top: 16rem;
-        width: 100%;
-        padding-left: 17%;
-        z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .allContent{
+        position: relative;
         pointer-events: none;
-        h1{
-            display: inline-block;
-            font-family: "PT Serif";
-            font-size: 20px;
-            margin: 0rem 0 0rem 0rem;
-            pointer-events: visible;
-        }
-        h2{
-            display: inline-block;
-            font-family: "PT Serif";
-            font-size: 39px;
-            margin: -0.5rem 0 0rem 0;
-            pointer-events: visible;
-
-        }
-        span{
-            position: absolute;
-            display: block;
-            height: 2px;
-            width: 760px;
-            margin-left: -6rem;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 120%);
-            .underlineIcon{
-                position: absolute;
-                right: -0.9rem;
-                background-image: url("../../../assets/svgs/underlineIcon.svg");
-                margin-top: -0.4rem;
-                height: 16px;
-                width: 16px;
-            }
-            
-        }
-        
-        p{
-            display: inline-block;
-            margin: 1rem 0 0rem 0;
-            font-size: 18px;
-            line-height: 2rem;
-            font-family: "Noto Sans";
-            width: 37rem;
-            pointer-events: visible;
-        }
-        button{
-            pointer-events: visible;
-            position: relative;
-            padding: 0.9rem 2.8rem;
-            background: #27c5a4;
-            background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
-            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-            border-radius: 5px;
-            border-style: none;
-            color: white;
-            font-size: 16px;
-            font-family: "PT Serif";
-            letter-spacing: 1px;
-            font-weight: 700;
-            outline: none;
-            margin: 2rem 0 0rem 0rem;
-    
-            .buttonStyleBox {
-                position: absolute;
-                opacity: 0.1;
-                background-color: white;
-                border-radius: 5px;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 0%;
-                outline: none;
-                transition: 0.25s ease-in-out;
-                pointer-events: none;
-            }
-        }
-        button:hover{
-            cursor: pointer;
-        }
-    }
-    
-    .passionImagesContainer{
-        position: absolute;
-        z-index: -1;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        opacity: 0;
-        grid-gap: 3rem;
-        right: 17%;
-        top: 190px;
-        width: 50%;
-        max-width: 700px;
-        height: 700px;
-        padding-bottom: 5rem;
-        animation: passion 4s infinite;
-        animation-timing-function: ease-in-out;
-        -webkit-animation-timing-function: ease-in-out;
-        animation-direction: alternate;
-        .image1Container{
-            position: relative;
-            grid-column: 1;
-            grid-row: 1/5;
-            background-color: black;
-            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-            .imageBlur{
-                position: absolute;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.3);
-            }
-            .image1{
-                width: 100%;
-                height: 100%;
-                background-image: url("../../../assets/images/Universe1.jpg");
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-        }
-        .image2Container{
-            position: relative;
-            grid-column: 2;
-            grid-row: 2/6;
-            background-color: black;
-            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-            .imageBlur{
-                position: absolute;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.3);
-            }
-            .image2{
-                width: 100%;
-                height: 100%;
-                background-image: url("../../../assets/images/Universe2.jpg");
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-        }
-    }
-}
-
-.homeNews {
-    position: absolute;
-    top: 200vh;
-    color: white;
-    width: 100%;
-    max-height: 1350px;
-    height: 100vh;
-    overflow-x: hidden;
-    pointer-events: visible;
-    z-index: 2;
-    
-    .content{
-        position: absolute;
         height: 100%;
-        padding-top: 16rem;
+        max-height: 1000px;
         width: 100%;
-        padding-left: 17%;
-        z-index: 0;
-        pointer-events: none;
-        h1{
-            display: inline-block;
-            font-family: "PT Serif";
-            font-size: 20px;
-            margin: 0rem 0rem 0rem 0rem;
-            pointer-events: visible;
-        }
-
-        h2{
-            display: inline-block;
-            font-family: "PT Serif";
-            font-size: 39px;
-            margin: -0.5rem 0 0rem 0;
-            pointer-events: visible;
-
-        }
-
-        span{
+        .content{
             position: absolute;
-            display: block;
-            height: 2px;
-            width: 670px;
-            margin-left: -6rem;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 120%);
-            .underlineIcon{
-                position: absolute;
-                right: -0.9rem;
-                background-image: url("../../../assets/svgs/underlineIcon.svg");
-                margin-top: -0.4rem;
-                height: 16px;
-                width: 16px;
-            }
-            
-        }
-        
-        p{
-            display: inline-block;
-            margin: 1rem 0 0rem 0;
-            font-size: 18px;
-            line-height: 2rem;
-            font-family: "Noto Sans";
-            width: 34rem;
-            pointer-events: visible;
-        }
-        button{
-            pointer-events: visible;
-            position: relative;
-            padding: 0.9rem 2.8rem;
-            background: #27c5a4;
-            background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
-            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-            border-radius: 5px;
-            border-style: none;
-            color: white;
-            font-size: 16px;
-            font-family: "PT Serif";
-            letter-spacing: 1px;
-            font-weight: 700;
-            outline: none;
-            margin: 2rem 0 0rem 0rem;
-    
-            .buttonStyleBox {
-                position: absolute;
-                opacity: 0.1;
-                background-color: white;
-                border-radius: 5px;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 0%;
-                outline: none;
-                transition: 0.25s ease-in-out;
-                pointer-events: none;
-            }
-        }
-        button:hover{
-            cursor: pointer;
-        }
-    }
-    .videoContainer{
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        max-height: 1350px;
-        max-width: 2400px;
-        
-        .backgroundImagePassionBlur{
-            position: absolute;
-            top: 0;
             height: 100%;
-            min-height: 950px;
+            padding-top: 16rem;
             width: 100%;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
-            z-index: 1;
-        }
-        video{
-            overflow: hidden;
-            min-height: 950px;
-            object-fit: cover;
-        }
-    }
-}
-
-.homeConnect{
-    position: absolute;
-    top: 300vh;
-    color: white;
-    width: 100%;
-    max-height: 1350px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    pointer-events: visible;
-    z-index: 2;
-    
-    .content{
-        position: absolute;
-        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
-        padding-top: 16rem;
-        width: 100%;
-        z-index: 0;
-        pointer-events: none;
-        h1{
-            font-family: "PT Serif";
-            font-size: 20px;
-            margin: 0;
-            pointer-events: visible;
-            text-align: center;
-        }
-        h2{
-            font-family: "PT Serif";
-            font-size: 39px;
-            margin: -0.5rem 0 0rem 0;
-            pointer-events: visible;
-            text-align: center;
-        }
-        p{
-            margin: 1rem 0 0rem 0;
-            font-size: 18px;
-            line-height: 2rem;
-            text-align: center;
-            font-family: "Noto Sans";
-            width: 37rem;
-            pointer-events: visible;
-        }
-        button{
-            pointer-events: visible;
-            position: relative;
-            padding: 1rem 2.8rem;
-            background: #27c5a4;
-            background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
-            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-            border-radius: 5px;
-            border-style: none;
-            color: white;
-            font-size: 16px;
-            font-family: "PT Serif";
-            letter-spacing: 1px;
-            font-weight: 700;
-            outline: none;
-            margin: 2rem 0 0rem 0rem;
-            .buttonStyleBox {
-                position: absolute;
-                opacity: 0.1;
-                background-color: white;
-                border-radius: 5px;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 0%;
-                outline: none;
-                transition: 0.25s ease-in-out;
-                pointer-events: none;
-            }
-            &:hover{
-                cursor: pointer;
-            }
-        }
-        
-        .or{
-            margin-top: 6rem;
-            font-size: 16px;
-            font-family: "PT Serif";
-            &::after{
-                content: "";
-                position: absolute;
-                margin-left: 1rem;
-                margin-top: 1rem;
-                width: 30px;
-                height: 1px;
-                background-color: rgba(255, 255, 255, 0.5);
-            }
-            &::before{
-                content: "";
-                position: absolute;
-                margin-left: -2.9rem;
-                margin-top: 1rem;
-                width: 30px;
-                height: 1px;
-                background-color: rgba(255, 255, 255, 0.5);
-            }
-        }
-        .contactContainer{
-            width: 100%;
-            margin-top: 2.5rem;
-            display: flex;
-            justify-content: center;
-            padding-bottom: 6rem;
-            .secondLink{
-                margin-top: 4rem;
-            }
-            .box{
-                position: relative;
-                height: 150px;
-                width: 300px;
-                margin: 0 3rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            padding-left: 17%;
+            z-index: 0;
+            pointer-events: none;
+            h1{
+                display: inline-block;
+                font-family: "PT Serif";
+                font-size: 20px;
+                margin: 0rem 0 0rem 0rem;
                 pointer-events: visible;
-
-                .contactBoxSVG{
-                    position: absolute;
-                    transition: 0.1s ease-in-out;
-                    .svgPath{
-                        transition: 0.1s ease-in-out;
-                        fill: rgb(0, 0, 0);
-                        fill-opacity: .5;
-                    }
-                }
-
-                &:hover{
-                    cursor: pointer;
-                    .contactBoxSVG{
-                        transform: scale(1.1);
-                        transition: 0.1s ease-in-out;
-                        .svgPath{
-                            stroke-width: .6px;
-                            stroke: #56FFDC;
-                            fill-opacity: .8;
-                            transition: 0.1s ease-in-out;
-                        }
-                    }
-                }
-                
-                
-                
-                .discord{
-                    z-index: 1;
-                    height: 43%;
-                    width: 100%;
-                    background-image: url("../../../assets/images/Discord-Logo+Wordmark-White.png");
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    margin-top: 0.3rem;
-                }
-                .github{
-                    z-index: 1;
-                    height: 33%;
-                    width: 100%;
-                    background-image: url("../../../assets/images/GitHub_Logo_White.png");
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                }
-                .work{
-                    z-index: 5;
-                    font-family: "PT Serif";
-                    font-weight: 700;
-                    font-size: 30px;
-                    color: white;
-                }
-            }
-        }
-    }
-}
-
-@media (max-height: 950px){
-    .homeContent{
-        overflow-y: scroll;
-    }
-    .homePassion{
-        overflow-y: scroll;
-    }
-    .homeNews{
-        overflow-y: scroll;
-    }
-    .homeConnect{
-        overflow-y: scroll;
-    }
-}
-@media (max-width: 1600px){
-    .homeContent{
-        .homepageMenuContainer{
-            .homepageMenu{
-                right: 18%;
-                width: 40%;
-                
-                .item1{
-                    .item1Content{
-                        p{
-                            width: 60%;
-                        }
-                    }
-                }
-                .item2{
-                    .item2Content{
-                        p{
-                            width: 80%;
-                        }
-                    }
-                }
-                .item3{
-                    .item3Content{
-                        p{
-                            width: 80%;
-                        }
-                    }
-                }
-            }
-        }
-        
-    }
-    .homeConnect{
-        .content{
-            .contactContainer{
-                .box{
-                    width: 280px;
-                    margin: 0 1rem;
-
-                    .discord{
-                        height: 40%;
-                    }
-                    .github{
-                        height: 30%;
-                    }
-                    .work{
-                        font-size: 28px;
-                    }
-                }
-            }
-        }
-    }
-}
-@media (max-width: 1300px){
-    .homeContent {
-        position: absolute;
-        overflow-y: scroll;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        top: 0;
-        color: white;
-        width: 100%;
-        height: 100vh;
-        pointer-events: visible;
-        z-index: 2;
-        .content{
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding-top: 12rem;
-            width: 65%;
-            padding-left: unset;
-            h1{
-                display: block;
-                text-align: center;
-                font-family: "PT Serif";
-                font-size: 20px;
-                margin: 0rem 0 0rem 0rem;
             }
             h2{
-                display: block;
+                display: inline-block;
                 font-family: "PT Serif";
                 font-size: 39px;
-                margin: -0.4rem 0 0rem 0;
-                text-align: center;
+                margin: -0.5rem 0 0rem 0;
+                pointer-events: visible;
+    
             }
             span{
-                width: 700px;
-            }
-            p{
+                position: absolute;
                 display: block;
+                height: 2px;
+                width: 760px;
+                margin-left: -6rem;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 120%);
+                .underlineIcon{
+                    position: absolute;
+                    right: -0.9rem;
+                    background-image: url("../../../assets/svgs/underlineIcon.svg");
+                    margin-top: -0.4rem;
+                    height: 16px;
+                    width: 16px;
+                }
+                
+            }
+            
+            p{
+                display: inline-block;
                 margin: 1rem 0 0rem 0;
                 font-size: 18px;
                 line-height: 2rem;
                 font-family: "Noto Sans";
-                width: 100%;
-                text-align: center;
+                width: 37rem;
+                pointer-events: visible;
             }
             button{
+                pointer-events: visible;
                 position: relative;
-                padding: 0.8rem 2.8rem;
+                padding: 0.9rem 2.8rem;
+                background: #27c5a4;
                 background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
                 box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                 border-radius: 5px;
@@ -974,112 +477,20 @@
             button:hover{
                 cursor: pointer;
             }
-            .lineBreak{
-                display: none;
-            }
-        }
-        .homepageMenuContainer{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            .homepageMenu{
-                z-index: 1;
-                position: relative;
-                left: 0;
-                width: 60%;
-                max-width: unset;
-            }
         }
         
-    }
-
-    .homePassion {
-        
-        .content{
-            position: relative;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            padding-top: 12rem;
-            width: 100%;
-            padding-left: unset;
-            h1{
-                display: block;
-                text-align: center;
-                font-family: "PT Serif";
-                font-size: 20px;
-                margin: 0rem 0 0rem 0rem;
-            }
-            h2{
-                display: block;
-                font-family: "PT Serif";
-                font-size: 39px;
-                margin: -0.4rem 0 0rem 0;
-                text-align: center;
-            }
-            span{
-                width: 700px;
-            }
-            p{
-                display: block;
-                margin: 1rem 0 0rem 0;
-                padding: 0 10rem;
-                font-size: 18px;
-                line-height: 2rem;
-                font-family: "Noto Sans";
-                width: 100%;
-                text-align: center;
-            }
-            button{
-                position: relative;
-                padding: 0.8rem 2.8rem;
-                background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 16px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin: 2rem 0 0rem 0rem;
-        
-                .buttonStyleBox {
-                    position: absolute;
-                    opacity: 0.1;
-                    background-color: white;
-                    border-radius: 5px;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 0%;
-                    outline: none;
-                    transition: 0.25s ease-in-out;
-                    pointer-events: none;
-                }
-            }
-            button:hover{
-                cursor: pointer;
-            }
-            .lineBreak{
-                display: none;
-            }
-        }
         .passionImagesContainer{
             position: absolute;
-            margin-top: 6rem;
             z-index: -1;
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
             opacity: 0;
             grid-gap: 3rem;
-            right: unset;
-            top: 500px;
-            width: 100%;
-            max-width: unset;
-            padding: 0 15rem;
+            right: 17%;
+            top: 190px;
+            width: 50%;
+            max-width: 700px;
             height: 700px;
             padding-bottom: 5rem;
             animation: passion 4s infinite;
@@ -1132,23 +543,33 @@
             }
         }
     }
-    .homeNews {
-        position: absolute;
-        overflow-y: scroll;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        top: 200vh;
-        color: white;
+    
+}
+
+.homeNews {
+    position: absolute;
+    top: 200vh;
+    color: white;
+    width: 100%;
+    max-height: 1350px;
+    height: 100vh;
+    overflow-x: hidden;
+    pointer-events: visible;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .allContent{
+        position: relative;
+        pointer-events: none;
+        height: 100%;
+        max-height: 1000px;
         width: 100%;
-        height: 100vh;
-        pointer-events: visible;
-        z-index: 2;
         .content{
             position: absolute;
             height: 100%;
             padding-top: 16rem;
-            
             width: 100%;
             padding-left: 17%;
             z-index: 0;
@@ -1160,16 +581,16 @@
                 margin: 0rem 0rem 0rem 0rem;
                 pointer-events: visible;
             }
-    
+
             h2{
                 display: inline-block;
                 font-family: "PT Serif";
                 font-size: 39px;
                 margin: -0.5rem 0 0rem 0;
                 pointer-events: visible;
-    
+
             }
-    
+
             span{
                 position: absolute;
                 display: block;
@@ -1201,6 +622,7 @@
                 pointer-events: visible;
                 position: relative;
                 padding: 0.9rem 2.8rem;
+                background: #27c5a4;
                 background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
                 box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                 border-radius: 5px;
@@ -1233,107 +655,102 @@
         }
         
     }
-    .homeConnect{
-        overflow-y: scroll;
-        .content{
-            .or{
-                margin-bottom: 2rem;
-            }
-            .contactContainer{
-                flex-direction: column;
-                align-items: center;
-                .secondLink{
-                    margin-top: unset;
-                }
-                .box{
-                    width: 300px;
-                    margin: 1rem 0rem;
-
-                    .discord{
-                        height: 40%;
-                    }
-                    .github{
-                        height: 30%;
-                    }
-                    .work{
-                        font-size: 28px;
-                    }
-                }
-            }
+    .videoContainer{
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        max-height: 1350px;
+        max-width: 2400px;
+        
+        .backgroundImagePassionBlur{
+            position: absolute;
+            top: 0;
+            height: 100%;
+            min-height: 950px;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+            z-index: 1;
+        }
+        video{
+            overflow: hidden;
+            min-height: 950px;
+            object-fit: cover;
         }
     }
 }
-@media (max-width: 900px){
-    .homeContent {
-        position: absolute;
-        touch-action: pan-y;
-        overflow-y: hidden;
-        display: unset;
-        top: 0;
-        left: 0;
-        color: white;
-        width: 100vw;
+
+.homeConnect{
+    position: absolute;
+    top: 300vh;
+    color: white;
+    width: 100%;
+    max-height: 1350px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: visible;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .allContent{
+        position: relative;
+        pointer-events: none;
         height: 100%;
-        pointer-events: visible;
-        max-height: unset;
-        z-index: 2;
+        max-height: 1000px;
+        width: 100%;
         .content{
+            position: absolute;
+            
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 0;
-            padding-top: 3rem;
-            height: auto;
+            height: 100%;
+            padding-top: 16rem;
             width: 100%;
-            max-width: 100vw;
-            margin: 0;
-            
+            z-index: 0;
+            pointer-events: none;
             h1{
-                display: block;
-                text-align: center;
                 font-family: "PT Serif";
-                font-size: 16px;
-                margin: 4rem 0 0rem 0rem;
-                padding: 0rem 1rem;
+                font-size: 20px;
+                margin: 0;
+                pointer-events: visible;
+                text-align: center;
             }
             h2{
-                display: block;
-                text-align: center;
                 font-family: "PT Serif";
-                font-size: 30px;
-                margin: 0;
-                line-height: 2.2rem;
-                padding: 0rem 1rem;
-            }
-            span{
-                display: none;
+                font-size: 39px;
+                margin: -0.5rem 0 0rem 0;
+                pointer-events: visible;
+                text-align: center;
             }
             p{
-                display: block;
-                text-align: center;
-                font-size: 15px;
                 margin: 1rem 0 0rem 0;
-                padding: 0rem 1rem;
+                font-size: 18px;
                 line-height: 2rem;
+                text-align: center;
                 font-family: "Noto Sans";
-                width: 100%;
+                width: 37rem;
+                pointer-events: visible;
             }
             button{
+                pointer-events: visible;
                 position: relative;
-                padding: 1rem 2.6rem;
+                padding: 1rem 2.8rem;
+                background: #27c5a4;
                 background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
                 box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                 border-radius: 5px;
                 border-style: none;
                 color: white;
-                font-size: 14px;
+                font-size: 16px;
                 font-family: "PT Serif";
                 letter-spacing: 1px;
                 font-weight: 700;
                 outline: none;
-                margin: 3rem 0 0rem 0rem;
-        
+                margin: 2rem 0 0rem 0rem;
                 .buttonStyleBox {
                     position: absolute;
                     opacity: 0.1;
@@ -1347,96 +764,770 @@
                     transition: 0.25s ease-in-out;
                     pointer-events: none;
                 }
-            }
-            button:hover{
-                cursor: pointer;
+                &:hover{
+                    cursor: pointer;
+                }
             }
             
+            .or{
+                margin-top: 6rem;
+                font-size: 16px;
+                font-family: "PT Serif";
+                &::after{
+                    content: "";
+                    position: absolute;
+                    margin-left: 1rem;
+                    margin-top: 1rem;
+                    width: 30px;
+                    height: 1px;
+                    background-color: rgba(255, 255, 255, 0.5);
+                }
+                &::before{
+                    content: "";
+                    position: absolute;
+                    margin-left: -2.9rem;
+                    margin-top: 1rem;
+                    width: 30px;
+                    height: 1px;
+                    background-color: rgba(255, 255, 255, 0.5);
+                }
+            }
+            .contactContainer{
+                width: 100%;
+                margin-top: 2.5rem;
+                display: flex;
+                justify-content: center;
+                padding-bottom: 6rem;
+                .secondLink{
+                    margin-top: 4rem;
+                }
+                .box{
+                    position: relative;
+                    height: 150px;
+                    width: 300px;
+                    margin: 0 3rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    pointer-events: visible;
+
+                    .contactBoxSVG{
+                        position: absolute;
+                        transition: 0.1s ease-in-out;
+                        .svgPath{
+                            transition: 0.1s ease-in-out;
+                            fill: rgb(0, 0, 0);
+                            fill-opacity: .5;
+                        }
+                    }
+
+                    &:hover{
+                        cursor: pointer;
+                        .contactBoxSVG{
+                            transform: scale(1.1);
+                            transition: 0.1s ease-in-out;
+                            .svgPath{
+                                stroke-width: .6px;
+                                stroke: #56FFDC;
+                                fill-opacity: .8;
+                                transition: 0.1s ease-in-out;
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    .discord{
+                        z-index: 1;
+                        height: 43%;
+                        width: 100%;
+                        background-image: url("../../../assets/images/Discord-Logo+Wordmark-White.png");
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        margin-top: 0.3rem;
+                    }
+                    .github{
+                        z-index: 1;
+                        height: 33%;
+                        width: 100%;
+                        background-image: url("../../../assets/images/GitHub_Logo_White.png");
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                    .work{
+                        z-index: 5;
+                        font-family: "PT Serif";
+                        font-weight: 700;
+                        font-size: 30px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-height: 950px){
+    .homeContent{
+        overflow-y: scroll;
+    }
+    .homePassion{
+        overflow-y: scroll;
+    }
+    .homeNews{
+        overflow-y: scroll;
+    }
+    .homeConnect{
+        overflow-y: scroll;
+    }
+}
+@media (max-width: 1600px){
+    .homeContent{
+        .allContent{
+            .homepageMenuContainer{
+                .homepageMenu{
+                    right: 18%;
+                    width: 40%;
+                    
+                    .item1{
+                        .item1Content{
+                            p{
+                                width: 60%;
+                            }
+                        }
+                    }
+                    .item2{
+                        .item2Content{
+                            p{
+                                width: 80%;
+                            }
+                        }
+                    }
+                    .item3{
+                        .item3Content{
+                            p{
+                                width: 80%;
+                            }
+                        }
+                    }
+                }
+            }
         }
         
-        .homepageMenuContainer{
-            position: absolute;
-            top: 575px;
-            
-            width: 100vw;
-            height: 750px;
-            display: flex;
-            justify-content: center;
-            .homepageMenu{
-                z-index: 10;
-                top: 0;
-                width: 100%;
-                padding: unset;
-                flex-direction: row;
-                min-width: unset;
-                .item{
-                    min-height: 250px;
-                    width: 100%;
-                    box-shadow: unset;
-                }
-                .item1{
-                    height: 250px;
-                    margin-bottom: 0;
-                    .item1Content{
-                        h1{
-                            font-size: 18px;
+        
+    }
+    .homeConnect{
+        .allContent{
+            .content{
+                .contactContainer{
+                    .box{
+                        width: 280px;
+                        margin: 0 1rem;
+
+                        .discord{
+                            height: 40%;
                         }
-                        p{
-                            font-size: 14px;
-                            max-width: 350px;
-                            width: 90%;
+                        .github{
+                            height: 30%;
                         }
-                        a{
-                            font-size: 14px;
-                        }
-                    }
-                }
-                .item2{
-                    height: 250px;
-                    width: 100%;
-                    margin: unset;
-                    margin-bottom: 0rem;
-                    .item2Content{
-                        h1{
-                            font-size: 18px;
-                        }
-                        p{
-                            font-size: 14px;
-                            max-width: 350px;
-                            width: 80%;
-                        }
-                        a{
-                            font-size: 14px;
-                        }
-                    }
-                }
-                .item3{
-                    width: 100%;
-                    height: 250px;
-                    flex-grow: 1;
-                    .item3Content{
-                        h1{
-                            font-size: 18px;
-                        }
-                        p{
-                            font-size: 14px;
-                            max-width: 350px;
-                            width: 80%;
-                        }
-                        a{
-                            font-size: 14px;
+                        .work{
+                            font-size: 28px;
                         }
                     }
                 }
             }
         }
-        .bottomBackground{
+
+    }
+}
+@media (max-width: 1300px){
+    .homeContent {
+        .allContent{
             position: absolute;
-            top: 1325px;
-            height: 100px;
-            width: 100vw;
-            background-color: rgba(0, 0, 0, 0.89);
+            overflow-y: scroll;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            top: 0;
+            color: white;
+            width: 100%;
+            height: 100vh;
+            max-height: unset;
+            pointer-events: visible;
+            z-index: 2;
+            .content{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding-top: 12rem;
+                width: 65%;
+                padding-left: unset;
+                h1{
+                    display: block;
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    margin: 0rem 0 0rem 0rem;
+                }
+                h2{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 39px;
+                    margin: -0.4rem 0 0rem 0;
+                    text-align: center;
+                }
+                span{
+                    width: 700px;
+                }
+                p{
+                    display: block;
+                    margin: 1rem 0 0rem 0;
+                    font-size: 18px;
+                    line-height: 2rem;
+                    font-family: "Noto Sans";
+                    width: 100%;
+                    text-align: center;
+                }
+                button{
+                    position: relative;
+                    padding: 0.8rem 2.8rem;
+                    background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin: 2rem 0 0rem 0rem;
+            
+                    .buttonStyleBox {
+                        position: absolute;
+                        opacity: 0.1;
+                        background-color: white;
+                        border-radius: 5px;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 0%;
+                        outline: none;
+                        transition: 0.25s ease-in-out;
+                        pointer-events: none;
+                    }
+                }
+                button:hover{
+                    cursor: pointer;
+                }
+                .lineBreak{
+                    display: none;
+                }
+            }
+            .homepageMenuContainer{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                .homepageMenu{
+                    z-index: 1;
+                    position: relative;
+                    left: 0;
+                    width: 60%;
+                    max-width: unset;
+                }
+            }
         }
+    }
+
+    .homePassion {
+        
+        .allContent{
+            position: absolute;
+            overflow-y: scroll;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            top: 0;
+            color: white;
+            width: 100%;
+            height: 100vh;
+            max-height: unset;
+            pointer-events: visible;
+            z-index: 2;
+
+            .content{
+                position: relative;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding-top: 12rem;
+                width: 100%;
+                padding-left: unset;
+                h1{
+                    display: block;
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    margin: 0rem 0 0rem 0rem;
+                }
+                h2{
+                    display: block;
+                    font-family: "PT Serif";
+                    font-size: 39px;
+                    margin: -0.4rem 0 0rem 0;
+                    text-align: center;
+                }
+                span{
+                    width: 700px;
+                }
+                p{
+                    display: block;
+                    margin: 1rem 0 0rem 0;
+                    padding: 0 10rem;
+                    font-size: 18px;
+                    line-height: 2rem;
+                    font-family: "Noto Sans";
+                    width: 100%;
+                    text-align: center;
+                }
+                button{
+                    position: relative;
+                    padding: 0.8rem 2.8rem;
+                    background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin: 2rem 0 0rem 0rem;
+            
+                    .buttonStyleBox {
+                        position: absolute;
+                        opacity: 0.1;
+                        background-color: white;
+                        border-radius: 5px;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 0%;
+                        outline: none;
+                        transition: 0.25s ease-in-out;
+                        pointer-events: none;
+                    }
+                }
+                button:hover{
+                    cursor: pointer;
+                }
+                .lineBreak{
+                    display: none;
+                }
+            }
+            .passionImagesContainer{
+                position: absolute;
+                margin-top: 6rem;
+                z-index: -1;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+                opacity: 0;
+                grid-gap: 3rem;
+                right: unset;
+                top: 500px;
+                width: 100%;
+                max-width: unset;
+                padding: 0 15rem;
+                height: 700px;
+                padding-bottom: 5rem;
+                animation: passion 4s infinite;
+                animation-timing-function: ease-in-out;
+                -webkit-animation-timing-function: ease-in-out;
+                animation-direction: alternate;
+                .image1Container{
+                    position: relative;
+                    grid-column: 1;
+                    grid-row: 1/5;
+                    background-color: black;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+                    .imageBlur{
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.3);
+                    }
+                    .image1{
+                        width: 100%;
+                        height: 100%;
+                        background-image: url("../../../assets/images/Universe1.jpg");
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
+                .image2Container{
+                    position: relative;
+                    grid-column: 2;
+                    grid-row: 2/6;
+                    background-color: black;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+                    .imageBlur{
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.3);
+                    }
+                    .image2{
+                        width: 100%;
+                        height: 100%;
+                        background-image: url("../../../assets/images/Universe2.jpg");
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .homeNews {
+        .allContent{
+            position: absolute;
+            overflow-y: scroll;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            top: 0;
+            color: white;
+            width: 100%;
+            height: 100vh;
+            max-height: unset;
+            pointer-events: visible;
+            z-index: 2;
+
+            .content{
+                position: absolute;
+                height: 100%;
+                padding-top: 16rem;
+                
+                width: 100%;
+                padding-left: 17%;
+                z-index: 0;
+                pointer-events: none;
+                h1{
+                    display: inline-block;
+                    font-family: "PT Serif";
+                    font-size: 20px;
+                    margin: 0rem 0rem 0rem 0rem;
+                    pointer-events: visible;
+                }
+        
+                h2{
+                    display: inline-block;
+                    font-family: "PT Serif";
+                    font-size: 39px;
+                    margin: -0.5rem 0 0rem 0;
+                    pointer-events: visible;
+        
+                }
+        
+                span{
+                    position: absolute;
+                    display: block;
+                    height: 2px;
+                    width: 670px;
+                    margin-left: -6rem;
+                    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 120%);
+                    .underlineIcon{
+                        position: absolute;
+                        right: -0.9rem;
+                        background-image: url("../../../assets/svgs/underlineIcon.svg");
+                        margin-top: -0.4rem;
+                        height: 16px;
+                        width: 16px;
+                    }
+                    
+                }
+                
+                p{
+                    display: inline-block;
+                    margin: 1rem 0 0rem 0;
+                    font-size: 18px;
+                    line-height: 2rem;
+                    font-family: "Noto Sans";
+                    width: 34rem;
+                    pointer-events: visible;
+                }
+                button{
+                    pointer-events: visible;
+                    position: relative;
+                    padding: 0.9rem 2.8rem;
+                    background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 16px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin: 2rem 0 0rem 0rem;
+            
+                    .buttonStyleBox {
+                        position: absolute;
+                        opacity: 0.1;
+                        background-color: white;
+                        border-radius: 5px;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 0%;
+                        outline: none;
+                        transition: 0.25s ease-in-out;
+                        pointer-events: none;
+                    }
+                }
+                button:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .homeConnect{
+        overflow-y: scroll;
+        .allContent{
+            position: absolute;
+            overflow-y: scroll;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            top: 0;
+            color: white;
+            width: 100%;
+            height: 100vh;
+            max-height: unset;
+            pointer-events: visible;
+            z-index: 2;
+            .content{
+                .or{
+                    margin-bottom: 2rem;
+                }
+                .contactContainer{
+                    flex-direction: column;
+                    align-items: center;
+                    .secondLink{
+                        margin-top: unset;
+                    }
+                    .box{
+                        width: 300px;
+                        margin: 1rem 0rem;
+
+                        .discord{
+                            height: 40%;
+                        }
+                        .github{
+                            height: 30%;
+                        }
+                        .work{
+                            font-size: 28px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+@media (max-width: 900px){
+    .homeContent {
+        position: absolute;
+        overflow-y: hidden;
+        display: unset;
+        top: 0;
+        left: 0;
+        color: white;
+        width: 100vw;
+        height: 100%;
+        pointer-events: visible;
+        max-height: unset;
+        z-index: 2;
+        .allContent{
+            touch-action: pan-y;
+            pointer-events: visible;
+            height: 100%;
+            .content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                padding-top: 3rem;
+                height: auto;
+                width: 100%;
+                max-width: 100vw;
+                margin: 0;
+                
+                h1{
+                    display: block;
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 16px;
+                    margin: 4rem 0 0rem 0rem;
+                    padding: 0rem 1rem;
+                }
+                h2{
+                    display: block;
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 30px;
+                    margin: 0;
+                    line-height: 2.2rem;
+                    padding: 0rem 1rem;
+                }
+                span{
+                    display: none;
+                }
+                p{
+                    display: block;
+                    text-align: center;
+                    font-size: 15px;
+                    margin: 1rem 0 0rem 0;
+                    padding: 0rem 1rem;
+                    line-height: 2rem;
+                    font-family: "Noto Sans";
+                    width: 100%;
+                }
+                button{
+                    position: relative;
+                    padding: 1rem 2.6rem;
+                    background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 14px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin: 3rem 0 0rem 0rem;
+            
+                    .buttonStyleBox {
+                        position: absolute;
+                        opacity: 0.1;
+                        background-color: white;
+                        border-radius: 5px;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 0%;
+                        outline: none;
+                        transition: 0.25s ease-in-out;
+                        pointer-events: none;
+                    }
+                }
+                button:hover{
+                    cursor: pointer;
+                }
+                
+            }
+            .homepageMenuContainer{
+                position: absolute;
+                top: 575px;
+                
+                width: 100vw;
+                height: 750px;
+                display: flex;
+                justify-content: center;
+                .homepageMenu{
+                    z-index: 10;
+                    top: 0;
+                    width: 100%;
+                    padding: unset;
+                    flex-direction: row;
+                    min-width: unset;
+                    .item{
+                        min-height: 250px;
+                        width: 100%;
+                        box-shadow: unset;
+                    }
+                    .item1{
+                        height: 250px;
+                        margin-bottom: 0;
+                        .item1Content{
+                            h1{
+                                font-size: 18px;
+                            }
+                            p{
+                                font-size: 14px;
+                                max-width: 350px;
+                                width: 90%;
+                            }
+                            a{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .item2{
+                        height: 250px;
+                        width: 100%;
+                        margin: unset;
+                        margin-bottom: 0rem;
+                        .item2Content{
+                            h1{
+                                font-size: 18px;
+                            }
+                            p{
+                                font-size: 14px;
+                                max-width: 350px;
+                                width: 80%;
+                            }
+                            a{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .item3{
+                        width: 100%;
+                        height: 250px;
+                        flex-grow: 1;
+                        .item3Content{
+                            h1{
+                                font-size: 18px;
+                            }
+                            p{
+                                font-size: 14px;
+                                max-width: 350px;
+                                width: 80%;
+                            }
+                            a{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            .bottomBackground{
+                position: absolute;
+                top: 1325px;
+                height: 100px;
+                width: 100vw;
+                background-color: rgba(0, 0, 0, 0.89);
+            }
+        }
+        
     }
 
     .homePassion {
@@ -1452,149 +1543,155 @@
         pointer-events: visible;
         max-height: unset;
         z-index: 2;
-        .content{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            padding-top: 3rem;
-            height: auto;
-            width: 100%;
-            max-width: 100vw;
-            margin: 0;
-            
-            h1{
-                display: block;
-                text-align: center;
-                font-family: "PT Serif";
-                font-size: 16px;
-                margin: 4rem 0 0rem 0rem;
-                padding: 0rem 1rem;
-            }
-            h2{
-                display: block;
-                text-align: center;
-                font-family: "PT Serif";
-                font-size: 30px;
-                margin: 0;
-                line-height: 2.2rem;
-                padding: 0rem 1rem;
-            }
-            span{
-                display: none;
-            }
-            p{
-                display: block;
-                text-align: center;
-                font-size: 15px;
-                margin: 1rem 0 0rem 0;
-                padding: 0rem 1rem;
-                line-height: 2rem;
-                font-family: "Noto Sans";
+        .allContent{
+            touch-action: pan-y;
+            pointer-events: visible;
+            height: 100%;
+            .content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                padding-top: 3rem;
+                height: auto;
                 width: 100%;
-            }
-            button{
-                position: relative;
-                padding: 1rem 2.6rem;
-                background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 14px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin: 3rem 0 0rem 0rem;
-        
-                .buttonStyleBox {
-                    position: absolute;
-                    opacity: 0.1;
-                    background-color: white;
+                max-width: 100vw;
+                margin: 0;
+                
+                h1{
+                    display: block;
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 16px;
+                    margin: 4rem 0 0rem 0rem;
+                    padding: 0rem 1rem;
+                }
+                h2{
+                    display: block;
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 30px;
+                    margin: 0;
+                    line-height: 2.2rem;
+                    padding: 0rem 1rem;
+                }
+                span{
+                    display: none;
+                }
+                p{
+                    display: block;
+                    text-align: center;
+                    font-size: 15px;
+                    margin: 1rem 0 0rem 0;
+                    padding: 0rem 1rem;
+                    line-height: 2rem;
+                    font-family: "Noto Sans";
+                    width: 100%;
+                }
+                button{
+                    position: relative;
+                    padding: 1rem 2.6rem;
+                    background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
                     border-radius: 5px;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 0%;
+                    border-style: none;
+                    color: white;
+                    font-size: 14px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
                     outline: none;
-                    transition: 0.25s ease-in-out;
-                    pointer-events: none;
+                    margin: 3rem 0 0rem 0rem;
+            
+                    .buttonStyleBox {
+                        position: absolute;
+                        opacity: 0.1;
+                        background-color: white;
+                        border-radius: 5px;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 0%;
+                        outline: none;
+                        transition: 0.25s ease-in-out;
+                        pointer-events: none;
+                    }
+                }
+                button:hover{
+                    cursor: pointer;
+                }
+                
+            }
+
+            .passionImagesContainer{
+                position: absolute;
+                margin-top: 3rem;
+                z-index: -1;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                opacity: 0;
+                grid-gap: 1rem;
+                right: unset;
+                top: 500px;
+                width: 100%;
+                max-width: unset;
+                padding: 0 1rem;
+                height: 700px;
+                padding-bottom: unset;
+                animation: passion 4s infinite;
+                animation-timing-function: ease-in-out;
+                -webkit-animation-timing-function: ease-in-out;
+                animation-direction: alternate;
+                .image1Container{
+                    position: relative;
+                    grid-column: 1/3;
+                    grid-row: 1/2;
+                    background-color: black;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+                    .imageBlur{
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.3);
+                    }
+                    .image1{
+                        width: 100%;
+                        height: 100%;
+                        background-image: url("../../../assets/images/Universe1.jpg");
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
+                .image2Container{
+                    position: relative;
+                    display: none;
+                    grid-column: 1/3;
+                    grid-row: 3/5;
+                    background-color: black;
+                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+                    .imageBlur{
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.3);
+                    }
+                    .image2{
+                        width: 100%;
+                        height: 100%;
+                        background-image: url("../../../assets/images/Universe2.jpg");
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
                 }
             }
-            button:hover{
-                cursor: pointer;
-            }
-            
         }
 
-        .passionImagesContainer{
-            position: absolute;
-            margin-top: 3rem;
-            z-index: -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            opacity: 0;
-            grid-gap: 1rem;
-            right: unset;
-            top: 500px;
-            width: 100%;
-            max-width: unset;
-            padding: 0 1rem;
-            height: 700px;
-            padding-bottom: unset;
-            animation: passion 4s infinite;
-            animation-timing-function: ease-in-out;
-            -webkit-animation-timing-function: ease-in-out;
-            animation-direction: alternate;
-            .image1Container{
-                position: relative;
-                grid-column: 1/3;
-                grid-row: 1/2;
-                background-color: black;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-                .imageBlur{
-                    position: absolute;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.3);
-                }
-                .image1{
-                    width: 100%;
-                    height: 100%;
-                    background-image: url("../../../assets/images/Universe1.jpg");
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-            }
-            .image2Container{
-                position: relative;
-                display: none;
-                grid-column: 1/3;
-                grid-row: 3/5;
-                background-color: black;
-                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-                .imageBlur{
-                    position: absolute;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.3);
-                }
-                .image2{
-                    width: 100%;
-                    height: 100%;
-                    background-image: url("../../../assets/images/Universe2.jpg");
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-            }
-        }
     }
 
     .homeNews {
@@ -1610,81 +1707,86 @@
         pointer-events: visible;
         max-height: unset;
         z-index: 2;
-        .content{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            padding-top: 3rem;
-            height: auto;
-            width: 100%;
-            max-width: 100vw;
-            margin: 0;
-            
-            h1{
-                display: block;
-                text-align: center;
-                font-family: "PT Serif";
-                font-size: 16px;
-                margin: 4rem 0 0rem 0rem;
-                padding: 0rem 1rem;
-            }
-            h2{
-                display: block;
-                text-align: center;
-                font-family: "PT Serif";
-                font-size: 30px;
-                margin: 0;
-                line-height: 2.2rem;
-                padding: 0rem 1rem;
-            }
-            span{
-                display: none;
-            }
-            p{
-                display: block;
-                text-align: center;
-                font-size: 15px;
-                margin: 1rem 0 0rem 0;
-                padding: 0rem 1rem;
-                line-height: 2rem;
-                font-family: "Noto Sans";
+        .allContent{
+            touch-action: pan-y;
+            pointer-events: visible;
+            height: 100%;
+            .content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                padding-top: 3rem;
+                height: auto;
                 width: 100%;
-            }
-            button{
-                position: relative;
-                padding: 1rem 2.6rem;
-                background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
-                box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
-                border-radius: 5px;
-                border-style: none;
-                color: white;
-                font-size: 14px;
-                font-family: "PT Serif";
-                letter-spacing: 1px;
-                font-weight: 700;
-                outline: none;
-                margin: 3rem 0 0rem 0rem;
-        
-                .buttonStyleBox {
-                    position: absolute;
-                    opacity: 0.1;
-                    background-color: white;
-                    border-radius: 5px;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 0%;
-                    outline: none;
-                    transition: 0.25s ease-in-out;
-                    pointer-events: none;
+                max-width: 100vw;
+                margin: 0;
+                
+                h1{
+                    display: block;
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 16px;
+                    margin: 4rem 0 0rem 0rem;
+                    padding: 0rem 1rem;
                 }
-            }
-            button:hover{
-                cursor: pointer;
-            }
+                h2{
+                    display: block;
+                    text-align: center;
+                    font-family: "PT Serif";
+                    font-size: 30px;
+                    margin: 0;
+                    line-height: 2.2rem;
+                    padding: 0rem 1rem;
+                }
+                span{
+                    display: none;
+                }
+                p{
+                    display: block;
+                    text-align: center;
+                    font-size: 15px;
+                    margin: 1rem 0 0rem 0;
+                    padding: 0rem 1rem;
+                    line-height: 2rem;
+                    font-family: "Noto Sans";
+                    width: 100%;
+                }
+                button{
+                    position: relative;
+                    padding: 1rem 2.6rem;
+                    background: linear-gradient(90deg, #27c5a4 0%, #005341 100%);
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.205);
+                    border-radius: 5px;
+                    border-style: none;
+                    color: white;
+                    font-size: 14px;
+                    font-family: "PT Serif";
+                    letter-spacing: 1px;
+                    font-weight: 700;
+                    outline: none;
+                    margin: 3rem 0 0rem 0rem;
             
+                    .buttonStyleBox {
+                        position: absolute;
+                        opacity: 0.1;
+                        background-color: white;
+                        border-radius: 5px;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 0%;
+                        outline: none;
+                        transition: 0.25s ease-in-out;
+                        pointer-events: none;
+                    }
+                }
+                button:hover{
+                    cursor: pointer;
+                }
+                
+            }
         }
         .videoContainer{
             position: absolute;
@@ -1722,70 +1824,76 @@
         pointer-events: visible;
         max-height: unset;
         z-index: 2;
-        .content{
-            position: relative;
-            max-width: 100vw;
-            padding-top: 7rem;
-            h1{
-                margin-right: 10rem;
-                font-size: 16px;
-                width: 100%;
-                padding: 0 1rem;
-                margin-bottom: 0.5rem;
-            }
-            h2{
-                font-size: 30px;
-                line-height: 2.2rem;
-                width: 100%;
-                padding: 0 1rem;
-            }
-            p{
-                font-size: 15px;
-                display: block;
-                text-align: center;
-                padding: 0 1rem;
-                width: 100%;
-            }
-            button{
-                padding: 0.9rem 2.6rem;
-                font-size: 14px;
-            }
-            .or{
-                margin-bottom: unset;
-            }
+        .allContent{
+            touch-action: pan-y;
+            pointer-events: visible;
+            height: 100%;
+            .content{
+                position: relative;
+                max-width: 100vw;
+                padding-top: 7rem;
+                h1{
+                    margin-right: 10rem;
+                    font-size: 16px;
+                    width: 100%;
+                    padding: 0 1rem;
+                    margin-bottom: 0.5rem;
+                }
+                h2{
+                    font-size: 30px;
+                    line-height: 2.2rem;
+                    width: 100%;
+                    padding: 0 1rem;
+                }
+                p{
+                    font-size: 15px;
+                    display: block;
+                    text-align: center;
+                    padding: 0 1rem;
+                    width: 100%;
+                }
+                button{
+                    padding: 0.9rem 2.6rem;
+                    font-size: 14px;
+                }
+                .or{
+                    margin-bottom: unset;
+                }
 
-            .contactContainer{
-                flex-direction: column;
-                margin-top: 6rem;
-                align-items: center;
-                padding-bottom: 0rem;
-                .box{
-                    width: 280px;
-                    margin: 0rem 0rem;
-                    &:hover{
-                        cursor: pointer;
-                        .contactBoxSVG{
-                            transform: unset;
-                            transition: 0.1s ease-in-out;
-                            .svgPath{
-                                stroke-width: .6px;
-                                stroke: #56FFDC;
+                .contactContainer{
+                    flex-direction: column;
+                    margin-top: 6rem;
+                    align-items: center;
+                    padding-bottom: 0rem;
+                    .box{
+                        width: 280px;
+                        margin: 0rem 0rem;
+                        &:hover{
+                            cursor: pointer;
+                            .contactBoxSVG{
+                                transform: unset;
                                 transition: 0.1s ease-in-out;
+                                .svgPath{
+                                    stroke-width: .6px;
+                                    stroke: #56FFDC;
+                                    transition: 0.1s ease-in-out;
+                                }
                             }
                         }
-                    }
-                    .discord{
-                        height: 34%;
-                    }
-                    .github{
-                        height: 25%;
-                    }
-                    .work{
-                        font-size: 22px;
+                        .discord{
+                            height: 34%;
+                        }
+                        .github{
+                            height: 25%;
+                        }
+                        .work{
+                            font-size: 22px;
+                        }
                     }
                 }
             }
         }
+
     }
 }
 

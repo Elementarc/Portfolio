@@ -114,27 +114,28 @@ const HomeContent = (props: any) => {
         return (
             <motion.div  style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeContent">
                 
-                <motion.div className="content">
-                    
-                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
-                        <h1>{"SIMPLE & CLEAN"}</h1>
-                        <br className="lineBreak" />
-                        <h2>THE WORLD OF CREATIVITY</h2>
-                        <motion.span initial={{opacity: 0}} animate={{opacity: 1,transition: {duration: 1, delay:0.8}}}>
-                            <motion.span initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1}}} className="underlineIcon"></motion.span>
-                        </motion.span>
+                <div  className="allContent">
+                    <motion.div className="content">
+                        
+                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
+                            <h1>{"SIMPLE & CLEAN"}</h1>
+                            <br className="lineBreak" />
+                            <h2>THE WORLD OF CREATIVITY</h2>
+                            <motion.span initial={{opacity: 0}} animate={{opacity: 1,transition: {duration: 1, delay:0.8}}}>
+                                <motion.span initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1}}} className="underlineIcon"></motion.span>
+                            </motion.span>
+                        </motion.div>
+                        <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
+                            <p>There are different ways to talk to a customer and design is an important one. Let's create something unique. </p>
+                        </motion.div>
+                        <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
+                            <button onMouseEnter={() => hoverButton(true)} onClick={() => {props.setLocationIndex(3); history.replace("/home/connect")}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
+                                <div>GET STARTED</div>
+                                <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                            </button>
+                        </motion.div>
                     </motion.div>
-                    <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>There are different ways to talk to a customer and design is an important one. Let's create something unique. </p>
-                    </motion.div>
-                    <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={() => hoverButton(true)} onClick={() => {props.setLocationIndex(3); history.replace("/home/connect")}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
-                            <div>GET STARTED</div>
-                            <div id="buttonStyleBox" className="buttonStyleBox"></div>
-                        </button>
-                    </motion.div>
-                </motion.div>
-                <motion.div  className="homepageMenuContainer">
+                    <motion.div  className="homepageMenuContainer">
                     <motion.div initial={{opacity: 0, y: -80}} animate={{opacity: 1, y: 0, transition:{duration: 1, delay: 2}}} exit={{y: 200, opacity: 0, transition: {duration: 1}}} className="homepageMenu">
                         <div className="item item1">
                             <span className="bottomBorder"/>
@@ -142,7 +143,7 @@ const HomeContent = (props: any) => {
 
                             <div className="item1Content">
                                 <h1>Design</h1>
-                                <p> Experience a world full of different designs! Maybe  there even is more</p>
+                                <p> Experience a world full of different designs and unique looking things</p>
                                 <Link to={`/design`}>SEE DESIGNS</Link>
                             </div>
                         </div>
@@ -172,31 +173,35 @@ const HomeContent = (props: any) => {
                     </motion.div>
                 </motion.div>
                 
-                <motion.div initial={{y: 100, opacity: 0}} animate={{opacity: 1, y: 0, transition:{duration: 1.5, delay: 0.5, type: 'spring'}}} className="bottomBackground"/>
+                    <motion.div initial={{y: 100, opacity: 0}} animate={{opacity: 1, y: 0, transition:{duration: 1.5, delay: 0.5, type: 'spring'}}} className="bottomBackground"/>
+                </div>
+
             </motion.div>
         );
     }
     else if(path === "/home/passion"){
         return(
             <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homePassion">
-                <motion.div className="content">
-                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
-                        <h1>{"PASSION & PLANS"}</h1>
-                        <br className="lineBreak" />
-                        <h2>WHAT IS PLANED FOR THE FUTURE</h2>
+                
+                <div  className="allContent">
+                    <motion.div className="content">
+                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
+                            <h1>{"PASSION & PLANS"}</h1>
+                            <br className="lineBreak" />
+                            <h2>WHAT IS PLANED FOR THE FUTURE</h2>
+                        </motion.div>
+                        <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
+                            <p>We do have interesting ideas for the future and if you're curious, you are just one click away.</p>
+                        </motion.div>
+                        <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
+                            <button onMouseEnter={() => hoverButton(true)} onMouseLeave={() => hoverButton(false)} onClick={() => history.push("/projects")} id="getStartedButton"> 
+                                <div>PROJECTS</div>
+                                <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                            </button>
+                        </motion.div>
                     </motion.div>
-                    <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>We do have interesting ideas for the future and if you're curious, you are just one click away.</p>
-                    </motion.div>
-                    <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={() => hoverButton(true)} onMouseLeave={() => hoverButton(false)} onClick={() => history.push("/projects")} id="getStartedButton"> 
-                            <div>PROJECTS</div>
-                            <div id="buttonStyleBox" className="buttonStyleBox"></div>
-                        </button>
-                    </motion.div>
-                </motion.div>
 
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 2}}} exit={{y: 700, opacity: 0, transition: {duration: 1}}} className="passionImagesContainer">
+                    <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 1, delay: 2}}} exit={{y: 700, opacity: 0, transition: {duration: 1}}} className="passionImagesContainer">
                     <div className="image1Container">
                         <div className="imageBlur"></div>
                         <div className="image1"></div>
@@ -206,36 +211,39 @@ const HomeContent = (props: any) => {
                         <div className="image2"></div>
                     </div>
                 </motion.div>
-                
+                </div>
+
             </motion.div>
         )
     }
     else if(path === "/home/news"){
         return (
             <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeNews">
-                <motion.div className="content">
-                    <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
-                        <h1>{"30 June, 2021"}</h1>
-                        {window.innerWidth > 900 &&
-                            <br />
-                        }
-                        <h2>NEW HYTALE DESIGN</h2>
-                        <motion.span initial={{opacity: 0}} animate={{opacity: 1,transition: {duration: 1, delay:0.8}}}>
-                            <motion.span initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1}}} className="underlineIcon"></motion.span>
-                        </motion.span>
+                <div  className="allContent">
+                    <motion.div className="content">
+                        <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
+                            <h1>{"30 June, 2021"}</h1>
+                            {window.innerWidth > 900 &&
+                                <br />
+                            }
+                            <h2>NEW HYTALE DESIGN</h2>
+                            <motion.span initial={{opacity: 0}} animate={{opacity: 1,transition: {duration: 1, delay:0.8}}}>
+                                <motion.span initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1}}} className="underlineIcon"></motion.span>
+                            </motion.span>
+                        </motion.div>
+                        <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
+                            <p>We've made a new fan-design for an up coming game called Hytale. You might like it.</p>
+                        </motion.div>
+                        <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
+                            <button onMouseEnter={() => hoverButton(true)} onClick={() => {history.push("/design/1?viewState=false")}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
+                                <div>CHECK IT OUT</div>
+                                <div id="buttonStyleBox" className="buttonStyleBox"></div>
+                            </button>
+                        </motion.div>
                     </motion.div>
-                    <motion.div animate={{opacity: 1, y: 0, transition:{duration: 0.5, delay: 0.9}}} initial={{opacity: 0, y: -20}} >
-                        <p>We've made a new fan-design for an up coming game called Hytale. You might like it.</p>
-                    </motion.div>
-                    <motion.div animate={{opacity: 1, transition: {duration: 0.8, delay: 1.3}}} initial={{opacity: 0}} >
-                        <button onMouseEnter={() => hoverButton(true)} onClick={() => {history.push("/design/1?viewState=false")}} onMouseLeave={() => hoverButton(false)} id="getStartedButton"> 
-                            <div>CHECK IT OUT</div>
-                            <div id="buttonStyleBox" className="buttonStyleBox"></div>
-                        </button>
-                    </motion.div>
-                </motion.div>
+                </div>
 
-                <motion.div initial={{opacity: 0, scale: 1.15}} animate={{opacity: 1, scale: 1, transition: {delay: 2, duration: 0.5}}} exit={{opacity: 0, scale: 1.5, transition: {duration: 0.5}}} className="videoContainer">
+                    <motion.div initial={{opacity: 0, scale: 1.15}} animate={{opacity: 1, scale: 1, transition: {delay: 2, duration: 0.5}}} exit={{opacity: 0, scale: 1.5, transition: {duration: 0.5}}} className="videoContainer">
                     <div className="backgroundImagePassionBlur"></div>
                     <video src={HytaleAdd} muted loop autoPlay height="100%" width="100%"></video>
                 </motion.div>
@@ -245,7 +253,8 @@ const HomeContent = (props: any) => {
     else if(path === "/home/connect"){
         return(
             <motion.div style={{x: x, opacity: opacity}} onPan={onPan} onPanEnd={onPanEnd} animate="in" exit="out" initial="init" variants={window.innerWidth > 900 ? desktopAnimationProps : mobileAnimationProps} id="homeContent" className="homeConnect">
-                <motion.div className="content">
+                <div  className="allContent">
+                    <motion.div className="content">
                     
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1>{"CONNECT & WORK"}</h1>
@@ -289,6 +298,7 @@ const HomeContent = (props: any) => {
                         </a>
                     </div>
                 </motion.div>
+                </div>
             </motion.div>
         )
     }
