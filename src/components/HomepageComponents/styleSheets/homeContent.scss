@@ -391,7 +391,7 @@
         position: relative;
         pointer-events: none;
         height: 100%;
-        max-height: 1000px;
+        max-height: 950px;
         width: 100%;
         .content{
             position: absolute;
@@ -870,6 +870,52 @@
 
 }
 
+@media (min-height: 1200px){
+    .homeContent{
+        .allContent{
+            transform: scale(1.15);
+            .content{
+                padding-left: 20%;
+            }
+            .homepageMenuContainer{
+                .homepageMenu{
+                    right: 20%;
+                }
+            }
+        }
+    }
+
+    .homePassion{
+        .allContent{
+            transform: scale(1.15);
+            .content{
+                padding-left: 20%;
+            }
+            .passionImagesContainer{
+                right: 20%;
+            }
+        }
+    }
+
+    .homeNews{
+        .allContent{
+            transform: scale(1.15);
+            .content{
+                padding-left: 20%;
+            }
+            .passionImagesContainer{
+                right: 20%;
+            }
+        }
+    }
+
+    .homeConnect{
+        .allContent{
+            transform: scale(1.15);
+            
+        }
+    }
+}
 @media (max-height: 950px){
     .homeContent{
         overflow-y: scroll;
