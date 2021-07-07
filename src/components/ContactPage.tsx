@@ -966,7 +966,7 @@ function ContactPage(props: any) {
 
     return (
         <motion.div exit={{opacity: 0, transition: {duration: 0.5}}} animate={{opacity: 1, transition: {duration: 1}}} initial={{opacity: 0}} className="contactPageContainer" id="contactPageContainer">
-            <div className="allContent">
+            <motion.div initial={{position: 'absolute'}} animate={{position: 'unset', transition: {delay: 1}}} exit={{position: 'absolute'}} className="allContent">
                 <div className="userDataConfirmationContainer" id="userDataConfirmationContainer">
                     <div className="userDataContainer" id="userDataContainer">
                         <h1>REVIEW INFORMATIONS</h1>
@@ -1195,9 +1195,9 @@ function ContactPage(props: any) {
 
 
                 <motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {delay: 1, duration: 1}}} className="designRef">
-                    <p>Not sure yet? You can checkout my work <Link to="/design">here</Link></p>
+                    <p>Not sure yet? You can check out my work <Link to="/design">here</Link></p>
                 </motion.div>
-            </div>
+            </motion.div>
             <motion.div animate={{opacity: 1, height: "100%", transition: {delay: 1}}} initial={{opacity: 0, height: 0}} id="rainContainer" className="rainContainer">
                 {rainDrops}
             </motion.div>
