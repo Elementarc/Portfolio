@@ -21,7 +21,7 @@
         max-width: 2400px;
         background-color: white;
         overflow: hidden;
-       
+        
         .smokeContainer{
             position: absolute;
             overflow: hidden;
@@ -156,7 +156,8 @@
         .middleContent{
             position: relative;
             z-index: 1;
-            width: 100%;
+            width: 100vw;
+            max-width: 2400px;
             height: 700px;
             background-color: #090909;
             .topIllustration{
