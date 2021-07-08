@@ -657,11 +657,14 @@
                         background-color: rgba(0, 0, 0, 0.4);
                         border: 1px solid white;
                         transition: 0.2s ease-in-out;
+                        
                         &::-webkit-outer-spin-button{
                             appearance: none;
+                            -moz-appearance: textfield;
                         }
                         &::-webkit-inner-spin-button{
                             appearance: none;
+                            -moz-appearance: textfield;
                         }
                         &::placeholder{
                             color: rgba(255, 255, 255, 0.705);

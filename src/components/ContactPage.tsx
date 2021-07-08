@@ -18,8 +18,7 @@ var step3Done: boolean = false
 var fullNameRegEx = new RegExp(/^[a-zA-Z0-9]{2,15} ?(?=[a-zA-Z0-])[a-zA-Z0-9]{0,15}$/)
 var emailRegEx = new RegExp(/^[a-zA-Z0-9-_.]{3,25}@[a-zA-Z0-9-_.]{2,20}\.[a-zA-Z0-9]{2,6}$/)
 var descriptionRegEx = new RegExp(/^[a-zA-Z0-9-_.,:;+ !?&\s]{25,500}$/)
-var currencyCheckNumLengthRegEx = new RegExp(/^[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{2})?|(?:,[0-9]{3})*(?:\.[0-9]{2})?|(?:\.[0-9]{3})*(?:,[0-9]{2})?)$/)
-
+var currencyCheckNumLengthRegEx = new RegExp(/^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/)
 interface userDataInterface{
     userName: string | null
     email: string | null
@@ -425,13 +424,26 @@ function ContactPage(props: any) {
                 return new Promise((resolve) =>{
                     clearTimeout(inputCheckTimer)
                     inputCheckTimer = setTimeout(() => {
+                        
                         if(currencyCheckNumLengthRegEx.test(getInput.value) === true){
                             
-                            step3Done = true
-                            userData.budged = getInput.value
-                            resolve(true)
+
+                            if(getInput.value.length <= 50){
+                                console.log("true")
+                                step3Done = true
+                                userData.budged = getInput.value
+                                resolve(true)
+                            }
+                            else{
+                                console.log("false")
+                                //console.log("didnt pass the regex")
+                                step3Done = false
+                                userData.budged = getInput.value
+                                resolve(false)
+                            }
                         }
                         else{
+                            console.log("false")
                             //console.log("didnt pass the regex")
                             step3Done = false
                             userData.budged = getInput.value
@@ -444,7 +456,9 @@ function ContactPage(props: any) {
 
             passedCheck3().then((passedCheck) =>{
                 var getButton = document.getElementById("budgedNextStepButton") as HTMLDivElement
+                console.log(userData.budged)
                 if(passedCheck === true){
+                    console.log("TRUE")
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
@@ -453,13 +467,15 @@ function ContactPage(props: any) {
                     getButton.classList.add("onButton")
                 }
                 else{
-                    if(getInput.value.length === 0){
+                    if(userData.budged === ""){
+                        console.log("budged is empty")
                         getInput.style.borderColor = "#ffcf76"
 
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "#ffcf76"
                     }
                     else{
+                        console.log("red")
                         getInput.style.borderColor = "red"
 
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
@@ -1130,7 +1146,7 @@ function ContactPage(props: any) {
                     
                         
                         <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} className="inputContainer">
-                            <input className="budgedInput" id="inputBudged" type="number" onBlur={() => {verifyInputValue3()}} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
+                            <input className="budgedInput" id="inputBudged" onBlur={() => {verifyInputValue3()}} placeholder="Budged" defaultValue={userData.budged === null ? "" :`${userData.budged}`} />
                             <div className="currencyContainer">
                                 <motion.div onClick={() => {toggleCurrencyBox = true; toggleCurrency()}} onMouseEnter={() => clearTimeout(currencyTimer)} onMouseLeave={() => {toggleCurrencyBox = false; currencyTimer = setTimeout(() => {
                                     toggleCurrency()
@@ -1145,6 +1161,8 @@ function ContactPage(props: any) {
                             <div className="budgedInfo">
                                 <InputInfo className="budgedInfoSvg" id="inputBudgedInfoSVG"></InputInfo>
                                 <div className="tooltipBudgedContainer">
+                                    <p><b>Example:</b></p>
+                                    <p style={{marginTop: "-0.7rem"}}>2500 | 5,500 | 15,000.50</p>
                                     <p><b>We want people who care!</b></p>
                                     <p style={{marginTop: "-0.7rem"}}>If you do not take your project seriously, please make sure to not contact us.</p>
                                     <p><b>BUT IF YOU DO CARE</b></p>

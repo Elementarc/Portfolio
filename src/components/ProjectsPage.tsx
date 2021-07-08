@@ -58,8 +58,9 @@ const ProjectsPage = (props: any) => {
            
             <div className="allContentContainer" id="allContentContainer">
                 <motion.div initial={{top: "100vh"}} animate={{ top: 0, transition: {duration: 2}}} className="smokeContainer">
-                    <motion.video initial={{opacity: 0}} animate={{opacity: 0.4, transition: {duration: 1, delay: 0.5}}} muted autoPlay loop className="smokeVideo" src={Wind}></motion.video>
+                    <motion.video initial={{opacity: 0}} playsInline animate={{opacity: 0.4, transition: {duration: 1, delay: 0.5}}} muted autoPlay loop className="smokeVideo" src={Wind}></motion.video>
                 </motion.div>
+
                 <motion.div className="content">
                     <motion.div animate={{opacity: 1, y: 0, transition: {duration: 0.5, delay: 0.5}}} initial={{opacity: 0, y: -20}} >
                         <h1 >{"PIXEL ART"}</h1>
@@ -116,9 +117,8 @@ const ProjectsPage = (props: any) => {
                             CONNECT
                         </Link>
                     </motion.div>
-                    
-                    
                 </div>
+
                 <div className="scrollUpContainer">
                     <div onClick={scrollToTop} className="scrollUpIcon"></div>
                     <button onClick={scrollToTop}>SCROLL UP</button>

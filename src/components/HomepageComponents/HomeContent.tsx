@@ -245,7 +245,7 @@ const HomeContent = (props: any) => {
 
                 <motion.div initial={{opacity: 0, scale: 1.15}} animate={{opacity: 1, scale: 1, transition: {delay: 2, duration: 0.5}}} exit={{opacity: 0, scale: 1.7, transition: {duration: 0.5}}} className="videoContainer">
                     <div className="backgroundImagePassionBlur"></div>
-                    <video src={HytaleAdd} muted loop autoPlay height="100%" width="100%"></video>
+                    <video src={HytaleAdd} playsInline muted loop autoPlay height="100%" width="100%"></video>
                 </motion.div>
             </motion.div>
         );
