@@ -10,6 +10,12 @@ import {ReactComponent as PixelArtIcon} from "../../assets/icons/PixelArtIcon.sv
 import {ReactComponent as ContactIcon} from "../../assets/icons/ContactIcon.svg"
 import {ReactComponent as ProjectsIcon} from "../../assets/icons/ProjectIcon.svg"
 import {ReactComponent as MenuIcon} from "../../assets/icons/MenuIcon.svg"
+import {ReactComponent as CopyrightIcon} from "../../assets/icons/copyright_black_24dp.svg"
+import {ReactComponent as EmailIcon} from "../../assets/icons/mail_outline_black_24dp.svg"
+import {ReactComponent as PositionIcon} from "../../assets/icons/explore_black_24dp.svg"
+import {ReactComponent as WorldIcon} from "../../assets/icons/public_black_24dp.svg"
+import {ReactComponent as DecoIcon} from "../../assets/svgs/underlineIcon.svg" 
+import {ReactComponent as Logo} from "../../assets/transparentLogo.svg"
 //Import components
 
 import {motion} from "framer-motion"
@@ -253,6 +259,31 @@ const Nav = (props: any) => {
                             CONTACT
                     </Link>
                 </motion.ul>
+
+                <motion.div initial="init" animate={NavState ? "enter" : "exit"} variants={navItemAnimation} className="legal">
+                    <div className ="legalDeco">
+                        <span><DecoIcon className="decoIcon"/></span>
+                        <div></div>
+                        <span><DecoIcon className="decoIcon"/></span>
+                    </div>
+
+                    <div className="legalEntry">
+                        <div className="icon"><CopyrightIcon style={{height: "24px", width: "24px", fill: "#9e9e9e"}}/></div>
+                        <p className="legalLabel">By Hamit Kiziltas</p>
+                    </div>
+                    <div className="legalEntry">
+                        <div className="icon"><EmailIcon style={{height: "24px", width: "24px", fill: "#9e9e9e"}}/></div>
+                        <p className="legalLabel"><a className="emailLink" href="mailto: Arctale.work@gmail.com">Arctale.work@gmail.com</a></p>
+                    </div>
+                    <div className="legalEntry">
+                        <div className="icon"><PositionIcon style={{height: "24px", width: "24px", fill: "#9e9e9e"}}/></div>
+                        <p className="legalLabel">Obere Str. 19, 74369 Löchgau</p>
+                    </div>
+                    <div className="legalEntry">
+                        <div className="icon"><WorldIcon style={{height: "24px", width: "24px", fill: "#9e9e9e"}}/></div>
+                        <p className="legalLabel">Germany</p>
+                    </div>
+                </motion.div>
             </motion.div>
         </motion.div>
     );

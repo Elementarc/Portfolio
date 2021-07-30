@@ -429,13 +429,13 @@ function ContactPage(props: any) {
                             
 
                             if(getInput.value.length <= 50){
-                                console.log("true")
+                                //console.log("true")
                                 step3Done = true
                                 userData.budged = getInput.value
                                 resolve(true)
                             }
                             else{
-                                console.log("false")
+                                //console.log("false")
                                 //console.log("didnt pass the regex")
                                 step3Done = false
                                 userData.budged = getInput.value
@@ -443,7 +443,7 @@ function ContactPage(props: any) {
                             }
                         }
                         else{
-                            console.log("false")
+                            //console.log("false")
                             //console.log("didnt pass the regex")
                             step3Done = false
                             userData.budged = getInput.value
@@ -456,9 +456,9 @@ function ContactPage(props: any) {
 
             passedCheck3().then((passedCheck) =>{
                 var getButton = document.getElementById("budgedNextStepButton") as HTMLDivElement
-                console.log(userData.budged)
+                //console.log(userData.budged)
                 if(passedCheck === true){
-                    console.log("TRUE")
+                    //console.log("TRUE")
                     getInput.style.borderColor = "#56FFDC"
                     getInputInfoIcon.style.transition = "0.2s ease-in-out"
                     getInputInfoIcon.style.fill = "#56FFDC"
@@ -468,14 +468,14 @@ function ContactPage(props: any) {
                 }
                 else{
                     if(userData.budged === ""){
-                        console.log("budged is empty")
+                        //console.log("budged is empty")
                         getInput.style.borderColor = "#ffcf76"
 
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
                         getInputInfoIcon.style.fill = "#ffcf76"
                     }
                     else{
-                        console.log("red")
+                        //console.log("red")
                         getInput.style.borderColor = "red"
 
                         getInputInfoIcon.style.transition = "0.2s ease-in-out"
@@ -885,6 +885,9 @@ function ContactPage(props: any) {
                 if(xhr.status >= 400){
                     showResponseBox("error", "ERROR", "Something went wrong! We are sorry that you have to experience this.")
                 }
+                else{
+                    console.log(xhr.status)
+                }
             }
 
             xhr.onload = function () {
@@ -900,6 +903,9 @@ function ContactPage(props: any) {
                 }
                 else if(xhr.responseText === "cooldown"){
                     showResponseBox("cooldown", "LIMIT REACHED", "You only can apply once a day.")
+                }
+                else{
+                    console.log(xhr.responseText)
                 }
             };
             xhr.send(JSON.stringify(userData))
